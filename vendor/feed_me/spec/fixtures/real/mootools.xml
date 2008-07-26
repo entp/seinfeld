@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://feeds.feedburner.com/~d/styles/atom10full.xsl" type="text/xsl" media="screen"?><?xml-stylesheet href="http://feeds.feedburner.com/~d/styles/itemcontent.css" type="text/css" media="screen"?><feed xmlns="http://www.w3.org/2005/Atom" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" xml:lang="en-US">
+  <title>MooTools - Home</title>
+  <id>tag:blog.mootools.net,2008:mephisto/</id>
+  <generator version="0.7.3" uri="http://mephistoblog.com">Mephisto Noh-Varr</generator>
+  
+  <link href="http://blog.mootools.net/" rel="alternate" type="text/html" />
+  <updated>2008-03-16T17:18:26Z</updated>
+  <link rel="self" href="http://feeds.feedburner.com/mootools-blog" type="application/atom+xml" /><entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Tom</name>
+    </author>
+    <id>tag:blog.mootools.net,2008-03-15:431</id>
+    <published>2008-03-15T18:52:00Z</published>
+    <updated>2008-03-16T17:18:26Z</updated>
+    <category term="General" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/252094248/snippely" rel="alternate" type="text/html" />
+    <title>Snippely!</title>
+<summary type="html">&lt;p&gt;&lt;img src="http://blog.mootools.net/assets/2008/3/15/snip-128.png" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;With the initial release of &lt;a href="http://www.adobe.com/products/air/"&gt;Adobe AIR&lt;/a&gt;, a lot of web developers (myself included) are starting to get excited about developing rich web applications that run natively on the desktop across platforms.  We've already seen several great AIR apps popping up all over the Internet, and thought we'd try our hand at creating one of our own.&lt;/p&gt;
+
+&lt;p&gt;Snippely was created by myself, Tom Occhino, and Valerio Proietti as our first attempt at creating a robust and useful AIR application.&lt;/p&gt;
+
+&lt;div&gt;&amp;nbsp;&lt;/div&gt;</summary><content type="html">
+            &lt;p&gt;&lt;img src="http://blog.mootools.net/assets/2008/3/15/snip-128.png" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;With the initial release of &lt;a href="http://www.adobe.com/products/air/"&gt;Adobe AIR&lt;/a&gt;, a lot of web developers (myself included) are starting to get excited about developing rich web applications that run natively on the desktop across platforms.  We've already seen several great AIR apps popping up all over the Internet, and thought we'd try our hand at creating one of our own.&lt;/p&gt;
+
+&lt;p&gt;Snippely was created by myself, Tom Occhino, and Valerio Proietti as our first attempt at creating a robust and useful AIR application.&lt;/p&gt;
+
+&lt;div&gt;&amp;nbsp;&lt;/div&gt;
+&lt;h4&gt;What can we do with MooTools and a little bit of fresh AIR?&lt;/h4&gt;
+
+&lt;p&gt;When we were thinking about what type of application to make our AIR playground, we tried to think of something that we'd want to use ourselves.  Valerio and I are notorious for storing countless bits of code in all sorts of different languages all over our hard drives, and thought it would be nice if we had a central place to store and organize those bits of code.  We came up with the idea of 'snippets', and an application called Snippely.&lt;/p&gt;
+
+&lt;h4&gt;Snippely was born...&lt;/h4&gt;
+
+&lt;p&gt;Snippely is a basic text and code organizational tool.  Instead of storing bits of code, quick notes, and memos in text files all over your hard drive, this application will let you save and organize "snippets" in one convenient location.  A snippet is a collection of one or more pieces of code and notes.  Snippets are stored in groups for organization and quick retrieval.&lt;/p&gt;
+
+&lt;p&gt;A snippet is composed of a title, description, and one or more 'snips'.  You can add any number of note and code snips in a variety of different languages (more to be added).  When not being edited, the snip will be syntax highlighted according to the language selected.  Snips are also sortable so you can organize your snippet however you want.  Since everything is saved to a local database as you work, there's no need to worry about pressing the save button or submitting a form.&lt;/p&gt;
+
+&lt;p&gt;Usage is pretty self explanatory, but I may post a screencast within the next day or two to get everyone familiar with how to use the app.&lt;/p&gt;
+
+&lt;h4&gt;Initial release&lt;/h4&gt;
+
+&lt;p&gt;Snippely is an open source project released under an MIT Style license.  It is hosted on &lt;a href="http://code.google.com/p/snippely"&gt;Google Code&lt;/a&gt; so feel free to browse through and play with the source code.  If you'd like to contribute to Snippely, contact either myself or Valerio (preferably in the IRC channel).&lt;/p&gt;
+
+&lt;p&gt;While we do plan on adding more to the app, we wanted to get the first version out there so we could see what everyone thinks.  It's been developed and tested mostly on OS X, but since AIR is inherently cross platform, it works perfectly on Windows as well.&lt;/p&gt;
+
+&lt;h4&gt;Download&lt;/h4&gt;
+
+&lt;p&gt;Note that the Adobe AIR runtime must be installed to run Snippely.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://get.adobe.com/air/"&gt;Adobe Air Runtime&lt;/a&gt; (required)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://code.google.com/p/snippely/downloads/detail?name=Snippely-1.0.air"&gt;Snippely Installer&lt;/a&gt; - Installer, version 1.0&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://code.google.com/p/snippely/downloads/detail?name=Snippely-1.0-source.zip"&gt;Snippely Source&lt;/a&gt; - zipped source code, version 1.0&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/252094248" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2008/3/15/snippely</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Michelle</name>
+    </author>
+    <id>tag:blog.mootools.net,2008-02-12:384</id>
+    <published>2008-02-12T15:17:00Z</published>
+    <updated>2008-02-12T15:20:38Z</updated>
+    <category term="Foundations" />
+    <category term="Tips &amp; Tricks" />
+    <category term="What's New" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/233798478/what-s-new-in-1-2-swiff" rel="alternate" type="text/html" />
+    <title>What's New in 1.2: Swiff</title>
+<summary type="html">&lt;p&gt;Today we're going to talk about Swiff, which lets you combine Flash and JavaScript to do things MooTools can't do on its own.&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;Today we're going to talk about Swiff, which lets you combine Flash and JavaScript to do things MooTools can't do on its own.&lt;/p&gt;
+&lt;h4&gt;What's Swiff?&lt;/h4&gt;
+
+&lt;p&gt;Though an earlier version of Swiff has been packaged with Harald's &lt;a href="http://digitarald.de/project/fancyupload/"&gt;FancyUpload&lt;/a&gt;, it's officially new the MooTools 1.2 distribution.  Swiff allows for communication between Flash movie (.swf) files and the page's JavaScript, opening up possibilities not available with JavaScript alone.&lt;/p&gt;
+
+&lt;h4&gt;The Best of Both Worlds&lt;/h4&gt;
+
+&lt;p&gt;Unless you're a diehard fan of the embedded Quicktime movie, you might see the benefit in a Flash video player to provide smooth playback of videos to your users, while still yearning for full control over the action using JavaScript and MooTools.&lt;/p&gt;
+
+&lt;p&gt;It's not even necessary for the Swiff object to be visible in order to benefit from its use.  Using Swiff, you can utilize all of Flash's functionality, including its video, sound, file streaming, and clipboard accessing features, and lots more.&lt;/p&gt;
+
+&lt;p&gt;You get all the flashiness of Flash, while still being able to manipulate and display your content using the DOM and MooTools.&lt;/p&gt;
+
+&lt;h4&gt;Talking to Flash&lt;/h4&gt;
+
+&lt;p&gt;The first thing you'll want to do when creating a Swiff script is to create the Flash file.  In most cases, the "stage" of the Flash file will be empty, the only content being within the action box.  You'll have to write ActionScript that's able to interface with Swiff.&lt;/p&gt;
+
+&lt;p&gt;A basic ActionScript file might look something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//(ActionScript)
+import flash.external.*;
+
+function echoText(text) {
+    ExternalInterface.call('alert', "This message is from Flash: "+text);   
+}
+
+//Fires the 'onLoad' event within the Swiff object.
+ExternalInterface.call(onLoad);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you finish writing the ActionScript, you'll have to publish your .fla file into a .swf file.  Now we're ready to load the SWF file with Swiff:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//(JavaScript)
+var obj = new Swiff('mySwf.swf', {
+    width:  1, 
+    height: 1, 
+    container: $('swiffContainer'),
+    events: {
+        onLoad: function() {
+            alert("Flash is loaded!")
+        }
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this example, when the SWF file is done being loaded, the window will alert "Flash is loaded!".&lt;/p&gt;
+
+&lt;p&gt;Notice that, although the Swiff object in this example doesn't need to be visible, its dimensions are set to 1x1 pixels.  If the object is not visible in the browser (ie, if the dimensions are 0x0), problems may occur.&lt;/p&gt;
+
+&lt;h4&gt;Calling Flash Functions From JavaScript&lt;/h4&gt;
+
+&lt;p&gt;The main reason to load a SWF file is to call the ActionScript functions within it.  To do this, we can use the &lt;code&gt;Swiff.remote&lt;/code&gt; method, like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Swiff.remote(obj, 'echoText', 'Hello Flash, meet Swiff.');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, if we run this immediately after our call to &lt;code&gt;new Swiff&lt;/code&gt;, this line will most likely fail, because we first have to wait until the SWF is loaded (just like how we have to wait to make sure the DOM is loaded when we want to access its elements).&lt;/p&gt;
+
+&lt;p&gt;Our onLoad event does for Flash what the DomReady event does for pages.  It lets us know when the SWF file is ready to be accessed by the JavaScript.&lt;/p&gt;
+
+&lt;p&gt;So, in order to call methods within the SWF file, we'll have to put the code that calls them inside our flashIsLoaded function, like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//(JavaScript)
+var obj = new Swiff('mySwf.swf', {
+    //[...]
+    events: {
+        onLoad: function() {
+            Swiff.remote(obj, 'echoText', 'Hello Flash, meet Swiff.');
+        }
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;Letting Flash Know To Expect Us&lt;/h4&gt;
+
+&lt;p&gt;If you're following along at home and not set up with any sort of special Flash development tools, you might notice that your browser crashes when this code is executed (hopefully you're just reading and not following along).&lt;/p&gt;
+
+&lt;p&gt;This is because we forgot to tell Flash to &lt;strong&gt;expect&lt;/strong&gt; our JavaScript to talk to it.  We can do this easily with a call to ExternalInterface:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//(ActionScript)
+ExternalInterface.addCallback("echoText", this, echoText);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, we can try our call to Swiff.remote again and, instead of a crashed browser, we should be rewarded with a fancy new alert message.  It should say, "This message is from Flash: Hello Flash, meet JavaScript."&lt;/p&gt;
+
+&lt;h4&gt;Passing Variables to the SWF File&lt;/h4&gt;
+
+&lt;p&gt;What would happen if you decided to pass options or other variables to the ActionScript?  Manually going back into the Flash file, changing the call, and then republishing the SWF file seems horribly inefficient, and it wouldn't work if we want to change them dynamically.&lt;/p&gt;
+
+&lt;p&gt;Luckily, passing variables to the SWF is very easy.  All we have to do is add a 'vars' property to our new Swiff, containing an object that lists all of the variables we want to pass.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//(JavaScript)
+var obj = new Swiff('mySwf.swf', {
+    //[...]
+    vars: {luckyColor: 'blue'}
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let's add a getLuckyColor event to our ActionScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//(ActionScript)
+function getLuckyColor() {
+       return luckyColor;
+}
+ExternalInterface.addCallback("getLuckyColor", this, getLuckyColor);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, let's change our onLoad event to get it to tell us our lucky color:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var obj = new Swiff('mySwf.swf', {
+    //[...]
+    events: {
+        onLoad: function() {
+            alert("Your lucky color is "+this.getLuckyColor());
+        }
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that we used &lt;code&gt;this.getLuckyColor&lt;/code&gt; instead of &lt;code&gt;Swiff.remote(obj, 'getLuckyColor')&lt;/code&gt;?  We're using an alternate syntax to call Flash methods.&lt;/p&gt;
+
+&lt;h4&gt;The Swiff.Remote Alternative&lt;/h4&gt;
+
+&lt;p&gt;Swiff.Remote isn't the only way to access functions within the SWF file.  You can also call methods on the Swiff object directly, like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;obj.echoText("Hello, Flash.  We skipped a call to Swiff.remote!");
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Both ways will work, so it's up to you to choose which one is best for your needs.  As in our use of &lt;code&gt;this.getLuckyColor()&lt;/code&gt; within our &lt;code&gt;onLoad&lt;/code&gt; event, the second syntax often makes a lot more sense.&lt;/p&gt;
+
+&lt;p&gt;In this way, we can think of our Swiff objects as wrappers around the functions inside our ActionScript, and can use them like we would use any normal MooTools Class.&lt;/p&gt;
+
+&lt;h4&gt;Go Have Fun!&lt;/h4&gt;
+
+&lt;p&gt;This article, of course, has only covered the basics, which means there's still a lot for you to learn.  The best way to master Swiff is to go get yourself the latest copy of the &lt;a href="http://mootools.net/download/tags/1-2b2"&gt;1.2 beta&lt;/a&gt; and have yourself a Swiff party.  &lt;/p&gt;
+
+&lt;p&gt;Good luck, and have fun reading the ActionScript documentation!&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/233798478" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2008/2/12/what-s-new-in-1-2-swiff</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Valerio</name>
+    </author>
+    <id>tag:blog.mootools.net,2008-02-05:383</id>
+    <published>2008-02-05T18:26:00Z</published>
+    <updated>2008-02-10T21:42:37Z</updated>
+    <category term="Foundations" />
+    <category term="Tips &amp; Tricks" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/229754467/mootools-classes-how-to-use-them" rel="alternate" type="text/html" />
+    <title>MooTools Classes: How to use them</title>
+<summary type="html">&lt;p&gt;A very entry-level article: if you think you can beat MooTools Hero in expert mode, feel free to totally skip this.&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;A very entry-level article: if you think you can beat MooTools Hero in expert mode, feel free to totally skip this.&lt;/p&gt;
+&lt;h4&gt;Cars&lt;/h4&gt;
+
+&lt;p&gt;So, what is a Class? A Class is a car factory. A factory that throws out an infinite number of cars.&lt;/p&gt;
+
+&lt;p&gt;If you need to make a trip, then another one, then another one, you will probably use the same car over and over. Only if you decide to change something about your car, like the engine, or the color, or the materials for the seats, then you'll need another one.&lt;/p&gt;
+
+&lt;p&gt;Let's make a totally facetious example out of it, and buy a Car from the Car store! Say I want to buy a Smart Car:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var mySmartCar = new Car({model: 'smart'});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that I have my car, it's parked in my virtual garage. Let's make a virtual trip!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mySmartCar.goTo('Washington DC');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That was nice! Let's go to NYC:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mySmartCar.goTo('New York');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, I'm using the same car to go to Washington DC and New York City. They're geographically close, so my smart car will suffice. What happens if I need to cross the cold Russia? Then I'm gonna need another car. A bigger, more powerful car. That's exactly when I must use &lt;code&gt;new&lt;/code&gt; again.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myBigCar = new Car({model: 'Jeep'});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let's use it now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;myBigCar.goTo('Russia').goTo('China');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I wish going to China was this easy. :P&lt;/p&gt;
+
+&lt;h4&gt;Classes&lt;/h4&gt;
+
+&lt;p&gt;In MooTools, we have classes to perform different types of actions. We have Classes that deal with data (Request) or classes that display visual effects (Fx) and many more that I'm not talking about here today.&lt;/p&gt;
+
+&lt;p&gt;Fx.Morph, for example, is your factory. It makes Fx.Morph cars. Let's buy a car now: I want it to have a duration of 1000 ms, and I want it to be linked to this certain HTML element called "element":&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myMorph = new Fx.Morph(element, {duration: 1000});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I have a car now, that we call Instance. Let's use it to change the height and width for the element previously specified to 200:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;myMorph.start({height: 200, width: 200});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nothing easier.&lt;/p&gt;
+
+&lt;p&gt;These days, I see the same mistake being made over and over again: People buy a Car, and they make only one trip with it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;new Fx.Morph(element, {duration: 1000}).start({height: 200, width: 200});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is usually attached to a click event, which makes things even worse:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;element.addEvent('click', function(){
+    new Fx.Morph(this, {duration: 1000}).start({height: 200, width: 200});
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Well, this is not how &lt;del&gt;life&lt;/del&gt; MooTools works! Just like in real life, there is no need to buy a car each trip you make, unless you want to significantly change the properties of this car. This use and discard approach is wrong in so many ways.&lt;/p&gt;
+
+&lt;p&gt;First of all, it's memory inefficient, as a new Class instance is created every time you click the button. Second, it's also speed inefficient, as the class constructor is called every time you click the button. Third, using this approach will make it impossible to take advantage of the Instance properties.&lt;/p&gt;
+
+&lt;p&gt;In the Fx Class Instances there are a number of properties and checks being made to see if the effect is in execution, and a number of options you can define to determine the behaviour of subsequent start calls if a previous one is still running.&lt;/p&gt;
+
+&lt;p&gt;This is how you write the previous example correctly:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myMorph = new Fx.Morph(element, {duration: 1000});
+
+element.addEvent('click', function(){
+    myMorph.start({height: 200, width: 200});
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This way, I create the Instance only once, and reuse it every time the user clicks the button! It won't screw up the effect for multiple clicks, and our OCD will have a rest for a change.&lt;/p&gt;
+
+&lt;p&gt;Same goes for the Request classes. What happens if I send the same request multiple times? Should I cancel the last one? Should I send both? Should I queue them?&lt;/p&gt;
+
+&lt;p&gt;If you do not properly use instances, a new request will be made each time. Same goes for Fx: a new fx on the same element will start at the same time, basically screwing up the whole animation.&lt;/p&gt;
+
+&lt;h4&gt;MooTools is not Script.aculo.us&lt;/h4&gt;
+
+&lt;p&gt;This approach of "use and discard" was used (and its still used afaik) in Script.aculo.us.&lt;/p&gt;
+
+&lt;p&gt;As an early scriptaculous user, I always struggled with the "multiple start calls" problem, and more often than I should, I took advantage the onComplete (afterFinish, in Script.aculo.us) option to set flags, and checked them in my click events, to avoid multiple executions at the same time.&lt;/p&gt;
+
+&lt;p&gt;That's exactly why I decided to write my own effects library, called moo.fx (which evolved into MooTools), so I could use classes--and their instances, as reusable objects.&lt;/p&gt;
+
+&lt;p&gt;This is not to criticize the Script.aculo.us approach. Since the library is designed to work that way, that's exactly how you should use it.  MooTools however, is not designed to work this way, and using it the same way as Script.aculo.us is a mistake.&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/229754467" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2008/2/5/mootools-classes-how-to-use-them</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Tom</name>
+    </author>
+    <id>tag:blog.mootools.net,2008-01-22:331</id>
+    <published>2008-01-22T18:13:00Z</published>
+    <updated>2008-01-22T19:13:09Z</updated>
+    <category term="What's New" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/221130098/Element_Storage" rel="alternate" type="text/html" />
+    <title>What's New in 1.2: Element Storage</title>
+<summary type="html">&lt;p&gt;Another new feature that's been built into the latest version of MooTools is the Element Storage.  This article describes the usage of this great new feature, as well as why it was developed, and how it can be used to keep your applications organized and efficient.&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;Another new feature that's been built into the latest version of MooTools is the Element Storage.  This article describes the usage of this great new feature, as well as why it was developed, and how it can be used to keep your applications organized and efficient.&lt;/p&gt;
+&lt;h5&gt;What's all this storage business about?&lt;/h5&gt;
+
+&lt;p&gt;When developing advanced JavaScript applications, it's sometimes beneficial to associate extra properties or attributes to DOM Elements.  While we have always been able to use DOM Elements as storage containers for all sorts of other data, this generic technique has a few drawbacks.  While the problems associated with this technique are almost exclusively Internet Explorer problems, they must be dealt with nonetheless.&lt;/p&gt;
+
+&lt;p&gt;Let's consider the following simple example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var element = $('myElement');
+element.effectInstance = new Fx.Tween(element, 'color');
+element.customProperty = 'someProperty';
+
+element.effectInstance; //the Fx.Tween instance
+element.customProperty; //'someProperty'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As we know, IE doesn't like when objects are stored as Element attributes in this way, and the effectInstance property will leak if it's not manually managed.  Another problem we've seen is that when accessing the innerHTML of any parent of our element, IE will return simple custom properties (like strings, numbers, etc) along with the expected properties.  This means that customProperty would be copied as well, which could pose a problem if it was some unique custom attribute.  Obviously of the two cases, memory management is our biggest concern here, but both are issues to consider.&lt;/p&gt;
+
+&lt;h5&gt;What's a Moo to Do?&lt;/h5&gt;
+
+&lt;p&gt;MooTools used to store custom events and attributes directly in custom properties of Elements called $events and $attributes.  MooTools would then manually detach these properties from Elements upon unloading of the page.&lt;/p&gt;
+
+&lt;p&gt;Let's take a look at our previous example again, this time storing custom items in $attributes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var element = $('myElement');
+element.$attributes.effectInstance = new Fx.Tween(element, 'color');
+element.$attributes.customProperty = 'someProperty';
+
+element.$attributes.effectInstance; //the Fx.Tween instance
+element.$attributes.customProperty; //'someProperty'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This example won't leak or produce the adverse effects of the first example, but man is it ugly!  Also, sometimes the browser would hang on unload, trying to clear all these things out.  This style of code didn't fit in with the rest of MooTools anyway, so we came up with a better solution.&lt;/p&gt;
+
+&lt;p&gt;When we access an element, we want to be able to store and retrieve custom properties for that element.  But why attach these properties directly to the Element?  If we used some form of external storage, we wouldn't need to worry about clearing values on page unload, things would be faster, and memory leaks would be a thing of the past.&lt;/p&gt;
+
+&lt;h5&gt;A MooTools Worthy Solution&lt;/h5&gt;
+
+&lt;p&gt;Element.Storage is brand new in MooTools 1.2.  It is basically an external Hash that stores all the custom properties and events for every element you interact with.&lt;/p&gt;
+
+&lt;p&gt;Let's take another look at our previous example, this time using the new Element.Storage API:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var element = $('myElement');
+element.store('effectInstance', new Fx.Tween(element, 'color'));
+element.store('customProperty', 'someProperty');
+
+element.retrieve('effectInstance'); //the Fx.Tween instance
+element.retrieve('customProperty'); //'someProperty'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that events and actions are no longer attached directly to the Elements.  Everything is stored in the external Hash, and managed by MooTools, so as a developer, you have nothing to worry about.  Finally, an elegant and coherent API for attaching custom properties, functions, and objects to Elements.&lt;/p&gt;
+
+&lt;h5&gt;How it Works (and What We're Using it For)&lt;/h5&gt;
+
+&lt;p&gt;For those who are interested, I encourage you to take a look at the source.  Basically, every element you interact with or traverse over when working with MooTools receives a unique ID.  This id which is actually attached to the element then serves as it's key in the Element.Storage Hash.&lt;/p&gt;
+
+&lt;p&gt;We want MooTools to be fast as possible, so we do a whole lot of &lt;a href="http://en.wikipedia.org/wiki/Memoization"&gt;memoization&lt;/a&gt;.  Basically, don't create something until it's needed the first time, but then cache it for immediate later use.  Many of you who have already tested out the MooTools 1.2 betas have hopefully been having fun with the new Element shortcuts.  All of these shortcuts use the new Storage API to make things as smooth and efficient as possible.&lt;/p&gt;
+
+&lt;h5&gt;Advanced Examples&lt;/h5&gt;
+
+&lt;p&gt;Element:retrieve actually accepts an optional second parameter which will act as the default value to store if another value doesn't previously exist.  It will then retrieve the value as expected.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$('myElement').retrieve('defaultValue', 'Some Default Value'); //stores and returns 'Some Default Value' if the key doesn't previously exist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also, many users have asked about namespacing the Element Storage.  We have responded by telling them that it's already allows this since you can store Objects and Hashes. Consider the following example.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var element = $('myElement');
+var data = element.retrieve('galleryData', {});
+data.id = 16;
+data.source = '/images/16.jpg';
+data.title = 'Some Title';
+
+//later
+$('myElement').retrieve('galleryData'); //{ id: 16, source: '/images/16.jpg', title: 'Some Title' }
+$('myElement').retrieve('galleryData').id; //16
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The possibilities are endless.  We'd love to know how everyone likes this new feature, as well as how you use it in your applications.  In my next article ill talk a bit more about how MooTools uses the Element Storage internally for all the awesome new Element shortcuts like Element:highlight!&lt;/p&gt;
+
+&lt;p&gt;--ciao for now!&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/221130098" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2008/1/22/Element_Storage</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Valerio</name>
+    </author>
+    <id>tag:blog.mootools.net,2008-01-16:314</id>
+    <published>2008-01-16T20:48:00Z</published>
+    <updated>2008-01-23T20:29:49Z</updated>
+    <category term="Releases" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/217848163/mootools-1-2-beta-2" rel="alternate" type="text/html" />
+    <title>MooTools 1.2 Beta 2</title>
+<summary type="html">&lt;p&gt;Its been almost 2 months since the first 1.2 beta. Bugs were fixed, features were improved, and here it comes: the second beta.&lt;/p&gt;
+
+&lt;p&gt;The first big feature we've been working on for 1.2 is Documentation. &lt;/p&gt;
+
+&lt;p&gt;1.2 Documentation is in fact almost 5 times more detailed than it was in version 1. Every class option has now its description, every method has a complete list of arguments along with description, type, and now &lt;strong&gt;every functionality comes with a code example&lt;/strong&gt; -- sometimes more than one. If you want to see it for yourself, here is the &lt;a href="http://docs12b.mootools.net/"&gt;temporary link for the 1.2 beta documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A lot of the new 1.2 features have now been refined. An example that I'd like to share with you now is the Element Accessors feature. This is completely new for 1.2, aimed at making it easier working with elements and their attributes, properties or "special attributes". &lt;a href="http://blog.mootools.net/2008/1/16/mootools-1-2-beta-2"&gt;Continue reading for 1.2 code examples&lt;/a&gt;.&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;Its been almost 2 months since the first 1.2 beta. Bugs were fixed, features were improved, and here it comes: the second beta.&lt;/p&gt;
+
+&lt;p&gt;The first big feature we've been working on for 1.2 is Documentation. &lt;/p&gt;
+
+&lt;p&gt;1.2 Documentation is in fact almost 5 times more detailed than it was in version 1. Every class option has now its description, every method has a complete list of arguments along with description, type, and now &lt;strong&gt;every functionality comes with a code example&lt;/strong&gt; -- sometimes more than one. If you want to see it for yourself, here is the &lt;a href="http://docs12b.mootools.net/"&gt;temporary link for the 1.2 beta documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A lot of the new 1.2 features have now been refined. An example that I'd like to share with you now is the Element Accessors feature. This is completely new for 1.2, aimed at making it easier working with elements and their attributes, properties or "special attributes". &lt;a href="http://blog.mootools.net/2008/1/16/mootools-1-2-beta-2"&gt;Continue reading for 1.2 code examples&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let's see a basic example of an accessor. I want to work with the href attribute of an element:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(element).set('href', 'http://mad4milk.net'); //setter
+$(element).get('href'); //getter
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty easy, and pretty basic too. Now, Let's do something slightly more complex: I want to set the default morph options for an element:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(element).set('morph', {duration: 100, transition: 'quart:out'});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After I set the morph "special attribute", every time I call the morph method on the element it will respect my defined options:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(element).morph({height: 200, width: 200});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In addition, the set method now accepts any Object containing any of the settable properties: lets have an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(element).set({
+    href: 'http://mad4milk.net',
+    text: 'mad4milk website',
+    morph: {duration: 200, transition: 'quad:out'},
+    events: {
+        click: function(){
+            document.location.href = this.href;
+            return false;
+        }
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty cool huh? We can now basically set &lt;strong&gt;anything&lt;/strong&gt; without chaining. While choosing this style over chaining could be a matter of personal taste, this technique is preferable when using multiple Element methods on a collection of Elements: you will loop through them only once. It will definitely make the code run faster.&lt;/p&gt;
+
+&lt;p&gt;Take note that every default element attribute can be managed with the set and get accessors. Other than that you can work with the inner text, the inner html, events and styles, and default effects options.&lt;/p&gt;
+
+&lt;p&gt;Last at but not least, we have a complete and public API for those accessors: if you want, say, change a number of things of an element with a single "special attribute" you can define it, and this "special attribute" can then be used like the examples above. For more information about accessors, and more examples, you can go see &lt;a href="http://docs12b.mootools.net/Element/Element#Element-Properties"&gt;the new shiny documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Other notable changes since 1.2 beta1 include a fully redesigned dimension system: its now much easier to get window or element dimensions, scrolling offsets, visible height or the full scroll height. Again, for more info, &lt;a href="http://docs12b.mootools.net/Element/Element.Dimensions"&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you're not familiar with the changes in 1.2 beta1, you can read more about it in the previous &lt;a href="http://blog.mootools.net/2007/11/14/mootools-1-2-beta-1"&gt;article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I think this pretty much sums it up: have fun with the &lt;a href="http://mootools.net/download/tags/1.2b2"&gt;1.2 beta 2 release&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;P.S. This is very likely to be the last beta for 1.2.&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/217848163" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2008/1/16/mootools-1-2-beta-2</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Valerio</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-11-14:221</id>
+    <published>2007-11-14T02:13:00Z</published>
+    <updated>2007-11-17T21:45:26Z</updated>
+    <category term="Releases" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/184426678/mootools-1-2-beta-1" rel="alternate" type="text/html" />
+    <title>MooTools 1.2 beta 1</title>
+<summary type="html">&lt;p&gt;The first beta for MooTools 1.2 is finally here!&lt;/p&gt;
+
+&lt;p&gt;After &lt;strong&gt;months&lt;/strong&gt; in the making, we can confidently say that MooTools 1.2 is now feature complete.  However, there are still some bugs left to squash.&lt;/p&gt;
+
+&lt;p&gt;Head over to &lt;a href="http://mootools.net/download/tags/1-2b1"&gt;MooTools download page&lt;/a&gt; to start playing with it right away.&lt;/p&gt;
+
+&lt;h4&gt;A Note About Compatibility&lt;/h4&gt;
+
+&lt;p&gt;Some parts of MooTools 1.2 aren't immediately compatible with those found in MooTools 1.1. In the downloads page, you'll find a box that says: "include compatibility with previous version". Clicking that box will add the missing pieces and will make MooTools 1.2 play nice with code written for MooTools 1.1.&lt;/p&gt;
+
+&lt;h4&gt;New stuff that we already covered:&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href="http://blog.mootools.net/2007/10/8/what-s-new-in-1-2-the-hash"&gt;The amazing Hash&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://blog.mootools.net/2007/10/20/what-s-new-in-1-2-spec-runner"&gt;Specs!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://blog.mootools.net/2007/10/23/The_Best_Javascript_Effects_Now_Even_Better"&gt;Effects Enhancements&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Important stuff thats not yet covered in a blog article:&lt;/h4&gt;
+
+&lt;p&gt;Full IFrames support with the Native IFrame Class.&lt;/p&gt;
+
+&lt;p&gt;Swiff: Flash content injection Class. Include Flash files, the easy way!&lt;/p&gt;
+
+&lt;h4&gt;A Little Help, Please!&lt;/h4&gt;
+
+&lt;p&gt;We are currently looking for bug reports and incompatibilities with previous plugins. If you want to help out, &lt;a href="http://dev.mootools.net/newticket"&gt;open a ticket&lt;/a&gt; in the Trac, and we will make sure that the problem is fixed for the final release.&lt;/p&gt;
+
+&lt;p&gt;Read more for a (not so) brief "what's new" list.&lt;/p&gt;
+
+&lt;p&gt;(P.S. This list is not exhaustive, it's just the stuff we could remember.)&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;The first beta for MooTools 1.2 is finally here!&lt;/p&gt;
+
+&lt;p&gt;After &lt;strong&gt;months&lt;/strong&gt; in the making, we can confidently say that MooTools 1.2 is now feature complete.  However, there are still some bugs left to squash.&lt;/p&gt;
+
+&lt;p&gt;Head over to &lt;a href="http://mootools.net/download/tags/1-2b1"&gt;MooTools download page&lt;/a&gt; to start playing with it right away.&lt;/p&gt;
+
+&lt;h4&gt;A Note About Compatibility&lt;/h4&gt;
+
+&lt;p&gt;Some parts of MooTools 1.2 aren't immediately compatible with those found in MooTools 1.1. In the downloads page, you'll find a box that says: "include compatibility with previous version". Clicking that box will add the missing pieces and will make MooTools 1.2 play nice with code written for MooTools 1.1.&lt;/p&gt;
+
+&lt;h4&gt;New stuff that we already covered:&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href="http://blog.mootools.net/2007/10/8/what-s-new-in-1-2-the-hash"&gt;The amazing Hash&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://blog.mootools.net/2007/10/20/what-s-new-in-1-2-spec-runner"&gt;Specs!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://blog.mootools.net/2007/10/23/The_Best_Javascript_Effects_Now_Even_Better"&gt;Effects Enhancements&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Important stuff thats not yet covered in a blog article:&lt;/h4&gt;
+
+&lt;p&gt;Full IFrames support with the Native IFrame Class.&lt;/p&gt;
+
+&lt;p&gt;Swiff: Flash content injection Class. Include Flash files, the easy way!&lt;/p&gt;
+
+&lt;h4&gt;A Little Help, Please!&lt;/h4&gt;
+
+&lt;p&gt;We are currently looking for bug reports and incompatibilities with previous plugins. If you want to help out, &lt;a href="http://dev.mootools.net/newticket"&gt;open a ticket&lt;/a&gt; in the Trac, and we will make sure that the problem is fixed for the final release.&lt;/p&gt;
+
+&lt;p&gt;Read more for a (not so) brief "what's new" list.&lt;/p&gt;
+
+&lt;p&gt;(P.S. This list is not exhaustive, it's just the stuff we could remember.)&lt;/p&gt;
+&lt;h5&gt;Core&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Every native method is now backed up by generics. &lt;code&gt;Array.flatten(arguments)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;New Function $lambda, that makes any value into a function. &lt;code&gt;$lambda(1)();&lt;/code&gt; or &lt;code&gt;$lambda(function(){return 1;})();&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;New Function $arguments, returns the specified arguments index of the passed in function. &lt;code&gt;var x = $arguments(1); x(1, 2);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Hash is now a Native, too. This is especially useful for Generics on objects. Defined in the core along with its .each method. &lt;code&gt;{a:1,b:2}.each(function(value, key){console.log(value, key);});&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The Array .each method is now defined in the core. &lt;code&gt;[1,2,3].each(function(item){console.log(item);});&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;$type now returns the relative type for each defined Native (including window, document, and others). &lt;code&gt;$type(window);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;New Function $exec, which is now the standard function to evaluate code in the global scope. &lt;code&gt;$exec('var x = 10;'); window.x;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Browser&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Window and Document are now Natives. &lt;code&gt;new Window(iframe.contentWindow)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;New Browser object, that holds useful information on the browser being used. This informations used to be stored in the window object. &lt;code&gt;Browser.Engine.webkit;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.head&lt;/code&gt;, &lt;code&gt;.html&lt;/code&gt; and &lt;code&gt;.window&lt;/code&gt; are now automatically created shortcuts on document instantiation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Array&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New Array method &lt;code&gt;.flatten&lt;/code&gt;. Flattens a multidimensional array in a single, 2d array. Especially useful with arguments.&lt;/li&gt;
+&lt;li&gt;New Array method &lt;code&gt;.link&lt;/code&gt;. Links the contents of an array with an hash based on names/functions. If the functions successfully runs on an array item, the item will be linked to that name.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Hash&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hash is now a Native. It sports almost the same methods as Array (&lt;code&gt;.map&lt;/code&gt;, &lt;code&gt;.every&lt;/code&gt;, &lt;code&gt;.some&lt;/code&gt;, &lt;code&gt;.each&lt;/code&gt;) plus others from the original Hash class.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Number&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Now the Number Native also includes all the methods from the Math object, to allow for a more OOP experience. &lt;code&gt;(10).sin(); (10).cos(); (10).pow(2);&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;String&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New String method &lt;code&gt;.stripScripts&lt;/code&gt;, to strip and optionally evaluate script tags from a string.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Class&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Class method .extend has been deprecated. Now every class accepts Extends and Implements properties. &lt;code&gt;new Class({Extends: OtherClass, Implements: [Events, Options]})&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Element&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New &lt;code&gt;TextNode&lt;/code&gt; Native, to allow easy creation and manipulation of text nodes. &lt;code&gt;new TextNode('ciao').inject(document.body);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;New &lt;code&gt;IFrame&lt;/code&gt; Native, to allow for easy IFrames creation / augmentation. &lt;code&gt;new IFrame('/index.html').inject(document.body);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.inject&lt;/code&gt;, &lt;code&gt;.grab&lt;/code&gt;, &lt;code&gt;.append&lt;/code&gt; methods now supports instantiated text nodes. &lt;code&gt;element.grab(new TextNode('ciao'))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Element Storage, to store information linked to the DOM elements, but in the storage.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.store&lt;/code&gt; and &lt;code&gt;.retrieve&lt;/code&gt; Element methods, to work with the Element Storage. &lt;code&gt;element.store('property', 100); element.retrieve('property');&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;New Element &lt;code&gt;.set&lt;/code&gt;, &lt;code&gt;.get&lt;/code&gt; and &lt;code&gt;.erase&lt;/code&gt; methods. Can be used as set/get/removeProperty shortcuts, and they also support defining new "getters" and "setters".&lt;/li&gt;
+&lt;li&gt;Element &lt;code&gt;.match&lt;/code&gt; method, to match an element against a selector. &lt;code&gt;element.match('div.someClass[name=stupid]');&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;New Element &lt;code&gt;.wraps&lt;/code&gt; method, to wrap an element with another one.&lt;/li&gt;
+&lt;li&gt;New Element &lt;code&gt;.replaces&lt;/code&gt; method, to replace an element with another one. This replaces the &lt;code&gt;.replaceWith&lt;/code&gt; method.&lt;/li&gt;
+&lt;li&gt;Element &lt;code&gt;.remove&lt;/code&gt; is now &lt;code&gt;.dispose&lt;/code&gt; to resolve a naming conflict in internet explorer.&lt;/li&gt;
+&lt;li&gt;Element methods &lt;code&gt;.getFirst&lt;/code&gt;, &lt;code&gt;.getLast&lt;/code&gt;, &lt;code&gt;.getPrevious&lt;/code&gt;, &lt;code&gt;.getNext&lt;/code&gt; now support a selector to match the result to. &lt;code&gt;inputElement.getParent('form');&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Added methods &lt;code&gt;.getAllNext&lt;/code&gt;, &lt;code&gt;.getAllPrevious&lt;/code&gt;, &lt;code&gt;.getParents&lt;/code&gt;. They also support matching against selectors, but they return elements collections.&lt;/li&gt;
+&lt;li&gt;Element method &lt;code&gt;.setHTML&lt;/code&gt; deprecated in favor of &lt;code&gt;.set('html', value)&lt;/code&gt;. Also added the &lt;code&gt;.get('html')&lt;/code&gt; counterpart.&lt;/li&gt;
+&lt;li&gt;Element method &lt;code&gt;.setText&lt;/code&gt; deprecated in favor of &lt;code&gt;.set('text', value)&lt;/code&gt;. Also added the &lt;code&gt;.get('text')&lt;/code&gt; counterpart.&lt;/li&gt;
+&lt;li&gt;Element method &lt;code&gt;.getValue&lt;/code&gt; deprecated in favor of &lt;code&gt;.get('value')&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Element method &lt;code&gt;.getTag&lt;/code&gt; deprecated in favor of &lt;code&gt;.get('tag')&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Element Custom Events creation API is changed, and its now 100% more intuitive.&lt;/li&gt;
+&lt;li&gt;Element Events section overhauled. When adding a new Listener with &lt;code&gt;.addEvent&lt;/code&gt; the window event will be automatically instantiated, removing the cruft.&lt;/li&gt;
+&lt;li&gt;Element Styles section overhauled. Styles are more solid than ever, and you can even write your own style rules.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Selectors&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support for pseudo selectors (CSS3) has been added. You can now even define your own custom pseudo selectors.&lt;/li&gt;
+&lt;li&gt;The performance of the CSS selectors has been vastly improved.&lt;/li&gt;
+&lt;li&gt;Selectors now include support for matching a selector against an element.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Element/Document Dimensions&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Dimensions is a new component to handle the size and position in space of elements and the document.&lt;/li&gt;
+&lt;li&gt;Methods are not attached to the window object anymore, but rather on document.&lt;/li&gt;
+&lt;li&gt;Method &lt;code&gt;.getSize&lt;/code&gt; is now deprecated, as well as &lt;code&gt;.getHeight&lt;/code&gt; and &lt;code&gt;.getWidth&lt;/code&gt;. The official method to get the offset size of either the document or an element is now &lt;code&gt;.getOffsetSize&lt;/code&gt;, which returns an object containing x and y keys.&lt;/li&gt;
+&lt;li&gt;Methods &lt;code&gt;.getScrollHeight&lt;/code&gt; and &lt;code&gt;.getScrollWidth&lt;/code&gt; are now deprecated. The official method to get the scroll size of either the document or an element is now &lt;code&gt;.getScrollSize&lt;/code&gt;, returning an object containing x and y keys.&lt;/li&gt;
+&lt;li&gt;Methods &lt;code&gt;.getScrollTop&lt;/code&gt; and &lt;code&gt;.getScrollLeft&lt;/code&gt; are now deprecated. The official method to get the scroll of either the document or an element is now &lt;code&gt;.getScroll&lt;/code&gt;, returning an object containing x and y keys.&lt;/li&gt;
+&lt;li&gt;New Method &lt;code&gt;.getRelativePosition&lt;/code&gt;, gets the position relative to an element's offset parent. This returns the values that you would need to set via CSS to make it appear where it is on the page. Returns an object containing x and y keys.&lt;/li&gt;
+&lt;li&gt;Method &lt;code&gt;.getPosition&lt;/code&gt; has been enhanced to work in every situation, without the need to manually include scrolled parent nodes. It also accepts an additional argument, relative, to automatically calculate the difference of positions of these two elements (this and relative). Returns an object containing x and y keys.&lt;/li&gt;
+&lt;li&gt;New Element method &lt;code&gt;.position&lt;/code&gt;, to position an element with x and y coordinates. Note: this is relative to the element's offset parent, so its best used along with &lt;code&gt;.getRelativePosition&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;New Element method &lt;code&gt;.positioned&lt;/code&gt;, to check if an element is positioned with absolute, relative or fixed style.&lt;/li&gt;
+&lt;li&gt;New Element method &lt;code&gt;.getOffsetParent&lt;/code&gt;, to get the real offset parent of an element. This is to circumvent a bug with Internet Explorer not returning the real &lt;code&gt;offsetParent&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Sortables&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support for sortable floated lists has been added.&lt;/li&gt;
+&lt;li&gt;Support for sorting between many lists has been added.&lt;/li&gt;
+&lt;li&gt;You can now add and remove items from sortable lists on the fly.&lt;/li&gt;
+&lt;li&gt;Positioning logic has been hugely improved and everything now works independent of CSS configurations.&lt;/li&gt;
+&lt;li&gt;Serializing is now much more robust and allows for the use of a custom callback.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Drag&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Drag.Base is now simply named Drag.&lt;/li&gt;
+&lt;li&gt;The onSnap event has been deprecated.&lt;/li&gt;
+&lt;li&gt;The onStart event is now fired after the element has been dragged farther than the distance defined in the snap option.&lt;/li&gt;
+&lt;li&gt;The onCancel event is now fired correctly when the user begins a drag but lets up the mouse button before moving a distance greater than the distance defined by the snap option.&lt;/li&gt;
+&lt;li&gt;The onComplete event will no longer be fired if the user simple clicks on the draggable element without actually dragging.&lt;/li&gt;
+&lt;li&gt;The mousedown event is no longer prevented from propagating, so textareas are focusable and links are clickable inside of draggable elements without defined handles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Drag.Move&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When making an element draggable, the element will now stay in the same place on the page without manually setting its position after the call to makeDraggable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Fx&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fx.Base is now simply named Fx.&lt;/li&gt;
+&lt;li&gt;The base class for all the Fx has been completely rewritten for optimization and a cleaner API.&lt;/li&gt;
+&lt;li&gt;Fx:pause and Fx:resume methods have been added.&lt;/li&gt;
+&lt;li&gt;The Fx constructors now accept durations as one of the three strings 'short', 'normal', and 'long' corresponding to values of 250, 500, and 1000 milliseconds.&lt;/li&gt;
+&lt;li&gt;A new 'link' option is provided to control what happens when calls are made to start while an effect is currently running
+&lt;ul&gt;
+&lt;li&gt;link: 'cancel' - like wait:false from previous releases, will cancel the currently running effect to start the new one.&lt;/li&gt;
+&lt;li&gt;link: 'ignore' - like wait:true from previous releases, will ignore any calls made to start while a transition is in progress.&lt;/li&gt;
+&lt;li&gt;link: 'chain' - will chain all calls made to start so that they run one at a time in succession.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Fx.Tween&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fx.Style is now named Fx.Tween to more accurately reflect the behavior and to be consistent with the new Element:tween.&lt;/li&gt;
+&lt;li&gt;Element:tween has been added which will use the Element's internal Fx.Tween instance to transition any property in a single function call.&lt;/li&gt;
+&lt;li&gt;Element:highlight has been added which will fade an Element's background color from the specified value down to its current color. Default color is '#ff8'.&lt;/li&gt;
+&lt;li&gt;Element:fade has been added which will fade an Element to the specified state or opacity in a single function call. Possible values are:
+&lt;ul&gt;
+&lt;li&gt;'in', 'out', 'toggle' - fade the element in, out, or to the opposite of its current state (respectively).&lt;/li&gt;
+&lt;li&gt;'show', 'hide' - set the elements opacity immediately to 1 or 0 respectively, without a transition.&lt;/li&gt;
+&lt;li&gt;numeric value between 0 and 1 - fade the element to the specified opacity.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Fx.Morph&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fx.Styles is now named Fx.Morph to more accurately reflect the behavior and to be consistent with the new Element:morph.&lt;/li&gt;
+&lt;li&gt;Element:morph has been added which will use the Element's internal Fx.Morph instance to transition any number of properties in a single function call.&lt;/li&gt;
+&lt;li&gt;CSS Selectors may now also be used as the argument to grab the transition styles from so properties can be stored in the Stylesheets.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Fx.Slide&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Element:slide has been added which will use the Element's internal Fx.Slide instance to slide the element in and out in a single function call. Possible values are:
+&lt;ul&gt;
+&lt;li&gt;'in', 'out', 'toggle' - slide the element in, out, or to the opposite of its current state (respectively).&lt;/li&gt;
+&lt;li&gt;'show', 'hide' - set the slide state of the element immediately to in or out respectively, without a transition.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Fx.Transitions&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When Fx.Transitions is included, the transition may now be passed to the Fx option as a colon separated string (type:how). Examples include:
+&lt;ul&gt;
+&lt;li&gt;'linear', 'sine:in', 'expo:out', 'quad:in', 'bounce:out', 'elastic:out', 'quint:in:out', etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Request&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New Request class replaces XHR and Ajax as the MooTools XMLHttpRequest wrapper.&lt;/li&gt;
+&lt;li&gt;The Request constructor takes in only options, one of which is the URL, which used to be passed as the first argument.&lt;/li&gt;
+&lt;li&gt;Request:send now takes an options object, or a String or Element to be used as data as the only argument.
+&lt;ul&gt;
+&lt;li&gt;Any options passed to send are used in place of the defaults that were provided (if they were provided) when creating the instance.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;New Request methods for handling specific types of requests more easily.
+&lt;ul&gt;
+&lt;li&gt;Request:get, Request:post - Strings passed to these functions will be used as the url, an object passed will be the data, and the method will be get and post respectively.&lt;/li&gt;
+&lt;li&gt;GET, POST, PUT, and DELETE methods have also been added to make RPC with MooTools easier. All behave the same way as get and post.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Element:send no longer takes options as an argument, but rather, takes the url to send the request to.  In order to use special options for the internal Request instance, you must use Element:set.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Request.HTML&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Request.HTML adds some extra functionality for automatically processing HTML responses to the Request Class.&lt;/li&gt;
+&lt;li&gt;After a successful Request, the response's HTML is processed, scripts can be evaluated, and several arguments are passed to the onSuccess callback.
+&lt;ul&gt;
+&lt;li&gt;tree - the original tree of the HTML snippet that was returned from the Request.&lt;/li&gt;
+&lt;li&gt;elements - a flattened array of all the Elements that were returned from the Request.&lt;/li&gt;
+&lt;li&gt;html - the raw HTML string that was returned from the Response.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Element:load has been added which allows you to update the HTML content of an element from the response of a Request called using the Element's internal Request.HTML instance.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Request.JSON&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Request.JSON now replaces JSON.Remote and adds some extra functionality for automatically processing JSON responses to the Request Class.&lt;/li&gt;
+&lt;li&gt;After a successful Request, the response's JSON is processed and passed directly to the onSuccess callback.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;A Final Note&lt;/h5&gt;
+
+&lt;p&gt;Thanks for reading this far! We promise you won't be disappointed with 1.2.&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/184426678" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/11/14/mootools-1-2-beta-1</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Tom</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-10-31:164</id>
+    <published>2007-10-31T08:00:00Z</published>
+    <updated>2008-03-17T15:37:51Z</updated>
+    <category term="Foundations" />
+    <category term="General" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/177587532/mootools-foundations-natives-and-elements" rel="alternate" type="text/html" />
+    <title>MooTools Foundations: Natives and Elements</title>
+<summary type="html">&lt;p&gt;We haven't had this blog for very long, and talking to many users recently, I became aware of the fact that many people just don't understand how powerful MooTools actually is.  The purpose of this series of articles is to shed a little light on some of the functionality provided by MooTools that many users might be missing.  I think maybe it's time we got everyone caught up to speed.  First topic... Natives and Elements!&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;We haven't had this blog for very long, and talking to many users recently, I became aware of the fact that many people just don't understand how powerful MooTools actually is.  The purpose of this series of articles is to shed a little light on some of the functionality provided by MooTools that many users might be missing.  I think maybe it's time we got everyone caught up to speed.  First topic... Natives and Elements!&lt;/p&gt;
+&lt;h3&gt;A quick note about this article&lt;/h3&gt;
+
+&lt;p&gt;So I know I said my next article would be about the new Element shortcuts added in 1.2, but there are so many other things we should probably talk about first!  All the code examples featured in this article are intended for MooTools 1.2.  Although almost all of it either works with 1.x or has a 1.x equivalent, the purpose of this article is not to teach MooTools syntax, but rather to help users understand the concepts that drive the development of MooTools.&lt;/p&gt;
+
+&lt;h4&gt;A MooTools Native, not just a person born in the country of MooTools...&lt;/h4&gt;
+
+&lt;p&gt;First thing I'd like to talk about is the Native in MooTools.  JavaScript provides us with many native Classes like Arrays, Functions, Numbers, Strings, etc.  While they are all very powerful, we'd obviously like to make them much more flexible.  We can call functions on our Arrays and Strings like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[1,2,3].join('-');
+//'1-2-3'
+'this is my string'.split(' ');
+//['this', 'is', 'my', 'string']
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But there's absolutely no way native JavaScript could possibly provide us with all the functionality we want, right?  Well not exactly.  JavaScript lets us extend these native types by adding functions to their prototypes.  Many of our JavaScript veterans are all too familiar with this topic.  Here is an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//the following line will throw an error because there is no alert method for Strings
+'this is my string'.alert();
+//but by adding this small bit of code
+String.prototype.alert = function(){ alert(this); };
+//now the following line will work as intended
+'this is my string'.alert();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MooTools has something called a Native which makes this process a bit more straightforward.  When we make a new Native out of a JavaScript type, it gets all sorts of magical new properties.  For example, with MooTools, here's how we can add methods to Strings:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;String.implement('alert', function(){ alert(this); });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Right, it's the same amount of code, that's not impressive.  But what about when I want to add more than one function?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;String.implement({
+    'method1': function(){ ... },
+    'method2': function(){ ... },
+    'method3': function(){ ... },
+    'method4': function(){ ... },
+    ...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now all my strings will have all these functions right in their prototypes.&lt;/p&gt;
+
+&lt;h4&gt;Is this available in a generic version?&lt;/h4&gt;
+
+&lt;p&gt;Another big thing about implementing new methods into your Natives is that full generics support is automatically added.  While this may not make much sense for a function like String:alert, it is extremely useful for things like using Array generics on HTMLCollections or Hash generics on Objects.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hash.each({'one': 'item 1', 'two': 'item 2', 'three': 'item 3'}, function(){ ... });
+Array.filter(document.getElementsByTagName('div'), function(){ ... });
+Element.addClass(document.getElementById('myElement'), 'className');
+Array.each(arguments, function(){ ... });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Generics are even provided for native functions...&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Array.join([1,2,3], '-');
+//'1-2-3'
+String.split('this is my string', ' ');
+//['this', 'is', 'my', 'string']
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Declaring a new Native also lets us do the following (among other) things....&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;String.type('mystring'); //true
+String.type([1,2,3]); //false
+$type('myString'); //'string'
+$type([1,2,3]); //'array'
+$type(function(){}); //'function'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since Functions, Strings, Arrays, and the rest of the Natives all know their type, we don't need to do any kind of convoluted test to determine it.  The $type function can immediately access and return the type of any Native instance.  This makes things clean and fast throughout the framework.&lt;/p&gt;
+
+&lt;h4&gt;Awesome, now I know what a Native is... so what?&lt;/h4&gt;
+
+&lt;p&gt;Well now we know how to extend the native JavaScript types... we're done, right?  Mmm, not even close.  Why don't we define some of our own Native types!?  Awesome idea, let's do it.  Let's add the following to the list of Native types [String, Function, Number, Array] at our disposal, all created by MooTools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hash - Object implementation which allows us to extend JavaScript Objects.&lt;/li&gt;
+&lt;li&gt;Event - Event wrapper which allows us to fix cross-browser quirks and enhance the information provided by native Events.&lt;/li&gt;
+&lt;li&gt;Element - A Wrapper which allows us to do what was once thought to be impossible, extend the functionality of native HTMLElements.&lt;/li&gt;
+&lt;li&gt;Elements - A powerful collection of MooTools extended Elements which combines all the functionality of an Array with all the functionality of an Element.&lt;/li&gt;
+&lt;li&gt;TextNode - A simple native used when injecting text into Elements.&lt;/li&gt;
+&lt;li&gt;IFrame - An awesome Element wrapper (the first of its kind) that allows you to use all the functionality of your parent document inside children documents (iframes).&lt;/li&gt;
+&lt;li&gt;Color - A useful native which allows you to mix, match, and modify colors.&lt;/li&gt;
+&lt;li&gt;Date - Extends the native Date type so you can add functionality and test for type on variables.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I already talked a bit about the newest Native, &lt;a href="http://blog.mootools.net/2007/10/8/what-s-new-in-1-2-the-hash"&gt;the Hash&lt;/a&gt; in a previous article.  In a future article we will talk about the awesomazing IFrame (it really is so cool), but for now, there are quite a few things I'd like to tell you about Element(s).&lt;/p&gt;
+
+&lt;h4&gt;Wait, you mean Elements are more than just little boxes on the periodic table?&lt;/h4&gt;
+
+&lt;p&gt;Alright, by now hopefully you know what an Element is.  Whenever you use the $ function in MooTools to select an element by id, or extend an existing element, it becomes a MooTools Element.  This means you can do all sorts of stuff with it, no matter what browser you're in.  Here's a few simple examples...&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var element = $('myElement'); //select the element with id 'myElement'
+//add the className 'active' to myElement
+element.addClass('active');
+//get myElement's title
+element.getProperty('title');
+//get myElement's color, width, and height properties
+element.getStyles('color', 'width', 'height');
+//set the border style of myElement
+element.setStyle('border', '1px solid #f00');
+//add a click event to myElement
+element.addEvent('click', myClickFunction);
+//...and do all this stuff
+element.getNext('div').addClass('active').getParent().adopt(new Element('input', {type:'text'}));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Elements actually have so much functionality, there's no way I could show you it all (as this article is already getting pretty long).  Now on to the part that many of you may not know about.  The Elements Class in MooTools is a special type of Array that contains MooTools Elements.  An Element gets returned from any call to $, and Elements get returned from any call to $$.  Don't let the 's' at the end confuse you, here is a breakdown.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$: takes an id or an element, returns Element - a single MooTools Element.&lt;/li&gt;
+&lt;li&gt;$$: takes one or many CSS Selectors or elements, returns Elements - many MooTools Elements in an Array.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here's the amazing part... Anything you can do to an Element, you can do to a collection of Elements.  If you call an Element method on Elements that returns something, (for instance, an an accessor like getStyle or getCoordinates), you will receive back an Array.  This resulting Array will be the same as if you manually iterated through all the Elements by hand, calling the function on each one, and pushing the result to an Array... it's just a lot less code. :P&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//add the className 'active' to myElement
+$('myElement').addClass('active');
+//add the className 'active' to all the li's inside a ul that are children of a div
+$$('div &amp;gt; ul li').addClass('active');
+//add the className 'odd' to every other row in a table of data
+$$('table tr:odd').addClass('odd');
+
+//make myElement red
+$('myElement').setStyle('color', '#f00');
+//make all the divs with className 'info' red
+$$('div.info').setStyle('color', '#f00');
+
+//get the color of myElement
+$('myElement').getStyle('color'); //returns '#f00'
+//get the colors of all the divs with the className 'account'
+$$('div.account').getStyle('color'); //returns ['#ff0000', '#00ff00', '#0000ff'], etc.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These are just very simple examples to demonstrate this concept, but the implementation is flexible and powerful.  Similar functionality is provided by other frameworks, but in slightly different ways.  In Prototype there is the Enumerable function invoke which will execute a function on every element in an Array.  This is convenient, but a bit more code, and a bit less straightforward.  In jQuery you always act on collections.  While this is convenient most of the time, it may not be the most efficient way to manipulate single elements.  With MooTools, whether you are dealing with a single Element or a collection of Elements, all the Element methods work.  Methods are easy to use, easy to expand, consistent, and less ambiguous.&lt;/p&gt;
+
+&lt;p&gt;As the first article in this series, I hope this sheds a little light on some of the Core building blocks of MooTools.  More articles will follow in this series describing other components of the Framework in better detail.&lt;/p&gt;
+
+&lt;p&gt;--ciao for now!&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/177587532" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/10/31/mootools-foundations-natives-and-elements</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Valerio</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-10-26:151</id>
+    <published>2007-10-26T19:14:00Z</published>
+    <updated>2007-10-26T19:20:02Z</updated>
+    <category term="General" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/175505049/mootools-air-love" rel="alternate" type="text/html" />
+    <title>MooTools  + AIR = Love</title>
+<content type="html">
+            &lt;p&gt;Today I found a nice article on &lt;a href="http://coderseye.com/2007/mootools-beats-jquery-and-ext-for-air.html"&gt;coderseye.com&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+    &lt;p&gt;I spent a half hour tinkering around in Aptana, downloading MooTools 1.1, and setting up a few tests. The result is extremely pleasing. Not only is MooTools way better and easier to use than I remember, but it works out of the box with AIR.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That’s &lt;strong&gt;Very&lt;/strong&gt; nice to know!&lt;/p&gt;
+
+&lt;p&gt;I personally haven’t yet tried MooTools in AIR extensively (i only did a few basic tests) but I’m definitely looking forward to creating something in the very near future. Maybe a downloader app? We’ll see!&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/175505049" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/10/26/mootools-air-love</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Tom</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-10-23:99</id>
+    <published>2007-10-23T19:32:00Z</published>
+    <updated>2007-11-09T22:03:44Z</updated>
+    <category term="What's New" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/174394781/The_Best_Javascript_Effects_Now_Even_Better" rel="alternate" type="text/html" />
+    <title>What's New in 1.2: The Best Fx, Now Even Better</title>
+<summary type="html">&lt;p&gt;MooTools has always been known for having some of the most fluid and impressive effects around.  In 1.2 we’ve introduced some exciting new enhancements that make them even more efficient, powerful, flexible, and easy to use.  Here are the changes made to the Fx Classes to take note of...&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;MooTools has always been known for having some of the most fluid and impressive effects around.  In 1.2 we’ve introduced some exciting new enhancements that make them even more efficient, powerful, flexible, and easy to use.  Here are the changes made to the Fx Classes to take note of...&lt;/p&gt;
+&lt;h4&gt;What's in a name?&lt;/h4&gt;
+
+&lt;p&gt;One of the most obvious changes to the MooTools Fx Library is a change in the naming of Fx.Style and Fx.Styles.  Though you can still use these class names in 1.2, they will be deprecated in future versions, so please start using the classes through their new names, Fx.Tween and Fx.Morph respectively.  The reason for the name change is two-fold.  First, we feel these names more explicitly describe the functionality of the classes, and second, the classes correspond to some awesome new Element shortcuts, which I will talk much more about in my next article!  (Expect a nice demo of all the things talked about in this article to come along with the article about Element enhancements)&lt;/p&gt;
+
+&lt;p&gt;If I told you Fx.Morph was just a new name for the same old Fx.Styles, I'd be lying through my teeth.  Thanks to some flexible CSS parsing code, you can now transition not only to an object full of rules, but also to any CSS rule defined in your stylesheets.  Ever wanted to make an element look like another one, or add the styles of an error class to an element smoothly?  Well now you can do it in style!  Personally, I'm really excited about the flexibility of the new Fx.Morph class, and I've started using it regularly already.  Here are some of the cool things that can be done...&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myMorph = new Fx.Morph('myElement', { 'duration': 1000 });
+//transition myElement to have a text color of red, a width of 200px, and a line-height of 20px
+myMorph.start({ 'color': '#c03', 'width': 200, 'line-height': 20 });
+//transition myElement to the properties defined in the .warning rule in my stylesheet
+myMorph.start('.warning');
+//transition myElement to look the same as a paragraph that has the information class inside the element whose id is content
+myMorph.start('#content p.information');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;What do you mean, 'any property'?!&lt;/h4&gt;
+
+&lt;p&gt;The Fx.Tween and Fx.Morph classes (along with all Element style methods) allow you to transition literally any style property of an element.  We don't need special classes for colors, dimensions, borders, and clipping, no sir! If you can style it with CSS, you can transition it with the new MooTools Fx!  If the transition is something that isn't calculable like a background image or border-style, the property will be set immediately at the start of the transition.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//transition the background position of my element to 400px 20px
+myMorph.start({ 'background-position': '400px 20px' });
+//the following is another way to achieve the same effect
+myMorph.start({ 'background-position': '400 20' });
+//here, we transition the CSS clip for this element from the start to the end value
+myMorph.start({ 'clip': ['0px 500px 500px 0px', [130, 410, 220, 130]] });
+//transition the border-width's of this element
+myMorph.start({ 'border-width': '4px 10px 16px' });
+//morph many different properties of this element at once... oh, the possibilities!
+myMorph.start({ 'border': '5px solid #f03', 'border-bottom-color': '#ccc', 'background-color': '#fee', 'color': '#f03', 'width': 200, 'height': '300px', margin:[10, 20], 'opacity': 0.6 });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A few notes about the above examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The syntax is very lenient.  You don't need to provide units, you can use hex colors, or rgb / rgba colors, and properties that take multiple values, like clip for instance, accept a space separated string, or an array of values.&lt;/li&gt;
+&lt;li&gt;The starting parameter is optional in most cases.  If two parameters are passed in an array to any property, the first will be the start value and the second the end value.  Otherwise, the transition will start from the element's current state.&lt;/li&gt;
+&lt;li&gt;If you dont want to use objects everywhere to define your transitions, simply save the properties to your CSS, and create a morph as complicated as you want just by calling start with that CSS rule's selector!&lt;/li&gt;
+&lt;li&gt;Lastly, as was mentioned above, any property that cannot be calculated will be set immediately upon start of a transition.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How cool is this stuff?!  Please, experiment as much as you can and show us all the cool stuff you do.&lt;/p&gt;
+
+&lt;h4&gt;The new awesomazing link option!&lt;/h4&gt;
+
+&lt;p&gt;The next enhancement to Fx has to do with the 'wait' option.  What happens if I call start on an effect while the effect is running?  Just recently Valerio and I were talking about one of the reasons MooTools was first created.  He had the idea that by reusing a single Fx instance whenever he wanted to perform a transition on an element, he could keep track of the current state of the effect.  This would allow him to prevent the annoying flickering that plagued many other JavaScript Fx libraries.  Using the wait option in MooTools 1.x, you could tell the effect to either ignore concurrent calls to start (wait: true, by default) or stop wherever it was, and start the next effect. (wait: false, very common for things like mouseover / mouseout transitions).&lt;/p&gt;
+
+&lt;p&gt;Well, in 1.2 wait is no more, because we found a slightly more powerful solution.  We now have the 'link' option, which describes how two concurring effects should be linked together, if at all.  There are three possible values for link, namely: 'ignore', 'cancel', and 'chain'.  Here is how each behaves.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;link: 'ignore' - This configuration is synonymous with 'wait: true' from 1.x, and is the default behavior. Any calls made to start while the effect is running will be ignored.&lt;/li&gt;
+&lt;li&gt;link: 'cancel' - This configuration is synonymous with 'wait: false' from 1.x. Any calls made to start while the effect is running will take precedence over the currently running transition.  The new transition will start immediately, canceling the one that is currently running.&lt;/li&gt;
+&lt;li&gt;link: 'chain' - This configuration is new for MooTools 1.2.  Any calls made to start while the effect is running will be chained up, and will take place as soon as the current effect has finished, one after another.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here are some examples of the link option in action...&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myTween = new Fx.Tween('myElement', 'background-color', { 'link': 'chain' });
+//fade myElement to red, then to white, then to blue
+myTween.start('#c03').start('#fff').start('#369');
+
+var myMorph = new Fx.Morph('myElement', { 'link': 'cancel' });
+//transition myElement to red 16px sized text
+myMorph.start({ 'color': '#c03', 'font-size': 16 });
+//a few ms later... stop right there! make that blue 10px text with a height of 100px
+myMorph.start({ 'color': '#369', 'font-size': 10,  'height': 100  });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;Core changes and enhancements&lt;/h4&gt;
+
+&lt;p&gt;There are a few other minor changes to take note of.  First, two new public methods were added to the API as per request, namely Fx:pause, and Fx:resume.  They work exactly as you'd expect.  Another minor change is that duration now also accepts one of the strings 'short', 'long', and 'normal', which is the default.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myTween = new Fx.Tween('myElement', 'background-color', { 'duration': 'long' });
+//transition myElement's background color from white to a nice blue
+myTween.start('#fff', '#369');
+//a few ms later... hang on a sec in your whitish-bluish state, I have something to take care of!
+myTween.pause();
+//some time later... alright, I'm ready to finish up.
+myTween.resume();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Most of the other changes won't affect users too much, but there was quite a bit of restructuring done to the Fx framework.  The core is now more consistent, organized, and robust.  Plugin developers should be aware of the new structure for creating Fx extensions.&lt;/p&gt;
+
+&lt;p&gt;That pretty much sums up all the new stuff in Fx.  All the rest of the goodness you've come to know and love about MooTools Fx is still there, cleaner and more efficient than ever!  We encourage everyone to dive into the source and discover just how much you can do with the most compact, smooth, and robust Fx Framework on the Internet.  Let us know what you think. ;)&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/174394781" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/10/23/The_Best_Javascript_Effects_Now_Even_Better</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Michelle</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-10-20:88</id>
+    <published>2007-10-20T09:18:00Z</published>
+    <updated>2007-10-26T20:31:11Z</updated>
+    <category term="What's New" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/172440669/what-s-new-in-1-2-spec-runner" rel="alternate" type="text/html" />
+    <title>What's New in 1.2: Behaviour Driven Development</title>
+<summary type="html">&lt;p&gt;You know we've been telling you that MooTools is reliable, but how can you can be sure that it will work for your project without just taking our word for it?  &lt;/p&gt;
+
+&lt;p&gt;Check the Spec folder out from the repository and its self-contained testing suite will prove it.  Show your boss, show your coworkers, and let them know that MooTools is professional grade.&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;You know we've been telling you that MooTools is reliable, but how can you can be sure that it will work for your project without just taking our word for it?  &lt;/p&gt;
+
+&lt;p&gt;Check the Spec folder out from the repository and its self-contained testing suite will prove it.  Show your boss, show your coworkers, and let them know that MooTools is professional grade.&lt;/p&gt;
+&lt;h4&gt;Verifiably Rock-Solid&lt;/h4&gt;
+
+&lt;p&gt;What makes this possible?  We've added &lt;a href="http://dev.mootools.net/browser/trunk/Specs"&gt;our own special blend&lt;/a&gt; of &lt;a href="http://jania.pe.kr/aw/moin.cgi/JSSpec"&gt;JSSpec&lt;/a&gt; to the MooTools source.  It goes through critical components of MooTools to make sure that they work as expected.  &lt;/p&gt;
+
+&lt;p&gt;For this release, we'll be supporting specs for Core, Class, Natives, and Element.js.  While not all of the Elements scripts or the other folders will make it into 1.2, we hope to release their specs in later releases.&lt;/p&gt;
+
+&lt;h4&gt;What's A Spec?&lt;/h4&gt;
+
+&lt;p&gt;The spec is short for specification.  Specifications are meant to be human-readable descriptions of code which can be verified programmatically.   They also serve as code samples and documentation all in a neat little package.  Exciting, right?&lt;/p&gt;
+
+&lt;p&gt;You could call them tests, but they're a little different.&lt;/p&gt;
+
+&lt;h4&gt;Specs vs. Tests&lt;/h4&gt;
+
+&lt;p&gt;Switching from tests to specs is a semantic shift between TDD (Test Driven Development) and BDD (Behavioral Driven Development).  &lt;/p&gt;
+
+&lt;p&gt;The examples describe the behavior, while tests make assertions of the state of a system.  Describing the behavior is the most intuitive way to verify that a system will behave the same way every time.&lt;/p&gt;
+
+&lt;h4&gt;Roll Your Own&lt;/h4&gt;
+
+&lt;p&gt;As an added bonus, you can use the spec runner to create your own tests.  The syntax is pretty simple.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;describe('Game', {
+
+  'before each': function(){
+    Game.start('Plum', 'library', 'wrench');
+  },
+
+  'should lose if bad guess': function(){
+    var result = Game.guess('Plum', 'study', 'rope');
+    value_of(Game.hasWon()).should_be_false();
+  },
+
+  'should win if good guess': function(){
+    Game.guess('Plum', 'library', 'wrench');
+    value_of(Game.hasWon()).should_be_true();
+  }
+
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this example, the first line denotes what we'll be testing.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;describe('Game', {
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first spec, 'before each', will be run before each example.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;'before each': function(){
+    Game.start('Plum', 'library', 'wrench');
+},
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This means that every example, the new method of the Game object will be called, passing in its predefined parameters.&lt;/p&gt;
+
+&lt;p&gt;This is followed by each spec you want to test.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;'&amp;lt;human readable description&amp;gt;': function(){
+    &amp;lt;setup code goes here&amp;gt;
+    value_of(&amp;lt;what you want to test to verify the spec&amp;gt;).should_be_true();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Of course, should_be_true(); is just one example of what you can do.  For more examples, you can read the specs we've done for the framework, or check out the &lt;a href="http://jania.pe.kr/aw/moin.cgi/JSSpec/Manual#head-5960092c3ff570684a689cf420da85da55d0c337"&gt;main JSSpec documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4&gt;Why Bother?&lt;/h4&gt;
+
+&lt;p&gt;So what's the point of making specs for all your MooTools goodness?  &lt;/p&gt;
+
+&lt;p&gt;Without specs, you might not know about a JavaScript problem until you get a call from an angry customer, assuming you're lucky and get enough traffic to have the issue reported.  Otherwise, errors could fester on your site unbeknownst to you for weeks, like a big "Kick Me" sign for your visitors to laugh at.&lt;/p&gt;
+
+&lt;p&gt;With specs, you can know &lt;strong&gt;before&lt;/strong&gt; you update your site whether or not it will crash and burn.  It might not make you richer or more popular, but at least you won't have to worry about it.&lt;/p&gt;
+
+&lt;h4&gt;Further Reading&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://video.google.com/videoplay?docid=8135690990081075324"&gt;Beyond Test Driven Development: Behaviour Driven Development&lt;/a&gt; - an introductory video&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://jania.pe.kr/aw/moin.cgi/JSSpec"&gt;The Main JSSpec Wiki Page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/172440669" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/10/20/what-s-new-in-1-2-spec-runner</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Tom</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-10-08:81</id>
+    <published>2007-10-08T02:22:00Z</published>
+    <updated>2007-10-20T16:15:22Z</updated>
+    <category term="What's New" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/172551093/what-s-new-in-1-2-the-hash" rel="alternate" type="text/html" />
+    <title>What's New in 1.2: The Hash</title>
+<summary type="html">&lt;p&gt;In recent development of MooTools, we've incorporated into the core a plugin that was once pushed under the table and neglected.  The Hash is a powerful new way to extend objects just like you've always wanted...&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;In recent development of MooTools, we've incorporated into the core a plugin that was once pushed under the table and neglected.  The Hash is a powerful new way to extend objects just like you've always wanted...&lt;/p&gt;
+&lt;h5&gt;Alright, what the heck is all this Hash business?&lt;/h5&gt;
+
+&lt;p&gt;The current 1.2 development version of MooTools saw a promotion of the Hash Class up from a plugin to a Native type.  A Hash is basically a wrapper for native JavaScript Objects.  The reason it was created was because as we all know, the Object prototype is off limits!  (for a brief explanation... see &lt;a href="http://dean.edwards.name/weblog/2007/03/rules/#rule2"&gt;rule #2&lt;/a&gt;).  So what can i do with this crazy new thing?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var hash = new Hash({ 'a': 'one', 'b': 'two', 'c': 'three', 'd': 'four'});
+hash.get('a'); //"one"
+hash.set('e', 'five'); //hash.e is now 'five'
+hash.set('c', 'new value'); //hash.c is now 'new value'
+hash.f = 'another value here'; //this is perfectly acceptable also, get / set are just shortcuts to filter out prototypes
+hash.has('b') //true
+hash.each(function(value, key){ alert(key + ':' + value); }); //alerts a:one, b:two, etc.
+hash.get('each'); //null
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now i know what you're thinking, "Alright, so what... i could do all that stuff before with Objects, even the each with a simple for in loop."  Well, no. The Hash Native also supports just about every Array method including 'map', 'every', 'some', and 'filter', as well as a few other really handy shortcuts.  We now use Hash as the all-purpose data type throughout the MooTools Framework.  Once you start using it, you'll know why. ;)  (Also a note to anyone who has ever used Abstract in MooTools... The Hash is a replacement for Abstract and is much, much more powerful.  Anywhere you used to have Abstract in your 1.1+ MooTools code, just replace with Hash and you should be all good)&lt;/p&gt;
+
+&lt;h5&gt;Generics are so cool...&lt;/h5&gt;
+
+&lt;p&gt;Just like all other MooTools Natives, Hash has full generics support.  This means that any function you can call on a hash, you can also call by passing the hash as the first argument to the genericized function.  Also, any generic you can use on a hash can also be used on a native JavaScript Object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var obj = { 'a': 'one', 'b': 'two', 'c': 'three', 'd': 'four'};
+Hash.each(obj, function(value, key){ alert(key + ':' + value); }); //alerts a:one, b:two, etc.
+Hash.filter(obj, function(value, key){ return key.test(/a|c/); }); //returns a hash containing { 'a': 'one', 'c': 'three' }
+Hash.getKeys(obj); //returns ['a', 'b', 'c', 'd']
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;What other stuff can i do?&lt;/h5&gt;
+
+&lt;p&gt;Well perhaps the most powerful aspect of Hashes is as i mentioned before, all the Array functions you've come to know and love can now be used on Hashes. Check out the source for many more implemented methods.  Hash really is a awesome tool, so wonderful in fact that it's been included in the Core of the framework.  In my next article, I'll talk about some exciting changes to Fx in MooTools, as well as some awesome new Element shortcuts.&lt;/p&gt;
+
+&lt;p&gt;--ciao for now!&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/172551093" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/10/8/what-s-new-in-1-2-the-hash</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Michelle</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-06-18:47</id>
+    <published>2007-06-18T14:29:00Z</published>
+    <updated>2007-06-29T20:36:52Z</updated>
+    <category term="Tips &amp; Tricks" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/130263529/help-us-help-you" rel="alternate" type="text/html" />
+    <title>Help Us Help You</title>
+<summary type="html">&lt;p&gt;While we love to help everyone who comes to us for support, sometimes there’s a breakdown in communication.&lt;/p&gt;
+
+&lt;p&gt;To clear up some of these issues, I’ve written this article about how to get the friendliest response possible from the community.&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;While we love to help everyone who comes to us for support, sometimes there’s a breakdown in communication.&lt;/p&gt;
+
+&lt;p&gt;To clear up some of these issues, I’ve written this article about how to get the friendliest response possible from the community.&lt;/p&gt;
+&lt;h4&gt;We’re Not Mean&lt;/h4&gt;
+
+&lt;p&gt;The MooTools community is one of the friendliest JavaScript communities you’ll ever find.  We comb the forums all day, looking for people to help.  Questions are answered promptly, and tons of documentation has been written to help people learn the framework.&lt;/p&gt;
+
+&lt;p&gt;I’m even trying to start an initiative where everyone uses :) a lot to show people that we’re friendly and helpful. :)&lt;/p&gt;
+
+&lt;h4&gt;How to Ask Better Questions&lt;/h4&gt;
+
+&lt;p&gt;There are a few things you can do to help us help you.&lt;/p&gt;
+
+&lt;h5&gt;Read the Documentation First&lt;/h5&gt;
+
+&lt;p&gt;We spend a lot of time writing documentation to help out all the people who find MooTools.  Writing documentation is a complicated and thought intensive process, so it makes us sad when people ask questions without looking at the documentation first.&lt;/p&gt;
+
+&lt;p&gt;We might disguise our sadness with anger and bitter sarcasm, but we’re really crying on the inside. :)&lt;/p&gt;
+
+&lt;h5&gt;The JavaScript Code Tag&lt;/h5&gt;
+
+&lt;p&gt;There is a button on the forums to use when pasting JavaScript code which makes things a lot more readable.  Please use it.  The same goes for the HTML code button. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://blog.mootools.net/assets/2007/6/13/pleaseha4_1.png" alt="JavaScript Code Button" /&gt;&lt;/p&gt;
+
+&lt;h5&gt;Links Are Best&lt;/h5&gt;
+
+&lt;p&gt;I don’t know about you, but looking through every line of your HTML, CSS, and JS code to find out why your tooltips aren’t fading in properly isn’t my idea of a fun time.  The best way to get quick help is to post a link, so that I don’t have to download mootools.js, make a local file on my machine, edit the file so it points to my local version of the moo.js, and then open up the file in Firefox.  It’s just a lot of work and I’m a lazy person.  And even after all that, I’ll still have to dig around until I find your offending code.&lt;/p&gt;
+
+&lt;p&gt;The best combination of information is a brief but detailed problem description, a small excerpt of code where you’re having your troubles, and a link to the development page.&lt;/p&gt;
+
+&lt;h5&gt;Be Descriptive&lt;/h5&gt;
+
+&lt;p&gt;It’s much easier for us to help you figure out your problem when you tell us what you’re expecting to happen and what actually happens.  “I’m trying to use Fx.Slide to make my content div slide in and out, but when I trigger the effect, it gives me a ‘Method not found’ error,” is infinitely more helpful than, “I’m trying to do a slide effect, but it doesn’t work.”&lt;/p&gt;
+
+&lt;h5&gt;Show Us Some Sample Code&lt;/h5&gt;
+
+&lt;p&gt;Write a man some code, and he has fancy effects for a project.  Teach a man to code, and he has fancy effects for the rest of his life.&lt;/p&gt;
+
+&lt;p&gt;The main purpose of the forum is to assist people in &lt;strong&gt;learning&lt;/strong&gt; MooTools.  As a rule of thumb, we try not to tell people how to do things directly, opting instead to assist people in finding their own answers.&lt;/p&gt;
+
+&lt;p&gt;We’ll give hints, we’ll tell you where a bug is, we’ll link you to the helpful bit of documentation you might not have known to search for, but you’ll have to meet us halfway.&lt;/p&gt;
+
+&lt;p&gt;We’d like to see evidence that you’ve already made an attempt to code something and that you’ve read the documentation.  If you don’t provide us with sample code or a link, your thread might be closed, depending on your question.  &lt;strong&gt;Code copied and pasted from the demos does not count as sample code. :)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We understand that sometimes, you’re not able to post code based on restrictions placed upon you by your client or employer.  If this is the case, try to give us as detailed an account as possible.&lt;/p&gt;
+
+&lt;h5&gt;We Won’t Code For You (Unless You Pay Us To)&lt;/h5&gt;
+
+&lt;p&gt;A major issue for us is people who come to the forum who don’t want to learn MooTools, but just want to get some fancy effects up on their sites as easiest as possible.  In this case, the easiest way possible is to get someone else to do it for them.  &lt;strong&gt;We’re not going to code things for you.&lt;/strong&gt;  If that makes us elitists, so be it.  :) &lt;/p&gt;
+
+&lt;p&gt;Many of the people who have had threads closed fall into this category.&lt;/p&gt;
+
+&lt;p&gt;JavaScript is a skill, and we won’t code custom sites for people just because they ask us to on the forums.  We’re already giving you a framework that makes a lot of awesome things really easy, written up tons of documentation about every feature, and given it all to you for free.  Please don’t expect us to do more than that. :)&lt;/p&gt;
+
+&lt;h5&gt;If You Don’t Want To Learn MooTools…&lt;/h5&gt;
+
+&lt;p&gt;If you don’t know JavaScript or MooTools, have no intention of learning, and you need fancy effects on your website, you can post in the Get Help section about hiring someone to do it for you.  I’m sure there are plenty of starving Moo artisans who would be happy to give you a hand. :)&lt;/p&gt;
+
+&lt;h4&gt;In Conclusion&lt;/h4&gt;
+
+&lt;p&gt;:)&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/130263529" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/6/18/help-us-help-you</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Valerio</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-06-11:24</id>
+    <published>2007-06-11T20:02:00Z</published>
+    <updated>2007-07-01T21:05:18Z</updated>
+    <category term="General" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/130263530/selectors-on-fire" rel="alternate" type="text/html" />
+    <title>Selectors on fire: a tale of pseudoselectors</title>
+<summary type="html">&lt;p&gt;&lt;img src="http://blog.mootools.net/assets/2007/6/11/slickspeed.png" alt="slickspeed" /&gt;
+During the last few days, we've added some nifty CSS3 selectors to the trunk. Continue reading to know what this is all about, or try &lt;a href="http://mootools.net/slickspeed"&gt;SlickSpeed&lt;/a&gt; now!&lt;/p&gt;
+
+&lt;p&gt;UPDATE: SlickSpeed can now be &lt;a href="http://code.google.com/p/slickspeed/source"&gt;downloaded from googlecode&lt;/a&gt;.&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;&lt;img src="http://blog.mootools.net/assets/2007/6/11/slickspeed.png" alt="slickspeed" /&gt;
+During the last few days, we've added some nifty CSS3 selectors to the trunk. Continue reading to know what this is all about, or try &lt;a href="http://mootools.net/slickspeed"&gt;SlickSpeed&lt;/a&gt; now!&lt;/p&gt;
+
+&lt;p&gt;UPDATE: SlickSpeed can now be &lt;a href="http://code.google.com/p/slickspeed/source"&gt;downloaded from googlecode&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;The Beginning of a New Era&lt;/h4&gt;
+
+&lt;p&gt;Ok, so the last couple of days were very productive ones.&lt;/p&gt;
+
+&lt;p&gt;I started adding the CSS3 adjacency selectors, like ~, &gt; and +.  It was quite an easy task which didn't require much logic changing, and I was able to implement and get it running across all browsers in (a little more than) a few hours.&lt;/p&gt;
+
+&lt;p&gt;This allows us to select direct children, following siblings and the direct following sibling.
+So let's add these to the supported selectors:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//all spans immediately preceded by a div
+$$('div + span');
+
+//all the following sibling of divs, that also happens to be spans
+$$('div ~ span');
+
+//all the direct children of all divs with tag == span
+$$('div &amp;gt; span');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And the easy part was done. Now the hard part was left, which is what this article is all about: the famous pseudo selectors.&lt;/p&gt;
+
+&lt;h4&gt;Zebra Tables For the Winners&lt;/h4&gt;
+
+&lt;p&gt;Pseudo selectors are little known in the world of CSS because of the lack of browser support. From what I understand, Opera is the only browser supporting pseudo selectors at all, and even its support is limited.&lt;/p&gt;
+
+&lt;p&gt;So I started by implement :nth-child, rigorously following the &lt;a href="http://www.w3.org/TR/css3-selectors/"&gt;W3C specs&lt;/a&gt;, so we could compete in the &lt;a href="http://jquery.com/blog/2006/10/18/zebra-table-showdown/"&gt;zebra table showdown&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The tricky part was mostly 2n+1, because I had to understand what the heck it was all about. Lucky for me, I had all the supporting devs in the channel who are apparently better with specs (and math) than myself.&lt;/p&gt;
+
+&lt;p&gt;Hours later, I had the first working version of nth-child, along with the very similar :odd, :even, :last-child and :first-child, that luckily shared the same logic.&lt;/p&gt;
+
+&lt;p&gt;So we can also add these to the supported css selectors:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;////every odd (1st 3rd 5th 7th ... 13th) li inside an ul
+$$('ul li:nth-child(2n+1)'); //same as
+$$('ul li:nth-child(odd)'); //same as
+$$('ul li:odd');
+
+//every even (2nd 4th 6th ... 12th ...) li inside an ul, starting from the second
+$$('ul li:nth-child(2n)'); //same as
+$$('ul li:nth-child(even)'); //same as
+$$('ul li:even');
+
+//every li which is the second child of an ul.
+$$('ul li:nth-child(2)');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Obviously, other numbers are also supported in this format: "int"n+"int" or "int" or "int"n or "int"n-"int". Pretty sleek if you ask me.&lt;/p&gt;
+
+&lt;p&gt;Now that the big part of the work was done, I needed to get the rest of the CSS3 selectors in there.&lt;/p&gt;
+
+&lt;h4&gt;Getting the Rest of Them&lt;/h4&gt;
+
+&lt;p&gt;Ok, this part was quite easy.  Since &lt;a href="http://digitarald.de"&gt;Harald&lt;/a&gt; already coded a bunch of them in his branch a long time ago, it was just a matter of cleaning them up and testing across browsers.&lt;/p&gt;
+
+&lt;p&gt;And so I added :disabled, :enabled, :contains, :checked and :empty&lt;/p&gt;
+
+&lt;p&gt;The one that gave me nightmares was contains: it kept returning more results than the expected ones. I admit I also checked other libraries like Prototype or jQuery. Prototype doesn't support :contains, and jQuery returned the same wrong results as mine.&lt;/p&gt;
+
+&lt;p&gt;Something must have been wrong, very wrong.&lt;/p&gt;
+
+&lt;p&gt;With the help of the funny boys in the IRC channel, we defeated the enemy once again.  Without going into all the glorious details, an element contains some text only if it contains a textnode with that text; not if a child element contains the text. I tell you, this stuff challenges a man's patience.&lt;/p&gt;
+
+&lt;p&gt;Ok, so lets add these too to the list of the supported selectors:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//every div that contains a direct textnode with the text "ROSALIND"
+$$('div:contains(ROSALIND)');
+
+//every radio input that is checked.
+$$('input[type=radio]:checked'); //same concept for disabled and enabled.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And I was done!! Or so I thought...&lt;/p&gt;
+
+&lt;h4&gt;Pseudos on Fire&lt;/h4&gt;
+
+&lt;p&gt;Thats when I started noticing a bit of redundancy in the code. My inner perfectionism wouldn't let me go on knowing of this redundancy so I had to straighten things out.&lt;/p&gt;
+
+&lt;p&gt;I noticed redundancies especially in places like :disabled and :checked. Thats when I had this idea: lets make pseudo selectors default to attributes, so stuff like :checked and :disabled didn't have to be explicitly coded.&lt;/p&gt;
+
+&lt;p&gt;Now, any pseudo selector defaults to an attribute, if no pseudo selector is predefined. Lets make an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//every link with a title attribute
+$$('a:title'); //the pseudo is not predefined, so it defaults to:
+$$('a[title]');
+
+//same concept here, but with a value too:
+$$('a:title(mootools)'); //the pseudo is not predefined, so it defaults to:
+$$('a[title=mootools]');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This obviously gives us some nice freedom of movement inside the huge reign of the DOM.&lt;/p&gt;
+
+&lt;p&gt;At this point, you're probably dying to know what in the world that header image is. NOT YET! Keep reading dude.&lt;/p&gt;
+
+&lt;h4&gt;Getting Control of the Pseudos&lt;/h4&gt;
+
+&lt;p&gt;That's the point when most of you might think, "Ok, we have enough pseudoselectors!  We don't need any more!"  But, wouldn't it be nice if we gave users the ability to create their own, matching their own custom rules?&lt;/p&gt;
+
+&lt;p&gt;Time for a complete refactor on how the pseudoselectors are parsed!&lt;/p&gt;
+
+&lt;p&gt;Five hours later, all the pseudoselectors were written as custom pseudoselectors, all lined up in nice form inside a separate, optional file.&lt;/p&gt;
+
+&lt;p&gt;Now, everyone can write custom pseudoselectors for themselves!&lt;/p&gt;
+
+&lt;p&gt;Lets make a quick, stupid example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Selectors.Pseudo.blue = {
+    xpath: function(){
+        return '[@class=blue]';
+    },
+    filter: function(el){
+        return (el.className == 'blue');
+    }
+};
+
+//usage
+$$('div:blue'); //all the divs with className == blue!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, as you can see its pretty straightforward. We write a rule for xpath browsers, and a filter for non-xpath browsers and voila', our new, shiny, breathing, custom pseudoselector is born.&lt;/p&gt;
+
+&lt;p&gt;There is obviously much more you can do with custom pseudoselectors, but lets keep it simple for today.&lt;/p&gt;
+
+&lt;h4&gt;OK, can you tell me about the header now?&lt;/h4&gt;
+
+&lt;p&gt;The header is a screenshot of a selector testing suite we're going to release as opensource.
+With all these many new selectors, a test suite was the easiest way to test the selectors in every browser, whether or not the browser included xpath.
+The test suite is written in simple PHP and plain JavaScript. No framework is used in the suite JavaScript file, as the point of it is to test frameworks against each other.  This avoids favoritism. Also, each framework runs in its own iframe, so no prototyping conflicts can happen.&lt;/p&gt;
+
+&lt;p&gt;The html template for all frameworks is the same Andrew Dupont used in his DOM Selector speed tests.
+His test was flawed though, as every framework was just included in the same page. This created prototypes conflict, so speed results were unreliable.&lt;/p&gt;
+
+&lt;p&gt;In the demo I tried to include the latest development version of the frameworks where possible.
+Currently in the demo: &lt;a href="http://mootools.net"&gt;mootools&lt;/a&gt;, &lt;a href="http://prototypejs.org"&gt;prototype&lt;/a&gt;, &lt;a href="http://jquery.com"&gt;jquery&lt;/a&gt;, &lt;a href="http://extjs.com/"&gt;ext&lt;/a&gt;, &lt;a href="http://dean.edwards.name/my/cssQuery/"&gt;cssQuery&lt;/a&gt; and &lt;a href="http://dojotoolkit.org/"&gt;dojo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So welcome to the battle of the frameworks, and may the best win. Meet &lt;a href="http://mootools.net/slickspeed"&gt;SlickSpeed&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;P.S. We're gonna release SlickSpeed next week, as we need to add a few features.&lt;/del&gt;
+SlickSpeed can now be &lt;a href="http://code.google.com/p/slickspeed/source"&gt;downloaded from googlecode&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And thats all.&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/130263530" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/6/11/selectors-on-fire</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Michelle</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-06-05:5</id>
+    <published>2007-06-05T17:14:00Z</published>
+    <updated>2007-07-01T21:05:28Z</updated>
+    <category term="Tips &amp; Tricks" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/130263531/help-i-dont-know-javascript" rel="alternate" type="text/html" />
+    <title>Help!  I Don't Know JavaScript!</title>
+<summary type="html">&lt;p&gt;For all the interested MooToolers in the making out there, I have compiled a list of resources which should give you everything you need to know to get started in client-side development.&lt;/p&gt;</summary><content type="html">
+            &lt;p&gt;For all the interested MooToolers in the making out there, I have compiled a list of resources which should give you everything you need to know to get started in client-side development.&lt;/p&gt;
+&lt;h4&gt;Tools of the Trade&lt;/h4&gt;
+
+&lt;p&gt;These are the prerequisites of Web development.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.getfirefox.com"&gt;Firefox&lt;/a&gt;:  You’ll want to use Firefox for development.  But you’ll also need to have all the browsers you can manage to install on your machine (and other machines) in order to check cross browser support.&lt;/p&gt;
+
+&lt;h5&gt;Essential Extensions&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.getfirebug.com"&gt;Firebug&lt;/a&gt;: The best plugin ever, Firebug is the difference between bashing your head against the keyboard and knowing what’s going on with the browser.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://addons.mozilla.org/en-US/firefox/addon/60"&gt;Web Developer Toolbar&lt;/a&gt;: Gives you awesome power over websites.  Turn off JavaScript, see it without CSS, disable referrers, enable strict warnings, and more.  The good times never end.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Learning The Basics&lt;/h4&gt;
+
+&lt;p&gt;Don’t let not knowing HTML put you off Web development!&lt;/p&gt;
+
+&lt;h5&gt;How to Create&lt;/h5&gt;
+
+&lt;p&gt;This place is pretty nice.  Not only touching on the gritty details but touches on topics such as semantics and better practices.  A nice human-readable overview.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.howtocreate.co.uk/tutorials/html/basics"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.howtocreate.co.uk/tutorials/css/introduction"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.howtocreate.co.uk/tutorials/javascript/important"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Mozilla Developer Center&lt;/h5&gt;
+
+&lt;p&gt;Probably the most inclusive information available on the Web, especially for developing for Firefox or Mozilla.  This should probably be your main reference guide.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://developer.mozilla.org/en/docs/HTML"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://developer.mozilla.org/en/docs/CSS"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://developer.mozilla.org/en/docs/JavaScript"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Bonus Points: &lt;a href="http://developer.mozilla.org/en/docs/DOM"&gt;DOM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;W3 Schools&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href="http://w3schools.com/ “W3 Schools”"&gt;W3 Schools&lt;/a&gt; is basically just your one-stop-shop for quick reference on the Web technologies.  Much, much, easier to read than the raw spec sheets straight from the &lt;a href="http://w3c.org W3C"&gt;W3C&lt;/a&gt;.  MDC is better, but it’s always a good idea to have a few reference sources to work with.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://w3schools.com/html/default.asp"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://w3schools.com/css/default.asp"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://w3schools.com/js/default.asp"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Microsoft’s Developer Network&lt;/h5&gt;
+
+&lt;p&gt;Don’t let the name throw you off—JScript is the same as JavaScript.  I think Microsoft actually won a usability award or two with this sites.  You should hit this site often during your battles against Internet Explorer.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://msdn2.microsoft.com/en-us/library/aa155093.aspx"&gt;HTML &amp;amp; CSS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://msdn2.microsoft.com/en-us/library/yek4tbz0.aspx"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Other Places&lt;/h5&gt;
+
+&lt;p&gt;The curious can read &lt;a href="http://alistapart.com"&gt;A List Apart&lt;/a&gt; for some inspiration and sly tricks.&lt;/p&gt;
+
+&lt;p&gt;Also note that Mootools works best with a &lt;a href="http://forum.mootools.net/viewtopic.php?id=1964#post-11124"&gt;strict doctype&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4&gt;JavaScript Specific&lt;/h4&gt;
+
+&lt;p&gt;JavaScript, the world’s coolest programming language.  The first thing you have to do to be good at JavaScript is to realize that JavaScript is &lt;strong&gt;nothing&lt;/strong&gt; like &amp;lt;insert your favorite programming language here&amp;gt;.  After you’re done grasping that fact, you’ll want to read some of these tutorials.&lt;/p&gt;
+
+&lt;h5&gt;Learning the Basics&lt;/h5&gt;
+
+&lt;p&gt;Now to the fun bit.  The awesome people at Yahoo uploaded their training session videos to the world in general.  Great deal for us, since learning JavaScript is as easy as spending four hours watching these smart guys talk.&lt;/p&gt;
+
+&lt;h6&gt;The Action-Packed JavaScript Trilogy&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The JavaScript Programming Language
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111593"&gt;Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111594"&gt;Part 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111595"&gt;Part 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111596"&gt;Part 4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Theory of the DOM
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111582"&gt;Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111583"&gt;Part 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111584"&gt;Part 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Advanced JavaScript
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111585"&gt;Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111586"&gt;Part 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111587"&gt;Part 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6&gt;Bonus Points&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=568351"&gt;Nicholas Zakas talks about maintainable code.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://video.yahoo.com/video/play?vid=111597"&gt;Joe Hewitt talks about Firebug.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Going it Alone&lt;/h5&gt;
+
+&lt;p&gt;Once you’re done doing these things, try to Google around a bit until you can write a basic cross-browser AJAX application with a few fun effects in raw JavaScript.  Nothing too fancy, you’ll be throwing it away in a bit.  I think doing this in raw JavaScript on your own will help you appreciate the things that a framework brings to the table, and also understand the underlying mechanics of what’s provided to you.&lt;/p&gt;
+
+&lt;p&gt;You might also find &lt;a href="http://www.b-list.org/weblog/2007/02/16/javascript-knowledge-gap"&gt;The JavaScript Knowledge Gap&lt;/a&gt; an interesting read.&lt;/p&gt;
+
+&lt;h5&gt;Learning By Example&lt;/h5&gt;
+
+&lt;p&gt;If you’re really looking to become a good JavaScript coder, the best way to do so is by looking at examples done by people who understand the craft.  That said, you might want to &lt;a href="http://dev.mootools.net/browser/trunk"&gt;browse the MooTools source&lt;/a&gt; for some inspiration.  Not only will you soak up a lot of good ideas, you’ll also get to know the framework on a more intimate level.  &lt;/p&gt;
+
+&lt;h4&gt;Advancing to the Next Level&lt;/h4&gt;
+
+&lt;p&gt;Then it’s time to download MooTools!  If you’ve honestly done most of the things I’ve listed above, we’d love to have you post your questions on the forum, lurk the IRC room, and contribute to the MooTools community.&lt;/p&gt;
+
+&lt;p&gt;Try downloading the full, unpacked source and using it in your development.  See what happens if you change something.  Try to spot some bugs and submit a few tickets.  Make a few plugins.  Just make sure you include some sort of Moo-related pun in all your plugin names.&lt;/p&gt;
+
+&lt;h4&gt;Stay Tuned&lt;/h4&gt;
+
+&lt;p&gt;Coming up on the blog, all you need to know about debugging and some advanced reading to have you dreaming in Fx.&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/130263531" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/6/5/help-i-dont-know-javascript</feedburner:origLink></entry>
+  <entry xml:base="http://blog.mootools.net/">
+    <author>
+      <name>Valerio</name>
+    </author>
+    <id>tag:blog.mootools.net,2007-06-04:6</id>
+    <published>2007-06-04T10:30:00Z</published>
+    <updated>2007-07-01T21:05:32Z</updated>
+    <category term="Releases" />
+    <link href="http://feeds.feedburner.com/~r/mootools-blog/~3/130263532/mootools-version-1-11-released" rel="alternate" type="text/html" />
+    <title>MooTools version 1.11 released</title>
+<content type="html">
+            &lt;p&gt;Today we released MooTools version 1.11.&lt;/p&gt;
+
+&lt;p&gt;In this release we fixed a bunch of memory leaks issues, as well as some minor bugs around.&lt;/p&gt;
+
+&lt;p&gt;Other than some maintenance, we added the getText and setText Element methods, to help filling HTML Elements, Style tags and Script tags with text, and we added more details to &lt;a href="http://docs.mootools.net/"&gt;the documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is a recommended update for all of you using MooTools 1.1.&lt;/p&gt;
+
+&lt;p&gt;If you want to, you can see &lt;a href="http://dev.mootools.net/wiki/changelog"&gt;the changelog in details&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, go ahead and &lt;a href="http://mootools.net/download"&gt;give it a try&lt;/a&gt;!&lt;/p&gt;
+          &lt;img src="http://feeds.feedburner.com/~r/mootools-blog/~4/130263532" height="1" width="1"/&gt;</content>  <feedburner:origLink>http://blog.mootools.net/2007/6/4/mootools-version-1-11-released</feedburner:origLink></entry>
+</feed>

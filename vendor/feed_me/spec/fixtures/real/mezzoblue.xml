@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" 
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:admin="http://webns.net/mvcb/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+  <channel>
+    <title>Dave Shea's mezzoblue</title>
+    <link>http://mezzoblue.com/</link>
+    <description></description>
+    <dc:language>en-us</dc:language>
+    <dc:creator>dave@shea.net</dc:creator>
+    <dc:rights>Copyright 2008</dc:rights>
+    <dc:date>2008-03-18T15:08:59-08:00</dc:date>
+    <admin:generatorAgent rdf:resource="http://www.movabletype.org/?v=3.35" />
+    <admin:errorReportsTo rdf:resource="mailto:dave@mezzoblue.com"/>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <sy:updateBase>2000-01-01T12:00+00:00</sy:updateBase>
+
+    <item>
+      <title>Mediatyping</title>
+      <link>http://mezzoblue.com/archives/2008/03/18/mediatyping/</link>
+      <description>
+       Just prior to jetting off to Austin last week, I started playing around with a mobile version of this site. While a personal blog is hardly a site that really needs one (unlike, say, an app with a proven mobile...
+      </description>
+      <guid isPermaLink="false">1420@http://mezzoblue.com/</guid>
+      <content:encoded><![CDATA[
+       <p>Just prior to jetting off to Austin last week, I started playing around with a mobile version of this site. While a personal blog is hardly a site that really <em>needs</em> one (unlike, say, an app with a proven mobile user-base like <a href="http://m.twitter.com/">Twitter</a>), I wanted to see what would be involved in re-factoring this design into something more fitting for a mobile environment.</p>
+
+
+<div class="image-holder-left medium">
+<img width="420" height="210" alt="Mezzoblue Mobile" src="http://mezzoblue.com/i/articles/2008/mar/mediatyping.jpg"/>
+</div>
+
+<p>The first step was to create a <a href="http://mezzoblue.com/css/fountain/layout-mobile.css">mobile style sheet</a>. For this I duplicated the CSS file I've already built for large screens, and started stripping out the style that doesn't work so well on a smaller screen. The layout was simplified into a more linear single column, and some elements were re-done to provide a larger target area for a maximum <a href="http://particletree.com/features/visualizing-fittss-law/">Fitts</a> factor, and background images were dropped wherever possible to cut down on bandwidth demands. I tried building something that would work well on more mobile devices than just the iPhone, but given that it's my testing device, it works best on that platform for now.</p>
+
+<p>And while I was at it, I thought hey, why not do a TV style sheet too? I've got a <a href="http://en.wikipedia.org/wiki/Wii">Wii</a>, it's got a <a href="http://www.opera.com/products/devices/nintendo/">great browser</a>, and a low-res TV screen could benefit from the same kind of special attention given a mobile device. So I built <a href="http://mezzoblue.com/css/fountain/layout-tv.css">one of those</a> as well, doing things like increasing font size, increasing border widths, and stretching images to double their original size.</p>
+
+<p>But here's the thing about media-specific style sheets: the browser in question has to support them. Mobile Safari grabs all <code>screen</code> media style sheets, and ignores the <code>handheld</code> media type entirely. So despite good intentions, my efforts were wasted on it. And that's what led me down the road of user agent sniffing...</p>
+
+<p>Okay, let's get this out of the way up front: <a href="http://mezzoblue.com/archives/2007/11/12/detect_this/">user agent sniffing sucks</a>. Devices like the Wii and the iPhone have incredibly capable browsers that can render these sites the same as any desktop browser, so it's reasonable to assume users will want to do so from time to time. (And I suspect that's why Mobile Safari uses <code>screen</code> in the first place.) Forcing a specific version sucks... if done improperly. But when used well, and <em>not mandatory</em> for the user, I think it's not entirely evil. And it leads to other potential improvements beyond what CSS can provide, like selective content serving.</p>
+
+<p>The way to sensibly handle sniffing seemed to lie in providing an out: the mobile and TV versions of the site both have a special header on every page that provides a "regular site" toggle link. Any time someone wants to switch back to the regular site, the link is right there in front of them. And all versions now have toggle links in the footer to switch between different media types; given that I've seen this on multiple mobile sites, it feels like the site's footer is resolving into a standard place for where these type of switches ultimately belong.</p>
+
+<p>To make all this work, I had to bust out the PHP. I'll preface this by saying I'm hardly a proficient coder, so there are bound to be ways to optimize what I'm showing below. I started with a pair of arrays: a list of mobile browser user agent strings, and a second list of TV browsers. The latter is a bit light at the moment, due to my lack of knowledge of what sort of browsers are available for use on TVs. (And that underscores why having a media toggle is useful: if the browser in question isn't flagged by the sniff, the user can manually invoke the TV version.)</p>
+
+
+<pre><code class="php">// ==========================
+// media check
+
+// array of mobile devices
+$userAgentsMobile = array (
+  "Blackberry",
+  "Blazer",
+  "Handspring",
+  "iPhone",
+  "iPod",
+  "Kyocera",
+  "LG",
+  "Motorola",
+  "Nokia",
+  "Palm",
+  "PlayStation Portable",
+  "Samsung",
+  "Smartphone",
+  "SonyEricsson",
+  "Symbian",
+  "WAP",
+  "Windows CE",
+);
+
+// array of tv devices
+$userAgentsTv = array (
+  "Nintendo Wii",
+  "Playstation 3",
+  "WebTV"
+);</code></pre>
+
+<p>Arrays in place, the next step was building a few functions to do things like comparing these arrays with the user's actual user agent string, and setting cookies to make these media types persist. More on the latter in a second.</p>
+
+<pre><code class="php">// this function takes two arguments: an array of user 
+// agents, and a specific user agent.
+// it will then try to see if the specific user agent exists 
+// within the array. If so, it will return true, otherwise 
+// it returns false.
+function checkMediaType($uaList, $uaKnown) {
+	// check user agent string against array
+	// return true if found, or false if not found
+	if(in_array($uaKnown, $uaList)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+// this function takes one argument: a string value that 
+// specifies a media profile. It will then set a cookie in 
+// the user's browser. It returns the media profile value, 
+// to be used as a variable later in the page
+function selectMedia($media) {
+  setcookie ('media', $media, time()+31536000, '/');
+  return $media;
+}</code></pre>
+
+<p>With those functions in place, the code below ended up being the core of my script. In the first major <code>if</code> statement, I'm checking to see whether a cookie is set; the cookie exists to avoid parsing the user agent arrays every single time the site is loaded. I doubt I'm saving that much time if any, given my currently very simple arrays. But I can see them growing over time, so it seems to make sense that this value should persist on the user's end once the user agent has been determined.</p>
+
+<p>But if no cookie is found, then I'm doing the actual sniffing. I check the user agent string against both the mobile and TV arrays, and then act on them if they match one or the other. If neither matches, I default to the screen version of the site.</p>
+
+<pre><code class="php">// show standard screen version by default
+$mediaVersion = "screen";
+
+// toggle media version if cookie is set
+if (isset($_COOKIE["media"])) {
+  if ($_COOKIE["media"] == "mobile") {
+    $mediaVersion = selectMedia("mobile");
+  } elseif ($_COOKIE["media"] == "tv") {
+    $mediaVersion = selectMedia("tv");
+  } elseif ($_COOKIE["media"] == "screen") {
+    $mediaVersion = selectMedia("screen");
+  }
+} else {
+  // if no cookie found, sniff media type then set cookie
+  $knownUserAgent = false;
+	
+  // compare the device arrays against the 
+  // client's user agent
+  $mediaTypeMobile = 
+    checkMediaType($userAgentsMobile, $_SERVER['HTTP_USER_AGENT']);
+  $mediaTypeTV = 
+    checkMediaType($userAgentsTv, $_SERVER['HTTP_USER_AGENT']);
+
+  // if media version is found, set a media type cookie
+  // otherwise flag this browser as screen to save 
+  // time on future loads
+  if ($mediaTypeMobile) {
+    $mediaVersion = selectMedia("mobile");
+  } elseif ($mediaTypeTV) {
+    $mediaVersion = selectMedia("tv");
+  } else {
+    $mediaVersion = selectMedia("screen");
+  }
+}</code></pre>
+
+<p>And then the last step is checking to see whether any of the media toggle links have been selected. If a user is viewing the mobile site and wants to switch over to the regular site, I need to re-set the cookie so their new preference persists. This is all done through simple query strings; the HTTP GET variable being checked for (<code>media</code>) can be invoked simply by adding <code>?media=mobile</code> to the end of a URL or link.</p>
+
+<pre><code class="php">// override media version and set a new cookie 
+// if they have selected a "show {media} site" link
+if ($_GET["media"]) {
+  if ($_GET["media"] == "mobile") {
+    $mediaVersion = selectMedia("mobile");
+  } elseif ($_GET["media"] == "tv") {
+    $mediaVersion = selectMedia("tv");
+  } elseif ($_GET["media"] == "screen") {
+    $mediaVersion = selectMedia("screen");
+  }
+}</code></pre>
+
+<p>Now that the cookie exists and the <var>$mediaVersion</var> variable has a value, I'm all set. Anywhere in the rest of my site, I can use a simple <code>if</code> statement to filter out the specific media version I'm targetting, and selectively show or hide content for it. This is how I'm hiding my header photo from the mobile version, for example (simplified for clarity):</p>
+
+<pre><code class="php">&lt;?php
+  // don't serve this up if we're talking mobile
+  if ($mediaVersion == "screen" || $mediaVersion == "tv")  {
+?&gt;
+  &lt;div id="header-photo"&gt;
+  &lt;img src="/i/photos/&lt;?php 
+    echo $currentPhoto["largephoto"]?&gt;"
+    width="505" height="243" 
+    alt="&lt;?php echo $currentPhoto["description"]?&gt;" /&gt;
+  &lt;/div&gt;
+&lt;?php
+  }
+?&gt;</code></pre>
+
+<p>I put together the entire set of functions and a couple of small demonstrations of selective content into a <a href="http://mezzoblue.com/articles/supplements/2008/03/mobile.html">file</a> you can grab. (<a href="http://mezzoblue.com/articles/supplements/2008/03/">live demo</a>)</p>
+
+<p>And to finish, a couple of highlights from the alternate media versions of this site. The mobile version goes small by stripping out images where appropriate to save on download times; the header photo is gone, avatars on comment pages are gone, and most of the decorative PNGs have been removed or converted to CSS border properties. While the TV version goes big by doubling font size, increasing border widths, stretching the header image to fill the entire horizontal screen width, doubles avatar sizes, and using a higher-resolution version of the site's logo.</p>
+
+<p>Quick caveat: I've only had the opportunity to test the alternate media styles on a limited range of devices, and likely won't any time soon. Device testing is too hard if you don't already have access to a wide range of devices. I tried stripping out some of the more complex CSS tricks like overflow clearing and absolute positioning, so even my Treo doesn't make a horrible mess out of the site, but no guarantees.</p>
+
+<p>And the bonus question: why am I serving up the media versions with media profiles set to <code>all</code>? Simple reason: clicking through and viewing the TV-only version on a computer was seriously ugly, because it ignored the style sheet. As it should. But people will click through anyway, so that was problematic. Simple fix: <code>media="all"</code></p>
+
+<p><ins>Updated</ins> to include iPod Touch.</p>
+<p><ins>Updated</ins> PHP for minor optimizations in response to comments.</p>
+       
+      ]]></content:encoded>
+      <dc:subject>Technology</dc:subject>
+      <dc:date>2008-03-18T15:08:59-08:00</dc:date>
+    </item>
+    <item>
+      <title>Producing</title>
+      <link>http://mezzoblue.com/archives/2008/03/04/producing/</link>
+      <description>
+       So here&apos;s a not-so-hypothetical question I&apos;d like to put out there: as a designer what are the saleable products one might go about creating? I mean products in the sense of re-sellable items that appeal to a mass market, instead...
+      </description>
+      <guid isPermaLink="false">1416@http://mezzoblue.com/</guid>
+      <content:encoded><![CDATA[
+       <p>So here's a not-so-hypothetical question I'd like to put out there: as a <em>designer</em> what are the saleable products one might go about creating?</p>
+
+<p>I mean products in the sense of re-sellable items that appeal to a mass market, instead of services like individual design work sold to a single client. And at the moment I'm biased toward independently produced and sold products. I've been thinking about this question quite a bit lately, as might be evident by the <a href="http://www.mezzoblue.com/icons/chalkwork/">icons</a> I built last year.</p>
+
+<p>It seems like everyone else is building a web application of some sort. While that's becoming a well-trodden path, you can't exactly slap together a few static Photoshop mockups and convince people to put up money. There's a heavy coding requirement that a lot of designers can't handle. Yeah, uber-genius designer + coder types like Shaun Inman can bang out one-man apps like <a href="http://haveamint.com/">Mint</a> in their sleep. And sure, you can always team up with a talented coder and collaborate. But for the purposes of this post, let's put aside those possibilities and focus on strictly that which a visual designer is capable of producing on their own steam.</p>
+
+<p>Here are the few ideas I've managed to scrounge up thus far:</p>
+
+<dl>
+<dt>T-Shirts</dt>
+<dd>
+<p>The big obvious one. With the success of <a href="http://threadless.com/">Threadless</a> there's clearly money in it. People will always need clothes. It's a safe bet. But it's also crowded; it seems like everyone and their dog is selling shirts these days, through <a href="http://cafepress.com/">CafePress</a> or through their own sites.</p>
+<p>Pros: services exist to help you get started, probably a safe choice. Cons: inventory and distribution management, finding an audience. Examples: <a href="https://www.cottyn.com/">Cottyn</a>, <a href="http://www.simplebits.com/shop/">SimpleBits</a> (though it seems to be on hold at the moment).</p>
+</dd>
+
+<dt>Buttons</dt>
+<dd>
+<p>Also a possibility, but buttons seem like less of a product, and more like schwag. I might be under-estimating the draw of well-designed buttons, but my suspicion is that it's hard to retire off selling them.</p>
+<p>Pros &amp; Cons - same as t-Shirts, I'd expect. Examples: <a href="http://www.dsbuttons.com/">DS Buttons</a>, <a href="http://www.el-boton.com/">El Boton</a></p>
+</dd>
+
+<dt>Icons</dt>
+<dd>
+<p>A lot of designers seem to be coming out with their own icon sets lately, and it's for good reason: icons may be the easiest product to get started with. There's no inventory overhead, and they're useful to designers in a way similar to stock photography or type, which both have proven markets. Of course producing <em>good</em> icons is awfully hard to do, so depending on where your talents lie, the barrier to entry might be higher than simply managing overhead.</p>
+<p>Pros: low management overhead. Cons: unlicensed digital files are impossible to control, requires illustration abilities. Examples: <a href="http://iconshoppe.com/">Icon Shoppe</a>, <a href="http://www.iconbuffet.com/">IconBuffet</a>, <a href="http://www.chalkwork.com/">Chalkwork</a></p>
+</dd>
+
+<dt>Stock Photography</dt>
+<dd>
+<p>Not only does this take strong photography skills, which (while related) are quite different from design skills, it strikes me as being fairly hard to do independently.</p>
+<p>Pros: low management overhead. Cons: requires expensive gear, unlicensed digital files are impossible to control, requires photography abilities. Examples: aside from the now Getty-owned <a href="http://istockphoto.com/index.php">iStockPhoto</a> or Corbis-owned <a href="http://veer.com/">Veer</a>, I can't really think of any significant independent stock photography providers. They must exist...</p>
+</dd>
+
+<dt>Typefaces</dt>
+<dd>
+<p>I'll mention this for the sake of completeness, but it's not easy to crack into designing typefaces (or at least designing good ones) without years of prior experience. The few times I've customized type outlines I've been fairly glad it's not my job to do this for a living.</p>
+<p>Pros: proven market. Cons: unlicensed digital files are impossible to control, requires a lot of experience and talent. Examples: <a href="http://www.typography.com/">Hoefler &amp; Frere-Jones</a>, <a href="http://www.ms-studio.com/fontsales.html">Mark Simonson</a></p>
+</dd>
+
+<dt>Re-sellable blog/web site templates</dt>
+<dd>
+<p>Given the quality free themes for blog software, I think it would be rather difficult to put together a premium template and license it. The market has decided what themes cost: nothing. Again listed for the sake of completeness, but someone please point me to a good theme that someone's selling for actual cash money, that's also doing well? I think crickets are chirping.</p>
+</dd>
+</dl>
+
+<p>I've seen some other interesting ideas at places like <a href="http://www.t26.com/illustrations">T.26</a> and their <a href="http://www.t26.com/illustrations/Chopsticks">chopsticks packages</a> designed by Carlos Segura (hat tip: <a href="http://www.zeldman.com/2008/03/03/monday-links/">Zeldman</a>), and moving a little further out, more traditional products at indie designer stores like <a href="http://meomi.com/store.html">Meomi</a> and <a href="http://www.gama-go.com/home.php">Gama-Go</a>.</p>
+
+<p>It seems a bit ironic that moving away from the web and into physical products is the most obvious path for web designers to pursue; I wonder if it's possible to do both? Web-based products? Or at the very least, staying on the digital side as much as possible. I've been enjoying watching Dan Cederholm experiment with both <a href="http://iconshoppe.com/">digital</a> and <a href="http://foamee.com/">web</a> products on top of more traditional <a href="http://www.simplebits.com/shop/">products</a> and <a href="http://www.simplebits.com/publications/">publications</a>, it'll be interesting to see how these various ideas evolve over the next few years.</p>
+
+<p>And as for myself, well I've already mentioned the <a href="http://chalkwork.com/">icons</a>. I'm not getting rich off those, but I've seen a few interesting things happen since launching that I think will encourage me to keep producing new sets for a while. The numbers aren't there yet, but they're promising.</p>
+
+<p>One thing I have learned though is what everyone will always tell you about marketing: it's not enough to have a product, you have to tell people about it, and convince them they want it. So at SXSW this year I've got a whole pile of sheets of icon stickers that I'll be giving away; each sheet features a mixed variety of icon stickery goodness, collect the whole set!</p>
+
+<div class="image-holder-1up">
+<img src="http://mezzoblue.com/i/articles/2008/mar/chalkwork-stickers.jpg" width="500" height="300" alt="Chalkwork sticker sheet preview" />
+<p class="caption"><span class="caption-title">Figure:</span> Preview of Chalkwork icon sticker sheets.</p>
+</div>
+
+<p>Ironic, isn't it? Giving away a physical item to promote a digital product? Welcome to this strange new world the internet's creating.</p>
+
+<p><ins>Update:</ins> I removed the word "web" from the very first sentence of this post because I think it was tainting people's interpretation of what I'm really asking for here. Medium isn't necessarily a factor, so much as existing skillset. If I had to boil down this entire post to a single question, it's this:</p>
+
+<p><em>Hey, I've got these visual design skills, what can I do with them that will result in a product I can sell to people?</em></p>
+
+<p>I realize I also talk about the irony of web designers creating physical products above, but that was meant as more of an aside than the theme of the post. The context of the quoted examples above point to where I'm trying to go with this, and they're mostly design-oriented items, and not specifically web-related.</p>
+       
+      ]]></content:encoded>
+      <dc:subject>Design</dc:subject>
+      <dc:date>2008-03-04T15:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Upcoming</title>
+      <link>http://mezzoblue.com/archives/2008/02/28/upcoming/</link>
+      <description>
+       Ah yes, that unmistakable smell of conference season is in the air. A few places I&apos;ll be making an appearance in coming weeks: SXSW I seriously considered not attending this year. It seems there&apos;s a growing feeling amongst those who...
+      </description>
+      <guid isPermaLink="false">1418@http://mezzoblue.com/</guid>
+      <content:encoded><![CDATA[
+       <p>Ah yes, that unmistakable smell of conference season is in the air. A few places I'll be making an appearance in coming weeks:</p>
+
+<dl>
+<dt><a href="http://sxsw.com/">SXSW</a></dt>
+<dd>
+<p>I seriously considered <a href="http://meyerweb.com/eric/thoughts/2008/02/22/south-bypass/">not attending</a> this year. It seems there's a <a href="http://www.airbagindustries.com/archives/airbag/hampton.php">growing feeling</a> amongst those who have been going for years that this event is getting to be a bit too much to handle, especially with the plethora of other web conferences that have sprung up in the past few years in their more intimate settings.</p>
+ 
+<p>But, I'll be there after all! Paul Hammond invited me to be the "independent contractor" or "designer" or "hardly qualified, but maybe we'll get a few good stories out of him anyway" voice on his panel about <a href="http://2008.sxsw.com/interactive/programming/panels_schedule/?action=show&amp;id=IAP060370">collaboration</a> during web projects. Don't let the web app focus in the title fool you, I don't do nearly enough of those to be that specific about the type of projects I've collaborated with others on; I'll be drawing from the experience I've had plugging myself into established teams, and working with clients directly. With a line up of three super-smart Brits and a talented Aussie, plus the token Canadian, come and see the Commonwealth throw down on Tuesday afternoon.</p>
+
+<p>(And this year I'll be feeling <a href="http://adactio.com/journal/1266?delicious-tag=sxsw">Jeremy's plight</a>, as it's looking increasingly like that room at the Hampton is going to be single occupancy. Sadly, Lauren probably won't make it this year, so if I'm a little distracted during any hallway chatter, it's not you! I promise!)</p>
+</dd>
+
+<dt><a href="http://aneventapart.com/">An Event Apart</a></dt>
+<dd>
+<p>When Jeffrey and Eric asked me to come speak at an earlier event, it pained me that circumstances didn't work out. I have never been to An Event Apart, and I've really really been wanting to go for some time now.</p>
+<p>Happily, the latter part of April was clear for me, and I'll be heading down to join what looks like is going to be a crazy-good <a href="http://aneventapart.com/events/2008/neworleans/#schedule">New Orleans</a> date. My talk, "Living, Breathing Design", will be a look at how web sites change and grow during and after the design process, and how we can choose to add growth into our work. As always, expect lots of design and code talk.</p>
+<p>(psst... and if you haven't registered yet, the magic code is <em>AEADSCSS</em>. It's $50 in your pocket. Use it.)</p>
+</dd>
+</dl>
+
+<p>While I'm at it, a few more things I've been meaning to mention in some capacity or another for a while now (funny how far off the wagon you fall when running a conference of your own):</p>
+
+<dl>
+<dt>Rosenfeld Media's First Book: <a href="http://www.rosenfeldmedia.com/books/mental-models/">Mental Models</a></dt>
+<dd>
+<p>This one is particularly close to my heart as I've been working with Lou for the past few years, and during that time witnessed his publishing company evolve from a concept to reality. We were very privileged to have Indi Young, the author of Mental Models, join us at WDN this year, and <a href="http://www.rosenfeldmedia.com/books/mental-models/content/testimonials/">early reviews</a> have pegged this one as a winner. If you grab a copy, make sure to use the code <em>FOSHEA10</em> for a small discount.</p>
+</dd>
+
+<dt>The Lab with Leo</dt>
+<dd>
+<p>Back in November I went in and did an interview with Leo Laporte, which is now up on <a href="http://video.google.com/videoplay?docid=-6291092183811739596">Google Video</a>. It's just a basic overview of CSS, and like all rapid-fire on-the-spot TV interviews there wasn't much room for nuance and error-correction as we went, so pardon the stalling for time while trying to figure out how to explain things like the history of CSS... Still, I think it came off rather well, for an introduction of a style language to the more general audience who watch the show. (Ian Lloyd, you owe me a beer.)</p>
+</dd>
+</dl>
+       
+      ]]></content:encoded>
+      <dc:subject>Events</dc:subject>
+      <dc:date>2008-02-28T16:29:29-08:00</dc:date>
+    </item>
+    <item>
+      <title>Third Party</title>
+      <link>http://mezzoblue.com/archives/2008/02/26/third_party/</link>
+      <description>
+       Ahead of the possibly-delayed iPhone/iPod Touch Software Development Kit, and the plethora of applications that will undoubtedly ensue, I thought I&apos;d do a quick run-down of some of the more interesting third-party applications that already exist, in an unofficial capacity....
+      </description>
+      <guid isPermaLink="false">1417@http://mezzoblue.com/</guid>
+      <content:encoded><![CDATA[
+       <p>Ahead of the <a href="http://www.businessweek.com/technology/ByteOfTheApple/blog/archives/2008/02/the_iphone_sdk.html">possibly-delayed</a> iPhone/iPod Touch Software Development Kit, and the plethora of applications that will undoubtedly ensue, I thought I'd do a quick run-down of some of the more interesting third-party applications that <em>already</em> exist, in an unofficial capacity.</p>
+
+<p>Since I had to jailbreak my phone in order to get it working outside the four countries where it has been officially launched, it was hardly a stretch to start playing around with the software that's being developed anyway, SDK or no. This could very well end up being a preview of some of the first applications that will be officially available once the SDK is released.</p>
+
+<p>My list below isn't comprehensive by any means; these are just some of the apps I think deserve mention due to their utility or polish. There's a lot of crap to wade through already, so I think it's worth calling out some of the gems. All these are available directly from Installer.app, provided you have also installed Community Sources.</p>
+		
+		
+<div class="image-holder-grid four-up"><div class="wrapper">
+		<a href="http://www.mezzoblue.com/i/articles/2008/feb/apollo-large.jpg">
+			<img src="http://www.mezzoblue.com/i/articles/2008/feb/apollo-sm.jpg" width="113" height="119" alt="Apollo" />
+			<span class="caption">Apollo</span>
+		</a>
+
+		<a href="http://www.mezzoblue.com/i/articles/2008/feb/fivedice-large.jpg">
+			<img src="http://www.mezzoblue.com/i/articles/2008/feb/fivedice-sm.jpg" width="113" height="119" alt="FiveDice" />
+			<span class="caption">FiveDice</span>
+		</a>
+
+		<a href="http://www.mezzoblue.com/i/articles/2008/feb/iano-large.jpg">
+			<img src="http://www.mezzoblue.com/i/articles/2008/feb/iano-sm.jpg" width="113" height="119" alt="iAno" />
+			<span class="caption">iAno</span>
+		</a>
+
+		<a href="http://www.mezzoblue.com/i/articles/2008/feb/imatrix-large.jpg">
+			<img src="http://www.mezzoblue.com/i/articles/2008/feb/imatrix-sm.jpg" width="113" height="119" alt="iMatrix" />
+			<span class="caption">iMatrix</span>
+		</a>
+
+		<a href="http://www.mezzoblue.com/i/articles/2008/feb/isolitaire-large.jpg">
+			<img src="http://www.mezzoblue.com/i/articles/2008/feb/isolitaire-sm.jpg" width="113" height="119" alt="iSolitaire" />
+			<span class="caption">iSolitaire</span>
+		</a>
+
+		<a href="http://www.mezzoblue.com/i/articles/2008/feb/labyrinth-large.jpg">
+			<img src="http://www.mezzoblue.com/i/articles/2008/feb/labyrinth-sm.jpg" width="113" height="119" alt="Labyrinth" />
+			<span class="caption">Labyrinth</span>
+		</a>
+
+		<a href="http://www.mezzoblue.com/i/articles/2008/feb/photoboard-large.jpg">
+			<img src="http://www.mezzoblue.com/i/articles/2008/feb/photoboard-sm.jpg" width="113" height="119" alt="Photoboard" />
+			<span class="caption">Photoboard</span>
+		</a>
+
+		<a href="http://www.mezzoblue.com/i/articles/2008/feb/sketches-large.jpg">
+			<img src="http://www.mezzoblue.com/i/articles/2008/feb/sketches-sm.jpg" width="113" height="119" alt="Sketches" />
+			<span class="caption">Sketches</span>
+		</a>
+</div></div>
+
+
+<p>The images above link to larger screenshots. I just <a href="http://flickr.com/photos/mezzoblue/2289229685/">recently updated</a> to  firmware 1.1.3, and all of the existing iPhone Screenshot utilities don't seem to be working for me anymore. So pardon the grainy photos.</p>
+		
+<h3>Apollo</h3>
+<p>There are a few native IM clients out at the moment, and obviously <a href="http://www.meebo.com/">Meebo</a> works just fine too. But I'm finding none of the native clients thus far are any good, or even good enough. <a href="http://code.google.com/p/apolloim/">Apollo</a> is the one I've been using occasionally when I need IM on my phone, but it still needs a lot of work. Active development stopped back in October, with the developers stating they're focusing on an official version once the SDK is released, so this may turn out to be one of the first official IM clients for the iPhone. Hopefully it will have seen some massive updates in the interim.</p>
+
+<p>Killer feature: IM over EDGE. It's not great for long chat sessions, but damn if it isn't useful to have the ability to ask an IM contact a quick question when out and about. (<a href="http://www.youtube.com/watch?v=3C1m7s31Dxo">Terrible video of Apollo in action</a>)</p>
+
+<h3>FiveDive</h3>
+<p>Just your average <a href="http://www.google.ca/search?q=yahtzee">Yahtzee</a> clone, but polished to a shiny finish. <a href="http://code.google.com/p/5dice/">FiveDice</a> is one of the few games worth having thus far, in my opinion.</p>
+
+<h3>iAno</h3>
+<p>Almost more of a proof of concept than a useful app at this point, iAno is still fun. It's a piano simulator that crams a full octave on screen at once, and can play any note between C3 on the low end and C7 on the high end. What makes iAno stand out is its use of Multi-touch; chords are possible, you can play three notes at the same time. Here's a video of <a href="http://www.youtube.com/watch?v=ycIjt-ykWRo">iAno in action</a>, and you've probably already seen it on the top phone in the <a href="http://www.youtube.com/watch?v=Mh0VX74alwk">iBand video</a> going around recently. If they end up adding a sequencer to the app, I'd expect to start seeing rather a lot of iPhone-generated music in the future.</p>
+
+<h3>iMatrix</h3>
+<p>My screenshot above is mostly useless, as the entire point of <a href="http://www.imatrix.lt/default.aspx?page=about">iMatrix</a> is what the iPhone's camera sees and I wasn't able to demo that. What it does is two-fold.</p>
+
+<p>First, if you happen to run across a <a href="http://en.wikipedia.org/wiki/QR_Code">QR Code</a> or other 2D code, you take a quick snapshot of it with the phone. Then iMatrix will process the data contained within, and automatically (with your permission) use the data to open a URL in Safari, add a contact to your address book, dial a phone number, or a few other actions.</p>
+
+<p>Second, it's able to generate 2D codes on the screen of the phone that can be read with scanners. Some of the applications this opens up: virtual ticketing, coupons, identifaction, and other purposes where simple authentication or data exchange is useful.</p>
+
+<p>The idea of 2D codes isn't unique to this application by any means, they've been around for over a decade. They're not common in North America yet, but given time and more devices that are able to process them, it seems like momentum's building. They may be as common as URLs in a few years. Here's a poorly-narrated video of <a href="http://www.youtube.com/watch?v=7hSSzkeQD7k">iMatrix contact exchange in action</a>.</p>
+		
+<h3>iSolitaire</h3>
+<p>I don't really need to describe Solitaire, do I? This particular <a href="http://iphone.rustyredwagon.com/">version</a> just happens to look great, and makes fine use of the touch screen for dragging cards around. If it's not one of the first official solitaire apps, I'll be very surprised.</p>
+
+<h3>Labyrinth</h3>
+<p>You know the classic <a href="http://www.otherlandtoys.co.uk/labyrinth500.jpg">wooden labyrinth</a> puzzles? Yeah, it's just like those. Using the accelerometer, <a href="http://labyrinth.codify.se/video.html">Labyrinth</a> has you tilt the entire phone to guide the ball into the hole. It  makes for a great demo of what having accelerometers in these devices can get you. Unlike most of the other apps in this list, Labyrinth is a demo; there's a full version available for purchase. The iPhone software market has already begun.</p>
+
+<h3>Photoboard</h3>
+<p>Remember that wow feeling after watching <a href="http://www.ted.com/index.php/talks/view/id/65">Jeff Han's TED demo</a> of a multi touch interface a few years back? Photoboard brings a bit of that to the iPhone/iPod Touch with its rotation and zoom ability. It's a fairly simple toy at this point, akin to a basic lightboard for photos. You pull in photos from your device's library and then use two fingers to rotate them, pinch zoom in and out, and layer them on the screen. It's cramped on the small screen, doesn't save your setup when exiting, and isn't really altogether useful yet, but it's a great tech demo and shows promise for what might be possible in the future. Here's a video of <a href="http://www.youtube.com/watch?v=PBzb1pIN05M">Photoboard in use.</a>
+
+<h3>Sketches</h3>
+<p>A basic note-taking and sketching app, <a href="http://sketchesapp.com/Home.html">Sketches</a> has a few basic drawing tools that turn your finger into a pencil. You can import photos from your library or the iPhone's camera and use them as a canvas, save your creations, email them, etc. Given the limitations of using your finger as an imprecise stylus, this feels like the perfect mix of basic utility without going too far into more advanced and harder to use features. There may be apps in the future that allow more complex image editing on the iPhone, but right now this seems like the furthest you'd <em>want</em> to go.</p> 
+
+<p>Plus, to erase the image? You just shake the device. How cool is that? There's a reason the icon looks like an Etch-a-Sketch. Here's a video about using <a href="http://www.youtube.com/watch?v=z_8ua0YVlB8">Sketches' tools</a>.
+
+
+<h3>Others</h3>
+<p>This is just scratching the surface; it seems like every week there are a handful of new ones worth keeping. A few more notable applications:</p>
+
+<dl>
+	<dt>Categories</dt>
+	<dd>This is a recent discovery; it allows for folder/group creation on the iPhone/iPod's home screen. You choose an icon for the folder, then drag a few apps into it. To get at them later from the home screen, you tap the group, then a new menu pops up with those icons. Pretty much as you'd expect.</dd>
+
+	<dt>weDict</dt>
+	<dd>A reusable dictionary/lookup app. If I get it, and I'm not 100% sure I do, you plug in various installable dictionaries, and then use the application to search them. Right now I have French &gt; English and English &gt; French dictionaries, and if I look up "neige" it tells me that the French &gt; English dictionary thinks that word means "snow".</dd>
+
+	<dt>Books</dt>
+	<dd>A basic eBook reader. It's ugly, but it works. I've seen some public domain titles available for install, and a few newer CC-licensed works, like Cory Doctorow's books.</dd>
+
+	<dt>Evolution RGB</dt>
+	<dd>This is a little toy/game thing that doesn't make any sense at all when it first loads. In a nutshell, you have pre-defined elements like fire, water, plant, clay etc. You draw them onto the screen, then watch water interact with fire, fire interact with plant, etc. It's generative like the old-school evolution game from decades past, and setting up some opposing elements and watching them interact can be vaguely hypnotic. This is the best <a href="http://www.youtube.com/watch?v=ztujpEztZh4">video</a> I could find that demonstrates how it works. It won't win any beauty contests, but it's really worth taking a look.</dd>
+
+	<dt>NES, gpSPhone, Frotz, ScummVM</dt>
+	<dd>Various emulators for games past, of varying and questionable legitimacy. In order: <a href="http://www.youtube.com/watch?v=LVh429Dp7r0">Nintendo Entertainment System</a>, <a href="http://www.youtube.com/watch?v=-rCVfUbqZ-8">Game Boy Advance</a>, Infocom text adventure games like Zork, and the LucasArts Scumm system that powered classics like <a href="http://www.youtube.com/watch?v=V21ejSiNunc&feature=related">Monkey Island</a> and <a href="http://www.youtube.com/watch?v=V2ZVQ_5tolQ">Day of the Tentacle</a>. (I say "questionable legitimacy" because the practice of emulting ROMs is kind of a <a href="http://en.wikipedia.org/wiki/ROM_image#Legal_status_of_ROMs">legal grey area</a>.)</dd>
+
+	<dt>VNotes</dt>
+	<dd>A simple audio recorder that uses the iPhone's built-in mic. Something that ought to be officially available sooner or later, but isn't yet.</dd>
+</dl>
+
+<p><ins>Update:</ins> And it figures that as soon as I hit publish, I discovered that firmware 1.1.4 came out today. Not sure yet what it changes, if anything.</p>
+       
+      ]]></content:encoded>
+      <dc:subject>Technology</dc:subject>
+      <dc:date>2008-02-26T13:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>8 + 2 = &amp;#x263A;</title>
+      <link>http://mezzoblue.com/archives/2007/12/19/8_2_x2/</link>
+      <description>
+       Christmas came early: Internet Explorer 8 passes Acid2.
+      </description>
+      <guid isPermaLink="false">1415@http://mezzoblue.com/</guid>
+      <content:encoded><![CDATA[
+       <p>Okay, I lied. One more for 2007, but only because this is an early Christmas present from Microsoft, and when was the last time you got one of those?</p>
+
+<div class="image-holder-left medium">
+<img width="420" height="210" alt="Acid2 + IE8 = Smily Face" src="http://mezzoblue.com/i/articles/2007/dec19-ie8-acid2.jpg"/>
+</div>
+
+<p><a href="http://blogs.msdn.com/ie/archive/2007/12/19/internet-explorer-8-and-acid2-a-milestone.aspx">Internet Explorer 8 passes Acid2</a>.</p>
+
+<p>For as <a href="http://www.mezzoblue.com/archives/2005/07/28/ie7_css_upda/">much crap</a> as I've given the IE team over the years, I have to say I'm really happy with the path they're on after reading this today. Rendering the Acid2 test correctly is a huge leap forward ("<a href="http://blogs.msdn.com/ie/archive/2007/12/19/internet-explorer-8-and-acid2-a-milestone.aspx#6810394">IE8 Standards Mode</a>" or not).</p>
+
+<p>Last year, IE7 wasn't nearly the big expansive update I'd have hoped, but the improvements they made <a href="http://www.mezzoblue.com/archives/2006/03/23/ie7_details/">hit all the right notes</a> for me at the time. They seemed genuinely concerned about the problems that made our lives harder, and took steps to correct them. And testing against IE7 has been more good than bad; it's rare to get something working in Firefox and Safari that blows up in IE7. At most a few glitches here and there have required a bit of fixing, but nothing that has sucked away an entire afternoon like certain other past versions. (Now if they could just make IE6 go away once and for all, then we'd really be on to something...)</p>
+
+<p>Using the past updates as a starting point and extrapolating, I've been cautiously optimistic that IE8 would deliver much more of the same. The lack of news hadn't really been bugging me until I realized a few months ago that, oh yeah, they <em>have</em> been pretty silent lately haven't they? No doubt last week's legal proceedings have something to do with the timing, but today I think we're seeing the first signs of what I'd been hoping, and the associated <a href="http://channel9.msdn.com/showpost.aspx?postid=367207">video</a> suggests there's more to be revealed.</p>
+
+<p>Obviously Acid2 is just one test, and there are other technologies that will become more and more relevant in the coming years. HTML5, CSS3, and SVG come to mind. But for the first reveal of what we can expect from the new browser, this is a welcome start.</p>
+       
+      ]]></content:encoded>
+      <dc:subject></dc:subject>
+      <dc:date>2007-12-19T15:12:23-08:00</dc:date>
+    </item>
+
+
+  </channel>
+</rss>

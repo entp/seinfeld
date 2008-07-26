@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Test feed</title>
+	<subtitle>Monkey test feed</subtitle>
+	<link href="http://imaginary.host/posts.atom" rel="self"/>
+	<link href="http://imaginary.host/posts" rel="alternate"/>
+	<id>tag:imaginary.host:nyheter</id>
+	<updated>2008-03-07T20:41:10Z</updated>
+	<generator>Roll your own</generator>
+	<author>
+		<name>Frank</name>
+		<uri>http://imaginary.host/students/frank</uri>
+		<email>frank@imaginary.host</email>
+	</author>
+	<entry>
+		<title>First title</title>
+		<link rel="alternate" href="http://imaginary.host/posts/3"/>
+		<id>tag:imaginary.host,2008-03-07:nyheter/3</id>
+		<updated>2008-03-07T20:41:10Z</updated>
+		<author>
+			<name>Jonas Nicklas</name>
+			<uri>http://imaginary.host/students/jnicklas</uri>
+			<email>jonas.nicklas@imaginary.host</email>
+		</author>
+		<content type="html">Here be content</content>
+	</entry>
+	<entry>
+		<title>Another title with no author</title>
+		<link rel="alternate" href="http://imaginary.host/posts/2"/>
+		<id>tag:imaginary.host,2008-03-07:nyheter/2</id>
+		<updated>2008-03-07T20:40:58Z</updated>
+		<content type="html">Moar content!</content>
+	</entry>
+	<entry>
+		<title>Third title with source</title>
+		<link rel="alternate" href="http://imaginary.host/posts/1"/>
+		<id>tag:imaginary.host,2008-03-07:nyheter/1</id>
+		<updated>2008-03-07T20:40:44Z</updated>
+		<author>
+			<name>Jonas Nicklas</name>
+			<uri>http://imaginary.host/students/jnicklas</uri>
+			<email>jonas.nicklas@imaginary.host</email>
+		</author>
+		<content type="html">Also Content!</content>
+	</entry>
+</feed>

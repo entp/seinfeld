@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:media="http://search.yahoo.com/mrss"
+	>
+
+<channel>
+	<title>Gem Install That</title>
+	<atom:link href="http://geminstallthat.wordpress.com/feed/" rel="self" type="application/rss+xml" />
+	<link>http://geminstallthat.wordpress.com</link>
+	<description>Ruby on Rails Geek Blog</description>
+	<pubDate>Mon, 07 Apr 2008 02:45:35 +0000</pubDate>
+	<generator>http://wordpress.org/?v=MU</generator>
+	<language>en</language>
+		
+		
+	<item>
+		<title>MySQL column defaults ActiveRecord::SchemaDumper</title>
+		<link>http://geminstallthat.wordpress.com/2008/02/26/mysql-column-defaults-activerecordschemadumper/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/02/26/mysql-column-defaults-activerecordschemadumper/#comments</comments>
+		<pubDate>Tue, 26 Feb 2008 20:42:39 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[ActiveRecord]]></category>
+
+		<category><![CDATA[Database]]></category>
+
+		<category><![CDATA[MySQL]]></category>
+
+		<category><![CDATA[Rails]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/?p=32</guid>
+		
+				
+			<description><![CDATA[ActiveRecord::SchemaDumper will use empty strings as the default value for a column marked as NOT NULL, in MySQL versions &#60; 5.0.51.  This behavior recently changed; defaulting to null (nil).  This caused our specs to fail for various reasons.  Something to keep in mind when upgrading.  We had been coding to a MySQL bug.
+       ]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p><span class="Apple-style-span" style="font-family:'Lucida Grande';font-size:14px;line-height:19px;"><span style="font-style:italic;" class="Apple-style-span">ActiveRecord::SchemaDumper</span> will use empty strings as the default value for a column marked as <span class="Apple-style-span" style="font-weight:bold;">NOT NULL</span>, in <a href="http://mysql.com"><span class="Apple-style-span" style="font-weight:bold;">MySQL</span> </a>versions &lt; 5.0.51.  This behavior <span class="Apple-style-span" style="font-weight:bold;"><a href="http://bugs.mysql.com/bug.php?id=27747">recently changed</a>; </span>defaulting to null (nil).  This caused our <a href="http://rspec.info/"><span class="Apple-style-span" style="font-weight:bold;">specs</span></a> to fail for various reasons.  Something to keep in mind when upgrading.  We had been coding to a <a href="http://mysql.com"><span class="Apple-style-span" style="text-decoration:none;"><span class="Apple-style-span" style="font-weight:bold;">MySQL</span></span></a> bug.</span></p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/32/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/32/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/32/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/32/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/32/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/32/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/32/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/32/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/32/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/32/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/32/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/32/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=32&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/02/26/mysql-column-defaults-activerecordschemadumper/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Run Rake Tasks with Delayed Job</title>
+		<link>http://geminstallthat.wordpress.com/2008/02/25/run-rake-tasks-with-delayedjob-dj/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/02/25/run-rake-tasks-with-delayedjob-dj/#comments</comments>
+		<pubDate>Tue, 26 Feb 2008 03:37:51 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[Code]]></category>
+
+		<category><![CDATA[Delayed::Job]]></category>
+
+		<category><![CDATA[Example]]></category>
+
+		<category><![CDATA[Rails]]></category>
+
+		<category><![CDATA[Rake]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/?p=31</guid>
+		
+				
+			<description><![CDATA[We needed to execute a Rake Task in the background, when a particular event occurred in Rails.  We decided to give Delayed::Job aka DJ a shot.  This &#8220;decorator&#8221; will execute a Rake task, while optionally passing ENV variables to the task.
+       ]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p>We needed to execute a <a href="http://rake.rubyforge.org/"><span style="font-weight:bold;" class="Apple-style-span">Rake</span></a> Task in the background, when a particular event occurred in Rails.  We decided to give<span style="font-weight:bold;" class="Apple-style-span"> </span><a href="http://github.com/tobi/delayed_job/tree/master"><span style="font-weight:bold;" class="Apple-style-span">Delayed::Job</span></a> aka <a href="http://github.com/tobi/delayed_job/tree/master"><span style="font-weight:bold;" class="Apple-style-span">DJ</span></a> a shot.  <a href="http://pastie.caboo.se/157390"><span style="font-weight:bold;" class="Apple-style-span">This &#8220;decorator&#8221; will execute a Rake task, while optionally passing ENV variables to the task</span></a>.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/31/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/31/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/31/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/31/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/31/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/31/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/31/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/31/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/31/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/31/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/31/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/31/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=31&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/02/25/run-rake-tasks-with-delayedjob-dj/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Execute a Rake task from another task</title>
+		<link>http://geminstallthat.wordpress.com/2008/02/18/execute-a-rake-task-from-another-task/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/02/18/execute-a-rake-task-from-another-task/#comments</comments>
+		<pubDate>Tue, 19 Feb 2008 00:00:57 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[Example]]></category>
+
+		<category><![CDATA[Rake]]></category>
+
+		<category><![CDATA[Ruby]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/?p=29</guid>
+		
+				
+			<description><![CDATA[Executing a Rake task from inside another Rake task is a nice addition to your toolshed.  Passing parameters to the Rake task is even cooler.  &#8217;Rake::Task["TaskName"].execute&#8217; and &#8216;Rake::Task["TaskName"].invoke&#8216; to the rescue.  A Rakefile that demonstrates the execution of a task with parameter passing.
+       ]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Executing a <a href="http://rake.rubyforge.org/"><span style="font-weight:bold;" class="Apple-style-span">Rake</span></a> task from inside another <a href="http://rake.rubyforge.org/"><span style="font-weight:bold;" class="Apple-style-span">Rake</span></a> task is a nice addition to your toolshed.  <span style="font-weight:bold;" class="Apple-style-span">Passing parameters</span> to the <a href="http://rake.rubyforge.org/"><span style="font-weight:bold;" class="Apple-style-span">Rake</span></a> task is even cooler.  &#8217;<span style="font-style:italic;" class="Apple-style-span">Rake::Task["TaskName"].execut</span>e&#8217; and &#8216;<span style="font-style:italic;" class="Apple-style-span">Rake::Task["TaskName"].invoke</span>&#8216; to the rescue.  <a href="http://pastie.caboo.se/pastes/153991"><span style="font-weight:bold;" class="Apple-style-span">A Rakefile that demonstrates the execution of a task with parameter passing</span></a>.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/29/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/29/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/29/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/29/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/29/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/29/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/29/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/29/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/29/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/29/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/29/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/29/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=29&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/02/18/execute-a-rake-task-from-another-task/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Run a Capistrano task on a single server in a given role</title>
+		<link>http://geminstallthat.wordpress.com/2008/02/07/run-a-capistrano-task-on-a-single-server-in-a-given-role/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/02/07/run-a-capistrano-task-on-a-single-server-in-a-given-role/#comments</comments>
+		<pubDate>Fri, 08 Feb 2008 05:51:16 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[Code]]></category>
+
+		<category><![CDATA[Command Line]]></category>
+
+		<category><![CDATA[Deployment]]></category>
+
+		<category><![CDATA[Monkey Patch]]></category>
+
+		<category><![CDATA[capistrano]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/?p=28</guid>
+		
+				
+			<description><![CDATA[There are times I want to run a Capistrano task on a single server, rather than every system in the role.  Adding this monkey patch to deploy.rb adds this functionality.  To utilize this feature append &#8217;server=IP_ADDRESS&#8217; to the Cap command.  Tasks are defined to run on particular role(s), this feature will target [...]]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p>There are times I want to run a <strong><a href="http://capify.org/">Capistrano</a></strong> task on a single server, rather than every system in the role.  <strong><a href="http://pastie.caboo.se/149129"><span style="text-decoration:line-through;">Adding this monkey patch to deploy.rb</span></a></strong><span style="text-decoration:line-through;"> adds this functionality.  To utilize this feature append </span><em><span style="text-decoration:line-through;">&#8217;server=IP_ADDRESS&#8217;</span></em><span style="text-decoration:line-through;"> to the </span><strong><span style="text-decoration:line-through;">Cap</span></strong><span style="text-decoration:line-through;"> command.  Tasks are defined to run on particular role(s), this feature will target the server inside a particular tasks role.  It will not execute a task on an arbitrary server.</span>  <strong><a rel="external nofollow" href="http://cj.kihlbom.se/">CJ Kihlbom </a><span style="font-weight:normal;">filled me in and stated this can be accomplished with `cap deploy HOSTS=IP_ADDRESS`.  See his comments attached to this post.</span></strong></p>
+<form action="http://geminstallthat.wordpress.com/wp-comments-post.php" method="post"></form>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/28/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/28/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/28/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/28/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/28/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/28/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/28/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/28/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/28/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/28/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/28/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/28/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=28&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/02/07/run-a-capistrano-task-on-a-single-server-in-a-given-role/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Rake tasks :through Capistrano</title>
+		<link>http://geminstallthat.wordpress.com/2008/01/27/rake-tasks-through-capistrano/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/01/27/rake-tasks-through-capistrano/#comments</comments>
+		<pubDate>Mon, 28 Jan 2008 00:37:06 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[Example]]></category>
+
+		<category><![CDATA[Rake]]></category>
+
+		<category><![CDATA[capistrano]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/?p=27</guid>
+		
+				
+			<description><![CDATA[Executing Rake tasks on host(s) through Capistrano is nothing new, and there are quite a few ways to do it.   Some of the configurations out there, use a common Capistrano task to execute all Rake tasks.  This works quite well, but you run into problems when scoping tasks to specific roles.  [...]]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Executing <a href="http://rake.rubyforge.org/"><span class="Apple-style-span" style="font-weight:bold;">Rake</span></a> tasks on host(s) through <a href="http://capify.org/"><span class="Apple-style-span" style="font-weight:bold;">Capistrano</span></a> is nothing new, and there are quite a few ways to do it.   Some of the configurations out there, use a common <a href="http://capify.org/"><span class="Apple-style-span" style="font-weight:bold;">Capistrano</span></a> task to execute all <a href="http://rake.rubyforge.org/"><span class="Apple-style-span" style="font-weight:bold;">Rake</span></a> tasks.  This works quite well, but you run into <span style="font-weight:bold;" class="Apple-style-span">problems</span> when scoping tasks to specific roles.  The common <a href="http://rake.rubyforge.org/"><span class="Apple-style-span" style="font-weight:bold;">Rake</span></a> exec task is not scoped to a specific role (because it could run any task on any given role), so if you call it from a <a href="http://capify.org/"><span class="Apple-style-span" style="font-weight:bold;">Cap</span></a> task scoped to :db, it will still execute across all roles.</p>
+<p>This was corrected by creating a <a href="http://pastie.caboo.se/143948"><span style="font-weight:bold;" class="Apple-style-span">Rake exec method</span></a> instead of a <a href="http://capify.org/"><span class="Apple-style-span" style="font-weight:bold;">Cap</span></a> task.  The method can pass any arbitrary variables and/or <span class="Apple-style-span" style="font-weight:bold;">Rakefile</span> to <a href="http://rake.rubyforge.org/"><span class="Apple-style-span" style="font-weight:bold;">Rake</span></a>.<a href="http://pastie.caboo.se/143950"><span style="font-weight:bold;" class="Apple-style-span">An example Capistrano task</span></a>, displays it&#8217;s usage.  There are a few <a href="http://capify.org/"><span class="Apple-style-span" style="font-weight:bold;">Cap</span></a> variables already set, such as rake and rails_env.  Using the rakefile variable allows the execution of a specific <span class="Apple-style-span" style="font-weight:bold;">Rakefile</span>, which comes in handy when wanting to ignore the Rails <span class="Apple-style-span" style="font-weight:bold;">Rakefile</span>.</p>
+<p>Why ignore the <a href="http://rubyonrails.org/"><span class="Apple-style-span" style="font-weight:bold;">Rails</span></a> <span class="Apple-style-span" style="font-weight:bold;">Rakefile</span>?  In our configuration the <span class="Apple-style-span" style="font-weight:bold;">Rakefile</span> loads environment.rb, which sets the load_paths to our custom <span class="Apple-style-span" style="font-weight:bold;">rubygems</span> path - that means loading <a href="http://rubyonrails.org/"><span class="Apple-style-span" style="font-weight:bold;">Rails</span></a>!  What happens when <a href="http://rubyonrails.org/"><span class="Apple-style-span" style="font-weight:bold;">Rails</span></a> is <span class="Apple-style-span" style="font-weight:bold;">not</span> installed, and you need a bootstrap task.  The ability to pass in a <span class="Apple-style-span" style="font-weight:bold;">Rakefile</span> all of the sudden becomes useful.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/27/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/27/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/27/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=27&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/01/27/rake-tasks-through-capistrano/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Multi-App Mongrel Cluster Init Script</title>
+		<link>http://geminstallthat.wordpress.com/2008/01/22/multi-app-mongrel-cluster-init-script/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/01/22/multi-app-mongrel-cluster-init-script/#comments</comments>
+		<pubDate>Wed, 23 Jan 2008 01:34:44 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[Deployment]]></category>
+
+		<category><![CDATA[Mongrel]]></category>
+
+		<category><![CDATA[Rails]]></category>
+
+		<category><![CDATA[capistrano]]></category>
+
+		<category><![CDATA[configuration]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/2008/01/22/multi-app-mongrel-cluster-init-script/</guid>
+		
+				
+			<description><![CDATA[I found the mongrel_cluster.sh script, everyone uses &#8212; doesn&#8217;t quite cut it.   Especially, when a system may host several RoR applications.  Why, you ask?  The ability to easily control, and dynamically discover applications is missing.  In most cases, this doesn&#8217;t matter.  Especially when the applications are deployed with Capistrano, since it is leveraged for various tasks (including [...]]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p>I found the <span style="font-weight:bold;" class="Apple-style-span">mongrel_cluster.sh</span> script, everyone uses &#8212; doesn&#8217;t quite cut it.   Especially, when a system may host several RoR applications.  <span style="font-weight:bold;" class="Apple-style-span">Why, you ask?</span>  The ability to <span style="font-weight:bold;" class="Apple-style-span">easily control</span>, and <span style="font-weight:bold;" class="Apple-style-span">dynamically discover applications</span> is missing.  In most cases, this doesn&#8217;t matter.  Especially when the applications are deployed with <a href="http://www.capify.org/"><span style="font-weight:bold;" class="Apple-style-span">Capistrano</span></a>, since it is leveraged for various tasks (including stop, starts, and restarts).</p>
+<p>The <a href="http://en.wikipedia.org/wiki/System_admin"><span style="font-weight:bold;" class="Apple-style-span">SAs</span></a> on the other hand, usually do not use <a href="http://www.capify.org/"><span style="font-weight:bold;" class="Apple-style-span">Capistrano</span></a> (they should!), or have a recent version of the app checked out.  Having a standard init script across all your applications and servers becomes useful.</p>
+<p>You get bonus points for dynamically discovering new application installs.We can make certain assumptions in our environment.</p>
+<p>We use <a href="http://www.capify.org/"><span style="font-weight:bold;" class="Apple-style-span">Capistrano</span></a>, apps run as the same user,  live under the same base directory, and link to common Subversion <a href="http://rake.rubyforge.org/"><span style="font-weight:bold;" class="Apple-style-span">Rake</span></a> tasks.  That enables the use of a generic <a href="http://rake.rubyforge.org/"><span style="font-weight:bold;" class="Apple-style-span">Rake</span></a> task <a href="http://pastie.caboo.se/167187"><span class="Apple-style-span" style="font-weight:bold;">to control all RoR applications</span></a>. Furthermore, the <a href="http://rake.rubyforge.org/"><span class="Apple-style-span" style="font-weight:bold;">Rake</span></a> task can be wrapped by a system <a href="http://pastie.caboo.se/167184"><span class="Apple-style-span" style="font-weight:bold;">init script</span></a> for use under /etc/init.d/.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/25/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/25/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/25/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/25/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/25/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/25/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/25/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/25/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/25/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/25/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/25/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/25/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=25&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/01/22/multi-app-mongrel-cluster-init-script/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Patching Sake for hidden tasks</title>
+		<link>http://geminstallthat.wordpress.com/2008/01/18/patching-sake-for-hidden-tasks/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/01/18/patching-sake-for-hidden-tasks/#comments</comments>
+		<pubDate>Sat, 19 Jan 2008 01:05:15 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[Rake]]></category>
+
+		<category><![CDATA[Sake]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/2008/01/18/patching-sake-for-hidden-tasks/</guid>
+		
+				
+			<description><![CDATA[Rake will &#8220;hide&#8221; tasks from &#8216;rake -T&#8217; when a description is missing from an associated task. This behavior is was missing from Sake until today.  I recently submitted a patch to Sake, which Chris applied to version (1.0.12).
+To display all installed tasks, run &#8217;sake -Tv&#8217;, otherwise Sake will hide tasks without a description.
+       ]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p><a href="http://rake.rubyforge.org/"><span class="Apple-style-span" style="font-weight:bold;">Rake</span></a> will &#8220;<span class="Apple-style-span" style="font-weight:bold;">hide</span>&#8221; tasks from &#8216;rake -T&#8217; when a description is missing from an associated task. This behavior <span class="Apple-style-span" style="text-decoration:line-through;">is</span> was missing from <a href="http://errtheblog.com/posts/60-sake-bomb"><span class="Apple-style-span" style="font-weight:bold;">Sake</span></a> until today.  I recently submitted a patch to <a href="http://errtheblog.com/posts/60-sake-bomb"><span class="Apple-style-span" style="font-weight:bold;">Sake</span></a>, which Chris applied to version (1.0.12).</p>
+<p>To display all installed tasks, run &#8217;sake -Tv&#8217;, otherwise <a href="http://errtheblog.com/posts/60-sake-bomb"><span class="Apple-style-span" style="font-weight:bold;">Sake</span></a> will hide tasks without a description.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/23/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/23/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/23/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/23/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/23/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/23/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/23/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/23/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/23/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/23/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/23/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/23/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=23&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/01/18/patching-sake-for-hidden-tasks/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Use ActiveResource to Consume Simple Objects Over REST</title>
+		<link>http://geminstallthat.wordpress.com/2008/01/16/use-activeresource-to-consume-any-object-over-rest/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/01/16/use-activeresource-to-consume-any-object-over-rest/#comments</comments>
+		<pubDate>Thu, 17 Jan 2008 06:43:44 +0000</pubDate>
+		<dc:creator>reidmix</dc:creator>
+		
+		<category><![CDATA[ActiveResource]]></category>
+
+		<category><![CDATA[Code]]></category>
+
+		<category><![CDATA[Example]]></category>
+
+		<category><![CDATA[Rails]]></category>
+
+		<category><![CDATA[REST]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/2008/01/16/use-activeresource-to-consume-any-object-over-rest/</guid>
+		
+				
+			<description><![CDATA[I&#8217;m sure that many organizations have services available via REST that are not produced by Rails and do not follow Rails conventions.  That doesn&#8217;t mean you have to write your own client.  For simple objects, use ActiveResource.
+To take advantage of ActiveResource in this way use the ActiveResource::Base#find method. You need to find(:all), find(:first), [...]]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p>I&#8217;m sure that many organizations have services available via REST that are not produced by Rails and do not follow Rails conventions.  That doesn&#8217;t mean you have to write your own client.  For simple objects, use ActiveResource.</p>
+<p>To take advantage of ActiveResource in this way use the <b>ActiveResource::Base#find</b> method. You need to <b>find(:all)</b>, <b>find(:first)</b>, or <b>find(:one)</b> but you need to pass a string of the path to the :from option along with any <b>:params</b> you need.  If you pass a symbol as the <b>:from</b> option, this will not work and will employ all of the the <b>ActiveResource::Base</b> mechanics. A string will bypass this, for example:</p>
+<pre name="code" class="ruby">
+
+class RestClient &lt; ActiveResource::Base
+  self.site = &quot;http://java-based-service.company.com&quot;
+
+  def self.invoke(params = {})
+    find(:one, :from =&gt; &quot;/nonconventional/path/to/rest/service/&quot;, :params =&gt; params)
+  end
+end
+
+object = RestClient.invoke(:irregular_id =&gt; 10) #=&gt; service returns &lt;data&gt;&lt;name&gt;reid&lt;/name&gt;&lt;role&gt;blogger&lt;/role&gt;&lt;/data&gt;
+object.name #=&gt; reid
+object.role #=&gt; blogger
+</pre>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/24/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/24/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/24/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/24/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/24/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/24/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/24/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/24/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/24/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/24/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/24/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/24/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=24&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/01/16/use-activeresource-to-consume-any-object-over-rest/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/reidmix-128.jpg" medium="image">
+			<media:title type="html">reidmix</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Advanced Rails Recipes Contribution</title>
+		<link>http://geminstallthat.wordpress.com/2008/01/06/advanced-rails-recipes-contribution/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/01/06/advanced-rails-recipes-contribution/#comments</comments>
+		<pubDate>Sun, 06 Jan 2008 22:40:05 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[capistrano]]></category>
+
+		<category><![CDATA[configuration]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/2008/01/06/advanced-rails-recipes-contribution/</guid>
+		
+				
+			<description><![CDATA[Giles and I had our contributions selected for the upcoming Advanced Rais Recipes Book &#8211; pretty cool!
+
+ 
+       ]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p><a href="http://gilesbowkett.blogspot.com/"><span style="font-weight:bold;" class="Apple-style-span">Giles</span></a> and I had our contributions selected for the upcoming <a href="http://pragprog.com/titles/fr_arr"><span class="Apple-style-span" style="font-weight:bold;">Advanced Rais Recipes Book</span></a><span class="Apple-style-span" style="font-weight:bold;"> </span>&#8211; pretty cool!
+<div></div>
+<div> </div>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/20/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/20/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/20/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=20&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/01/06/advanced-rails-recipes-contribution/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+	<item>
+		<title>Scrape mongrel status from Apache&#8217;s load balancer manager</title>
+		<link>http://geminstallthat.wordpress.com/2008/01/04/scrape-mongrel-status-from-apaches-load-balancer-manager/</link>
+		<comments>http://geminstallthat.wordpress.com/2008/01/04/scrape-mongrel-status-from-apaches-load-balancer-manager/#comments</comments>
+		<pubDate>Sat, 05 Jan 2008 05:48:36 +0000</pubDate>
+		<dc:creator>John Dewey</dc:creator>
+		
+		<category><![CDATA[Apache]]></category>
+
+		<category><![CDATA[Code]]></category>
+
+		<category><![CDATA[Command Line]]></category>
+
+		<category><![CDATA[Example]]></category>
+
+		<category><![CDATA[Rails]]></category>
+
+		<category><![CDATA[Rake]]></category>
+
+		<category><![CDATA[WebServers]]></category>
+
+		<category><![CDATA[capistrano]]></category>
+
+		<category><![CDATA[configuration]]></category>
+		<guid isPermaLink="false">http://geminstallthat.wordpress.com/2008/01/04/scrape-mongrel-status-from-apaches-load-balancer-manager/</guid>
+		
+				
+			<description><![CDATA[Access to Apache&#8217;s load balancer manager is typically protected.  Rather than maintaining an ever changing list of ACLs or configuring HTTP authentication, I wrote a simple scraper Rake task.
+This task is bundled with all of our rails applications as a svn external, and included in our common Capistrano tasks.This task is a quick and dirty solution to checking the status of [...]]]></description>
+			
+							<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Access to <a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html"><span class="Apple-style-span" style="font-weight:bold;">Apache&#8217;s load balancer manager</span></a> is typically protected.  Rather than maintaining an ever changing list of ACLs or configuring HTTP authentication, I wrote a simple scraper<span style="font-weight:bold;" class="Apple-style-span"> <a href="http://rake.rubyforge.org/">Rake</a> </span>task.</p>
+<p>This task is bundled with all of our rails applications as a svn external, and included in our common <a href="http://www.capify.org/"><span class="Apple-style-span" style="font-weight:bold;">Capistrano</span></a> tasks.This task is a quick and dirty solution to checking the status of your <a href="http://mongrel.rubyforge.org/"><span class="Apple-style-span" style="font-weight:bold;">Mongrels</span></a>.</p>
+<p>Feel free to modify, and provide a pastie.<a href="http://pastie.caboo.se/135223">http://pastie.caboo.se/135223</a></p>
+<p>P.S. The SAs can plug this into their monitoring software as well.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/geminstallthat.wordpress.com/19/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/geminstallthat.wordpress.com/19/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/geminstallthat.wordpress.com/19/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/geminstallthat.wordpress.com/19/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/geminstallthat.wordpress.com/19/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/geminstallthat.wordpress.com/19/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/geminstallthat.wordpress.com/19/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/geminstallthat.wordpress.com/19/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/geminstallthat.wordpress.com/19/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/geminstallthat.wordpress.com/19/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/geminstallthat.wordpress.com/19/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/geminstallthat.wordpress.com/19/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=geminstallthat.wordpress.com&blog=309932&post=19&subd=geminstallthat&ref=&feed=1" /></div>]]></content:encoded>
+					
+		
+		<wfw:commentRss>http://geminstallthat.wordpress.com/2008/01/04/scrape-mongrel-status-from-apaches-load-balancer-manager/feed/</wfw:commentRss>
+		
+		
+		<media:content url="http://a.wordpress.com/avatar/retr0h-128.jpg" medium="image">
+			<media:title type="html">retr0h</media:title>
+		</media:content>
+		
+	</item>
+	
+		
+</channel>
+</rss>

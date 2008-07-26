@@ -1,0 +1,23 @@
+Feed Me
+=======
+
+Feed Me is a simple parser for RSS2 and Atom feed, adding other feed formats should be trivial. Feed Me is pretty minimal and basically only does translation/cleanup from different feed formats to a consistent API. It is designed to be minimal.
+
+Feed Me is built on the excellent Hpricot parser written by _why the lucky stiff.
+
+Use it like this:
+
+    file = File.read('some_feed.atom')
+    
+    feed = FeedMe.parse(file)
+    
+    feed.title
+    feed.author.name
+    feed.entries.each do |entry|
+      entry.title
+      entry.content
+    end
+
+Check out the specs or lib/feed_me/consts.rb for the complete API.
+
+DISCLAIMER: This is very much alpha software, use at your own risk!
