@@ -1,5 +1,5 @@
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
-require 'seinfeld_calendar'
+require 'seinfeld/models'
 require 'ruby-debug'
 require 'ostruct'
 require 'spec'
