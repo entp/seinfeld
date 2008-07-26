@@ -59,5 +59,33 @@ module Seinfeld
         lambda { @user.update_progress }.should change { Progression.all(:user_id => @user.id).size }.by(1)
       end
     end
+
+    describe "#progress_for(year, month)" do
+      it "finds progress for given calendar month" do
+        @progressions.should include(Date.new(2008, 2, 1))
+        @progressions.should include(Date.new(2008, 2, 2))
+        @progressions.should_not include(Date.new(2008, 2, 3))
+        @progressions.should_not include(Date.new(2008, 1, 1))
+        @progressions.should_not include(Date.new(2008, 3, 1))
+      end
+
+      before :all do
+        User.transaction do
+          @user = User.create(:login => 'bob')
+          @user.progressions.create(:created_at => Date.new(2008, 1, 1))
+          @user.progressions.create(:created_at => Date.new(2008, 2, 1))
+          @user.progressions.create(:created_at => Date.new(2008, 2, 2))
+          @user.progressions.create(:created_at => Date.new(2008, 3, 1))
+          @progressions = @user.progress_for 2008, 2
+        end
+      end
+
+      after :all do
+        User.transaction do
+          User.all.destroy!
+          Progression.all.destroy!
+        end
+      end
+    end
   end
 end

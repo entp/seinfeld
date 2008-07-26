@@ -3,8 +3,14 @@ require 'rubygems'
 require 'open-uri'
 require 'dm-core'
 require 'feed_me'
+require 'set'
 
 module Seinfeld
+  class << self
+    attr_accessor :connection
+  end
+  self.connection = 'mysql://localhost/seinfeld'
+
   class User
     include DataMapper::Resource
     property :id,    Integer, :serial => true
@@ -38,6 +44,11 @@ module Seinfeld
       end.keys.sort
     end
 
+    def progress_for(year, month)
+      start = Date.new(year, month)
+      Set.new progressions(:created_at => start..(start >> 1)).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
+    end
+
   private
     def get_feed
       feed = nil
@@ -52,4 +63,10 @@ module Seinfeld
     property :created_at, DateTime
     belongs_to :user, :class_name => "Seinfeld::User"
   end
+end
+
+if $0 == __FILE__
+  DataMapper.setup :default, Seinfeld.connection
+  DataMapper.auto_migrate!
+  puts "Database reset"
 end
