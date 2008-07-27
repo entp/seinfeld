@@ -18,6 +18,19 @@ module Seinfeld
     property :email, String
     has n, :progressions, :class_name => "Seinfeld::Progression", :order => [:created_at.desc]
 
+    def self.paginated_each(&block)
+      max_id = 0
+      while batch = next_batch(max_id)
+        batch.each(&block)
+        max_id = batch.map { |u| u.id }.max
+      end
+    end
+
+    def self.next_batch(id)
+      batch = all :order => [:id], :limit => 15, :id.gt => id
+      batch.size.zero? ? nil : batch
+    end
+
     def update_progress
       transaction do
         save if new_record?
@@ -63,10 +76,4 @@ module Seinfeld
     property :created_at, DateTime
     belongs_to :user, :class_name => "Seinfeld::User"
   end
-end
-
-if $0 == __FILE__
-  DataMapper.setup :default, Seinfeld.connection
-  DataMapper.auto_migrate!
-  puts "Database reset"
 end
