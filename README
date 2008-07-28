@@ -19,6 +19,11 @@ rake seinfeld:add_user USER=technoweenie
 # put in a nightly cron job
 rake seinfeld:update
 
+# let's start the show
+cd app
+ruby seinfeld_calendar.rb
+open http://localhost:4567/~technoweenie
+
 TODO
 ====
 
