@@ -1,0 +1,217 @@
+html
+{
+  overflow: hidden;
+  height: 99%;
+}
+                         
+body
+{
+  background: rgb(211, 226, 195);
+  height: 99%;
+  margin: 0;
+  padding: 0;
+  line-height: 150%;
+  text-align: center;
+}
+
+*
+{
+  font-size: 8pt; 
+  font-family: Tahoma, Verdana, sans-serif; 
+  color: #000000;
+  text-align: left;
+}
+
+.list
+{
+  margin: 5px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+
+
+
+/* === Containers === */
+
+
+
+#first_container
+{
+  margin: 0 auto 0 auto; 
+  display: table; 
+  height: 100%;  
+  position: relative; 
+  overflow: hidden; 
+  width: 660px;
+}
+
+#second_container
+{
+  position: absolute; 
+  top: 50%;
+  vertical-align: middle;
+  width: 100%; 
+}
+
+#third_container
+{
+  position: relative; 
+  top: -178px; 
+  width: 660px;
+}
+
+
+
+/* === Menu === */
+
+
+
+#menu
+{
+  height: 31px;
+  padding-right: 2px;
+  margin: 0;
+  list-style: none;   
+}
+
+#menu li
+{
+  float: right;
+  display: block;
+  width: 82px;  height: 31px;  
+}
+
+#menu a
+{
+  display: block;
+  width: 82px;  height: 31px;  
+  background-color: inherit;
+  text-decoration: none;
+  line-height: 31px;
+  text-align: center;
+}
+
+#menu a:link, #menu a:visited
+{
+  color: #749942; 
+  background-color: #D3E2C3;
+}
+
+#menu a:hover, #menu a:active
+{
+  background-image: url('images/taba2.jpg');
+  color: #ffffff; 
+}
+
+#menuselected
+{
+  display: block;
+  width: 82px;  height: 31px;  
+  background-image: url('images/taba.jpg');    
+  text-decoration: none;
+  line-height: 31px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* === Other Divs === */
+
+.border
+{
+  background-color: #ffffff;
+  padding: 15px;
+  height: 262px;
+  background-image: url('images/back.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: left;
+}
+
+.content
+{
+  height: 247px;
+  overflow: auto;
+  padding: 7px;
+}
+
+.designinfo
+{
+  margin-top: 5px;
+  text-align: right;
+  color: #749942;
+  background-color: inherit;
+}
+
+
+
+/* === Inline Text Styles === */
+
+
+
+h1
+{
+  margin: 10px 0 -40px -2px;
+  padding: 0 10px 40px 9px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: inherit;
+  border-left: 5px solid rgb(211, 226, 195);
+
+}
+
+.details
+{
+  display: none;
+  font-size: 9px;
+  color: #6E7468;
+}
+
+.text
+{
+  display: block;
+  margin: 5px 5px 20px 12px;
+}
+
+.text a
+{
+  color: #666F53;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.text a:hover, .text a:active
+{
+  color: #000000;
+}
+
+blockquote
+{
+  margin: 3px 0 3px 0;
+  padding: 5px 10px 5px 10px;
+}
+
+.note
+{
+  	display: block;
+	margin: 10px 15px 10px 15px;
+	color: #555555;
+}
+
+.bold
+{
+  font-weight: bold;
+}
+
+.calendar {
+  width:100%;
+  height:250px;
+}
+
+.calendar td, .calendar th {
+  text-align:center;
+}
+
+.calendar td.progressed {
+  background-color: #ccc;
+}

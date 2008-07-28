@@ -1,0 +1,17 @@
+%html
+  %head
+    %title Seinfeld
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/main.css'}
+  %body
+    #first_container
+      #second_container
+        #third_container
+          %ul#menu
+            %li 
+              %a{:href => '/'} About
+            %li
+              %a{:href => '/'} Home
+
+          .border
+            .content
+              = seinfeld

@@ -1,3 +1,4 @@
+$: << File.join(File.dirname(__FILE__), '..', 'lib')
 require 'seinfeld/models'
 require 'seinfeld/calendar_helper'
 require 'sinatra'
@@ -30,7 +31,12 @@ helpers do
     end
     user         = Seinfeld::User.first :login => params[:name]
     progressions = user.progress_for(params[:year], params[:month])
-    calendar :year => params[:year], :month => params[:month] do |d|
+    now        = Date.new(params[:year], params[:month])
+    prev_month = now << 1
+    next_month = now >> 1
+    calendar :year => now.year, :month => now.month,
+      :previous_month_text => %(<a href="/~#{user.login}/#{prev_month.year}/#{prev_month.month}">&#171;&#171;</a>), 
+      :next_month_text     => %(<a href="/~#{user.login}/#{next_month.year}/#{next_month.month}">&#187;&#187;</a>) do |d|
       if progressions.include? d
         [d.mday, {:class => "progressed"}]
       else
