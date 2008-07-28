@@ -23,6 +23,11 @@ namespace :seinfeld do
     puts "Database reset"
   end
 
+  task :add_user => :init do
+    raise "Need USER=" if ENV['USER'].to_s.size.zero?
+    Seinfeld::User.create(:login => ENV['USER'])
+  end
+
   task :update => :init do
     Seinfeld::User.paginated_each do |user|
       user.update_progress

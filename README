@@ -1,0 +1,29 @@
+seinfeld calendar
+=================
+
+http://lifehacker.com/software/motivation/jerry-seinfelds-productivity-secret-281626.php
+
+Track your OSS Productivity with Github.
+
+USAGE
+=====
+
+# setup your DB, uses a connection string like:
+# mysql://localhost/seinfeld
+rake seinfeld:setup
+
+# adds github user
+rake seinfeld:add_user USER=technoweenie
+
+# updates progress from github
+# put in a nightly cron job
+rake seinfeld:update
+
+TODO
+====
+
+css
+configurable db support
+web ui for adding users
+Gitorious support, etc
+OAUTH
