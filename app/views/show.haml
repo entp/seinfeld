@@ -2,16 +2,10 @@
   %head
     %title Seinfeld
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/main.css'}
+    %script{:type => 'text/javascript', :src => '/javascripts/mootools.js'}
+    %script{:type => 'text/javascript', :src => '/javascripts/application.js'}
   %body
-    #first_container
-      #second_container
-        #third_container
-          %ul#menu
-            %li 
-              %a{:href => '/'} About
-            %li
-              %a{:href => '/'} Home
-
-          .border
-            .content
-              = seinfeld
+    .title Seinfeld
+    .subtitle Tracking your Open Source Contributions
+    #calendar
+      = seinfeld

@@ -35,8 +35,8 @@ helpers do
     prev_month = now << 1
     next_month = now >> 1
     calendar :year => now.year, :month => now.month,
-      :previous_month_text => %(<a href="/~#{user.login}/#{prev_month.year}/#{prev_month.month}">&#171;&#171;</a>), 
-      :next_month_text     => %(<a href="/~#{user.login}/#{next_month.year}/#{next_month.month}">&#187;&#187;</a>) do |d|
+      :previous_month_text => %(<a href="/~#{user.login}/#{prev_month.year}/#{prev_month.month}">Previous Month</a>), 
+      :next_month_text     => %(<a href="/~#{user.login}/#{next_month.year}/#{next_month.month}" class="next">Next Month</a>) do |d|
       if progressions.include? d
         [d.mday, {:class => "progressed"}]
       else
