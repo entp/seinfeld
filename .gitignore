@@ -1,1 +1,2 @@
 config/environment.rb
+app/config.ru
