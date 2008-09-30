@@ -55,7 +55,7 @@ module Seinfeld
       end
 
       it "inserts only unique progression records" do
-        Progression.create! :user_id => @user.id, :created_at => @feed.entries.first.updated_at
+        Progression.create :user_id => @user.id, :created_at => @feed.entries.first.updated_at
         lambda { @user.update_progress }.should change { Progression.all(:user_id => @user.id).size }.by(1)
       end
     end
