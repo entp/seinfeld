@@ -1,3 +1,0 @@
-$: << File.join(File.dirname(__FILE__), '..', 'lib')
-require 'seinfeld/models'
-DataMapper.setup :default, 'mysql://localhost/seinfeld'
