@@ -14,8 +14,7 @@ task :default => 'spec'
 
 namespace :seinfeld do
   task :init do
-    require 'seinfeld/models'
-    DataMapper.setup :default, Seinfeld.connection
+    require 'config/environment'
   end
 
   task :setup => :init do
