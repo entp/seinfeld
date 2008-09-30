@@ -2,8 +2,6 @@ require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 require 'seinfeld/calendar_helper'
 require 'sinatra'
 
-DataMapper.setup :default, Seinfeld.connection
-
 get '/' do
   'oy!'
 end
