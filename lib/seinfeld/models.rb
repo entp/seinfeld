@@ -6,11 +6,6 @@ require 'feed_me'
 require 'set'
 
 module Seinfeld
-  class << self
-    attr_accessor :connection
-  end
-  self.connection = 'mysql://localhost/seinfeld'
-
   class User
     include DataMapper::Resource
     property :id,    Integer, :serial => true
