@@ -39,6 +39,11 @@ module Seinfeld
         @user.last_entry_id.should == @feed.entries.first.item_id
       end
 
+      it "leaves #last_entry_id if page > 2" do
+        @user.committed_days_in_feed(2)
+        @user.last_entry_id.should be_nil
+      end
+
       describe "with #last_entry_id set" do
         before do
           @user.last_entry_id = @feed.entries[2].item_id
@@ -51,6 +56,11 @@ module Seinfeld
         it "sets #last_entry_id from the feed" do
           @user.committed_days_in_feed
           @user.last_entry_id.should == @feed.entries.first.item_id
+        end
+
+         it "leaves #last_entry_id if page > 2" do
+          @user.committed_days_in_feed(2)
+          @user.last_entry_id.should == @feed.entries[2].item_id
         end
       end
     end
