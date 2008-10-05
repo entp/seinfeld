@@ -37,26 +37,23 @@ module Seinfeld
         save
         unless days.empty?
           existing = progressions(:created_at => days).map { |p| p.created_at }
-          streaks = []
-          current_streak = Streak.new(streak_start, streak_end)
+          streaks = [current_streak = Streak.new(streak_start, streak_end)]
           days = days - existing
           days.sort!
-          days.reverse!
           days.each do |day|
-            if current_streak.ended
-              current_streak.started = day
+            if current_streak.current?(day)
+              current_streak.ended = day
             else
-              streaks << (current_streak = Streak.new(nil, day))
+              streaks << (current_streak = Streak.new(day))
             end
-            puts current_streak.inspect
             progressions.create(:created_at => day)
           end
-          highest_streak      = streaks.max { |st| st.days }.days
-          latest_streak       = streaks.first
-          self.streak_start   = latest_streak.started
-          self.streak_end     = latest_streak.ended
-          self.current_streak = latest_streak.days if latest_streak.current?
-          self.longest_streak = highest_streak if highest_streak > longest_streak.to_i
+          highest_streak      = streaks.empty? ? 0 : streaks.max { |a, b| a.days <=> b.days }.days
+          latest_streak       = streaks.last
+          self.streak_start   = latest_streak.started if latest_streak
+          self.streak_end     = latest_streak.ended   if latest_streak
+          self.current_streak = latest_streak.days    if latest_streak && latest_streak.current?
+          self.longest_streak = highest_streak        if highest_streak > longest_streak.to_i
           save
         end
       end
@@ -116,7 +113,7 @@ module Seinfeld
 
     def initialize(started = nil, ended = nil)
       @started = started
-      @ended   = ended
+      @ended   = ended || started
     end
 
     def days
@@ -127,8 +124,8 @@ module Seinfeld
       end
     end
 
-    def current?
-      @ended && (@ended + 1) >= (Date.today)
+    def current?(date = Date.today)
+      @ended && (@ended + 1) >= date
     end
 
     def include?(date)

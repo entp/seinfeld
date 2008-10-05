@@ -22,11 +22,11 @@ module Seinfeld
       end
     end
 
-    describe "with @ended set" do
-      before { @streak = Streak.new(nil, Date.civil(2008, 1, 5)) }
+    describe "with @started and @ended set on the same day" do
+      before { @streak = Streak.new(Date.civil(2008, 1, 5)) }
 
       it "has 0 days" do
-        @streak.days.should == 0
+        @streak.days.should == 1
       end
 
       it "should not include outside date" do

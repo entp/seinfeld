@@ -168,7 +168,7 @@ module Seinfeld
           @user.update_progress
           @user.streak_end.should == Date.civil(2008, 1, 8)
         end
-      end if false
+      end
     end
 
     describe "#progress_for(year, month)" do
