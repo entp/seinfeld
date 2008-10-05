@@ -11,6 +11,7 @@ module Seinfeld
     property :id,    Integer, :serial => true
     property :login, String
     property :email, String
+    property :last_entry_id, String
     has n, :progressions, :class_name => "Seinfeld::Progression", :order => [:created_at.desc]
 
     def self.paginated_each(&block)
@@ -29,7 +30,8 @@ module Seinfeld
     def update_progress
       transaction do
         save if new_record?
-        days = scan_for_progress
+        days = committed_days_in_feed
+        save
         unless days.empty?
           existing = progressions(:created_at => days).map { |p| p.created_at }
           (days - existing).each do |day|
@@ -39,9 +41,16 @@ module Seinfeld
       end
     end
 
-    def scan_for_progress
-      feed = get_feed
-      feed.entries.inject({}) do |selected, entry|
+    def committed_days_in_feed(page = 1)
+      feed     = get_feed(page)
+      entry_id = nil # track the first entry id to store in the user model
+      days = feed.entries.inject({}) do |selected, entry|
+        this_entry_id = entry.item_id
+        if last_entry_id == this_entry_id
+          break selected
+        end
+        entry_id ||= this_entry_id
+
         if entry.title =~ %r{^#{login} committed}
           updated = entry.updated_at
           date    = Time.utc(updated.year, updated.month, updated.day)
@@ -50,6 +59,8 @@ module Seinfeld
           selected
         end
       end.keys.sort
+      self.last_entry_id = entry_id
+      days
     end
 
     def progress_for(year, month)
@@ -58,9 +69,9 @@ module Seinfeld
     end
 
   private
-    def get_feed
+    def get_feed(page = 1)
       feed = nil
-      open("http://github.com/#{login}.atom") { |f| feed = FeedMe.parse(f.read) }
+      open("http://github.com/#{login}.atom?page=#{page}") { |f| feed = FeedMe.parse(f.read) }
       feed
     end
   end

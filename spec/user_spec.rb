@@ -5,10 +5,10 @@ module Seinfeld
     before :all do
       @feed = OpenStruct.new
       @feed.entries = [
-        OpenStruct.new(:title => "bob committed something", :updated_at => Time.utc(2008, 1, 1, 22)),
-        OpenStruct.new(:title => "bob watched something"),
-        OpenStruct.new(:title => "bob committed something", :updated_at => Time.utc(2008, 1, 1, 23)),
-        OpenStruct.new(:title => "bob committed something", :updated_at => Time.utc(2008, 1, 2, 23)),
+        OpenStruct.new(:item_id => 'a', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 1, 22)),
+        OpenStruct.new(:item_id => 'b', :title => "bob watched something"),
+        OpenStruct.new(:item_id => 'c', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 1, 23)),
+        OpenStruct.new(:item_id => 'd', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 2, 23)),
         ]
     end
 
@@ -16,22 +16,42 @@ module Seinfeld
       @user = Seinfeld::User.new :login => 'bob'
     end
 
-    describe "#scan_for_progress" do
+    describe "#committed_days_in_feed" do
       before do
         @user.stub!(:get_feed).and_return(@feed)
       end
       
       it "returns array" do
-        @user.scan_for_progress.should be_kind_of(Array)
+        @user.committed_days_in_feed.should be_kind_of(Array)
       end
 
       it "returns unique days" do
-        @user.scan_for_progress.should == [Time.utc(2008, 1, 1), Time.utc(2008, 1, 2)]
+        @user.committed_days_in_feed.should == [Time.utc(2008, 1, 1), Time.utc(2008, 1, 2)]
       end
 
       it "matches against login name" do
         @user.login = 'not bob'
-        @user.scan_for_progress.should be_empty
+        @user.committed_days_in_feed.should be_empty
+      end
+
+      it "sets #last_entry_id from the feed" do
+        @user.committed_days_in_feed
+        @user.last_entry_id.should == @feed.entries.first.item_id
+      end
+
+      describe "with #last_entry_id set" do
+        before do
+          @user.last_entry_id = @feed.entries[2].item_id
+        end
+
+        it "returns unique days" do
+          @user.committed_days_in_feed.should == [Time.utc(2008, 1, 1)]
+        end
+
+        it "sets #last_entry_id from the feed" do
+          @user.committed_days_in_feed
+          @user.last_entry_id.should == @feed.entries.first.item_id
+        end
       end
     end
 
