@@ -58,6 +58,14 @@ body{
   color:#999;
 }
 
+#main{
+  margin:30px auto;
+  padding:0 0 20px 0;
+  width:700px;
+  background:#fff;
+  border-top:2px solid #000;
+  border-bottom:1px solid #000;
+}
 
 #calendar{
   margin:30px auto;
@@ -72,9 +80,29 @@ body{
 /* @end */
 
 /*------------------------------------------------------------------------------------
+  @group Homepage
+------------------------------------------------------------------------------------*/
+
+#recentUsers, #userRecords{
+  width:340px;
+}
+
+#recentUsers{
+  float:left;
+  padding-right: 10px;
+}
+
+#userRecords{
+  float:right;
+  padding-left: 10px;
+}
+/* @end */
+
+/*------------------------------------------------------------------------------------
   @group Calendar Styles
 ------------------------------------------------------------------------------------*/
 
+#main #content,
 #calendar table{
   width:700px;
   border-spacing:none;

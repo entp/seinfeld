@@ -1,11 +1,19 @@
 %html
   %head
-    %title Seinfeld
+    %title 
+      = page_title
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/main.css'}
     %script{:type => 'text/javascript', :src => '/javascripts/mootools.js'}
     %script{:type => 'text/javascript', :src => '/javascripts/application.js'}
   %body
-    .title Seinfeld
-    .subtitle Tracking your Open Source Contributions
+    .title 
+      = page_title
+    .subtitle Tracking Open Source Contributions
     #calendar
       = seinfeld
+      %p 
+        Current Streak:
+        = @user.current_streak
+      %p 
+        Longest Streak:
+        = @user.longest_streak

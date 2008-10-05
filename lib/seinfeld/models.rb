@@ -2,6 +2,7 @@ $: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'feed_me', 'lib')
 require 'rubygems'
 require 'open-uri'
 require 'dm-core'
+require 'dm-aggregates'
 require 'feed_me'
 require 'set'
 

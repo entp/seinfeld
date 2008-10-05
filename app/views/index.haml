@@ -1,0 +1,39 @@
+%html
+  %head
+    %title Calendar About Nothing: Tracking Open Source Contributions
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/main.css'}
+  %body
+    .title Calendar About Nothing
+    .subtitle Tracking Open Source Contributions
+    #main
+      #content
+        %h1 What is this?
+        %p
+          The Calendar About Nothing generates a 
+          "<a href="http://lifehacker.com/software/motivation/jerry-seinfelds-productivity-secret-281626.php">Seinfeld Calendar</a>"
+          from your public
+          "<a href="http://github.com">Github</a>" feed.
+        %p
+          %strong Commit
+          to an open source project: get an 
+          %strong X
+          for the day.
+          Commit tomorrow, and start building up your
+          %strong streak.
+        %p
+          %strong Get started
+          by logging into Github and sending a direct message to <var>calendaraboutnothing</var>.
+          
+        .clearfix
+          #recentUsers
+            %h2 Current Streaks
+            %ul
+              - @recent_users.each do |user|
+                %li
+                  = link_to_user user
+          #userRecords
+            %h2 Longest Streaks
+            %ul
+              - @alltime_users.each do |user|
+                %li
+                  = link_to_user user, :longest_streak
