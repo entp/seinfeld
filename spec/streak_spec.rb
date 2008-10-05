@@ -3,8 +3,7 @@ require File.join( File.dirname(__FILE__), "spec_helper" )
 module Seinfeld
   describe Streak do
     before :all do
-      @now   = Time.now.utc
-      @today = Time.utc(@now.year, @now.month, @now.day)
+      @today = Date.today
     end
 
     describe "with neither bounds set" do
@@ -15,7 +14,7 @@ module Seinfeld
       end
 
       it "should not include outside date" do
-        @streak.should_not include(@now)
+        @streak.should_not include(@today)
       end
 
       it "knows if it is current" do
@@ -24,14 +23,14 @@ module Seinfeld
     end
 
     describe "with @ended set" do
-      before { @streak = Streak.new(nil, Time.utc(2008, 1, 5)) }
+      before { @streak = Streak.new(nil, Date.civil(2008, 1, 5)) }
 
       it "has 0 days" do
         @streak.days.should == 0
       end
 
       it "should not include outside date" do
-        @streak.should_not include(@now)
+        @streak.should_not include(@today)
       end
 
       it "knows if it is current" do
@@ -40,26 +39,26 @@ module Seinfeld
     end
 
     describe "with @started and @ended set" do
-      before { @streak = Streak.new(Time.utc(2008, 1, 1), Time.utc(2008, 1, 5)) }
+      before { @streak = Streak.new(Date.civil(2008, 1, 1), Date.civil(2008, 1, 5)) }
 
       it "has 5 days" do
         @streak.days.should == 5
       end
 
       it "should not include outside date" do
-        @streak.should_not include(@now)
+        @streak.should_not include(@today)
       end
 
       it "should start date" do
-        @streak.should include(Time.utc(2008, 1, 1))
+        @streak.should include(Date.civil(2008, 1, 1))
       end
 
       it "should end date" do
-        @streak.should include(Time.utc(2008, 1, 5))
+        @streak.should include(Date.civil(2008, 1, 5))
       end
 
       it "should middle date" do
-        @streak.should include(Time.utc(2008, 1, 3))
+        @streak.should include(Date.civil(2008, 1, 3))
       end
 
       it "knows if it is current" do
@@ -68,7 +67,7 @@ module Seinfeld
     end
 
     describe "with @started and @ended set, ending today" do
-      before { @streak = Streak.new(@today - (4 * Streak::SECONDS_IN_DAY), @today) }
+      before { @streak = Streak.new(@today - 4, @today) }
 
       it "has 5 days" do
         @streak.days.should == 5
@@ -80,7 +79,7 @@ module Seinfeld
     end
 
     describe "with @started and @ended set, ending yesterday" do
-      before { @streak = Streak.new(@today - (5 * Streak::SECONDS_IN_DAY), @today - (1 * Streak::SECONDS_IN_DAY)) }
+      before { @streak = Streak.new(@today - 5, @today - 1) }
     
       it "has 5 days" do
         @streak.days.should == 5
@@ -92,7 +91,7 @@ module Seinfeld
     end
 
     describe "with @started and @ended set, ending 2 days ago" do
-      before { @streak = Streak.new(@today - (6 * Streak::SECONDS_IN_DAY), @today - (2 * Streak::SECONDS_IN_DAY)) }
+      before { @streak = Streak.new(@today - 6, @today - 2) }
     
       it "has 5 days" do
         @streak.days.should == 5

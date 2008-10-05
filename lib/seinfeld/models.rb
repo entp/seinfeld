@@ -14,8 +14,8 @@ module Seinfeld
     property :last_entry_id,  String
     property :current_streak, Integer, :default => 0
     property :longest_streak, Integer, :default => 0
-    property :streak_start,   DateTime
-    property :streak_end,     DateTime
+    property :streak_start,   Date
+    property :streak_end,     Date
     has n, :progressions, :class_name => "Seinfeld::Progression", :order => [:created_at.desc]
 
     def self.paginated_each(&block)
@@ -48,6 +48,7 @@ module Seinfeld
             else
               streaks << (current_streak = Streak.new(nil, day))
             end
+            puts current_streak.inspect
             progressions.create(:created_at => day)
           end
           highest_streak      = streaks.max { |st| st.days }.days
@@ -76,7 +77,7 @@ module Seinfeld
 
         if entry.title =~ %r{^#{login} committed}
           updated = entry.updated_at
-          date    = Time.utc(updated.year, updated.month, updated.day)
+          date    = Date.civil(updated.year, updated.month, updated.day)
           selected.update date => nil
         else
           selected
@@ -92,7 +93,7 @@ module Seinfeld
 
     def progress_for(year, month)
       start = Date.new(year, month)
-      Set.new progressions(:created_at => start..(start >> 1)).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
+      Set.new progressions(:created_at => start..((start >> 1) - 1)).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
     end
 
   private
@@ -106,12 +107,11 @@ module Seinfeld
   class Progression
     include DataMapper::Resource
     property :id,         Integer, :serial => true
-    property :created_at, DateTime
+    property :created_at, Date
     belongs_to :user, :class_name => "Seinfeld::User"
   end
 
   class Streak
-    SECONDS_IN_DAY = 60 * 60 * 24
     attr_accessor :started, :ended
 
     def initialize(started = nil, ended = nil)
@@ -121,16 +121,14 @@ module Seinfeld
 
     def days
       if @started && @ended
-        1 + ((@ended - @started) / SECONDS_IN_DAY)
+        1 + (@ended - @started).to_i.abs
       else
         0
       end
     end
 
     def current?
-      now = Time.now.utc
-      tmw = Time.utc(now.year, now.month, now.day) - SECONDS_IN_DAY
-      @ended && @ended >= tmw
+      @ended && (@ended + 1) >= (Date.today)
     end
 
     def include?(date)
@@ -139,6 +137,10 @@ module Seinfeld
       else
         false
       end
+    end
+
+    def inspect
+      %(#{@started ? ("#{@started.year}-#{@started.month}-#{@started.day}") : :nil}..#{@ended ? ("#{@ended.year}-#{@ended.month}-#{@ended.day}") : :nil}:Streak)
     end
   end
 end

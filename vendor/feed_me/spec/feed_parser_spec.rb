@@ -79,11 +79,11 @@ describe FeedMe::FeedParser do
   
   describe '#updated_at' do
     it "should be valid for an atom feed" do
-      @atom.updated_at.should == Time.utc(2008, 3, 7, 20, 41, 10)
+      @atom.updated_at.should == Date.civil(2008, 3, 7, 20, 41, 10)
     end
     
     it "should be valid for an rss2 feed" do
-      @rss2.updated_at.should == Time.utc(2003, 6, 10, 9, 41, 1)
+      @rss2.updated_at.should == Date.civil(2003, 6, 10, 9, 41, 1)
     end
   end
   
@@ -199,7 +199,7 @@ describe FeedMe::FeedParser do
     end
     
     it "should serialize the updated_at time of an atom feed" do
-      @atom.to_hash[:updated_at].should == Time.utc(2008, 3, 7, 20, 41, 10)
+      @atom.to_hash[:updated_at].should == Date.civil(2008, 3, 7, 20, 41, 10)
     end
     
     it "should serialize the href of an atom feed" do
@@ -241,7 +241,7 @@ describe FeedMe::FeedParser do
     end
     
     it "should serialize the updated_at time of an rss2 feed" do
-      @rss2.to_hash[:updated_at].should == Time.utc(2003, 6, 10, 9, 41, 1)
+      @rss2.to_hash[:updated_at].should == Date.civil(2003, 6, 10, 9, 41, 1)
     end
     
     it "should serialize the href of an rss2 feed" do

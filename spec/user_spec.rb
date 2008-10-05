@@ -5,10 +5,10 @@ module Seinfeld
     before :all do
       @feed = OpenStruct.new
       @feed.entries = [
-        OpenStruct.new(:item_id => 'a', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 1, 22)),
+        OpenStruct.new(:item_id => 'a', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 1, 22)),
         OpenStruct.new(:item_id => 'b', :title => "bob watched something"),
-        OpenStruct.new(:item_id => 'c', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 1, 23)),
-        OpenStruct.new(:item_id => 'd', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 2, 23)),
+        OpenStruct.new(:item_id => 'c', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 1, 23)),
+        OpenStruct.new(:item_id => 'd', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 2, 23)),
         ]
     end
 
@@ -27,7 +27,7 @@ module Seinfeld
       end
 
       it "returns unique days" do
-        @user.committed_days_in_feed.should == [Time.utc(2008, 1, 2), Time.utc(2008, 1, 1)]
+        @user.committed_days_in_feed.should == [Date.civil(2008, 1, 2), Date.civil(2008, 1, 1)]
       end
 
       it "matches against login name" do
@@ -51,7 +51,7 @@ module Seinfeld
         end
 
         it "returns unique days" do
-          @user.committed_days_in_feed.should == [Time.utc(2008, 1, 1)]
+          @user.committed_days_in_feed.should == [Date.civil(2008, 1, 1)]
         end
 
         it "sets #last_entry_id from the feed" do
@@ -69,9 +69,9 @@ module Seinfeld
         before :all do
           @feed2 = OpenStruct.new
           @feed2.entries = [
-            OpenStruct.new(:item_id => 'e', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 4, 22)),
+            OpenStruct.new(:item_id => 'e', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 4, 22)),
             OpenStruct.new(:item_id => 'f', :title => "bob watched something"),
-            OpenStruct.new(:item_id => 'g', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 5, 23))
+            OpenStruct.new(:item_id => 'g', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 5, 23))
             ]
         end
 
@@ -81,7 +81,7 @@ module Seinfeld
         end
 
         it "returns unique days" do
-          @user.committed_days_in_feed.should == [Time.utc(2008, 1, 2), Time.utc(2008, 1, 1), Time.utc(2008, 1, 4), Time.utc(2008, 1, 5)]
+          @user.committed_days_in_feed.should == [Date.civil(2008, 1, 2), Date.civil(2008, 1, 1), Date.civil(2008, 1, 4), Date.civil(2008, 1, 5)]
         end
 
         it "sets #last_entry_id from the feed" do
@@ -93,8 +93,7 @@ module Seinfeld
 
     describe "#update_progress" do
       before do
-        @user.stub!(:get_feed).with(1).and_return(@feed)
-        @user.stub!(:get_feed).with(2).and_return(OpenStruct.new(:entries => []))
+        @user.stub!(:committed_days_in_feed).and_return [Date.civil(2008, 1, 1), Date.civil(2008, 1, 2)]
         User.transaction do
           User.all.destroy!
           Progression.all.destroy!
@@ -123,18 +122,53 @@ module Seinfeld
 
       it "calculates streak start" do
         @user.update_progress
-        @user.streak_start.should == DateTime.new(2008, 1, 1)
+        @user.streak_start.should == Date.civil(2008, 1, 1)
       end
 
       it "calculates streak end" do
         @user.update_progress
-        @user.streak_end.should == DateTime.new(2008, 1, 2)
+        @user.streak_end.should == Date.civil(2008, 1, 2)
       end
 
       it "inserts only unique progression records" do
         Progression.create :user_id => @user.id, :created_at => @feed.entries.first.updated_at
         lambda { @user.update_progress }.should change { Progression.all(:user_id => @user.id).size }.by(1)
       end
+      
+      describe "(with multiple streaks and an existing streak)" do
+        before do
+          @user.streak_start   = Date.civil(2007, 12, 30)
+          @user.streak_end     = Date.civil(2007, 12, 31)
+          @user.longest_streak = 3
+          @user.current_streak = 2
+          @user.stub!(:committed_days_in_feed).and_return [Date.civil(2008, 1, 1), Date.civil(2008, 1, 2), Date.civil(2008, 1, 3), Date.civil(2008, 1, 5), Date.civil(2008, 1, 6), Date.civil(2008, 1, 7), Date.civil(2008, 1, 8)]
+          Time.stub!(:now).and_return Time.utc(2008, 1, 8)
+          User.transaction do
+            User.all.destroy!
+            Progression.all.destroy!
+          end
+        end
+
+        it "calculates current streak" do
+          @user.update_progress
+          @user.current_streak.should == 4
+        end
+        
+        it "calculates longest streak" do
+          @user.update_progress
+          @user.longest_streak.should == 5
+        end
+        
+        it "calculates streak start" do
+          @user.update_progress
+          @user.streak_start.should == Date.civil(2008, 1, 5)
+        end
+        
+        it "calculates streak end" do
+          @user.update_progress
+          @user.streak_end.should == Date.civil(2008, 1, 8)
+        end
+      end if false
     end
 
     describe "#progress_for(year, month)" do
