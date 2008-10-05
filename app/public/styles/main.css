@@ -58,30 +58,27 @@ body{
   color:#999;
 }
 
-#main{
-  margin:30px auto;
-  padding:0 0 20px 0;
-  width:700px;
-  background:#fff;
-  border-top:2px solid #000;
-  border-bottom:1px solid #000;
-}
-
-#calendar{
-  margin:30px auto;
-  padding:0 0 20px 0;
-  width:700px;
-  background:#fff;
-  font-size:24px;
-  border-top:2px solid #000;
-  border-bottom:1px solid #000;
-}
-
 /* @end */
 
 /*------------------------------------------------------------------------------------
   @group Homepage
 ------------------------------------------------------------------------------------*/
+
+#main, #borderedMain{
+  margin:30px auto;
+  padding:0 0 20px 0;
+  width:700px;
+  background:#fff;
+}
+
+#borderedMain{
+  border-top:2px solid #000;
+  border-bottom:1px solid #000;
+}
+
+#content{
+  width: 700px;
+}
 
 #recentUsers, #userRecords{
   width:340px;
@@ -96,13 +93,28 @@ body{
   float:right;
   padding-left: 10px;
 }
+
+.footnote{
+  text-align:right;
+}
+
 /* @end */
 
 /*------------------------------------------------------------------------------------
   @group Calendar Styles
 ------------------------------------------------------------------------------------*/
 
-#main #content,
+#calendar{
+  margin:30px auto;
+  padding:0 0 20px 0;
+  width:700px;
+  background:#fff;
+  font-size:24px;
+  border-top:2px solid #000;
+  border-bottom:1px solid #000;
+}
+
+
 #calendar table{
   width:700px;
   border-spacing:none;

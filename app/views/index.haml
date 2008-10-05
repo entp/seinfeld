@@ -5,7 +5,7 @@
   %body
     .title Calendar About Nothing
     .subtitle Tracking Open Source Contributions
-    #main
+    #borderedMain
       #content
         %h1 What is this?
         %p
@@ -37,3 +37,5 @@
               - @alltime_users.each do |user|
                 %li
                   = link_to_user user, :longest_streak
+    #main
+      #content.footnote by <a href="http://weblog.techno-weenie.net">rick</a> and <a href="http://warpspire.com/">kyle</a>.
