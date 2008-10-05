@@ -8,10 +8,14 @@ require 'set'
 module Seinfeld
   class User
     include DataMapper::Resource
-    property :id,    Integer, :serial => true
-    property :login, String
-    property :email, String
-    property :last_entry_id, String
+    property :id,             Integer, :serial => true
+    property :login,          String
+    property :email,          String
+    property :last_entry_id,  String
+    property :current_streak, Integer, :default => 0
+    property :longest_streak, Integer, :default => 0
+    property :streak_start,   DateTime
+    property :streak_end,     DateTime
     has n, :progressions, :class_name => "Seinfeld::Progression", :order => [:created_at.desc]
 
     def self.paginated_each(&block)
@@ -33,9 +37,26 @@ module Seinfeld
         save
         unless days.empty?
           existing = progressions(:created_at => days).map { |p| p.created_at }
-          (days - existing).each do |day|
+          streaks = []
+          current_streak = Streak.new(streak_start, streak_end)
+          days = days - existing
+          days.sort!
+          days.reverse!
+          days.each do |day|
+            if current_streak.ended
+              current_streak.started = day
+            else
+              streaks << (current_streak = Streak.new(nil, day))
+            end
             progressions.create(:created_at => day)
           end
+          highest_streak      = streaks.max { |st| st.days }.days
+          latest_streak       = streaks.first
+          self.streak_start   = latest_streak.started
+          self.streak_end     = latest_streak.ended
+          self.current_streak = latest_streak.days if latest_streak.current?
+          self.longest_streak = highest_streak if highest_streak > longest_streak.to_i
+          save
         end
       end
     end
@@ -60,7 +81,7 @@ module Seinfeld
         else
           selected
         end
-      end.keys.sort
+      end.keys
       self.last_entry_id = entry_id if page == 1
       unless skipped_early
         days += committed_days_in_feed(page + 1)
@@ -87,5 +108,37 @@ module Seinfeld
     property :id,         Integer, :serial => true
     property :created_at, DateTime
     belongs_to :user, :class_name => "Seinfeld::User"
+  end
+
+  class Streak
+    SECONDS_IN_DAY = 60 * 60 * 24
+    attr_accessor :started, :ended
+
+    def initialize(started = nil, ended = nil)
+      @started = started
+      @ended   = ended
+    end
+
+    def days
+      if @started && @ended
+        1 + ((@ended - @started) / SECONDS_IN_DAY)
+      else
+        0
+      end
+    end
+
+    def current?
+      now = Time.now.utc
+      tmw = Time.utc(now.year, now.month, now.day) - SECONDS_IN_DAY
+      @ended && @ended >= tmw
+    end
+
+    def include?(date)
+      if @started && @ended
+        @started <= date && @ended >= date
+      else
+        false
+      end
+    end
   end
 end

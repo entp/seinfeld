@@ -27,7 +27,7 @@ module Seinfeld
       end
 
       it "returns unique days" do
-        @user.committed_days_in_feed.should == [Time.utc(2008, 1, 1), Time.utc(2008, 1, 2)]
+        @user.committed_days_in_feed.should == [Time.utc(2008, 1, 2), Time.utc(2008, 1, 1)]
       end
 
       it "matches against login name" do
@@ -81,7 +81,7 @@ module Seinfeld
         end
 
         it "returns unique days" do
-          @user.committed_days_in_feed.should == [Time.utc(2008, 1, 1), Time.utc(2008, 1, 2), Time.utc(2008, 1, 4), Time.utc(2008, 1, 5)]
+          @user.committed_days_in_feed.should == [Time.utc(2008, 1, 2), Time.utc(2008, 1, 1), Time.utc(2008, 1, 4), Time.utc(2008, 1, 5)]
         end
 
         it "sets #last_entry_id from the feed" do
@@ -109,6 +109,26 @@ module Seinfeld
 
       it "inserts progression records" do
         lambda { @user.update_progress }.should change { Progression.all(:user_id => @user.id).size }.by(2)
+      end
+
+      it "calculates current streak" do
+        @user.update_progress
+        @user.current_streak.should == 0
+      end
+
+      it "calculates longest streak" do
+        @user.update_progress
+        @user.longest_streak.should == 2
+      end
+
+      it "calculates streak start" do
+        @user.update_progress
+        @user.streak_start.should == DateTime.new(2008, 1, 1)
+      end
+
+      it "calculates streak end" do
+        @user.update_progress
+        @user.streak_end.should == DateTime.new(2008, 1, 2)
       end
 
       it "inserts only unique progression records" do
