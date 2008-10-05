@@ -2,7 +2,6 @@ $: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'feed_me', 'lib')
 require 'rubygems'
 require 'open-uri'
 require 'dm-core'
-require 'dm-aggregates'
 require 'feed_me'
 require 'set'
 
@@ -10,11 +9,11 @@ module Seinfeld
   class User
     include DataMapper::Resource
     property :id,             Integer, :serial => true
-    property :login,          String
+    property :login,          String, :unique => true
     property :email,          String
     property :last_entry_id,  String
-    property :current_streak, Integer, :default => 0
-    property :longest_streak, Integer, :default => 0
+    property :current_streak, Integer, :default => 0, :index => true
+    property :longest_streak, Integer, :default => 0, :index => true
     property :streak_start,   Date
     property :streak_end,     Date
     has n, :progressions, :class_name => "Seinfeld::Progression", :order => [:created_at.desc]
