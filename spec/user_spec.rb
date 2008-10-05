@@ -18,7 +18,8 @@ module Seinfeld
 
     describe "#committed_days_in_feed" do
       before do
-        @user.stub!(:get_feed).and_return(@feed)
+        @user.stub!(:get_feed).with(1).and_return(@feed)
+        @user.stub!(:get_feed).with(2).and_return(OpenStruct.new(:entries => []))
       end
       
       it "returns array" do
@@ -63,11 +64,37 @@ module Seinfeld
           @user.last_entry_id.should == @feed.entries[2].item_id
         end
       end
+
+      describe "with multiple pages" do
+        before :all do
+          @feed2 = OpenStruct.new
+          @feed2.entries = [
+            OpenStruct.new(:item_id => 'e', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 4, 22)),
+            OpenStruct.new(:item_id => 'f', :title => "bob watched something"),
+            OpenStruct.new(:item_id => 'g', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 5, 23))
+            ]
+        end
+
+        before do
+          @user.stub!(:get_feed).with(2).and_return(@feed2)
+          @user.stub!(:get_feed).with(3).and_return(OpenStruct.new(:entries => []))
+        end
+
+        it "returns unique days" do
+          @user.committed_days_in_feed.should == [Time.utc(2008, 1, 1), Time.utc(2008, 1, 2), Time.utc(2008, 1, 4), Time.utc(2008, 1, 5)]
+        end
+
+        it "sets #last_entry_id from the feed" do
+          @user.committed_days_in_feed
+          @user.last_entry_id.should == @feed.entries.first.item_id
+        end
+      end
     end
 
     describe "#update_progress" do
       before do
-        @user.stub!(:get_feed).and_return(@feed)
+        @user.stub!(:get_feed).with(1).and_return(@feed)
+        @user.stub!(:get_feed).with(2).and_return(OpenStruct.new(:entries => []))
         User.transaction do
           User.all.destroy!
           Progression.all.destroy!

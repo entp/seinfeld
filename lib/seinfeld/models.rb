@@ -29,17 +29,13 @@ module Seinfeld
 
     def update_progress
       transaction do
-        update_progress_in_feed(1)
-      end
-    end
-
-    def update_progress_in_feed(page = 1)
-      days = committed_days_in_feed(page)
-      save
-      unless days.empty?
-        existing = progressions(:created_at => days).map { |p| p.created_at }
-        (days - existing).each do |day|
-          progressions.create(:created_at => day)
+        days = committed_days_in_feed
+        save
+        unless days.empty?
+          existing = progressions(:created_at => days).map { |p| p.created_at }
+          (days - existing).each do |day|
+            progressions.create(:created_at => day)
+          end
         end
       end
     end
@@ -66,6 +62,10 @@ module Seinfeld
         end
       end.keys.sort
       self.last_entry_id = entry_id if page == 1
+      unless skipped_early
+        days += committed_days_in_feed(page + 1)
+        days.uniq!
+      end
       days
     end
 
