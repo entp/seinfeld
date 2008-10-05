@@ -1,0 +1,4 @@
+config/environment.rb
+app/config.ru
+app/config.rb
+app/tmp
