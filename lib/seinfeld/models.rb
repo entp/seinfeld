@@ -66,11 +66,11 @@ module Seinfeld
       return [] if feed.entries.empty?
       days = feed.entries.inject({}) do |selected, entry|
         this_entry_id = entry.item_id
+        entry_id    ||= this_entry_id
         if last_entry_id == this_entry_id
           skipped_early = true
           break selected
         end
-        entry_id ||= this_entry_id
 
         if entry.title =~ %r{^#{login} committed}
           updated = entry.updated_at

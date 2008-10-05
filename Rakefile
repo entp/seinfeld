@@ -28,8 +28,17 @@ namespace :seinfeld do
   end
 
   task :update => :init do
-    Seinfeld::User.paginated_each do |user|
-      user.update_progress
+    if ENV['USER'].to_s.size.zero?
+      Seinfeld::User.paginated_each do |user|
+        user.update_progress
+      end
+    else
+      user = Seinfeld::User.first(:login => ENV['USER'])
+      if user
+        user.update_progress
+      else
+        raise "No user found for #{ENV['USER'].inspect}"
+      end
     end
   end
 end
