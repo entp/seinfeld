@@ -108,7 +108,7 @@ module Seinfeld
       return if login_name.size.zero?
       if user = first(:login => login_name)
         if github_login && github_password
-          session = MechanicalGithub::Session.new
+          session = MechanicalGitHub::Session.new
           session.login github_login, github_password
           session.send_message login_name, "[CAN] You've already registered!", "Thanks for your enthusiasm, but you've already registered for a Calendar About Nothing: http://calendaraboutnothing.com/~#{user.login}."
         end
