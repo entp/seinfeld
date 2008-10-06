@@ -42,7 +42,7 @@ module Seinfeld
 
     def update_progress
       transaction do
-        days = committed_days_in_feed
+        days = committed_days_in_feed || []
         save
         unless days.empty?
           existing = progressions(:created_at => days).map { |p| p.created_at }
@@ -70,10 +70,10 @@ module Seinfeld
 
     def committed_days_in_feed(page = 1)
       feed          = get_feed(page)
-      return [] if feed.nil?
+      return nil if feed.nil?
       entry_id      = nil # track the first entry id to store in the user model
       skipped_early = nil
-      return [] if feed.entries.empty?
+      return nil if feed.entries.empty?
       days = feed.entries.inject({}) do |selected, entry|
         this_entry_id = entry.item_id
         entry_id    ||= this_entry_id
@@ -90,10 +90,14 @@ module Seinfeld
           selected
         end
       end.keys
-      self.last_entry_id = entry_id if page == 1
-      unless skipped_early
-        days += committed_days_in_feed(page + 1)
-        days.uniq!
+      if page == 1
+        self.last_entry_id = entry_id 
+        unless skipped_early
+          while paged_days = committed_days_in_feed(page += 1)
+            days += paged_days
+          end
+          days.uniq!
+        end
       end
       days
     end
