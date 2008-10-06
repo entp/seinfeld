@@ -8,8 +8,7 @@ Track your OSS Productivity with Github.
 USAGE
 =====
 
-# setup your DB, uses a connection string like:
-# mysql://localhost/seinfeld
+# setup your DB (see deployment section)
 rake seinfeld:setup
 
 # adds github user
@@ -24,11 +23,38 @@ cd app
 ruby seinfeld_calendar.rb
 open http://localhost:4567/~technoweenie
 
+DEPLOYMENT
+==========
+
+My app/config.rb looks like this:
+
+  $: << File.join(File.dirname(__FILE__), '..', 'lib')
+  require 'seinfeld/models'
+  DataMapper.setup :default, 'mysql://rickybobby:shakeandbake@localhost/seinfeld'
+  Seinfeld::User.github_login = 'rickybobby'
+  Seinfeld::User.github_password = 'shakeandbake'
+  
+My app/config.ru (for Passenger) looks like:
+
+  require 'rubygems'
+  require 'rack'
+  require 'sinatra'
+  
+  Sinatra::Application.default_options.update(
+    :run => false,
+    :env => :production,
+    :views => '/path/to/seinfeld/app/views', # sinatra looks in the wrong place
+    :raise_errors => true
+  )
+  
+  require 'config'
+  require 'seinfeld_calendar'
+  
+  run Sinatra.application
+
 TODO
 ====
 
-css
 configurable db support
-web ui for adding users
 Gitorious support, etc
 OAUTH
