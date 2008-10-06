@@ -22,7 +22,15 @@
           %strong streak.
         %p
           %strong Get started
-          by logging into Github and sending a direct message to <var>calendaraboutnothing</var>.
+          by logging into Github and sending a direct message to 
+          %s
+            %var 
+              %a{:href => 'http://github.com/calendaraboutnothing'} calendaraboutnothing
+          %var 
+            %a{:href => 'http://github.com/technoweenie'} technoweenie
+          (I'm still waiting for
+          %a{:href => 'http://mailhook.org'} MailHook
+          to start redirecting emails).
           
         .clearfix
           #recentUsers
