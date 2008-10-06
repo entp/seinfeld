@@ -1,14 +1,21 @@
 $: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'feed_me', 'lib')
+$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'mechanical_github', 'lib')
 require 'rubygems'
 require 'open-uri'
 require 'dm-core'
 require 'feed_me'
+require 'mechanical_github'
 require 'set'
 
 module Seinfeld
   # Some of this is destined to be broken out into modules when support for
   # more services than just github is added.
   class User
+    class << self
+      attr_accessor :github_login
+      attr_accessor :github_password
+    end
+
     include DataMapper::Resource
     property :id,             Integer, :serial => true
     property :login,          String, :unique => true
@@ -98,9 +105,14 @@ module Seinfeld
 
     def self.process_new_github_user(subject)
       login_name = subject.scan(/([\w\_\-]+) sent you a message/).first.to_s
-      user       = first(:login => login_name) unless login_name.size.zero?
-      if user || login_name.size.zero?
-        raise "blam"
+      return if login_name.size.zero?
+      if user = first(:login => login_name)
+        if github_login && github_password
+          session = MechanicalGithub::Session.new
+          session.login github_login, github_password
+          session.send_message login_name, "[CAN] You've already registered!", "Thanks for your enthusiasm, but you've already registered for a Calendar About Nothing: http://calendaraboutnothing.com/~#{user.login}."
+        end
+        nil
       else
         user = new(:login => login_name)
         yield user if block_given?

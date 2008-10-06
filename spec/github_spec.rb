@@ -14,16 +14,12 @@ module Seinfeld
     end
 
     it "does not create a user from an invalid subject" do
-      lambda do
-        User.process_new_github_user("elijah_snow wants to be your friend")
-      end.should raise_error
+      User.process_new_github_user("elijah_snow wants to be your friend").should be_nil
     end
 
     it "does not create a duplicate user" do
       User.create :login => 'elijah_snow'
-      lambda do
-        User.process_new_github_user("elijah_snow sent you a message")
-      end.should raise_error
+      User.process_new_github_user("elijah_snow sent you a message").should be_nil
     end
   end
 end
