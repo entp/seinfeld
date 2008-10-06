@@ -40,6 +40,14 @@ module Seinfeld
       batch.size.zero? ? nil : batch
     end
 
+    def self.best_current_streak 
+      all :current_streak.gt => 0, :order => [:current_streak.desc, :login], :limit => 15
+    end
+
+    def self.best_alltime_streak 
+      all :longest_streak.gt => 0, :order => [:longest_streak.desc, :login], :limit => 15
+    end
+
     def update_progress
       transaction do
         days = committed_days_in_feed || []

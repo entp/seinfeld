@@ -9,8 +9,8 @@ require 'seinfeld/calendar_helper'
 require 'sinatra'
 
 get '/' do
-  @recent_users  = Seinfeld::User.all :order => [:current_streak.desc, :login], :limit=> 15
-  @alltime_users = Seinfeld::User.all :order => [:longest_streak.desc, :login], :limit=> 15
+  @recent_users  = Seinfeld::User.best_current_streak
+  @alltime_users = Seinfeld::User.best_alltime_streak
   haml :index
 end
 
