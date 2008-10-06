@@ -90,7 +90,7 @@ module Seinfeld
           break selected
         end
 
-        if entry.title =~ %r{^#{login} committed}
+        if entry.title.downcase =~ %r{^#{login.downcase} committed}
           updated = entry.updated_at
           date    = Date.civil(updated.year, updated.month, updated.day)
           selected.update date => nil
