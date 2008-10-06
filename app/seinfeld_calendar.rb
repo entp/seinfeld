@@ -26,6 +26,10 @@ get '/~:name/:year/:month' do
   get_user_and_progressions
 end
 
+post '/github' do
+  Seinfeld::User.process_new_github_user(params[:subject])
+end
+
 helpers do
   include Seinfeld::CalendarHelper
 

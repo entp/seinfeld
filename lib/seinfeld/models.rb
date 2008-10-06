@@ -6,6 +6,8 @@ require 'feed_me'
 require 'set'
 
 module Seinfeld
+  # Some of this is destined to be broken out into modules when support for
+  # more services than just github is added.
   class User
     include DataMapper::Resource
     property :id,             Integer, :serial => true
@@ -61,6 +63,7 @@ module Seinfeld
 
     def committed_days_in_feed(page = 1)
       feed          = get_feed(page)
+      return [] if feed.nil?
       entry_id      = nil # track the first entry id to store in the user model
       skipped_early = nil
       return [] if feed.entries.empty?
@@ -93,11 +96,25 @@ module Seinfeld
       Set.new progressions(:created_at => start..((start >> 1) - 1)).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
     end
 
+    def self.process_new_github_user(subject)
+      login_name = subject.scan(/([\w\_\-]+) sent you a message/).first.to_s
+      user       = first(:login => login_name) unless login_name.size.zero?
+      if user || login_name.size.zero?
+        raise "blam"
+      else
+        user = new(:login => login_name)
+        yield user if block_given?
+        user.update_progress
+      end
+    end
+
   private
     def get_feed(page = 1)
       feed = nil
       open("http://github.com/#{login}.atom?page=#{page}") { |f| feed = FeedMe.parse(f.read) }
       feed
+    rescue
+      nil
     end
   end
 
