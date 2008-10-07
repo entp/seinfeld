@@ -187,4 +187,7 @@ tr.dayname abbr{
 .x-2{ background-image:url(../images/x_2.png);}
 .x-3{ background-image:url(../images/x_3.png);}
 
+.today {
+  color: green;
+}
 /* @end */
