@@ -34,7 +34,7 @@ a img{ border:none; }
 
 body{
   font-size:12px;
-  font-family: "Gill Sans", "Futura", Arial, sans-serif;
+  font-family: "Futura", "Gill Sans", Arial, sans-serif;
   fffont-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -58,6 +58,46 @@ body{
   color:#999;
 }
 
+.current_streak, .longest_streak{
+  width:150px;
+  float:left;
+}
+.current_streak, .longest_streak{
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform:none;
+}
+
+.type{
+  display:block;
+  font-size:10px;
+  margin-bottom:2px;
+  color:#999;
+  text-transform:uppercase;
+  letter-spacing:0;
+}
+.num{
+  display:block;
+  font-size:30px;
+  font-family: Helvetica, Arial, sans-serif;
+  color:#000;
+  font-weight:bold;
+  letter-spacing:-3px;
+}
+.num .desc{
+  position:relative;
+  top:-8px;
+  left:4px;
+  font-size:11px;
+  letter-spacing:0;
+  color:#999;
+  font-weight:bold;
+}
+
+a{
+  color:#00538d;
+  text-decoration:none;
+}
+
 /* @end */
 
 /*------------------------------------------------------------------------------------
@@ -65,7 +105,7 @@ body{
 ------------------------------------------------------------------------------------*/
 
 #main, #borderedMain{
-  margin:30px auto;
+  margin:15px auto 30px auto;
   padding:0 0 20px 0;
   width:700px;
   background:#fff;
@@ -96,7 +136,15 @@ body{
 
 .footnote{
   text-align:right;
+  font-size:11px;
+  color:#666;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height:16px;
 }
+.footnote a{
+  color:#333;
+}
+.footnote a:hover{ text-decoration:underline; }
 
 /* @end */
 
@@ -105,7 +153,7 @@ body{
 ------------------------------------------------------------------------------------*/
 
 #calendar{
-  margin:30px auto;
+  margin:30px auto 15px auto;
   padding:0 0 20px 0;
   width:700px;
   background:#fff;
