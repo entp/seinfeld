@@ -2,6 +2,7 @@
   %head
     %title 
       = page_title
+    %link{:rel => 'icon', :type => 'image/png', :href => '/images/x_1.png', :sizes => '48x48'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/main.css'}
     %script{:type => 'text/javascript', :src => '/javascripts/mootools.js'}
     %script{:type => 'text/javascript', :src => '/javascripts/application.js'}
@@ -11,16 +12,23 @@
     .subtitle Tracking Open Source Contributions
     #calendar
       = seinfeld
-      %p 
-        Current Streak:
-        = @user.current_streak
-      %p 
-        Longest Streak:
-        = @user.longest_streak
     #main
+      #stats
+        .current_streak
+          %span.type
+            current streak
+          %span.num
+            = @user.current_streak
+            %span.desc days
+        .longest_streak
+          %span.type
+            longest streak
+          %span.num
+            = @user.longest_streak
+            %span.desc days
       #content.footnote 
         %a{:href => "http://calendaraboutnothing.com"} Calendar About Nothing
-        by <a href="http://weblog.techno-weenie.net">rick</a> and <a href="http://warpspire.com/">kyle</a>.
+        by <a href="http://weblog.techno-weenie.net">rick</a> and <a href="http://warpspire.com/">kyle</a>
         %br
         %a{:href => "http://github.com/entp/seinfeld/tree/master"} accepting patches
       
