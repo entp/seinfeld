@@ -54,7 +54,7 @@ My app/config.ru (for Passenger) looks like:
 
 TODO
 ====
-
+TIMEZONES
 configurable db support
 Gitorious support, etc
 OAUTH
