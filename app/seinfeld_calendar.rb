@@ -27,7 +27,11 @@ get '/~:name/:year/:month' do
 end
 
 post '/github' do
-  Seinfeld::User.process_new_github_user(params[:subject])
+  if params[:token] == Seinfeld::User.creation_token
+    Seinfeld::User.process_new_github_user(request.body.read)
+  else
+    redirect "/"
+  end
 end
 
 helpers do

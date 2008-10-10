@@ -5,6 +5,7 @@ require 'open-uri'
 require 'dm-core'
 require 'feed_me'
 require 'mechanical_github'
+require 'tmail'
 require 'set'
 
 module Seinfeld
@@ -12,6 +13,7 @@ module Seinfeld
   # more services than just github is added.
   class User
     class << self
+      attr_accessor :creation_token
       attr_accessor :github_login
       attr_accessor :github_password
     end
@@ -115,7 +117,9 @@ module Seinfeld
       Set.new progressions(:created_at => start..((start >> 1) - 1)).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
     end
 
-    def self.process_new_github_user(subject)
+    def self.process_new_github_user(mail_body)
+      msg        = TMail::Mail.parse(mail_body)
+      subject    = msg['subject'].to_s
       login_name = subject.scan(/([\w\_\-]+) sent you a message/).first.to_s
       return if login_name.size.zero?
       if user = first(:login => login_name)
