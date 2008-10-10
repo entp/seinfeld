@@ -120,7 +120,7 @@ module Seinfeld
     def self.process_new_github_user(mail_body)
       msg        = TMail::Mail.parse(mail_body)
       subject    = msg['subject'].to_s
-      login_name = subject.scan(/([\w\_\-]+) sent you a message/).first.to_s
+      login_name = subject.downcase.scan(/([\w\_\-]+) sent you a message/).first.to_s
       return if login_name.size.zero?
       if user = first(:login => login_name)
         if github_login && github_password
@@ -132,6 +132,11 @@ module Seinfeld
       else
         user = new(:login => login_name)
         yield user if block_given?
+        if github_login && github_password
+          session = MechanicalGitHub::Session.new
+          session.login github_login, github_password
+          session.send_message login_name, "[CAN] Here's your calendar!", "Here's your calendar, but it may be a few minutes before I've had a chance to scan all your public github updates: http://calendaraboutnothing.com/~#{user.login}."
+        end
         user.update_progress
       end
     end
