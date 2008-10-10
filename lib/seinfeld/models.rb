@@ -126,7 +126,7 @@ module Seinfeld
         if github_login && github_password
           session = MechanicalGitHub::Session.new
           session.login github_login, github_password
-          session.send_message login_name, "[CAN] You've already registered!", "Thanks for your enthusiasm, but you've already registered for a Calendar About Nothing: http://calendaraboutnothing.com/~#{user.login}."
+          session.send_message login_name, "[CAN] You've already registered!", "Thanks for your enthusiasm, but you've already registered for a Calendar About Nothing: http://calendaraboutnothing.com/~#{user.login}"
         end
         nil
       else
@@ -135,7 +135,7 @@ module Seinfeld
         if github_login && github_password
           session = MechanicalGitHub::Session.new
           session.login github_login, github_password
-          session.send_message login_name, "[CAN] Here's your calendar!", "Here's your calendar, but it may be a few minutes before I've had a chance to scan all your public github updates: http://calendaraboutnothing.com/~#{user.login}."
+          session.send_message login_name, "[CAN] Here's your calendar!", "Here's your calendar, but it may be a few minutes before I've had a chance to scan all your public github updates: http://calendaraboutnothing.com/~#{user.login}"
         end
         user.update_progress
       end
