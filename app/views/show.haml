@@ -8,7 +8,9 @@
     %script{:type => 'text/javascript', :src => '/javascripts/application.js'}
   %body
     .title 
-      = page_title
+      %a{:rel => "me", :href => "http://github.com/#{@user.login}"}
+        == #{@user.login}'s
+      Calendar
     .subtitle Tracking Open Source Contributions
     #calendar
       = seinfeld
