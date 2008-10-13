@@ -27,8 +27,9 @@ get '/~:name/:year/:month' do
   show_user_calendar
 end
 
-get '/~:name/:year/:month.js' do
+get '/~:name/:year/:month.json' do
   get_user_and_progressions
+  @progressions.map { |p| p.to_s }.to_json
 end
 
 post '/github' do
