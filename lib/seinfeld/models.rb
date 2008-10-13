@@ -1,6 +1,15 @@
 $: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'feed_me', 'lib')
 $: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'mechanical_github', 'lib')
 require 'rubygems'
+gem 'activesupport', '~> 2.1'
+require 'active_support/time_with_zone'
+require 'active_support/values/time_zone'
+require 'active_support/core_ext/object'
+require 'active_support/core_ext/date'
+require 'active_support/core_ext/numeric'
+require 'active_support/core_ext/time'
+require 'active_support/basic_object'
+require 'active_support/duration'
 require 'open-uri'
 require 'dm-core'
 require 'feed_me'
@@ -27,6 +36,7 @@ module Seinfeld
     property :longest_streak, Integer, :default => 0, :index => true
     property :streak_start,   Date
     property :streak_end,     Date
+    property :time_zone,      String
     has n, :progressions, :class_name => "Seinfeld::Progression", :order => [:created_at.desc]
 
     def self.paginated_each(&block)
@@ -79,6 +89,7 @@ module Seinfeld
     end
 
     def committed_days_in_feed(page = 1)
+      Time.zone     = time_zone || "UTC"
       feed          = get_feed(page)
       return nil if feed.nil?
       entry_id      = nil # track the first entry id to store in the user model
@@ -93,7 +104,7 @@ module Seinfeld
         end
 
         if entry.title.downcase =~ %r{^#{login.downcase} committed}
-          updated = entry.updated_at
+          updated = entry.updated_at.in_time_zone
           date    = Date.civil(updated.year, updated.month, updated.day)
           selected.update date => nil
         else

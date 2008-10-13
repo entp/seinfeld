@@ -5,10 +5,10 @@ module Seinfeld
     before :all do
       @feed = OpenStruct.new
       @feed.entries = [
-        OpenStruct.new(:item_id => 'a', :title => "BOB committed something", :updated_at => Date.civil(2008, 1, 1, 22)),
+        OpenStruct.new(:item_id => 'a', :title => "BOB committed something", :updated_at => Time.utc(2008, 1, 1, 22)),
         OpenStruct.new(:item_id => 'b', :title => "bob watched something"),
-        OpenStruct.new(:item_id => 'c', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 1, 23)),
-        OpenStruct.new(:item_id => 'd', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 2, 23)),
+        OpenStruct.new(:item_id => 'c', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 1, 23)),
+        OpenStruct.new(:item_id => 'd', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 2, 23)),
         ]
     end
 
@@ -69,9 +69,9 @@ module Seinfeld
         before :all do
           @feed2 = OpenStruct.new
           @feed2.entries = [
-            OpenStruct.new(:item_id => 'e', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 4, 22)),
+            OpenStruct.new(:item_id => 'e', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 4, 22)),
             OpenStruct.new(:item_id => 'f', :title => "bob watched something"),
-            OpenStruct.new(:item_id => 'g', :title => "bob committed something", :updated_at => Date.civil(2008, 1, 5, 23))
+            OpenStruct.new(:item_id => 'g', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 5, 23))
             ]
         end
 
