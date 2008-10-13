@@ -7,6 +7,7 @@ end
 
 require 'seinfeld/calendar_helper'
 require 'sinatra'
+require 'json'
 
 get '/' do
   @recent_users  = Seinfeld::User.best_current_streak
@@ -15,14 +16,18 @@ get '/' do
 end
 
 get '/~:name' do
-  get_user_and_progressions
+  show_user_calendar
 end
 
 get '/~:name/:year' do
-  get_user_and_progressions
+  show_user_calendar
 end
 
 get '/~:name/:year/:month' do
+  show_user_calendar
+end
+
+get '/~:name/:year/:month.js' do
   get_user_and_progressions
 end
 
@@ -47,7 +52,13 @@ helpers do
       params[key] = value.zero? ? Date.today.send(key) : value
     end
     if @user = Seinfeld::User.first(:login => params[:name])
-      @progressions = @user.progress_for(params[:year], params[:month])
+      @progressions = Set.new @user.progress_for(params[:year], params[:month])
+    end
+  end
+
+  def show_user_calendar
+    get_user_and_progressions
+    if @user
       haml :show
     else
       redirect "/"

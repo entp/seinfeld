@@ -125,7 +125,7 @@ module Seinfeld
 
     def progress_for(year, month)
       start = Date.new(year, month)
-      Set.new progressions(:created_at => start..((start >> 1) - 1)).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
+      progressions(:created_at => start..((start >> 1) - 1), :order => [:created_at]).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
     end
 
     def self.process_new_github_user(mail_body)
