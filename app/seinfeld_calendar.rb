@@ -29,7 +29,7 @@ end
 
 get '/~:name/:year/:month.json' do
   get_user_and_progressions
-  @progressions.map { |p| p.to_s }.to_json
+  {:days => @progressions.map { |p| p.to_s }, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
 end
 
 post '/github' do
