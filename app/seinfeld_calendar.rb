@@ -19,8 +19,16 @@ get '/~:name' do
   show_user_calendar
 end
 
+get '/~:name.json' do
+  show_user_json
+end
+
 get '/~:name/:year' do
   show_user_calendar
+end
+
+get '/~:name/:year.json' do
+  show_user_json
 end
 
 get '/~:name/:year/:month' do
@@ -28,8 +36,7 @@ get '/~:name/:year/:month' do
 end
 
 get '/~:name/:year/:month.json' do
-  get_user_and_progressions
-  {:days => @progressions.map { |p| p.to_s }, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
+  show_user_json
 end
 
 post '/github' do
@@ -64,6 +71,11 @@ helpers do
     else
       redirect "/"
     end
+  end
+
+  def show_user_json
+    get_user_and_progressions
+    {:days => @progressions.map { |p| p.to_s }, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
   end
 
   def link_to_user(user, streak_count = :current_streak)
