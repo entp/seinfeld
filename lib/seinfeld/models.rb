@@ -14,7 +14,6 @@ require 'open-uri'
 require 'dm-core'
 require 'feed_me'
 require 'mechanical_github'
-require 'tmail'
 require 'set'
 
 module Seinfeld
@@ -128,9 +127,7 @@ module Seinfeld
       progressions(:created_at => start..((start >> 1) - 1), :order => [:created_at]).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
     end
 
-    def self.process_new_github_user(mail_body)
-      msg        = TMail::Mail.parse(mail_body)
-      subject    = msg['subject'].to_s
+    def self.process_new_github_user(subject)
       login_name = subject.downcase.scan(/([\w\_\-]+) sent you a message/).first.to_s
       return if login_name.size.zero?
       if user = first(:login => login_name)

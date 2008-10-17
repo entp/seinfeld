@@ -41,7 +41,7 @@ end
 
 post '/github' do
   if params[:token] == Seinfeld::User.creation_token
-    Seinfeld::User.process_new_github_user(request.body.read)
+    Seinfeld::User.process_new_github_user(params[:subject])
   else
     redirect "/"
   end
