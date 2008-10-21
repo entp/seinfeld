@@ -23,11 +23,12 @@
             = @user.current_streak
             %span.desc days
         .longest_streak
-          %span.type
-            longest streak
-          %span.num
-            = @user.longest_streak
-            %span.desc days
+          %a{:href => @user.longest_streak_url}
+            %span.type
+              longest streak
+            %span.num
+              = @user.longest_streak
+              %span.desc days
       #content.footnote 
         %a{:href => "http://calendaraboutnothing.com"} Calendar About Nothing
         by <a href="http://weblog.techno-weenie.net">rick</a> and <a href="http://warpspire.com/">kyle</a>

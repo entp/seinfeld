@@ -27,15 +27,18 @@ module Seinfeld
     end
 
     include DataMapper::Resource
-    property :id,             Integer, :serial => true
-    property :login,          String, :unique => true
-    property :email,          String
-    property :last_entry_id,  String
-    property :current_streak, Integer, :default => 0, :index => true
-    property :longest_streak, Integer, :default => 0, :index => true
-    property :streak_start,   Date
-    property :streak_end,     Date
-    property :time_zone,      String
+    property :id,                   Integer, :serial => true
+    property :login,                String, :unique => true
+    property :email,                String
+    property :last_entry_id,        String
+    property :current_streak,       Integer, :default => 0, :index => true
+    property :longest_streak,       Integer, :default => 0, :index => true
+    property :streak_start,         Date
+    property :streak_end,           Date
+    property :longest_streak_start, Date
+    property :longest_streak_end,   Date
+    property :time_zone,            String
+
     has n, :progressions, :class_name => "Seinfeld::Progression", :order => [:created_at.desc]
 
     def self.paginated_each(&block)
@@ -76,12 +79,18 @@ module Seinfeld
             end
             progressions.create(:created_at => day)
           end
-          highest_streak      = streaks.empty? ? 0 : streaks.max { |a, b| a.days <=> b.days }.days
+          highest_streak      = streaks.empty? ? 0 : streaks.max { |a, b| a.days <=> b.days }
           latest_streak       = streaks.last
           self.streak_start   = latest_streak.started if latest_streak
           self.streak_end     = latest_streak.ended   if latest_streak
           self.current_streak = latest_streak.days    if latest_streak && latest_streak.current?
-          self.longest_streak = highest_streak        if highest_streak > longest_streak.to_i
+
+          if highest_streak.days > longest_streak.to_i
+            self.longest_streak       = highest_streak.days
+            self.longest_streak_start = highest_streak.started
+            self.longest_streak_end   = highest_streak.ended
+          end
+
           save
         end
       end
@@ -125,6 +134,10 @@ module Seinfeld
     def progress_for(year, month)
       start = Date.new(year, month)
       progressions(:created_at => start..((start >> 1) - 1), :order => [:created_at]).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
+    end
+
+    def longest_streak_url
+      "/~#{login}/#{longest_streak_start.year}/#{longest_streak_start.month}"
     end
 
     def self.process_new_github_user(subject)

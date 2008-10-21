@@ -168,6 +168,16 @@ module Seinfeld
           @user.update_progress
           @user.streak_end.should == Date.civil(2008, 1, 8)
         end
+        
+        it "calculates longest streak start" do
+          @user.update_progress
+          @user.longest_streak_start.should == Date.civil(2007, 12, 30)
+        end
+        
+        it "calculates longest streak end" do
+          @user.update_progress
+          @user.longest_streak_end.should == Date.civil(2008, 1, 3)
+        end
       end
     end
 
