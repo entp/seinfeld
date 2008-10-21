@@ -137,7 +137,11 @@ module Seinfeld
     end
 
     def longest_streak_url
-      "/~#{login}/#{longest_streak_start.year}/#{longest_streak_start.month}"
+      if longest_streak_start.nil? || longest_streak_start.nil?
+        "/~#{login}"
+      else
+        "/~#{login}/#{longest_streak_start.year}/#{longest_streak_start.month}"
+      end
     end
 
     def self.process_new_github_user(subject)
