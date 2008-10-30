@@ -1,7 +1,11 @@
+$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'activesupport-2.1.1', 'lib')
+$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'mechanize-0.8.4', 'lib')
+$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'tzinfo-0.3.11', 'lib')
+
 $: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'feed_me', 'lib')
 $: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'mechanical_github', 'lib')
 require 'rubygems'
-gem 'activesupport', '~> 2.1'
+#gem 'activesupport', '~> 2.1'
 require 'active_support/time_with_zone'
 require 'active_support/values/time_zone'
 require 'active_support/core_ext/object'
