@@ -1,6 +1,6 @@
 unless Object.const_defined?(:Seinfeld)
   # setup a config.ru for rack, or some other ruby config file
-  $: << File.join(File.dirname(__FILE__), '..', 'lib')
+  $: << File.join(File.dirname(__FILE__), 'lib')
   require 'seinfeld/models'
   DataMapper.setup :default, 'mysql://localhost/seinfeld'
 end

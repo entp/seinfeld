@@ -14,7 +14,7 @@ task :default => 'spec'
 
 namespace :seinfeld do
   task :init do
-    require 'app/config'
+    require 'config'
   end
 
   task :setup => :init do
