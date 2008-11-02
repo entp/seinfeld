@@ -137,7 +137,7 @@ module Seinfeld
     end
 
     def longest_streak_url
-      if longest_streak_start.nil? || longest_streak_start.nil?
+      if longest_streak_start.nil? || longest_streak_end.nil?
         "/~#{login}"
       else
         "/~#{login}/#{longest_streak_start.year}/#{longest_streak_start.month}"
