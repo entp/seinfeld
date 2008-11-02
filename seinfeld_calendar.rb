@@ -56,7 +56,7 @@ helpers do
 
   def get_user_and_progressions
     [:year, :month].each do |key|
-      value        = params[key].to_i
+      value       = params[key].to_i
       params[key] = value.zero? ? Date.today.send(key) : value
     end
     if @user = Seinfeld::User.first(:login => params[:name])

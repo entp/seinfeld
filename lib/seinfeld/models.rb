@@ -62,6 +62,21 @@ module Seinfeld
       all :longest_streak.gt => 0, :order => [:longest_streak.desc, :login], :limit => 15
     end
 
+    def reset_progress
+      clear_progress
+      update_progress
+    end
+
+    def clear_progress
+      transaction do
+        progressions.destroy!
+        update_attributes \
+          :streak_start => nil, :streak_end => nil, :current_streak => nil,
+          :longest_streak => nil, :longest_streak_start => nil, :longest_streak_end => nil,
+          :last_entry_id => nil
+      end
+    end
+
     def update_progress
       transaction do
         days = committed_days_in_feed || []
