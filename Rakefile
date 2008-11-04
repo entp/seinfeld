@@ -14,7 +14,7 @@ task :default => 'spec'
 
 namespace :seinfeld do
   task :init do
-    require 'app/config'
+    require 'config'
   end
 
   task :setup => :init do
@@ -40,5 +40,10 @@ namespace :seinfeld do
         raise "No user found for #{ENV['USER'].inspect}"
       end
     end
+  end
+
+  task :reset => :init do
+    raise "Need USER=" if ENV['USER'].to_s.size.zero?
+    Seinfeld::User.first(:login => ENV['USER']).reset_progress
   end
 end

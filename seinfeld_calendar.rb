@@ -1,6 +1,6 @@
 unless Object.const_defined?(:Seinfeld)
   # setup a config.ru for rack, or some other ruby config file
-  $: << File.join(File.dirname(__FILE__), '..', 'lib')
+  $: << File.join(File.dirname(__FILE__), 'lib')
   require 'seinfeld/models'
   DataMapper.setup :default, 'mysql://localhost/seinfeld'
 end
@@ -56,7 +56,7 @@ helpers do
 
   def get_user_and_progressions
     [:year, :month].each do |key|
-      value        = params[key].to_i
+      value       = params[key].to_i
       params[key] = value.zero? ? Date.today.send(key) : value
     end
     if @user = Seinfeld::User.first(:login => params[:name])

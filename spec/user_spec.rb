@@ -91,6 +91,98 @@ module Seinfeld
       end
     end
 
+    describe "#clear_progress" do
+      before :all do
+        Seinfeld::User.transaction do
+          @existing = Seinfeld::User.create :login => 'bob', 
+            :streak_start => Date.civil(2007, 12, 30), :streak_end => Date.civil(2007, 12, 31), :current_streak => 2,
+            :longest_streak_start => Date.civil(2007, 12, 30), :longest_streak_end => Date.civil(2007, 12, 31), :longest_streak => 2, 
+            :last_entry_id => 'abc'
+          @existing.progressions.create(:created_at => Date.civil(2007, 12, 30))
+          @existing.progressions.create(:created_at => Date.civil(2007, 12, 31))
+        end
+        @existing.clear_progress
+        @existing.reload
+      end
+
+      it "clears progression records" do
+        @existing.should have(0).progressions
+      end
+
+      it "clears #streak_start" do
+        @existing.streak_start.should == nil
+      end
+
+      it "clears #streak_end" do
+        @existing.streak_end.should == nil
+      end
+
+      it "clears #current_streak" do
+        @existing.current_streak.should == nil
+      end
+
+      it "clears #longest_streak_start" do
+        @existing.longest_streak_start.should == nil
+      end
+
+      it "clears #longest_streak_end" do
+        @existing.longest_streak_end.should == nil
+      end
+
+      it "clears #longest_streak" do
+        @existing.longest_streak.should == nil
+      end
+
+      it "clears #last_entry_id" do
+        @existing.last_entry_id.should == nil
+      end
+    end
+
+    describe "#reset_progress" do
+      before :all do
+        Seinfeld::User.transaction do
+          @existing = Seinfeld::User.create :login => 'bob', 
+            :streak_start => Date.civil(2007, 12, 15), :streak_end => Date.civil(2007, 12, 16), :current_streak => 1,
+            :longest_streak_start => Date.civil(2007, 12, 15), :longest_streak_end => Date.civil(2007, 12, 16), :longest_streak => 1, 
+            :last_entry_id => 'abc'
+          @existing.progressions.create(:created_at => Date.civil(2007, 12, 15))
+          @existing.progressions.create(:created_at => Date.civil(2007, 12, 16))
+        end
+        @existing.stub!(:committed_days_in_feed).and_return [Date.civil(2007, 12, 30), Date.civil(2007, 12, 31), Date.civil(2008, 1, 1), Date.civil(2008, 1, 2)]
+        Date.stub!(:today).and_return(Date.civil(2008, 1, 3))
+        @existing.reset_progress
+        @existing.reload
+      end
+
+      it "resets progression records" do
+        @existing.progressions.map { |p| p.created_at }.should == [Date.civil(2008, 1, 2), Date.civil(2008, 1, 1), Date.civil(2007, 12, 31), Date.civil(2007, 12, 30)]
+      end
+
+      it "resets #streak_start" do
+        @existing.streak_start.should == Date.civil(2007, 12, 30)
+      end
+
+      it "resets #streak_end" do
+        @existing.streak_end.should == Date.civil(2008, 1, 2)
+      end
+
+      it "resets #current_streak" do
+        @existing.current_streak.should == 4
+      end
+
+      it "resets #longest_streak_start" do
+        @existing.longest_streak_start.should == Date.civil(2007, 12, 30)
+      end
+
+      it "resets #longest_streak_end" do
+        @existing.longest_streak_end.should == Date.civil(2008, 1, 2)
+      end
+
+      it "resets #longest_streak" do
+        @existing.longest_streak.should == 4
+      end
+    end
+
     describe "#update_progress" do
       before do
         @user.stub!(:committed_days_in_feed).and_return [Date.civil(2008, 1, 1), Date.civil(2008, 1, 2)]

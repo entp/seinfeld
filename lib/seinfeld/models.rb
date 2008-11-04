@@ -1,11 +1,5 @@
-$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'activesupport-2.1.1', 'lib')
-$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'mechanize-0.8.4', 'lib')
-$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'tzinfo-0.3.11', 'lib')
-
-$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'feed_me', 'lib')
-$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'mechanical_github', 'lib')
+$LOAD_PATH.push *Dir[File.join(File.dirname(__FILE__), '..', '..', 'vendor', '*', 'lib')]
 require 'rubygems'
-#gem 'activesupport', '~> 2.1'
 require 'active_support/time_with_zone'
 require 'active_support/values/time_zone'
 require 'active_support/core_ext/object'
@@ -64,6 +58,21 @@ module Seinfeld
 
     def self.best_alltime_streak 
       all :longest_streak.gt => 0, :order => [:longest_streak.desc, :login], :limit => 15
+    end
+
+    def reset_progress
+      clear_progress
+      update_progress
+    end
+
+    def clear_progress
+      transaction do
+        progressions.destroy!
+        update_attributes \
+          :streak_start => nil, :streak_end => nil, :current_streak => nil,
+          :longest_streak => nil, :longest_streak_start => nil, :longest_streak_end => nil,
+          :last_entry_id => nil
+      end
     end
 
     def update_progress
@@ -141,7 +150,7 @@ module Seinfeld
     end
 
     def longest_streak_url
-      if longest_streak_start.nil? || longest_streak_start.nil?
+      if longest_streak_start.nil? || longest_streak_end.nil?
         "/~#{login}"
       else
         "/~#{login}/#{longest_streak_start.year}/#{longest_streak_start.month}"

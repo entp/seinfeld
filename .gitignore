@@ -1,5 +1,3 @@
-config/environment.rb
-app/config.ru
-app/config.rb
-app/tmp
-app/*.log
+config.ru
+config.rb
+tmp

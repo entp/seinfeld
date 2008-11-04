@@ -5,7 +5,7 @@ Seinfeld::User.github_login    = 'calendaraboutnothing'
 Seinfeld::User.github_password = 'zwol8wak3r'
 Seinfeld::User.creation_token  = 'ba2da61bf433cc0d5b036d7739dd35f8acca6e34'
 
-require File.dirname(__FILE__) + "/../app/seinfeld_calendar.rb"
+require File.dirname(__FILE__) + "/../seinfeld_calendar.rb"
  
 disable :run, :reload
 set     :env, :production

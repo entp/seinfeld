@@ -19,22 +19,21 @@ rake seinfeld:add_user USER=technoweenie
 rake seinfeld:update
 
 # let's start the show
-cd app
 ruby seinfeld_calendar.rb
 open http://localhost:4567/~technoweenie
 
 DEPLOYMENT
 ==========
 
-My app/config.rb looks like this:
+My config.rb looks like this:
 
-  $: << File.join(File.dirname(__FILE__), '..', 'lib')
+  $: << File.join(File.dirname(__FILE__), 'lib')
   require 'seinfeld/models'
   DataMapper.setup :default, 'mysql://rickybobby:shakeandbake@localhost/seinfeld'
   Seinfeld::User.github_login = 'rickybobby'
   Seinfeld::User.github_password = 'shakeandbake'
   
-My app/config.ru (for Passenger) looks like:
+My config.ru (for Passenger) looks like:
 
   require 'rubygems'
   require 'rack'
@@ -43,7 +42,6 @@ My app/config.ru (for Passenger) looks like:
   Sinatra::Application.default_options.update(
     :run => false,
     :env => :production,
-    :views => '/path/to/seinfeld/app/views', # sinatra looks in the wrong place
     :raise_errors => true
   )
   
