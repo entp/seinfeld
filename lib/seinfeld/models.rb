@@ -1,4 +1,5 @@
 $LOAD_PATH.push *Dir[File.join(File.dirname(__FILE__), '..', '..', 'vendor', '*', 'lib')]
+require 'dm-core'
 require 'rubygems'
 require 'active_support/time_with_zone'
 require 'active_support/values/time_zone'
@@ -9,7 +10,6 @@ require 'active_support/core_ext/time'
 require 'active_support/basic_object'
 require 'active_support/duration'
 require 'open-uri'
-require 'dm-core'
 require 'feed_me'
 require 'mechanical_github'
 require 'set'
