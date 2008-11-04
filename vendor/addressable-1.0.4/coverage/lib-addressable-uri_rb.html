@@ -1,0 +1,1857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'><head><title>lib/addressable/uri.rb - C0 code coverage information</title>
+    <style type='text/css'>body { background-color: rgb(240, 240, 245); }</style>
+    <style type='text/css'>span.cross-ref-title {
+ font-size: 140%;
+}
+span.cross-ref a {
+ text-decoration: none;
+}
+span.cross-ref {
+ background-color:#f3f7fa;
+ border: 1px dashed #333;
+ margin: 1em;
+ padding: 0.5em;
+ overflow: hidden;
+}
+a.crossref-toggle {
+ text-decoration: none;
+}
+span.marked0 {
+ background-color: rgb(185, 210, 200);
+ display: block;
+}
+span.marked1 {
+ background-color: rgb(190, 215, 205);
+ display: block;
+}
+span.inferred0 {
+ background-color: rgb(175, 200, 200);
+ display: block;
+}
+span.inferred1 {
+ background-color: rgb(180, 205, 205);
+ display: block;
+}
+span.uncovered0 {
+ background-color: rgb(225, 110, 110);
+ display: block;
+}
+span.uncovered1 {
+ background-color: rgb(235, 120, 120);
+ display: block;
+}
+span.overview {
+ border-bottom: 8px solid black;
+}
+div.overview {
+ border-bottom: 8px solid black;
+}
+body {
+ font-family: verdana, arial, helvetica;
+}
+div.footer {
+ font-size: 68%;
+ margin-top: 1.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+ margin-bottom: 0.5em;
+}
+h5 {
+ margin-top: 0.5em;
+}
+.hidden {
+ display: none;
+}
+div.separator {
+ height: 10px;
+}
+/* Commented out for better readability, esp. on IE */
+/*
+table tr td, table tr th {
+ font-size: 68%;
+}
+td.value table tr td {
+ font-size: 11px;
+}
+*/
+table.percent_graph {
+ height: 12px;
+ border: #808080 1px solid;
+ empty-cells: show;
+}
+table.percent_graph td.covered {
+ height: 10px;
+ background: #00f000;
+}
+table.percent_graph td.uncovered {
+ height: 10px;
+ background: #e00000;
+}
+table.percent_graph td.NA {
+ height: 10px;
+ background: #eaeaea;
+}
+table.report {
+ border-collapse: collapse;
+ width: 100%;
+}
+table.report td.heading {
+ background: #dcecff;
+ border: #d0d0d0 1px solid;
+ font-weight: bold;
+ text-align: center;
+}
+table.report td.heading:hover {
+ background: #c0ffc0;
+}
+table.report td.text {
+ border: #d0d0d0 1px solid;
+}
+table.report td.value,
+table.report td.lines_total,
+table.report td.lines_code {
+ text-align: right;
+ border: #d0d0d0 1px solid;
+}
+table.report tr.light {
+ background-color: rgb(240, 240, 245);
+}
+table.report tr.dark {
+ background-color: rgb(230, 230, 235);
+}
+</style>
+    <script type='text/javascript'>
+// <![CDATA[
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make cross-references hidden by default
+  document.writeln( "<style type=\"text/css\">span.cross-ref { display: none }</style>" )
+  // ]]>
+</script>
+    <style type='text/css'>span.run0 {
+  background-color: rgb(178, 204, 255);
+  display: block;
+}
+span.run1 {
+  background-color: rgb(178, 206, 255);
+  display: block;
+}
+span.run2 {
+  background-color: rgb(178, 209, 255);
+  display: block;
+}
+span.run3 {
+  background-color: rgb(178, 211, 255);
+  display: block;
+}
+span.run4 {
+  background-color: rgb(178, 214, 255);
+  display: block;
+}
+span.run5 {
+  background-color: rgb(178, 218, 255);
+  display: block;
+}
+span.run6 {
+  background-color: rgb(178, 220, 255);
+  display: block;
+}
+span.run7 {
+  background-color: rgb(178, 223, 255);
+  display: block;
+}
+span.run8 {
+  background-color: rgb(178, 225, 255);
+  display: block;
+}
+span.run9 {
+  background-color: rgb(178, 228, 255);
+  display: block;
+}
+span.run10 {
+  background-color: rgb(178, 232, 255);
+  display: block;
+}
+span.run11 {
+  background-color: rgb(178, 234, 255);
+  display: block;
+}
+span.run12 {
+  background-color: rgb(178, 237, 255);
+  display: block;
+}
+span.run13 {
+  background-color: rgb(178, 239, 255);
+  display: block;
+}
+span.run14 {
+  background-color: rgb(178, 242, 255);
+  display: block;
+}
+span.run15 {
+  background-color: rgb(178, 246, 255);
+  display: block;
+}
+span.run16 {
+  background-color: rgb(178, 248, 255);
+  display: block;
+}
+span.run17 {
+  background-color: rgb(178, 251, 255);
+  display: block;
+}
+span.run18 {
+  background-color: rgb(178, 253, 255);
+  display: block;
+}
+span.run19 {
+  background-color: rgb(178, 255, 253);
+  display: block;
+}
+span.run20 {
+  background-color: rgb(178, 255, 249);
+  display: block;
+}
+span.run21 {
+  background-color: rgb(178, 255, 247);
+  display: block;
+}
+span.run22 {
+  background-color: rgb(178, 255, 244);
+  display: block;
+}
+span.run23 {
+  background-color: rgb(178, 255, 242);
+  display: block;
+}
+span.run24 {
+  background-color: rgb(178, 255, 239);
+  display: block;
+}
+span.run25 {
+  background-color: rgb(178, 255, 235);
+  display: block;
+}
+span.run26 {
+  background-color: rgb(178, 255, 233);
+  display: block;
+}
+span.run27 {
+  background-color: rgb(178, 255, 230);
+  display: block;
+}
+span.run28 {
+  background-color: rgb(178, 255, 228);
+  display: block;
+}
+span.run29 {
+  background-color: rgb(178, 255, 225);
+  display: block;
+}
+span.run30 {
+  background-color: rgb(178, 255, 221);
+  display: block;
+}
+span.run31 {
+  background-color: rgb(178, 255, 219);
+  display: block;
+}
+span.run32 {
+  background-color: rgb(178, 255, 216);
+  display: block;
+}
+span.run33 {
+  background-color: rgb(178, 255, 214);
+  display: block;
+}
+span.run34 {
+  background-color: rgb(178, 255, 211);
+  display: block;
+}
+span.run35 {
+  background-color: rgb(178, 255, 207);
+  display: block;
+}
+span.run36 {
+  background-color: rgb(178, 255, 205);
+  display: block;
+}
+span.run37 {
+  background-color: rgb(178, 255, 202);
+  display: block;
+}
+span.run38 {
+  background-color: rgb(178, 255, 200);
+  display: block;
+}
+span.run39 {
+  background-color: rgb(178, 255, 197);
+  display: block;
+}
+span.run40 {
+  background-color: rgb(178, 255, 193);
+  display: block;
+}
+span.run41 {
+  background-color: rgb(178, 255, 191);
+  display: block;
+}
+span.run42 {
+  background-color: rgb(178, 255, 188);
+  display: block;
+}
+span.run43 {
+  background-color: rgb(178, 255, 186);
+  display: block;
+}
+span.run44 {
+  background-color: rgb(178, 255, 183);
+  display: block;
+}
+span.run45 {
+  background-color: rgb(178, 255, 179);
+  display: block;
+}
+span.run46 {
+  background-color: rgb(179, 255, 178);
+  display: block;
+}
+span.run47 {
+  background-color: rgb(182, 255, 178);
+  display: block;
+}
+span.run48 {
+  background-color: rgb(184, 255, 178);
+  display: block;
+}
+span.run49 {
+  background-color: rgb(187, 255, 178);
+  display: block;
+}
+span.run50 {
+  background-color: rgb(191, 255, 178);
+  display: block;
+}
+span.run51 {
+  background-color: rgb(193, 255, 178);
+  display: block;
+}
+span.run52 {
+  background-color: rgb(196, 255, 178);
+  display: block;
+}
+span.run53 {
+  background-color: rgb(198, 255, 178);
+  display: block;
+}
+span.run54 {
+  background-color: rgb(201, 255, 178);
+  display: block;
+}
+span.run55 {
+  background-color: rgb(205, 255, 178);
+  display: block;
+}
+span.run56 {
+  background-color: rgb(207, 255, 178);
+  display: block;
+}
+span.run57 {
+  background-color: rgb(210, 255, 178);
+  display: block;
+}
+span.run58 {
+  background-color: rgb(212, 255, 178);
+  display: block;
+}
+span.run59 {
+  background-color: rgb(215, 255, 178);
+  display: block;
+}
+span.run60 {
+  background-color: rgb(219, 255, 178);
+  display: block;
+}
+span.run61 {
+  background-color: rgb(221, 255, 178);
+  display: block;
+}
+span.run62 {
+  background-color: rgb(224, 255, 178);
+  display: block;
+}
+span.run63 {
+  background-color: rgb(226, 255, 178);
+  display: block;
+}
+span.run64 {
+  background-color: rgb(229, 255, 178);
+  display: block;
+}
+span.run65 {
+  background-color: rgb(233, 255, 178);
+  display: block;
+}
+span.run66 {
+  background-color: rgb(235, 255, 178);
+  display: block;
+}
+span.run67 {
+  background-color: rgb(238, 255, 178);
+  display: block;
+}
+span.run68 {
+  background-color: rgb(240, 255, 178);
+  display: block;
+}
+span.run69 {
+  background-color: rgb(243, 255, 178);
+  display: block;
+}
+span.run70 {
+  background-color: rgb(247, 255, 178);
+  display: block;
+}
+span.run71 {
+  background-color: rgb(249, 255, 178);
+  display: block;
+}
+span.run72 {
+  background-color: rgb(252, 255, 178);
+  display: block;
+}
+span.run73 {
+  background-color: rgb(255, 255, 178);
+  display: block;
+}
+span.run74 {
+  background-color: rgb(255, 252, 178);
+  display: block;
+}
+span.run75 {
+  background-color: rgb(255, 248, 178);
+  display: block;
+}
+span.run76 {
+  background-color: rgb(255, 246, 178);
+  display: block;
+}
+span.run77 {
+  background-color: rgb(255, 243, 178);
+  display: block;
+}
+span.run78 {
+  background-color: rgb(255, 240, 178);
+  display: block;
+}
+span.run79 {
+  background-color: rgb(255, 238, 178);
+  display: block;
+}
+span.run80 {
+  background-color: rgb(255, 234, 178);
+  display: block;
+}
+span.run81 {
+  background-color: rgb(255, 232, 178);
+  display: block;
+}
+span.run82 {
+  background-color: rgb(255, 229, 178);
+  display: block;
+}
+span.run83 {
+  background-color: rgb(255, 226, 178);
+  display: block;
+}
+span.run84 {
+  background-color: rgb(255, 224, 178);
+  display: block;
+}
+span.run85 {
+  background-color: rgb(255, 220, 178);
+  display: block;
+}
+span.run86 {
+  background-color: rgb(255, 218, 178);
+  display: block;
+}
+span.run87 {
+  background-color: rgb(255, 215, 178);
+  display: block;
+}
+span.run88 {
+  background-color: rgb(255, 212, 178);
+  display: block;
+}
+span.run89 {
+  background-color: rgb(255, 210, 178);
+  display: block;
+}
+span.run90 {
+  background-color: rgb(255, 206, 178);
+  display: block;
+}
+span.run91 {
+  background-color: rgb(255, 204, 178);
+  display: block;
+}
+span.run92 {
+  background-color: rgb(255, 201, 178);
+  display: block;
+}
+span.run93 {
+  background-color: rgb(255, 198, 178);
+  display: block;
+}
+span.run94 {
+  background-color: rgb(255, 196, 178);
+  display: block;
+}
+span.run95 {
+  background-color: rgb(255, 192, 178);
+  display: block;
+}
+span.run96 {
+  background-color: rgb(255, 189, 178);
+  display: block;
+}
+span.run97 {
+  background-color: rgb(255, 187, 178);
+  display: block;
+}
+span.run98 {
+  background-color: rgb(255, 184, 178);
+  display: block;
+}
+span.run99 {
+  background-color: rgb(255, 182, 178);
+  display: block;
+}
+span.run100 {
+  background-color: rgb(255, 178, 178);
+  display: block;
+}
+</style>
+    </head>
+  <body><h3>C0 code coverage information</h3>
+    <p>Generated on Sat May 03 13:17:31 -0400 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+      </p>
+    <hr/>
+    <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
+</span><span class='marked1'>and this: this line is also marked as covered.
+</span><span class='inferred0'>Lines considered as run by rcov, but not reported by Ruby, look like this,
+</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).
+</span><span class='uncovered0'>Finally, here&apos;s a line marked as not executed.
+</span></pre>                       
+<table class='report'><thead><tr><td class='heading'>Name</td>
+      <td class='heading'>Total lines</td>
+      <td class='heading'>Lines of code</td>
+      <td class='heading'>Total coverage</td>
+      <td class='heading'>Code coverage</td>
+      </tr>
+    </thead>
+  <tbody><tr class='light'><td><a href='lib-addressable-uri_rb.html'>lib/addressable/uri.rb</a>
+        </td>
+      <td class='lines_total'><tt>1247</tt>
+        </td>
+      <td class='lines_code'><tt>887</tt>
+        </td>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>100.0%</tt>
+              &nbsp;</td>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='100'/>
+                  <td class='uncovered' width='0'/>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>100.0%</tt>
+              &nbsp;</td>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='100'/>
+                  <td class='uncovered' width='0'/>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<pre><span class="inferred1"><a name="line1"></a>   1 #--
+</span><span class="inferred0"><a name="line2"></a>   2 # Addressable, Copyright (c) 2006-2007 Bob Aman
+</span><span class="inferred1"><a name="line3"></a>   3 #
+</span><span class="inferred0"><a name="line4"></a>   4 # Permission is hereby granted, free of charge, to any person obtaining
+</span><span class="inferred1"><a name="line5"></a>   5 # a copy of this software and associated documentation files (the
+</span><span class="inferred0"><a name="line6"></a>   6 # &quot;Software&quot;), to deal in the Software without restriction, including
+</span><span class="inferred1"><a name="line7"></a>   7 # without limitation the rights to use, copy, modify, merge, publish,
+</span><span class="inferred0"><a name="line8"></a>   8 # distribute, sublicense, and/or sell copies of the Software, and to
+</span><span class="inferred1"><a name="line9"></a>   9 # permit persons to whom the Software is furnished to do so, subject to
+</span><span class="inferred0"><a name="line10"></a>  10 # the following conditions:
+</span><span class="inferred1"><a name="line11"></a>  11 #
+</span><span class="inferred0"><a name="line12"></a>  12 # The above copyright notice and this permission notice shall be
+</span><span class="inferred1"><a name="line13"></a>  13 # included in all copies or substantial portions of the Software.
+</span><span class="inferred0"><a name="line14"></a>  14 #
+</span><span class="inferred1"><a name="line15"></a>  15 # THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+</span><span class="inferred0"><a name="line16"></a>  16 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+</span><span class="inferred1"><a name="line17"></a>  17 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+</span><span class="inferred0"><a name="line18"></a>  18 # NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+</span><span class="inferred1"><a name="line19"></a>  19 # LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+</span><span class="inferred0"><a name="line20"></a>  20 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+</span><span class="inferred1"><a name="line21"></a>  21 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</span><span class="inferred0"><a name="line22"></a>  22 #++
+</span><span class="inferred1"><a name="line23"></a>  23 
+</span><span class="marked0"><a name="line24"></a>  24 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '/..')))
+</span><span class="marked1"><a name="line25"></a>  25 $:.uniq!
+</span><span class="inferred0"><a name="line26"></a>  26 
+</span><span class="marked1"><a name="line27"></a>  27 require 'addressable/version'
+</span><span class="inferred0"><a name="line28"></a>  28 
+</span><span class="marked1"><a name="line29"></a>  29 module Addressable
+</span><span class="inferred0"><a name="line30"></a>  30   # This is an implementation of a URI parser based on RFC 3986, 3987.
+</span><span class="marked1"><a name="line31"></a>  31   class URI
+</span><span class="inferred0"><a name="line32"></a>  32     # Raised if something other than a uri is supplied.
+</span><span class="marked1"><a name="line33"></a>  33     class InvalidURIError &lt; StandardError
+</span><span class="inferred0"><a name="line34"></a>  34     end
+</span><span class="inferred1"><a name="line35"></a>  35     
+</span><span class="inferred0"><a name="line36"></a>  36     # Raised if an invalid method option is supplied.
+</span><span class="marked1"><a name="line37"></a>  37     class InvalidOptionError &lt; StandardError
+</span><span class="inferred0"><a name="line38"></a>  38     end
+</span><span class="inferred1"><a name="line39"></a>  39     
+</span><span class="inferred0"><a name="line40"></a>  40     # Raised if an invalid method option is supplied.
+</span><span class="marked1"><a name="line41"></a>  41     class InvalidTemplateValue &lt; StandardError
+</span><span class="inferred0"><a name="line42"></a>  42     end
+</span><span class="inferred1"><a name="line43"></a>  43 
+</span><span class="marked0"><a name="line44"></a>  44     module CharacterClasses
+</span><span class="marked1"><a name="line45"></a>  45       ALPHA = &quot;a-zA-Z&quot;
+</span><span class="marked0"><a name="line46"></a>  46       DIGIT = &quot;0-9&quot;
+</span><span class="marked1"><a name="line47"></a>  47       GEN_DELIMS = &quot;\\:\\/\\?\\#\\[\\]\\@&quot;
+</span><span class="marked0"><a name="line48"></a>  48       SUB_DELIMS = &quot;\\!\\$\\&amp;\\'\\(\\)\\*\\+\\,\\;\\=&quot;
+</span><span class="marked1"><a name="line49"></a>  49       RESERVED = GEN_DELIMS + SUB_DELIMS
+</span><span class="marked0"><a name="line50"></a>  50       UNRESERVED = ALPHA + DIGIT + &quot;\\-\\.\\_\\~&quot;
+</span><span class="marked1"><a name="line51"></a>  51       PCHAR = UNRESERVED + SUB_DELIMS + &quot;\\:\\@&quot;
+</span><span class="marked0"><a name="line52"></a>  52       SCHEME = ALPHA + DIGIT + &quot;\\-\\+\\.&quot;
+</span><span class="marked1"><a name="line53"></a>  53       AUTHORITY = PCHAR
+</span><span class="marked0"><a name="line54"></a>  54       PATH = PCHAR + &quot;\\/&quot;
+</span><span class="marked1"><a name="line55"></a>  55       QUERY = PCHAR + &quot;\\/\\?&quot;
+</span><span class="marked0"><a name="line56"></a>  56       FRAGMENT = PCHAR + &quot;\\/\\?&quot;
+</span><span class="inferred1"><a name="line57"></a>  57     end    
+</span><span class="inferred0"><a name="line58"></a>  58     
+</span><span class="inferred1"><a name="line59"></a>  59     # Returns a URI object based on the parsed string.
+</span><span class="marked0"><a name="line60"></a>  60     def self.parse(uri_string)
+</span><span class="marked1"><a name="line61"></a>  61       return nil if uri_string.nil?
+</span><span class="inferred0"><a name="line62"></a>  62       
+</span><span class="inferred1"><a name="line63"></a>  63       # If a URI object is passed, just return itself.
+</span><span class="marked0"><a name="line64"></a>  64       return uri_string if uri_string.kind_of?(self)
+</span><span class="inferred1"><a name="line65"></a>  65       
+</span><span class="inferred0"><a name="line66"></a>  66       # If a URI object of the Ruby standard library variety is passed,
+</span><span class="inferred1"><a name="line67"></a>  67       # convert it to a string, then parse the string.
+</span><span class="marked0"><a name="line68"></a>  68       if uri_string.class.name =~ /^URI::/
+</span><span class="inferred1"><a name="line69"></a>  69         uri_string = uri_string.to_s
+</span><span class="inferred0"><a name="line70"></a>  70       end
+</span><span class="inferred1"><a name="line71"></a>  71       
+</span><span class="marked0"><a name="line72"></a>  72       uri_regex =
+</span><span class="inferred1"><a name="line73"></a>  73         /^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/
+</span><span class="marked0"><a name="line74"></a>  74       scan = uri_string.scan(uri_regex)
+</span><span class="marked1"><a name="line75"></a>  75       fragments = scan[0]
+</span><span class="marked0"><a name="line76"></a>  76       return nil if fragments.nil?
+</span><span class="marked1"><a name="line77"></a>  77       scheme = fragments[1]
+</span><span class="marked0"><a name="line78"></a>  78       authority = fragments[3]
+</span><span class="marked1"><a name="line79"></a>  79       path = fragments[4]
+</span><span class="marked0"><a name="line80"></a>  80       query = fragments[6]
+</span><span class="marked1"><a name="line81"></a>  81       fragment = fragments[8]
+</span><span class="marked0"><a name="line82"></a>  82       userinfo = nil
+</span><span class="marked1"><a name="line83"></a>  83       user = nil
+</span><span class="marked0"><a name="line84"></a>  84       password = nil
+</span><span class="marked1"><a name="line85"></a>  85       host = nil
+</span><span class="marked0"><a name="line86"></a>  86       port = nil
+</span><span class="marked1"><a name="line87"></a>  87       if authority != nil
+</span><span class="marked0"><a name="line88"></a>  88         userinfo = authority.scan(/^([^\[\]]*)@/).flatten[0]
+</span><span class="marked1"><a name="line89"></a>  89         if userinfo != nil
+</span><span class="marked0"><a name="line90"></a>  90           user = userinfo.strip.scan(/^([^:]*):?/).flatten[0]
+</span><span class="marked1"><a name="line91"></a>  91           password = userinfo.strip.scan(/:(.*)$/).flatten[0]
+</span><span class="inferred0"><a name="line92"></a>  92         end
+</span><span class="marked1"><a name="line93"></a>  93         host = authority.gsub(/^([^\[\]]*)@/, &quot;&quot;).gsub(/:([^:@\[\]]*?)$/, &quot;&quot;)
+</span><span class="marked0"><a name="line94"></a>  94         port = authority.scan(/:([^:@\[\]]*?)$/).flatten[0]
+</span><span class="inferred1"><a name="line95"></a>  95       end
+</span><span class="marked0"><a name="line96"></a>  96       if port == &quot;&quot;
+</span><span class="marked1"><a name="line97"></a>  97         port = nil
+</span><span class="inferred0"><a name="line98"></a>  98       end
+</span><span class="inferred1"><a name="line99"></a>  99       
+</span><span class="marked0"><a name="line100"></a> 100       return Addressable::URI.new(
+</span><span class="marked1"><a name="line101"></a> 101         scheme, user, password, host, port, path, query, fragment)
+</span><span class="inferred0"><a name="line102"></a> 102     end
+</span><span class="inferred1"><a name="line103"></a> 103     
+</span><span class="inferred0"><a name="line104"></a> 104     # Converts an input to a URI.  The input does not have to be a valid
+</span><span class="inferred1"><a name="line105"></a> 105     # URI -- the method will use heuristics to guess what URI was intended.
+</span><span class="inferred0"><a name="line106"></a> 106     # This is not standards compliant, merely user-friendly.
+</span><span class="marked1"><a name="line107"></a> 107     def self.heuristic_parse(input, hints={})
+</span><span class="marked0"><a name="line108"></a> 108       input = input.dup
+</span><span class="marked1"><a name="line109"></a> 109       hints = {
+</span><span class="inferred0"><a name="line110"></a> 110         :scheme =&gt; &quot;http&quot;
+</span><span class="inferred1"><a name="line111"></a> 111       }.merge(hints)
+</span><span class="marked0"><a name="line112"></a> 112       case input
+</span><span class="marked1"><a name="line113"></a> 113       when /^http:\/+/
+</span><span class="marked0"><a name="line114"></a> 114         input.gsub!(/^http:\/+/, &quot;http://&quot;)
+</span><span class="marked1"><a name="line115"></a> 115       when /^feed:\/+http:\/+/
+</span><span class="marked0"><a name="line116"></a> 116         input.gsub!(/^feed:\/+http:\/+/, &quot;feed:http://&quot;)
+</span><span class="marked1"><a name="line117"></a> 117       when /^feed:\/+/
+</span><span class="marked0"><a name="line118"></a> 118         input.gsub!(/^feed:\/+/, &quot;feed://&quot;)
+</span><span class="marked1"><a name="line119"></a> 119       when /^file:\/+/
+</span><span class="marked0"><a name="line120"></a> 120         input.gsub!(/^file:\/+/, &quot;file:///&quot;)
+</span><span class="inferred1"><a name="line121"></a> 121       end
+</span><span class="marked0"><a name="line122"></a> 122       parsed = self.parse(input)
+</span><span class="marked1"><a name="line123"></a> 123       if parsed.scheme =~ /^[^\/?#\.]+\.[^\/?#]+$/
+</span><span class="marked0"><a name="line124"></a> 124         parsed = self.parse(hints[:scheme] + &quot;://&quot; + input)
+</span><span class="inferred1"><a name="line125"></a> 125       end
+</span><span class="marked0"><a name="line126"></a> 126       if parsed.authority == nil
+</span><span class="marked1"><a name="line127"></a> 127         if parsed.path =~ /^[^\/]+\./
+</span><span class="marked0"><a name="line128"></a> 128           new_host = parsed.path.scan(/^([^\/]+\.[^\/]*)/).flatten[0]
+</span><span class="marked1"><a name="line129"></a> 129           if new_host
+</span><span class="marked0"><a name="line130"></a> 130             new_path = parsed.path.gsub(
+</span><span class="inferred1"><a name="line131"></a> 131               Regexp.new(&quot;^&quot; + Regexp.escape(new_host)), &quot;&quot;)
+</span><span class="marked0"><a name="line132"></a> 132             parsed.host = new_host
+</span><span class="marked1"><a name="line133"></a> 133             parsed.path = new_path
+</span><span class="marked0"><a name="line134"></a> 134             parsed.scheme = hints[:scheme]
+</span><span class="inferred1"><a name="line135"></a> 135           end
+</span><span class="inferred0"><a name="line136"></a> 136         end
+</span><span class="inferred1"><a name="line137"></a> 137       end
+</span><span class="marked0"><a name="line138"></a> 138       return parsed
+</span><span class="inferred1"><a name="line139"></a> 139     end
+</span><span class="inferred0"><a name="line140"></a> 140     
+</span><span class="inferred1"><a name="line141"></a> 141     # Converts a path to a file protocol URI.  If the path supplied is
+</span><span class="inferred0"><a name="line142"></a> 142     # relative, it will be returned as a relative URI.  If the path supplied
+</span><span class="inferred1"><a name="line143"></a> 143     # is actually a URI, it will return the parsed URI.
+</span><span class="marked0"><a name="line144"></a> 144     def self.convert_path(path)
+</span><span class="marked1"><a name="line145"></a> 145       return nil if path.nil?
+</span><span class="inferred0"><a name="line146"></a> 146       
+</span><span class="marked1"><a name="line147"></a> 147       converted_uri = path.strip
+</span><span class="marked0"><a name="line148"></a> 148       if converted_uri.length &gt; 0 &amp;&amp; converted_uri[0..0] == &quot;/&quot;
+</span><span class="marked1"><a name="line149"></a> 149         converted_uri = &quot;file://&quot; + converted_uri
+</span><span class="inferred0"><a name="line150"></a> 150       end
+</span><span class="inferred1"><a name="line151"></a> 151       if converted_uri.length &gt; 0 &amp;&amp;
+</span><span class="marked0"><a name="line152"></a> 152           converted_uri.scan(/^[a-zA-Z]:[\\\/]/).size &gt; 0
+</span><span class="marked1"><a name="line153"></a> 153         converted_uri = &quot;file:///&quot; + converted_uri
+</span><span class="inferred0"><a name="line154"></a> 154       end
+</span><span class="marked1"><a name="line155"></a> 155       converted_uri.gsub!(/^file:\/*/i, &quot;file:///&quot;)
+</span><span class="marked0"><a name="line156"></a> 156       if converted_uri =~ /^file:/i
+</span><span class="inferred1"><a name="line157"></a> 157         # Adjust windows-style uris
+</span><span class="marked0"><a name="line158"></a> 158         converted_uri.gsub!(/^file:\/\/\/([a-zA-Z])\|/i, 'file:///\1:')
+</span><span class="marked1"><a name="line159"></a> 159         converted_uri.gsub!(/\\/, '/')
+</span><span class="marked0"><a name="line160"></a> 160         converted_uri = self.parse(converted_uri).normalize
+</span><span class="marked1"><a name="line161"></a> 161         if File.exists?(converted_uri.path) &amp;&amp;
+</span><span class="marked0"><a name="line162"></a> 162             File.stat(converted_uri.path).directory?
+</span><span class="marked1"><a name="line163"></a> 163           converted_uri.path.gsub!(/\/$/, &quot;&quot;)
+</span><span class="marked0"><a name="line164"></a> 164           converted_uri.path = converted_uri.path + '/'
+</span><span class="inferred1"><a name="line165"></a> 165         end
+</span><span class="inferred0"><a name="line166"></a> 166       else
+</span><span class="marked1"><a name="line167"></a> 167         converted_uri = self.parse(converted_uri)
+</span><span class="inferred0"><a name="line168"></a> 168       end
+</span><span class="inferred1"><a name="line169"></a> 169       
+</span><span class="marked0"><a name="line170"></a> 170       return converted_uri
+</span><span class="inferred1"><a name="line171"></a> 171     end
+</span><span class="inferred0"><a name="line172"></a> 172     
+</span><span class="inferred1"><a name="line173"></a> 173     # Expands a URI template into a full URI.
+</span><span class="inferred0"><a name="line174"></a> 174     #
+</span><span class="inferred1"><a name="line175"></a> 175     # An optional processor object may be supplied.  The object should
+</span><span class="inferred0"><a name="line176"></a> 176     # respond to either the :validate or :transform messages or both.
+</span><span class="inferred1"><a name="line177"></a> 177     # Both the :validate and :transform methods should take two parameters:
+</span><span class="inferred0"><a name="line178"></a> 178     # :name and :value.  The :validate method should return true or false;
+</span><span class="inferred1"><a name="line179"></a> 179     # true if the value of the variable is valid, false otherwise.  The
+</span><span class="inferred0"><a name="line180"></a> 180     # :transform method should return the transformed variable value as a
+</span><span class="inferred1"><a name="line181"></a> 181     # string.
+</span><span class="inferred0"><a name="line182"></a> 182     #
+</span><span class="inferred1"><a name="line183"></a> 183     # An example:
+</span><span class="inferred0"><a name="line184"></a> 184     #    
+</span><span class="inferred1"><a name="line185"></a> 185     #  class ExampleProcessor
+</span><span class="inferred0"><a name="line186"></a> 186     #    def self.validate(name, value)
+</span><span class="inferred1"><a name="line187"></a> 187     #      return !!(value =~ /^[\w ]+$/) if name == &quot;query&quot;
+</span><span class="inferred0"><a name="line188"></a> 188     #      return true
+</span><span class="inferred1"><a name="line189"></a> 189     #    end
+</span><span class="inferred0"><a name="line190"></a> 190     #    
+</span><span class="inferred1"><a name="line191"></a> 191     #    def self.transform(name, value)
+</span><span class="inferred0"><a name="line192"></a> 192     #      return value.gsub(/ /, &quot;+&quot;) if name == &quot;query&quot;
+</span><span class="inferred1"><a name="line193"></a> 193     #      return value
+</span><span class="inferred0"><a name="line194"></a> 194     #    end
+</span><span class="inferred1"><a name="line195"></a> 195     #  end
+</span><span class="inferred0"><a name="line196"></a> 196     # 
+</span><span class="inferred1"><a name="line197"></a> 197     #  Addressable::URI.expand_template(
+</span><span class="inferred0"><a name="line198"></a> 198     #    &quot;http://example.com/search/{query}/&quot;,
+</span><span class="inferred1"><a name="line199"></a> 199     #    {&quot;query&quot; =&gt; &quot;an example search query&quot;},
+</span><span class="inferred0"><a name="line200"></a> 200     #    ExampleProcessor).to_s
+</span><span class="inferred1"><a name="line201"></a> 201     #  =&gt; &quot;http://example.com/search/an+example+search+query/&quot;
+</span><span class="marked0"><a name="line202"></a> 202     def self.expand_template(pattern, mapping, processor=nil)
+</span><span class="marked1"><a name="line203"></a> 203       result = pattern.dup
+</span><span class="marked0"><a name="line204"></a> 204       for name, value in mapping
+</span><span class="marked1"><a name="line205"></a> 205         transformed_value = value
+</span><span class="marked0"><a name="line206"></a> 206         if processor != nil
+</span><span class="marked1"><a name="line207"></a> 207           if processor.respond_to?(:validate)
+</span><span class="marked0"><a name="line208"></a> 208             if !processor.validate(name, value)
+</span><span class="marked1"><a name="line209"></a> 209               raise InvalidTemplateValue,
+</span><span class="inferred0"><a name="line210"></a> 210                 &quot;(#{name}, #{value}) is an invalid template value.&quot;
+</span><span class="inferred1"><a name="line211"></a> 211             end
+</span><span class="inferred0"><a name="line212"></a> 212           end
+</span><span class="marked1"><a name="line213"></a> 213           if processor.respond_to?(:transform)
+</span><span class="marked0"><a name="line214"></a> 214             transformed_value = processor.transform(name, value)
+</span><span class="inferred1"><a name="line215"></a> 215           end
+</span><span class="inferred0"><a name="line216"></a> 216         end
+</span><span class="inferred1"><a name="line217"></a> 217 
+</span><span class="inferred0"><a name="line218"></a> 218         # Handle percent escaping
+</span><span class="marked1"><a name="line219"></a> 219         transformed_value = self.encode_segment(transformed_value,
+</span><span class="inferred0"><a name="line220"></a> 220           Addressable::URI::CharacterClasses::RESERVED +
+</span><span class="inferred1"><a name="line221"></a> 221           Addressable::URI::CharacterClasses::UNRESERVED)
+</span><span class="inferred0"><a name="line222"></a> 222         
+</span><span class="marked1"><a name="line223"></a> 223         result.gsub!(/\{#{Regexp.escape(name)}\}/, transformed_value)
+</span><span class="inferred0"><a name="line224"></a> 224       end
+</span><span class="marked1"><a name="line225"></a> 225       result.gsub!(
+</span><span class="inferred0"><a name="line226"></a> 226         /\{[#{Addressable::URI::CharacterClasses::UNRESERVED}]+\}/, &quot;&quot;)
+</span><span class="marked1"><a name="line227"></a> 227       return Addressable::URI.parse(result)
+</span><span class="inferred0"><a name="line228"></a> 228     end
+</span><span class="inferred1"><a name="line229"></a> 229     
+</span><span class="inferred0"><a name="line230"></a> 230     # Extracts a mapping from the URI using a URI Template pattern.
+</span><span class="inferred1"><a name="line231"></a> 231     # Returns nil if the pattern doesn't match the URI.
+</span><span class="inferred0"><a name="line232"></a> 232     #
+</span><span class="inferred1"><a name="line233"></a> 233     # An optional processor object may be supplied.  The object should
+</span><span class="inferred0"><a name="line234"></a> 234     # respond to either the :restore or :match messages or both.
+</span><span class="inferred1"><a name="line235"></a> 235     # The :restore method should take two parameters: :name and :value.
+</span><span class="inferred0"><a name="line236"></a> 236     # The :restore method should reverse any transformations that have been
+</span><span class="inferred1"><a name="line237"></a> 237     # performed on the value to ensure a valid URI.  The :match method
+</span><span class="inferred0"><a name="line238"></a> 238     # should take a single parameter: :name.  The :match method should
+</span><span class="inferred1"><a name="line239"></a> 239     # return a String containing a regular expression capture group for
+</span><span class="inferred0"><a name="line240"></a> 240     # matching on that particular variable.  The default value is &quot;.*&quot;.
+</span><span class="inferred1"><a name="line241"></a> 241     #
+</span><span class="inferred0"><a name="line242"></a> 242     # An example:
+</span><span class="inferred1"><a name="line243"></a> 243     #    
+</span><span class="inferred0"><a name="line244"></a> 244     #  class ExampleProcessor
+</span><span class="inferred1"><a name="line245"></a> 245     #    def self.restore(name, value)
+</span><span class="inferred0"><a name="line246"></a> 246     #      return value.gsub(/\+/, &quot; &quot;) if name == &quot;query&quot;
+</span><span class="inferred1"><a name="line247"></a> 247     #      return value
+</span><span class="inferred0"><a name="line248"></a> 248     #    end
+</span><span class="inferred1"><a name="line249"></a> 249     #
+</span><span class="inferred0"><a name="line250"></a> 250     #    def self.match(name)
+</span><span class="inferred1"><a name="line251"></a> 251     #      return &quot;.*?&quot; if name == &quot;first&quot;
+</span><span class="inferred0"><a name="line252"></a> 252     #      return &quot;.*&quot;
+</span><span class="inferred1"><a name="line253"></a> 253     #    end
+</span><span class="inferred0"><a name="line254"></a> 254     #  end
+</span><span class="inferred1"><a name="line255"></a> 255     #  
+</span><span class="inferred0"><a name="line256"></a> 256     #  uri = Addressable::URI.parse(
+</span><span class="inferred1"><a name="line257"></a> 257     #    &quot;http://example.com/search/an+example+search+query/&quot;)
+</span><span class="inferred0"><a name="line258"></a> 258     #  uri.extract_mapping(&quot;http://example.com/search/{query}/&quot;,
+</span><span class="inferred1"><a name="line259"></a> 259     #    ExampleProcessor)
+</span><span class="inferred0"><a name="line260"></a> 260     #  =&gt; {&quot;query&quot; =&gt; &quot;an example search query&quot;}
+</span><span class="inferred1"><a name="line261"></a> 261     #  
+</span><span class="inferred0"><a name="line262"></a> 262     #  uri = Addressable::URI.parse(
+</span><span class="inferred1"><a name="line263"></a> 263     #    &quot;http://example.com/a/b/c/&quot;)
+</span><span class="inferred0"><a name="line264"></a> 264     #  uri.extract_mapping(&quot;http://example.com/{first}/{second}/&quot;,
+</span><span class="inferred1"><a name="line265"></a> 265     #    ExampleProcessor)
+</span><span class="inferred0"><a name="line266"></a> 266     #  =&gt; {&quot;first&quot; =&gt; &quot;a&quot;, &quot;second&quot; =&gt; &quot;b/c&quot;}
+</span><span class="marked1"><a name="line267"></a> 267     def extract_mapping(pattern, processor=nil)
+</span><span class="marked0"><a name="line268"></a> 268       mapping = {}
+</span><span class="marked1"><a name="line269"></a> 269       variable_regexp =
+</span><span class="inferred0"><a name="line270"></a> 270         /\{([#{Addressable::URI::CharacterClasses::UNRESERVED}]+)\}/
+</span><span class="inferred1"><a name="line271"></a> 271       
+</span><span class="inferred0"><a name="line272"></a> 272       # Get all the variables in the pattern
+</span><span class="marked1"><a name="line273"></a> 273       variables = pattern.scan(variable_regexp).flatten
+</span><span class="inferred0"><a name="line274"></a> 274       
+</span><span class="inferred1"><a name="line275"></a> 275       # Initialize all result values to the empty string
+</span><span class="marked0"><a name="line276"></a> 276       variables.each { |v| mapping[v] = &quot;&quot; }
+</span><span class="inferred1"><a name="line277"></a> 277       
+</span><span class="inferred0"><a name="line278"></a> 278       # Escape the pattern
+</span><span class="marked1"><a name="line279"></a> 279       escaped_pattern =
+</span><span class="inferred0"><a name="line280"></a> 280         Regexp.escape(pattern).gsub(/\\\{/, &quot;{&quot;).gsub(/\\\}/, &quot;}&quot;)
+</span><span class="inferred1"><a name="line281"></a> 281         
+</span><span class="inferred0"><a name="line282"></a> 282       # Create a regular expression that captures the values of the
+</span><span class="inferred1"><a name="line283"></a> 283       # variables in the URI.
+</span><span class="marked0"><a name="line284"></a> 284       regexp_string = escaped_pattern.gsub(variable_regexp) do |v|
+</span><span class="marked1"><a name="line285"></a> 285         capture_group = &quot;(.*)&quot;
+</span><span class="inferred0"><a name="line286"></a> 286         
+</span><span class="marked1"><a name="line287"></a> 287         if processor != nil
+</span><span class="marked0"><a name="line288"></a> 288           if processor.respond_to?(:match)
+</span><span class="marked1"><a name="line289"></a> 289             name = v.scan(variable_regexp).flatten[0]
+</span><span class="marked0"><a name="line290"></a> 290             capture_group = &quot;(#{processor.match(name)})&quot;
+</span><span class="inferred1"><a name="line291"></a> 291           end
+</span><span class="inferred0"><a name="line292"></a> 292         end
+</span><span class="inferred1"><a name="line293"></a> 293         
+</span><span class="marked0"><a name="line294"></a> 294         capture_group
+</span><span class="inferred1"><a name="line295"></a> 295       end
+</span><span class="inferred0"><a name="line296"></a> 296       
+</span><span class="inferred1"><a name="line297"></a> 297       # Ensure that the regular expression matches the whole URI.
+</span><span class="marked0"><a name="line298"></a> 298       regexp_string = &quot;^#{regexp_string}$&quot;
+</span><span class="inferred1"><a name="line299"></a> 299       
+</span><span class="marked0"><a name="line300"></a> 300       regexp = Regexp.new(regexp_string)
+</span><span class="marked1"><a name="line301"></a> 301       values = self.to_s.scan(regexp).flatten
+</span><span class="inferred0"><a name="line302"></a> 302       
+</span><span class="marked1"><a name="line303"></a> 303       if variables.size == values.size &amp;&amp; variables.size &gt; 0
+</span><span class="inferred0"><a name="line304"></a> 304         # We have a match.
+</span><span class="marked1"><a name="line305"></a> 305         for i in 0...variables.size
+</span><span class="marked0"><a name="line306"></a> 306           name = variables[i]
+</span><span class="marked1"><a name="line307"></a> 307           value = values[i]
+</span><span class="inferred0"><a name="line308"></a> 308           
+</span><span class="marked1"><a name="line309"></a> 309           if processor != nil
+</span><span class="marked0"><a name="line310"></a> 310             if processor.respond_to?(:restore)
+</span><span class="marked1"><a name="line311"></a> 311               value = processor.restore(name, value)
+</span><span class="inferred0"><a name="line312"></a> 312             end
+</span><span class="inferred1"><a name="line313"></a> 313           end
+</span><span class="inferred0"><a name="line314"></a> 314           
+</span><span class="marked1"><a name="line315"></a> 315           mapping[name] = value
+</span><span class="inferred0"><a name="line316"></a> 316         end
+</span><span class="marked1"><a name="line317"></a> 317         return mapping
+</span><span class="marked0"><a name="line318"></a> 318       elsif self.to_s == pattern
+</span><span class="inferred1"><a name="line319"></a> 319         # The pattern contained no variables but still matched.
+</span><span class="marked0"><a name="line320"></a> 320         return mapping
+</span><span class="inferred1"><a name="line321"></a> 321       else
+</span><span class="inferred0"><a name="line322"></a> 322         # Pattern failed to match URI.
+</span><span class="marked1"><a name="line323"></a> 323         return nil
+</span><span class="inferred0"><a name="line324"></a> 324       end
+</span><span class="inferred1"><a name="line325"></a> 325     end
+</span><span class="inferred0"><a name="line326"></a> 326     
+</span><span class="inferred1"><a name="line327"></a> 327     # Joins several uris together.
+</span><span class="marked0"><a name="line328"></a> 328     def self.join(*uris)
+</span><span class="marked1"><a name="line329"></a> 329       uri_objects = uris.collect do |uri|
+</span><span class="marked0"><a name="line330"></a> 330         uri.kind_of?(self) ? uri : self.parse(uri.to_s)
+</span><span class="inferred1"><a name="line331"></a> 331       end
+</span><span class="marked0"><a name="line332"></a> 332       result = uri_objects.shift.dup
+</span><span class="marked1"><a name="line333"></a> 333       for uri in uri_objects
+</span><span class="marked0"><a name="line334"></a> 334         result.merge!(uri)
+</span><span class="inferred1"><a name="line335"></a> 335       end
+</span><span class="marked0"><a name="line336"></a> 336       return result
+</span><span class="inferred1"><a name="line337"></a> 337     end
+</span><span class="inferred0"><a name="line338"></a> 338     
+</span><span class="inferred1"><a name="line339"></a> 339     # Percent encodes a URI segment.  Returns a string.  Takes an optional
+</span><span class="inferred0"><a name="line340"></a> 340     # character class parameter, which should be specified as a string
+</span><span class="inferred1"><a name="line341"></a> 341     # containing a regular expression character class (not including the
+</span><span class="inferred0"><a name="line342"></a> 342     # surrounding square brackets).  The character class parameter defaults
+</span><span class="inferred1"><a name="line343"></a> 343     # to the reserved plus unreserved character classes specified in
+</span><span class="inferred0"><a name="line344"></a> 344     # RFC 3986.  Usage of the constants within the CharacterClasses module is
+</span><span class="inferred1"><a name="line345"></a> 345     # highly recommended when using this method.
+</span><span class="inferred0"><a name="line346"></a> 346     #
+</span><span class="inferred1"><a name="line347"></a> 347     # An example:
+</span><span class="inferred0"><a name="line348"></a> 348     #
+</span><span class="inferred1"><a name="line349"></a> 349     #  Addressable::URI.escape_segment(&quot;simple-example&quot;, &quot;b-zB-Z0-9&quot;)
+</span><span class="inferred0"><a name="line350"></a> 350     #  =&gt; &quot;simple%2Dex%61mple&quot;
+</span><span class="marked1"><a name="line351"></a> 351     def self.encode_segment(segment, character_class=
+</span><span class="inferred0"><a name="line352"></a> 352         Addressable::URI::CharacterClasses::RESERVED +
+</span><span class="marked1"><a name="line353"></a> 353         Addressable::URI::CharacterClasses::UNRESERVED)
+</span><span class="marked0"><a name="line354"></a> 354       return nil if segment.nil?
+</span><span class="inferred1"><a name="line355"></a> 355       return segment.gsub(
+</span><span class="inferred0"><a name="line356"></a> 356         /[^#{character_class}]/
+</span><span class="inferred1"><a name="line357"></a> 357       ) do |sequence|
+</span><span class="marked0"><a name="line358"></a> 358         (&quot;%&quot; + sequence.unpack('C')[0].to_s(16).upcase)
+</span><span class="marked1"><a name="line359"></a> 359       end      
+</span><span class="inferred0"><a name="line360"></a> 360     end
+</span><span class="inferred1"><a name="line361"></a> 361     
+</span><span class="inferred0"><a name="line362"></a> 362     # Unencodes any percent encoded characters within a URI segment.
+</span><span class="inferred1"><a name="line363"></a> 363     # Returns a string.
+</span><span class="marked0"><a name="line364"></a> 364     def self.unencode_segment(segment)
+</span><span class="marked1"><a name="line365"></a> 365       return nil if segment.nil?
+</span><span class="inferred0"><a name="line366"></a> 366       return segment.to_s.gsub(/%[0-9a-f]{2}/i) do |sequence|
+</span><span class="marked1"><a name="line367"></a> 367         sequence[1..3].to_i(16).chr
+</span><span class="marked0"><a name="line368"></a> 368       end
+</span><span class="inferred1"><a name="line369"></a> 369     end
+</span><span class="inferred0"><a name="line370"></a> 370     
+</span><span class="inferred1"><a name="line371"></a> 371     # Percent encodes any special characters in the URI.  This method does
+</span><span class="inferred0"><a name="line372"></a> 372     # not take IRIs or IDNs into account.
+</span><span class="marked1"><a name="line373"></a> 373     def self.encode(uri)
+</span><span class="marked0"><a name="line374"></a> 374       uri_object = uri.kind_of?(self) ? uri : self.parse(uri.to_s)
+</span><span class="marked1"><a name="line375"></a> 375       return Addressable::URI.new(
+</span><span class="marked0"><a name="line376"></a> 376         self.encode_segment(uri_object.scheme,
+</span><span class="inferred1"><a name="line377"></a> 377           Addressable::URI::CharacterClasses::SCHEME),
+</span><span class="marked0"><a name="line378"></a> 378         self.encode_segment(uri_object.user,
+</span><span class="inferred1"><a name="line379"></a> 379           Addressable::URI::CharacterClasses::AUTHORITY),
+</span><span class="marked0"><a name="line380"></a> 380         self.encode_segment(uri_object.password,
+</span><span class="inferred1"><a name="line381"></a> 381           Addressable::URI::CharacterClasses::AUTHORITY),
+</span><span class="marked0"><a name="line382"></a> 382         self.encode_segment(uri_object.host,
+</span><span class="inferred1"><a name="line383"></a> 383           Addressable::URI::CharacterClasses::AUTHORITY),
+</span><span class="marked0"><a name="line384"></a> 384         self.encode_segment(uri_object.specified_port,
+</span><span class="inferred1"><a name="line385"></a> 385           Addressable::URI::CharacterClasses::AUTHORITY),
+</span><span class="marked0"><a name="line386"></a> 386         self.encode_segment(uri_object.path,
+</span><span class="inferred1"><a name="line387"></a> 387           Addressable::URI::CharacterClasses::PATH),
+</span><span class="marked0"><a name="line388"></a> 388         self.encode_segment(uri_object.query,
+</span><span class="inferred1"><a name="line389"></a> 389           Addressable::URI::CharacterClasses::QUERY),
+</span><span class="marked0"><a name="line390"></a> 390         self.encode_segment(uri_object.fragment,
+</span><span class="inferred1"><a name="line391"></a> 391           Addressable::URI::CharacterClasses::FRAGMENT)
+</span><span class="marked0"><a name="line392"></a> 392       ).to_s
+</span><span class="inferred1"><a name="line393"></a> 393     end
+</span><span class="inferred0"><a name="line394"></a> 394     
+</span><span class="marked1"><a name="line395"></a> 395     class &lt;&lt; self
+</span><span class="marked0"><a name="line396"></a> 396       alias_method :escape, :encode
+</span><span class="inferred1"><a name="line397"></a> 397     end
+</span><span class="inferred0"><a name="line398"></a> 398     
+</span><span class="inferred1"><a name="line399"></a> 399     # Normalizes the encoding of a URI.  Characters within a hostname are
+</span><span class="inferred0"><a name="line400"></a> 400     # not percent encoded to allow for internationalized domain names.
+</span><span class="marked1"><a name="line401"></a> 401     def self.normalized_encode(uri)
+</span><span class="marked0"><a name="line402"></a> 402       uri_object = uri.kind_of?(self) ? uri : self.parse(uri.to_s)
+</span><span class="marked1"><a name="line403"></a> 403       segments = {
+</span><span class="marked0"><a name="line404"></a> 404         :scheme =&gt; self.unencode_segment(uri_object.scheme),
+</span><span class="marked1"><a name="line405"></a> 405         :user =&gt; self.unencode_segment(uri_object.user),
+</span><span class="marked0"><a name="line406"></a> 406         :password =&gt; self.unencode_segment(uri_object.password),
+</span><span class="marked1"><a name="line407"></a> 407         :host =&gt; self.unencode_segment(uri_object.host),
+</span><span class="marked0"><a name="line408"></a> 408         :port =&gt; self.unencode_segment(uri_object.specified_port),
+</span><span class="marked1"><a name="line409"></a> 409         :path =&gt; self.unencode_segment(uri_object.path),
+</span><span class="marked0"><a name="line410"></a> 410         :query =&gt; self.unencode_segment(uri_object.query),
+</span><span class="marked1"><a name="line411"></a> 411         :fragment =&gt; self.unencode_segment(uri_object.fragment)
+</span><span class="inferred0"><a name="line412"></a> 412       }
+</span><span class="marked1"><a name="line413"></a> 413       if URI::IDNA.send(:use_libidn?)
+</span><span class="marked0"><a name="line414"></a> 414         segments.each do |key, value|
+</span><span class="marked1"><a name="line415"></a> 415           if value != nil
+</span><span class="marked0"><a name="line416"></a> 416             segments[key] = IDN::Stringprep.nfkc_normalize(value.to_s)
+</span><span class="inferred1"><a name="line417"></a> 417           end
+</span><span class="inferred0"><a name="line418"></a> 418         end
+</span><span class="inferred1"><a name="line419"></a> 419       end
+</span><span class="marked0"><a name="line420"></a> 420       return Addressable::URI.new(
+</span><span class="marked1"><a name="line421"></a> 421         self.encode_segment(segments[:scheme],
+</span><span class="inferred0"><a name="line422"></a> 422           Addressable::URI::CharacterClasses::SCHEME),
+</span><span class="marked1"><a name="line423"></a> 423         self.encode_segment(segments[:user],
+</span><span class="inferred0"><a name="line424"></a> 424           Addressable::URI::CharacterClasses::AUTHORITY),
+</span><span class="marked1"><a name="line425"></a> 425         self.encode_segment(segments[:password],
+</span><span class="inferred0"><a name="line426"></a> 426           Addressable::URI::CharacterClasses::AUTHORITY),
+</span><span class="inferred1"><a name="line427"></a> 427         segments[:host],
+</span><span class="inferred0"><a name="line428"></a> 428         segments[:port],
+</span><span class="marked1"><a name="line429"></a> 429         self.encode_segment(segments[:path],
+</span><span class="inferred0"><a name="line430"></a> 430           Addressable::URI::CharacterClasses::PATH),
+</span><span class="marked1"><a name="line431"></a> 431         self.encode_segment(segments[:query],
+</span><span class="inferred0"><a name="line432"></a> 432           Addressable::URI::CharacterClasses::QUERY),
+</span><span class="marked1"><a name="line433"></a> 433         self.encode_segment(segments[:fragment],
+</span><span class="inferred0"><a name="line434"></a> 434           Addressable::URI::CharacterClasses::FRAGMENT)
+</span><span class="marked1"><a name="line435"></a> 435       ).to_s
+</span><span class="inferred0"><a name="line436"></a> 436     end
+</span><span class="inferred1"><a name="line437"></a> 437 
+</span><span class="inferred0"><a name="line438"></a> 438     # Extracts uris from an arbitrary body of text.
+</span><span class="marked1"><a name="line439"></a> 439     def self.extract(text, options={})
+</span><span class="marked0"><a name="line440"></a> 440       defaults = {:base =&gt; nil, :parse =&gt; false} 
+</span><span class="marked1"><a name="line441"></a> 441       options = defaults.merge(options)
+</span><span class="marked0"><a name="line442"></a> 442       raise InvalidOptionError unless (options.keys - defaults.keys).empty?
+</span><span class="inferred1"><a name="line443"></a> 443       # This regular expression needs to be less forgiving or else it would
+</span><span class="inferred0"><a name="line444"></a> 444       # match virtually all text.  Which isn't exactly what we're going for.
+</span><span class="marked1"><a name="line445"></a> 445       extract_regex = /((([a-z\+]+):)[^ \n\&lt;\&gt;\&quot;\\]+[\w\/])/
+</span><span class="marked0"><a name="line446"></a> 446       extracted_uris =
+</span><span class="marked1"><a name="line447"></a> 447         text.scan(extract_regex).collect { |match| match[0] }
+</span><span class="marked0"><a name="line448"></a> 448       sgml_extract_regex = /&lt;[^&gt;]+href=\&quot;([^\&quot;]+?)\&quot;[^&gt;]*&gt;/
+</span><span class="marked1"><a name="line449"></a> 449       sgml_extracted_uris =
+</span><span class="inferred0"><a name="line450"></a> 450         text.scan(sgml_extract_regex).collect { |match| match[0] }
+</span><span class="marked1"><a name="line451"></a> 451       extracted_uris.concat(sgml_extracted_uris - extracted_uris)
+</span><span class="marked0"><a name="line452"></a> 452       textile_extract_regex = /\&quot;.+?\&quot;:([^ ]+\/[^ ]+)[ \,\.\;\:\?\!\&lt;\&gt;\&quot;]/i
+</span><span class="marked1"><a name="line453"></a> 453       textile_extracted_uris =
+</span><span class="inferred0"><a name="line454"></a> 454         text.scan(textile_extract_regex).collect { |match| match[0] }
+</span><span class="marked1"><a name="line455"></a> 455       extracted_uris.concat(textile_extracted_uris - extracted_uris)
+</span><span class="marked0"><a name="line456"></a> 456       parsed_uris = []
+</span><span class="marked1"><a name="line457"></a> 457       base_uri = nil
+</span><span class="marked0"><a name="line458"></a> 458       if options[:base] != nil
+</span><span class="marked1"><a name="line459"></a> 459         base_uri = options[:base] if options[:base].kind_of?(self)
+</span><span class="marked0"><a name="line460"></a> 460         base_uri = self.parse(options[:base].to_s) if base_uri == nil
+</span><span class="inferred1"><a name="line461"></a> 461       end
+</span><span class="marked0"><a name="line462"></a> 462       for uri_string in extracted_uris
+</span><span class="marked1"><a name="line463"></a> 463         begin
+</span><span class="marked0"><a name="line464"></a> 464           if base_uri == nil
+</span><span class="marked1"><a name="line465"></a> 465             parsed_uris &lt;&lt; self.parse(uri_string)
+</span><span class="inferred0"><a name="line466"></a> 466           else
+</span><span class="marked1"><a name="line467"></a> 467             parsed_uris &lt;&lt; (base_uri + self.parse(uri_string))
+</span><span class="inferred0"><a name="line468"></a> 468           end
+</span><span class="inferred1"><a name="line469"></a> 469         rescue Exception
+</span><span class="marked0"><a name="line470"></a> 470           nil
+</span><span class="inferred1"><a name="line471"></a> 471         end
+</span><span class="inferred0"><a name="line472"></a> 472       end
+</span><span class="marked1"><a name="line473"></a> 473       parsed_uris.reject! do |uri|
+</span><span class="marked0"><a name="line474"></a> 474         (uri.scheme =~ /T\d+/ ||
+</span><span class="marked1"><a name="line475"></a> 475          uri.scheme == &quot;xmlns&quot; ||
+</span><span class="marked0"><a name="line476"></a> 476          uri.scheme == &quot;xml&quot; ||
+</span><span class="marked1"><a name="line477"></a> 477          uri.scheme == &quot;thr&quot; ||
+</span><span class="marked0"><a name="line478"></a> 478          uri.scheme == &quot;this&quot; ||
+</span><span class="marked1"><a name="line479"></a> 479          uri.scheme == &quot;float&quot; ||
+</span><span class="marked0"><a name="line480"></a> 480          uri.scheme == &quot;user&quot; ||
+</span><span class="marked1"><a name="line481"></a> 481          uri.scheme == &quot;username&quot; ||
+</span><span class="marked0"><a name="line482"></a> 482          uri.scheme == &quot;out&quot;)
+</span><span class="inferred1"><a name="line483"></a> 483       end
+</span><span class="marked0"><a name="line484"></a> 484       if options[:parse]
+</span><span class="marked1"><a name="line485"></a> 485         return parsed_uris
+</span><span class="inferred0"><a name="line486"></a> 486       else
+</span><span class="marked1"><a name="line487"></a> 487         return parsed_uris.collect { |uri| uri.to_s }
+</span><span class="inferred0"><a name="line488"></a> 488       end
+</span><span class="inferred1"><a name="line489"></a> 489     end
+</span><span class="inferred0"><a name="line490"></a> 490     
+</span><span class="inferred1"><a name="line491"></a> 491     # Creates a new uri object from component parts.  Passing nil for
+</span><span class="inferred0"><a name="line492"></a> 492     # any of these parameters is acceptable.
+</span><span class="marked1"><a name="line493"></a> 493     def initialize(scheme, user, password, host, port, path, query, fragment)
+</span><span class="marked0"><a name="line494"></a> 494       @scheme = scheme
+</span><span class="marked1"><a name="line495"></a> 495       @scheme = nil if @scheme.to_s.strip == &quot;&quot;
+</span><span class="marked0"><a name="line496"></a> 496       @user = user
+</span><span class="marked1"><a name="line497"></a> 497       @password = password
+</span><span class="marked0"><a name="line498"></a> 498       @host = host
+</span><span class="marked1"><a name="line499"></a> 499       @specified_port = port.to_s
+</span><span class="marked0"><a name="line500"></a> 500       @port = port.kind_of?(Fixnum) ? port.to_s : port
+</span><span class="marked1"><a name="line501"></a> 501       if @port != nil &amp;&amp; !(@port =~ /^\d+$/)
+</span><span class="marked0"><a name="line502"></a> 502         raise InvalidURIError,
+</span><span class="inferred1"><a name="line503"></a> 503           &quot;Invalid port number: #{@port.inspect}&quot;
+</span><span class="inferred0"><a name="line504"></a> 504       end
+</span><span class="marked1"><a name="line505"></a> 505       @port = @port.to_i
+</span><span class="marked0"><a name="line506"></a> 506       @port = nil if @port == 0
+</span><span class="marked1"><a name="line507"></a> 507       @path = (path || &quot;&quot;)
+</span><span class="marked0"><a name="line508"></a> 508       if @path != &quot;&quot; &amp;&amp; @path[0..0] != &quot;/&quot; &amp;&amp; @host != nil
+</span><span class="marked1"><a name="line509"></a> 509         @path = &quot;/#{@path}&quot;
+</span><span class="inferred0"><a name="line510"></a> 510       end
+</span><span class="marked1"><a name="line511"></a> 511       @query = query
+</span><span class="marked0"><a name="line512"></a> 512       @fragment = fragment
+</span><span class="inferred1"><a name="line513"></a> 513 
+</span><span class="marked0"><a name="line514"></a> 514       validate()
+</span><span class="inferred1"><a name="line515"></a> 515     end
+</span><span class="inferred0"><a name="line516"></a> 516     
+</span><span class="inferred1"><a name="line517"></a> 517     # Returns the scheme (protocol) for this URI.
+</span><span class="marked0"><a name="line518"></a> 518     def scheme
+</span><span class="marked1"><a name="line519"></a> 519       return @scheme
+</span><span class="marked0"><a name="line520"></a> 520     end
+</span><span class="inferred1"><a name="line521"></a> 521     
+</span><span class="inferred0"><a name="line522"></a> 522     # Sets the scheme (protocol for this URI.)
+</span><span class="marked1"><a name="line523"></a> 523     def scheme=(new_scheme)
+</span><span class="marked0"><a name="line524"></a> 524       @scheme = new_scheme
+</span><span class="marked1"><a name="line525"></a> 525     end
+</span><span class="inferred0"><a name="line526"></a> 526     
+</span><span class="inferred1"><a name="line527"></a> 527     # Returns the user for this URI.
+</span><span class="marked0"><a name="line528"></a> 528     def user
+</span><span class="marked1"><a name="line529"></a> 529       return @user
+</span><span class="marked0"><a name="line530"></a> 530     end
+</span><span class="inferred1"><a name="line531"></a> 531     
+</span><span class="inferred0"><a name="line532"></a> 532     # Sets the user for this URI.
+</span><span class="marked1"><a name="line533"></a> 533     def user=(new_user)
+</span><span class="marked0"><a name="line534"></a> 534       @user = new_user
+</span><span class="inferred1"><a name="line535"></a> 535 
+</span><span class="inferred0"><a name="line536"></a> 536       # You can't have a nil user with a non-nil password
+</span><span class="marked1"><a name="line537"></a> 537       if @password != nil
+</span><span class="marked0"><a name="line538"></a> 538         @user = &quot;&quot; if @user.nil?
+</span><span class="inferred1"><a name="line539"></a> 539       end
+</span><span class="inferred0"><a name="line540"></a> 540 
+</span><span class="inferred1"><a name="line541"></a> 541       # Reset dependant values
+</span><span class="marked0"><a name="line542"></a> 542       @userinfo = nil
+</span><span class="marked1"><a name="line543"></a> 543       @authority = nil
+</span><span class="inferred0"><a name="line544"></a> 544 
+</span><span class="inferred1"><a name="line545"></a> 545       # Ensure we haven't created an invalid URI
+</span><span class="marked0"><a name="line546"></a> 546       validate()
+</span><span class="inferred1"><a name="line547"></a> 547     end
+</span><span class="inferred0"><a name="line548"></a> 548     
+</span><span class="inferred1"><a name="line549"></a> 549     # Returns the password for this URI.
+</span><span class="marked0"><a name="line550"></a> 550     def password
+</span><span class="marked1"><a name="line551"></a> 551       return @password
+</span><span class="marked0"><a name="line552"></a> 552     end
+</span><span class="inferred1"><a name="line553"></a> 553 
+</span><span class="inferred0"><a name="line554"></a> 554     # Sets the password for this URI.
+</span><span class="marked1"><a name="line555"></a> 555     def password=(new_password)
+</span><span class="marked0"><a name="line556"></a> 556       @password = new_password
+</span><span class="inferred1"><a name="line557"></a> 557 
+</span><span class="inferred0"><a name="line558"></a> 558       # You can't have a nil user with a non-nil password
+</span><span class="marked1"><a name="line559"></a> 559       if @password != nil
+</span><span class="marked0"><a name="line560"></a> 560         @user = &quot;&quot; if @user.nil?
+</span><span class="inferred1"><a name="line561"></a> 561       end
+</span><span class="inferred0"><a name="line562"></a> 562 
+</span><span class="inferred1"><a name="line563"></a> 563       # Reset dependant values
+</span><span class="marked0"><a name="line564"></a> 564       @userinfo = nil
+</span><span class="marked1"><a name="line565"></a> 565       @authority = nil
+</span><span class="inferred0"><a name="line566"></a> 566 
+</span><span class="inferred1"><a name="line567"></a> 567       # Ensure we haven't created an invalid URI
+</span><span class="marked0"><a name="line568"></a> 568       validate()
+</span><span class="inferred1"><a name="line569"></a> 569     end
+</span><span class="inferred0"><a name="line570"></a> 570     
+</span><span class="inferred1"><a name="line571"></a> 571     # Returns the username and password segment of this URI.
+</span><span class="marked0"><a name="line572"></a> 572     def userinfo
+</span><span class="marked1"><a name="line573"></a> 573       if !defined?(@userinfo) || @userinfo == nil
+</span><span class="marked0"><a name="line574"></a> 574         current_user = self.user
+</span><span class="marked1"><a name="line575"></a> 575         current_password = self.password
+</span><span class="marked0"><a name="line576"></a> 576         if !current_user &amp;&amp; !current_password
+</span><span class="marked1"><a name="line577"></a> 577           @userinfo = nil
+</span><span class="marked0"><a name="line578"></a> 578         elsif current_user &amp;&amp; current_password
+</span><span class="marked1"><a name="line579"></a> 579           @userinfo = &quot;#{current_user}:#{current_password}&quot;
+</span><span class="marked0"><a name="line580"></a> 580         elsif current_user &amp;&amp; !current_password
+</span><span class="marked1"><a name="line581"></a> 581           @userinfo = &quot;#{current_user}&quot;
+</span><span class="inferred0"><a name="line582"></a> 582         end
+</span><span class="inferred1"><a name="line583"></a> 583       end
+</span><span class="marked0"><a name="line584"></a> 584       return @userinfo
+</span><span class="inferred1"><a name="line585"></a> 585     end
+</span><span class="inferred0"><a name="line586"></a> 586     
+</span><span class="inferred1"><a name="line587"></a> 587     # Sets the username and password segment of this URI.
+</span><span class="marked0"><a name="line588"></a> 588     def userinfo=(new_userinfo)
+</span><span class="marked1"><a name="line589"></a> 589       new_user = new_userinfo.to_s.strip.scan(/^(.*):/).flatten[0]
+</span><span class="marked0"><a name="line590"></a> 590       new_password = new_userinfo.to_s.strip.scan(/:(.*)$/).flatten[0]
+</span><span class="inferred1"><a name="line591"></a> 591       
+</span><span class="inferred0"><a name="line592"></a> 592       # Password assigned first to ensure validity in case of nil
+</span><span class="marked1"><a name="line593"></a> 593       self.password = new_password
+</span><span class="marked0"><a name="line594"></a> 594       self.user = new_user
+</span><span class="inferred1"><a name="line595"></a> 595 
+</span><span class="inferred0"><a name="line596"></a> 596       # Reset dependant values
+</span><span class="marked1"><a name="line597"></a> 597       @authority = nil
+</span><span class="inferred0"><a name="line598"></a> 598 
+</span><span class="inferred1"><a name="line599"></a> 599       # Ensure we haven't created an invalid URI
+</span><span class="marked0"><a name="line600"></a> 600       validate()
+</span><span class="inferred1"><a name="line601"></a> 601     end
+</span><span class="inferred0"><a name="line602"></a> 602     
+</span><span class="inferred1"><a name="line603"></a> 603     # Returns the host for this URI.
+</span><span class="marked0"><a name="line604"></a> 604     def host
+</span><span class="marked1"><a name="line605"></a> 605       return @host
+</span><span class="marked0"><a name="line606"></a> 606     end
+</span><span class="inferred1"><a name="line607"></a> 607     
+</span><span class="inferred0"><a name="line608"></a> 608     # Sets the host for this URI.
+</span><span class="marked1"><a name="line609"></a> 609     def host=(new_host)
+</span><span class="marked0"><a name="line610"></a> 610       @host = new_host
+</span><span class="inferred1"><a name="line611"></a> 611 
+</span><span class="inferred0"><a name="line612"></a> 612       # Reset dependant values
+</span><span class="marked1"><a name="line613"></a> 613       @authority = nil
+</span><span class="inferred0"><a name="line614"></a> 614 
+</span><span class="inferred1"><a name="line615"></a> 615       # Ensure we haven't created an invalid URI
+</span><span class="marked0"><a name="line616"></a> 616       validate()
+</span><span class="inferred1"><a name="line617"></a> 617     end
+</span><span class="inferred0"><a name="line618"></a> 618     
+</span><span class="inferred1"><a name="line619"></a> 619     # Returns the authority segment of this URI.
+</span><span class="marked0"><a name="line620"></a> 620     def authority
+</span><span class="marked1"><a name="line621"></a> 621       if !defined?(@authority) || @authority.nil?
+</span><span class="marked0"><a name="line622"></a> 622         return nil if self.host.nil?
+</span><span class="marked1"><a name="line623"></a> 623         @authority = &quot;&quot;
+</span><span class="marked0"><a name="line624"></a> 624         if self.userinfo != nil
+</span><span class="marked1"><a name="line625"></a> 625           @authority &lt;&lt; &quot;#{self.userinfo}@&quot;
+</span><span class="inferred0"><a name="line626"></a> 626         end
+</span><span class="marked1"><a name="line627"></a> 627         @authority &lt;&lt; self.host
+</span><span class="marked0"><a name="line628"></a> 628         if self.specified_port != nil
+</span><span class="marked1"><a name="line629"></a> 629           @authority &lt;&lt; &quot;:#{self.specified_port}&quot;
+</span><span class="inferred0"><a name="line630"></a> 630         end
+</span><span class="inferred1"><a name="line631"></a> 631       end
+</span><span class="marked0"><a name="line632"></a> 632       return @authority
+</span><span class="inferred1"><a name="line633"></a> 633     end
+</span><span class="inferred0"><a name="line634"></a> 634     
+</span><span class="inferred1"><a name="line635"></a> 635     # Sets the authority segment of this URI.
+</span><span class="marked0"><a name="line636"></a> 636     def authority=(new_authority)
+</span><span class="marked1"><a name="line637"></a> 637       if new_authority
+</span><span class="marked0"><a name="line638"></a> 638         new_userinfo = new_authority.scan(/^([^\[\]]*)@/).flatten[0]
+</span><span class="marked1"><a name="line639"></a> 639         if new_userinfo
+</span><span class="marked0"><a name="line640"></a> 640           new_user = new_userinfo.strip.scan(/^([^:]*):?/).flatten[0]
+</span><span class="marked1"><a name="line641"></a> 641           new_password = new_userinfo.strip.scan(/:(.*)$/).flatten[0]
+</span><span class="inferred0"><a name="line642"></a> 642         end
+</span><span class="marked1"><a name="line643"></a> 643         new_host =
+</span><span class="inferred0"><a name="line644"></a> 644           new_authority.gsub(/^([^\[\]]*)@/, &quot;&quot;).gsub(/:([^:@\[\]]*?)$/, &quot;&quot;)
+</span><span class="marked1"><a name="line645"></a> 645         new_port =
+</span><span class="inferred0"><a name="line646"></a> 646           new_authority.scan(/:([^:@\[\]]*?)$/).flatten[0]
+</span><span class="inferred1"><a name="line647"></a> 647       end
+</span><span class="inferred0"><a name="line648"></a> 648       
+</span><span class="inferred1"><a name="line649"></a> 649       # Password assigned first to ensure validity in case of nil
+</span><span class="marked0"><a name="line650"></a> 650       self.password = new_password
+</span><span class="marked1"><a name="line651"></a> 651       self.user = new_user
+</span><span class="marked0"><a name="line652"></a> 652       self.host = new_host
+</span><span class="inferred1"><a name="line653"></a> 653       
+</span><span class="inferred0"><a name="line654"></a> 654       # Port reset to allow port normalization
+</span><span class="marked1"><a name="line655"></a> 655       @port = nil
+</span><span class="marked0"><a name="line656"></a> 656       @specified_port = new_port
+</span><span class="inferred1"><a name="line657"></a> 657       
+</span><span class="inferred0"><a name="line658"></a> 658       # Ensure we haven't created an invalid URI
+</span><span class="marked1"><a name="line659"></a> 659       validate()
+</span><span class="inferred0"><a name="line660"></a> 660     end
+</span><span class="inferred1"><a name="line661"></a> 661 
+</span><span class="inferred0"><a name="line662"></a> 662     # Returns an array of known ip-based schemes.  These schemes typically
+</span><span class="inferred1"><a name="line663"></a> 663     # use a similar URI form:
+</span><span class="inferred0"><a name="line664"></a> 664     # //&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;url-path&gt;
+</span><span class="marked1"><a name="line665"></a> 665     def self.ip_based_schemes
+</span><span class="marked0"><a name="line666"></a> 666       return self.scheme_mapping.keys
+</span><span class="marked1"><a name="line667"></a> 667     end
+</span><span class="inferred0"><a name="line668"></a> 668 
+</span><span class="inferred1"><a name="line669"></a> 669     # Returns a hash of common IP-based schemes and their default port
+</span><span class="inferred0"><a name="line670"></a> 670     # numbers.  Adding new schemes to this hash, as necessary, will allow
+</span><span class="inferred1"><a name="line671"></a> 671     # for better URI normalization.
+</span><span class="marked0"><a name="line672"></a> 672     def self.scheme_mapping
+</span><span class="marked1"><a name="line673"></a> 673       if !defined?(@protocol_mapping) || @protocol_mapping.nil?
+</span><span class="marked0"><a name="line674"></a> 674         @protocol_mapping = {
+</span><span class="inferred1"><a name="line675"></a> 675           &quot;http&quot; =&gt; 80,
+</span><span class="inferred0"><a name="line676"></a> 676           &quot;https&quot; =&gt; 443,
+</span><span class="inferred1"><a name="line677"></a> 677           &quot;ftp&quot; =&gt; 21,
+</span><span class="inferred0"><a name="line678"></a> 678           &quot;tftp&quot; =&gt; 69,
+</span><span class="inferred1"><a name="line679"></a> 679           &quot;ssh&quot; =&gt; 22,
+</span><span class="inferred0"><a name="line680"></a> 680           &quot;svn+ssh&quot; =&gt; 22,
+</span><span class="inferred1"><a name="line681"></a> 681           &quot;telnet&quot; =&gt; 23,
+</span><span class="inferred0"><a name="line682"></a> 682           &quot;nntp&quot; =&gt; 119,
+</span><span class="inferred1"><a name="line683"></a> 683           &quot;gopher&quot; =&gt; 70,
+</span><span class="inferred0"><a name="line684"></a> 684           &quot;wais&quot; =&gt; 210,
+</span><span class="inferred1"><a name="line685"></a> 685           &quot;ldap&quot; =&gt; 389,
+</span><span class="inferred0"><a name="line686"></a> 686           &quot;prospero&quot; =&gt; 1525
+</span><span class="inferred1"><a name="line687"></a> 687         }
+</span><span class="inferred0"><a name="line688"></a> 688       end
+</span><span class="marked1"><a name="line689"></a> 689       return @protocol_mapping
+</span><span class="inferred0"><a name="line690"></a> 690     end
+</span><span class="inferred1"><a name="line691"></a> 691     
+</span><span class="inferred0"><a name="line692"></a> 692     # Returns the port number for this URI.  This method will normalize to the
+</span><span class="inferred1"><a name="line693"></a> 693     # default port for the URI's scheme if the port isn't explicitly specified
+</span><span class="inferred0"><a name="line694"></a> 694     # in the URI.
+</span><span class="marked1"><a name="line695"></a> 695     def port
+</span><span class="marked0"><a name="line696"></a> 696       if @port.to_i == 0
+</span><span class="marked1"><a name="line697"></a> 697         if self.scheme
+</span><span class="marked0"><a name="line698"></a> 698           @port = self.class.scheme_mapping[self.scheme.strip.downcase]
+</span><span class="inferred1"><a name="line699"></a> 699         else
+</span><span class="marked0"><a name="line700"></a> 700           @port = nil
+</span><span class="inferred1"><a name="line701"></a> 701         end
+</span><span class="marked0"><a name="line702"></a> 702         return @port
+</span><span class="inferred1"><a name="line703"></a> 703       else
+</span><span class="marked0"><a name="line704"></a> 704         @port = @port.to_i
+</span><span class="marked1"><a name="line705"></a> 705         return @port
+</span><span class="inferred0"><a name="line706"></a> 706       end
+</span><span class="marked1"><a name="line707"></a> 707     end
+</span><span class="inferred0"><a name="line708"></a> 708     
+</span><span class="inferred1"><a name="line709"></a> 709     # Sets the port for this URI.
+</span><span class="marked0"><a name="line710"></a> 710     def port=(new_port)
+</span><span class="marked1"><a name="line711"></a> 711       @port = new_port.to_s.to_i
+</span><span class="marked0"><a name="line712"></a> 712       @specified_port = @port
+</span><span class="marked1"><a name="line713"></a> 713       @authority = nil
+</span><span class="inferred0"><a name="line714"></a> 714     end
+</span><span class="inferred1"><a name="line715"></a> 715     
+</span><span class="inferred0"><a name="line716"></a> 716     # Returns the port number that was actually specified in the URI string.
+</span><span class="marked1"><a name="line717"></a> 717     def specified_port
+</span><span class="marked0"><a name="line718"></a> 718       port = @specified_port.to_s.to_i
+</span><span class="marked1"><a name="line719"></a> 719       if port == 0
+</span><span class="marked0"><a name="line720"></a> 720         return nil
+</span><span class="inferred1"><a name="line721"></a> 721       else
+</span><span class="marked0"><a name="line722"></a> 722         return port
+</span><span class="inferred1"><a name="line723"></a> 723       end
+</span><span class="inferred0"><a name="line724"></a> 724     end
+</span><span class="inferred1"><a name="line725"></a> 725     
+</span><span class="inferred0"><a name="line726"></a> 726     # Returns the path for this URI.
+</span><span class="marked1"><a name="line727"></a> 727     def path
+</span><span class="marked0"><a name="line728"></a> 728       return @path
+</span><span class="marked1"><a name="line729"></a> 729     end
+</span><span class="inferred0"><a name="line730"></a> 730     
+</span><span class="inferred1"><a name="line731"></a> 731     # Sets the path for this URI.
+</span><span class="marked0"><a name="line732"></a> 732     def path=(new_path)
+</span><span class="marked1"><a name="line733"></a> 733       @path = (new_path || &quot;&quot;)
+</span><span class="marked0"><a name="line734"></a> 734     end
+</span><span class="inferred1"><a name="line735"></a> 735 
+</span><span class="inferred0"><a name="line736"></a> 736     # Returns the basename, if any, of the file at the path being referenced.
+</span><span class="inferred1"><a name="line737"></a> 737     # Returns nil if there is no path component.
+</span><span class="marked0"><a name="line738"></a> 738     def basename
+</span><span class="inferred1"><a name="line739"></a> 739       # Path cannot be nil
+</span><span class="marked0"><a name="line740"></a> 740       return File.basename(self.path).gsub(/;[^\/]*$/, &quot;&quot;)
+</span><span class="marked1"><a name="line741"></a> 741     end
+</span><span class="inferred0"><a name="line742"></a> 742         
+</span><span class="inferred1"><a name="line743"></a> 743     # Returns the extension, if any, of the file at the path being referenced.
+</span><span class="inferred0"><a name="line744"></a> 744     # Returns &quot;&quot; if there is no extension or nil if there is no path
+</span><span class="inferred1"><a name="line745"></a> 745     # component.
+</span><span class="marked0"><a name="line746"></a> 746     def extname
+</span><span class="marked1"><a name="line747"></a> 747       return nil unless self.path
+</span><span class="marked0"><a name="line748"></a> 748       return File.extname(self.basename)
+</span><span class="inferred1"><a name="line749"></a> 749     end
+</span><span class="inferred0"><a name="line750"></a> 750     
+</span><span class="inferred1"><a name="line751"></a> 751     # Returns the query string for this URI.
+</span><span class="marked0"><a name="line752"></a> 752     def query
+</span><span class="marked1"><a name="line753"></a> 753       return @query
+</span><span class="marked0"><a name="line754"></a> 754     end
+</span><span class="inferred1"><a name="line755"></a> 755     
+</span><span class="inferred0"><a name="line756"></a> 756     # Sets the query string for this URI.
+</span><span class="marked1"><a name="line757"></a> 757     def query=(new_query)
+</span><span class="marked0"><a name="line758"></a> 758       @query = new_query
+</span><span class="marked1"><a name="line759"></a> 759     end
+</span><span class="inferred0"><a name="line760"></a> 760     
+</span><span class="inferred1"><a name="line761"></a> 761     # Returns the fragment for this URI.
+</span><span class="marked0"><a name="line762"></a> 762     def fragment
+</span><span class="marked1"><a name="line763"></a> 763       return @fragment
+</span><span class="marked0"><a name="line764"></a> 764     end
+</span><span class="inferred1"><a name="line765"></a> 765     
+</span><span class="inferred0"><a name="line766"></a> 766     # Sets the fragment for this URI.
+</span><span class="marked1"><a name="line767"></a> 767     def fragment=(new_fragment)
+</span><span class="marked0"><a name="line768"></a> 768       @fragment = new_fragment
+</span><span class="marked1"><a name="line769"></a> 769     end
+</span><span class="inferred0"><a name="line770"></a> 770     
+</span><span class="inferred1"><a name="line771"></a> 771     # Returns true if the URI uses an IP-based protocol.
+</span><span class="marked0"><a name="line772"></a> 772     def ip_based?
+</span><span class="marked1"><a name="line773"></a> 773       if self.scheme
+</span><span class="marked0"><a name="line774"></a> 774         return self.class.ip_based_schemes.include?(
+</span><span class="marked1"><a name="line775"></a> 775           self.scheme.strip.downcase)
+</span><span class="inferred0"><a name="line776"></a> 776       end
+</span><span class="marked1"><a name="line777"></a> 777       return false
+</span><span class="inferred0"><a name="line778"></a> 778     end
+</span><span class="inferred1"><a name="line779"></a> 779     
+</span><span class="inferred0"><a name="line780"></a> 780     # Returns true if this URI is known to be relative.
+</span><span class="marked1"><a name="line781"></a> 781     def relative?
+</span><span class="marked0"><a name="line782"></a> 782       return self.scheme.nil?
+</span><span class="marked1"><a name="line783"></a> 783     end
+</span><span class="inferred0"><a name="line784"></a> 784     
+</span><span class="inferred1"><a name="line785"></a> 785     # Returns true if this URI is known to be absolute.
+</span><span class="marked0"><a name="line786"></a> 786     def absolute?
+</span><span class="marked1"><a name="line787"></a> 787       return !relative?
+</span><span class="marked0"><a name="line788"></a> 788     end
+</span><span class="inferred1"><a name="line789"></a> 789     
+</span><span class="inferred0"><a name="line790"></a> 790     # Joins two URIs together.
+</span><span class="marked1"><a name="line791"></a> 791     def +(uri)
+</span><span class="marked0"><a name="line792"></a> 792       if !uri.kind_of?(self.class)
+</span><span class="marked1"><a name="line793"></a> 793         uri = URI.parse(uri.to_s)
+</span><span class="inferred0"><a name="line794"></a> 794       end
+</span><span class="marked1"><a name="line795"></a> 795       if uri.to_s == &quot;&quot;
+</span><span class="marked0"><a name="line796"></a> 796         return self.dup
+</span><span class="inferred1"><a name="line797"></a> 797       end
+</span><span class="inferred0"><a name="line798"></a> 798       
+</span><span class="marked1"><a name="line799"></a> 799       joined_scheme = nil
+</span><span class="marked0"><a name="line800"></a> 800       joined_user = nil
+</span><span class="marked1"><a name="line801"></a> 801       joined_password = nil
+</span><span class="marked0"><a name="line802"></a> 802       joined_host = nil
+</span><span class="marked1"><a name="line803"></a> 803       joined_port = nil
+</span><span class="marked0"><a name="line804"></a> 804       joined_path = nil
+</span><span class="marked1"><a name="line805"></a> 805       joined_query = nil
+</span><span class="marked0"><a name="line806"></a> 806       joined_fragment = nil
+</span><span class="inferred1"><a name="line807"></a> 807       
+</span><span class="inferred0"><a name="line808"></a> 808       # Section 5.2.2 of RFC 3986
+</span><span class="marked1"><a name="line809"></a> 809       if uri.scheme != nil
+</span><span class="marked0"><a name="line810"></a> 810         joined_scheme = uri.scheme
+</span><span class="marked1"><a name="line811"></a> 811         joined_user = uri.user
+</span><span class="marked0"><a name="line812"></a> 812         joined_password = uri.password
+</span><span class="marked1"><a name="line813"></a> 813         joined_host = uri.host
+</span><span class="marked0"><a name="line814"></a> 814         joined_port = uri.specified_port
+</span><span class="marked1"><a name="line815"></a> 815         joined_path = self.class.normalize_path(uri.path)
+</span><span class="marked0"><a name="line816"></a> 816         joined_query = uri.query
+</span><span class="inferred1"><a name="line817"></a> 817       else
+</span><span class="marked0"><a name="line818"></a> 818         if uri.authority != nil
+</span><span class="marked1"><a name="line819"></a> 819           joined_user = uri.user
+</span><span class="marked0"><a name="line820"></a> 820           joined_password = uri.password
+</span><span class="marked1"><a name="line821"></a> 821           joined_host = uri.host
+</span><span class="marked0"><a name="line822"></a> 822           joined_port = uri.specified_port
+</span><span class="marked1"><a name="line823"></a> 823           joined_path = self.class.normalize_path(uri.path)
+</span><span class="marked0"><a name="line824"></a> 824           joined_query = uri.query
+</span><span class="inferred1"><a name="line825"></a> 825         else
+</span><span class="marked0"><a name="line826"></a> 826           if uri.path == nil || uri.path == &quot;&quot;
+</span><span class="marked1"><a name="line827"></a> 827             joined_path = self.path
+</span><span class="marked0"><a name="line828"></a> 828             if uri.query != nil
+</span><span class="marked1"><a name="line829"></a> 829               joined_query = uri.query
+</span><span class="inferred0"><a name="line830"></a> 830             else
+</span><span class="marked1"><a name="line831"></a> 831               joined_query = self.query
+</span><span class="inferred0"><a name="line832"></a> 832             end
+</span><span class="inferred1"><a name="line833"></a> 833           else
+</span><span class="marked0"><a name="line834"></a> 834             if uri.path[0..0] == &quot;/&quot;
+</span><span class="marked1"><a name="line835"></a> 835               joined_path = self.class.normalize_path(uri.path)
+</span><span class="inferred0"><a name="line836"></a> 836             else
+</span><span class="marked1"><a name="line837"></a> 837               base_path = self.path.dup
+</span><span class="marked0"><a name="line838"></a> 838               base_path = &quot;&quot; if base_path == nil
+</span><span class="marked1"><a name="line839"></a> 839               base_path = self.class.normalize_path(base_path)
+</span><span class="inferred0"><a name="line840"></a> 840 
+</span><span class="inferred1"><a name="line841"></a> 841               # Section 5.2.3 of RFC 3986
+</span><span class="inferred0"><a name="line842"></a> 842               #
+</span><span class="inferred1"><a name="line843"></a> 843               # Removes the right-most path segment from the base path.
+</span><span class="marked0"><a name="line844"></a> 844               if base_path =~ /\//
+</span><span class="marked1"><a name="line845"></a> 845                 base_path.gsub!(/\/[^\/]+$/, &quot;/&quot;)
+</span><span class="inferred0"><a name="line846"></a> 846               else
+</span><span class="marked1"><a name="line847"></a> 847                 base_path = &quot;&quot;
+</span><span class="inferred0"><a name="line848"></a> 848               end
+</span><span class="inferred1"><a name="line849"></a> 849               
+</span><span class="inferred0"><a name="line850"></a> 850               # If the base path is empty and an authority segment has been
+</span><span class="inferred1"><a name="line851"></a> 851               # defined, use a base path of &quot;/&quot;
+</span><span class="marked0"><a name="line852"></a> 852               if base_path == &quot;&quot; &amp;&amp; self.authority != nil
+</span><span class="marked1"><a name="line853"></a> 853                 base_path = &quot;/&quot;
+</span><span class="inferred0"><a name="line854"></a> 854               end
+</span><span class="inferred1"><a name="line855"></a> 855               
+</span><span class="marked0"><a name="line856"></a> 856               joined_path = self.class.normalize_path(base_path + uri.path)
+</span><span class="inferred1"><a name="line857"></a> 857             end
+</span><span class="marked0"><a name="line858"></a> 858             joined_query = uri.query
+</span><span class="inferred1"><a name="line859"></a> 859           end
+</span><span class="marked0"><a name="line860"></a> 860           joined_user = self.user
+</span><span class="marked1"><a name="line861"></a> 861           joined_password = self.password
+</span><span class="marked0"><a name="line862"></a> 862           joined_host = self.host
+</span><span class="marked1"><a name="line863"></a> 863           joined_port = self.specified_port
+</span><span class="inferred0"><a name="line864"></a> 864         end
+</span><span class="marked1"><a name="line865"></a> 865         joined_scheme = self.scheme
+</span><span class="inferred0"><a name="line866"></a> 866       end
+</span><span class="marked1"><a name="line867"></a> 867       joined_fragment = uri.fragment
+</span><span class="inferred0"><a name="line868"></a> 868       
+</span><span class="marked1"><a name="line869"></a> 869       return Addressable::URI.new(
+</span><span class="inferred0"><a name="line870"></a> 870         joined_scheme,
+</span><span class="inferred1"><a name="line871"></a> 871         joined_user,
+</span><span class="inferred0"><a name="line872"></a> 872         joined_password,
+</span><span class="inferred1"><a name="line873"></a> 873         joined_host,
+</span><span class="inferred0"><a name="line874"></a> 874         joined_port,
+</span><span class="inferred1"><a name="line875"></a> 875         joined_path,
+</span><span class="inferred0"><a name="line876"></a> 876         joined_query,
+</span><span class="inferred1"><a name="line877"></a> 877         joined_fragment
+</span><span class="marked0"><a name="line878"></a> 878       )
+</span><span class="inferred1"><a name="line879"></a> 879     end
+</span><span class="inferred0"><a name="line880"></a> 880     
+</span><span class="inferred1"><a name="line881"></a> 881     # Merges two URIs together.
+</span><span class="marked0"><a name="line882"></a> 882     def merge(uri)
+</span><span class="marked1"><a name="line883"></a> 883       return self + uri
+</span><span class="marked0"><a name="line884"></a> 884     end
+</span><span class="marked1"><a name="line885"></a> 885     alias_method :join, :merge
+</span><span class="inferred0"><a name="line886"></a> 886     
+</span><span class="inferred1"><a name="line887"></a> 887     # Destructive form of merge.
+</span><span class="marked0"><a name="line888"></a> 888     def merge!(uri)
+</span><span class="marked1"><a name="line889"></a> 889       replace_self(self.merge(uri))
+</span><span class="marked0"><a name="line890"></a> 890     end
+</span><span class="marked1"><a name="line891"></a> 891     alias_method :join!, :merge!
+</span><span class="inferred0"><a name="line892"></a> 892     
+</span><span class="inferred1"><a name="line893"></a> 893     # Returns the shortest normalized relative form of this URI that uses the
+</span><span class="inferred0"><a name="line894"></a> 894     # supplied URI as a base for resolution.  Returns an absolute URI if
+</span><span class="inferred1"><a name="line895"></a> 895     # necessary.
+</span><span class="marked0"><a name="line896"></a> 896     def route_from(uri)
+</span><span class="marked1"><a name="line897"></a> 897       uri = self.class.parse(uri).normalize
+</span><span class="marked0"><a name="line898"></a> 898       normalized_self = self.normalize
+</span><span class="marked1"><a name="line899"></a> 899       if normalized_self.relative?
+</span><span class="marked0"><a name="line900"></a> 900         raise ArgumentError, &quot;Expected absolute URI, got: #{self.to_s}&quot;
+</span><span class="inferred1"><a name="line901"></a> 901       end
+</span><span class="marked0"><a name="line902"></a> 902       if uri.relative?
+</span><span class="marked1"><a name="line903"></a> 903         raise ArgumentError, &quot;Expected absolute URI, got: #{uri.to_s}&quot;
+</span><span class="inferred0"><a name="line904"></a> 904       end
+</span><span class="marked1"><a name="line905"></a> 905       if normalized_self == uri
+</span><span class="marked0"><a name="line906"></a> 906         return Addressable::URI.parse(&quot;##{normalized_self.fragment}&quot;)
+</span><span class="inferred1"><a name="line907"></a> 907       end
+</span><span class="marked0"><a name="line908"></a> 908       segments = normalized_self.to_hash
+</span><span class="marked1"><a name="line909"></a> 909       if normalized_self.scheme == uri.scheme
+</span><span class="marked0"><a name="line910"></a> 910         segments[:scheme] = nil
+</span><span class="marked1"><a name="line911"></a> 911         if normalized_self.authority == uri.authority
+</span><span class="marked0"><a name="line912"></a> 912           segments[:user] = nil
+</span><span class="marked1"><a name="line913"></a> 913           segments[:password] = nil
+</span><span class="marked0"><a name="line914"></a> 914           segments[:host] = nil
+</span><span class="marked1"><a name="line915"></a> 915           segments[:port] = nil
+</span><span class="marked0"><a name="line916"></a> 916           if normalized_self.path == uri.path
+</span><span class="marked1"><a name="line917"></a> 917             segments[:path] = nil
+</span><span class="marked0"><a name="line918"></a> 918             if normalized_self.query == uri.query
+</span><span class="marked1"><a name="line919"></a> 919               segments[:query] = nil
+</span><span class="inferred0"><a name="line920"></a> 920             end
+</span><span class="inferred1"><a name="line921"></a> 921           else
+</span><span class="marked0"><a name="line922"></a> 922             if uri.path != &quot;/&quot;
+</span><span class="marked1"><a name="line923"></a> 923               segments[:path].gsub!(
+</span><span class="marked0"><a name="line924"></a> 924                 Regexp.new(&quot;^&quot; + Regexp.escape(uri.path)), &quot;&quot;)
+</span><span class="inferred1"><a name="line925"></a> 925             end
+</span><span class="inferred0"><a name="line926"></a> 926           end
+</span><span class="inferred1"><a name="line927"></a> 927         end
+</span><span class="inferred0"><a name="line928"></a> 928       end
+</span><span class="inferred1"><a name="line929"></a> 929       # Avoid network-path references.
+</span><span class="marked0"><a name="line930"></a> 930       if segments[:host] != nil
+</span><span class="marked1"><a name="line931"></a> 931         segments[:scheme] = normalized_self.scheme
+</span><span class="inferred0"><a name="line932"></a> 932       end
+</span><span class="marked1"><a name="line933"></a> 933       return Addressable::URI.new(
+</span><span class="inferred0"><a name="line934"></a> 934         segments[:scheme],
+</span><span class="inferred1"><a name="line935"></a> 935         segments[:user],
+</span><span class="inferred0"><a name="line936"></a> 936         segments[:password],
+</span><span class="inferred1"><a name="line937"></a> 937         segments[:host],
+</span><span class="inferred0"><a name="line938"></a> 938         segments[:port],
+</span><span class="inferred1"><a name="line939"></a> 939         segments[:path],
+</span><span class="inferred0"><a name="line940"></a> 940         segments[:query],
+</span><span class="inferred1"><a name="line941"></a> 941         segments[:fragment]
+</span><span class="marked0"><a name="line942"></a> 942       )
+</span><span class="inferred1"><a name="line943"></a> 943     end
+</span><span class="inferred0"><a name="line944"></a> 944     
+</span><span class="inferred1"><a name="line945"></a> 945     # Returns the shortest normalized relative form of the supplied URI that
+</span><span class="inferred0"><a name="line946"></a> 946     # uses this URI as a base for resolution.  Returns an absolute URI if
+</span><span class="inferred1"><a name="line947"></a> 947     # necessary.
+</span><span class="marked0"><a name="line948"></a> 948     def route_to(uri)
+</span><span class="marked1"><a name="line949"></a> 949       return self.class.parse(uri).route_from(self)
+</span><span class="marked0"><a name="line950"></a> 950     end
+</span><span class="inferred1"><a name="line951"></a> 951     
+</span><span class="inferred0"><a name="line952"></a> 952     # Returns a normalized URI object.
+</span><span class="inferred1"><a name="line953"></a> 953     #
+</span><span class="inferred0"><a name="line954"></a> 954     # NOTE: This method does not attempt to fully conform to specifications.
+</span><span class="inferred1"><a name="line955"></a> 955     # It exists largely to correct other people's failures to read the
+</span><span class="inferred0"><a name="line956"></a> 956     # specifications, and also to deal with caching issues since several
+</span><span class="inferred1"><a name="line957"></a> 957     # different URIs may represent the same resource and should not be
+</span><span class="inferred0"><a name="line958"></a> 958     # cached multiple times.
+</span><span class="marked1"><a name="line959"></a> 959     def normalize
+</span><span class="marked0"><a name="line960"></a> 960       normalized_scheme = nil
+</span><span class="marked1"><a name="line961"></a> 961       normalized_scheme = self.scheme.strip.downcase if self.scheme != nil
+</span><span class="marked0"><a name="line962"></a> 962       normalized_scheme = &quot;svn+ssh&quot; if normalized_scheme == &quot;ssh+svn&quot;
+</span><span class="marked1"><a name="line963"></a> 963       if normalized_scheme == &quot;feed&quot;
+</span><span class="marked0"><a name="line964"></a> 964         if self.to_s =~ /^feed:\/*http:\/*/
+</span><span class="marked1"><a name="line965"></a> 965           return self.class.parse(
+</span><span class="marked0"><a name="line966"></a> 966             self.to_s.scan(/^feed:\/*(http:\/*.*)/).flatten[0]).normalize
+</span><span class="inferred1"><a name="line967"></a> 967         end
+</span><span class="inferred0"><a name="line968"></a> 968       end
+</span><span class="marked1"><a name="line969"></a> 969       normalized_user = nil
+</span><span class="marked0"><a name="line970"></a> 970       normalized_user = self.user.strip if self.user != nil
+</span><span class="marked1"><a name="line971"></a> 971       normalized_password = nil
+</span><span class="marked0"><a name="line972"></a> 972       normalized_password = self.password.strip if self.password != nil
+</span><span class="inferred1"><a name="line973"></a> 973       
+</span><span class="inferred0"><a name="line974"></a> 974       # If we are using http or https and user/password are blank,
+</span><span class="inferred1"><a name="line975"></a> 975       # then we remove them
+</span><span class="marked0"><a name="line976"></a> 976       if normalized_scheme =~ /https?/ &amp;&amp; normalized_user == &quot;&quot; &amp;&amp;
+</span><span class="marked1"><a name="line977"></a> 977           (!normalized_password || normalized_password == &quot;&quot;)
+</span><span class="marked0"><a name="line978"></a> 978         normalized_user = nil
+</span><span class="marked1"><a name="line979"></a> 979         normalized_password = nil
+</span><span class="inferred0"><a name="line980"></a> 980       end
+</span><span class="inferred1"><a name="line981"></a> 981       
+</span><span class="marked0"><a name="line982"></a> 982       normalized_host = nil
+</span><span class="marked1"><a name="line983"></a> 983       normalized_host = self.host.strip.downcase if self.host != nil
+</span><span class="marked0"><a name="line984"></a> 984       if normalized_host != nil
+</span><span class="marked1"><a name="line985"></a> 985         begin
+</span><span class="marked0"><a name="line986"></a> 986           normalized_host = URI::IDNA.to_ascii(normalized_host)
+</span><span class="inferred1"><a name="line987"></a> 987         rescue Exception
+</span><span class="marked0"><a name="line988"></a> 988           nil
+</span><span class="inferred1"><a name="line989"></a> 989         end
+</span><span class="marked0"><a name="line990"></a> 990         if normalized_host[-1..-1] == &quot;.&quot;
+</span><span class="marked1"><a name="line991"></a> 991           normalized_host = normalized_host[0...-1]
+</span><span class="inferred0"><a name="line992"></a> 992         end
+</span><span class="inferred1"><a name="line993"></a> 993       end
+</span><span class="inferred0"><a name="line994"></a> 994       
+</span><span class="marked1"><a name="line995"></a> 995       normalized_port = self.port
+</span><span class="marked0"><a name="line996"></a> 996       if self.class.scheme_mapping[normalized_scheme] == normalized_port
+</span><span class="marked1"><a name="line997"></a> 997         normalized_port = nil
+</span><span class="inferred0"><a name="line998"></a> 998       end
+</span><span class="marked1"><a name="line999"></a> 999       normalized_path = nil
+</span><span class="marked0"><a name="line1000"></a>1000       normalized_path = self.path.strip if self.path != nil
+</span><span class="marked1"><a name="line1001"></a>1001       if normalized_path != nil
+</span><span class="marked0"><a name="line1002"></a>1002         normalized_path = self.class.normalize_path(normalized_path)
+</span><span class="inferred1"><a name="line1003"></a>1003       end
+</span><span class="marked0"><a name="line1004"></a>1004       if normalized_path == &quot;&quot;
+</span><span class="marked1"><a name="line1005"></a>1005         if [&quot;http&quot;, &quot;https&quot;, &quot;ftp&quot;, &quot;tftp&quot;].include?(normalized_scheme)
+</span><span class="marked0"><a name="line1006"></a>1006           normalized_path = &quot;/&quot;
+</span><span class="inferred1"><a name="line1007"></a>1007         end
+</span><span class="inferred0"><a name="line1008"></a>1008       end
+</span><span class="inferred1"><a name="line1009"></a>1009 
+</span><span class="marked0"><a name="line1010"></a>1010       normalized_query = nil
+</span><span class="marked1"><a name="line1011"></a>1011       normalized_query = self.query.strip if self.query != nil
+</span><span class="inferred0"><a name="line1012"></a>1012 
+</span><span class="marked1"><a name="line1013"></a>1013       normalized_fragment = nil
+</span><span class="marked0"><a name="line1014"></a>1014       normalized_fragment = self.fragment.strip if self.fragment != nil
+</span><span class="marked1"><a name="line1015"></a>1015       return Addressable::URI.parse(
+</span><span class="marked0"><a name="line1016"></a>1016         Addressable::URI.normalized_encode(Addressable::URI.new(
+</span><span class="inferred1"><a name="line1017"></a>1017           normalized_scheme,
+</span><span class="inferred0"><a name="line1018"></a>1018           normalized_user,
+</span><span class="inferred1"><a name="line1019"></a>1019           normalized_password,
+</span><span class="inferred0"><a name="line1020"></a>1020           normalized_host,
+</span><span class="inferred1"><a name="line1021"></a>1021           normalized_port,
+</span><span class="inferred0"><a name="line1022"></a>1022           normalized_path,
+</span><span class="inferred1"><a name="line1023"></a>1023           normalized_query,
+</span><span class="inferred0"><a name="line1024"></a>1024           normalized_fragment
+</span><span class="marked1"><a name="line1025"></a>1025         )))
+</span><span class="inferred0"><a name="line1026"></a>1026     end
+</span><span class="inferred1"><a name="line1027"></a>1027 
+</span><span class="inferred0"><a name="line1028"></a>1028     # Destructively normalizes this URI object.
+</span><span class="marked1"><a name="line1029"></a>1029     def normalize!
+</span><span class="marked0"><a name="line1030"></a>1030       replace_self(self.normalize)
+</span><span class="marked1"><a name="line1031"></a>1031     end
+</span><span class="inferred0"><a name="line1032"></a>1032     
+</span><span class="inferred1"><a name="line1033"></a>1033     # Creates a URI suitable for display to users.  If semantic attacks are
+</span><span class="inferred0"><a name="line1034"></a>1034     # likely, the application should try to detect these and warn the user.
+</span><span class="inferred1"><a name="line1035"></a>1035     # See RFC 3986 section 7.6 for more information.
+</span><span class="marked0"><a name="line1036"></a>1036     def display_uri
+</span><span class="marked1"><a name="line1037"></a>1037       display_uri = self.normalize
+</span><span class="marked0"><a name="line1038"></a>1038       begin
+</span><span class="marked1"><a name="line1039"></a>1039         display_uri.instance_variable_set(&quot;@host&quot;,
+</span><span class="marked0"><a name="line1040"></a>1040           URI::IDNA.to_unicode(display_uri.host))
+</span><span class="inferred1"><a name="line1041"></a>1041       rescue Exception
+</span><span class="marked0"><a name="line1042"></a>1042         nil
+</span><span class="inferred1"><a name="line1043"></a>1043       end
+</span><span class="marked0"><a name="line1044"></a>1044       return display_uri
+</span><span class="inferred1"><a name="line1045"></a>1045     end
+</span><span class="inferred0"><a name="line1046"></a>1046     
+</span><span class="inferred1"><a name="line1047"></a>1047     # Returns true if the URI objects are equal.  This method normalizes
+</span><span class="inferred0"><a name="line1048"></a>1048     # both URIs before doing the comparison, and allows comparison against
+</span><span class="inferred1"><a name="line1049"></a>1049     # strings.
+</span><span class="marked0"><a name="line1050"></a>1050     def ===(uri)
+</span><span class="marked1"><a name="line1051"></a>1051       if uri.respond_to?(:normalize)
+</span><span class="marked0"><a name="line1052"></a>1052         uri_string = uri.normalize.to_s
+</span><span class="inferred1"><a name="line1053"></a>1053       else
+</span><span class="marked0"><a name="line1054"></a>1054         begin
+</span><span class="marked1"><a name="line1055"></a>1055           uri_string = URI.parse(uri.to_s).normalize.to_s
+</span><span class="inferred0"><a name="line1056"></a>1056         rescue InvalidURIError
+</span><span class="marked1"><a name="line1057"></a>1057           return false
+</span><span class="inferred0"><a name="line1058"></a>1058         end
+</span><span class="inferred1"><a name="line1059"></a>1059       end
+</span><span class="marked0"><a name="line1060"></a>1060       return self.normalize.to_s == uri_string
+</span><span class="inferred1"><a name="line1061"></a>1061     end
+</span><span class="inferred0"><a name="line1062"></a>1062     
+</span><span class="inferred1"><a name="line1063"></a>1063     # Returns true if the URI objects are equal.  This method normalizes
+</span><span class="inferred0"><a name="line1064"></a>1064     # both URIs before doing the comparison.
+</span><span class="marked1"><a name="line1065"></a>1065     def ==(uri)
+</span><span class="marked0"><a name="line1066"></a>1066       return false unless uri.kind_of?(self.class) 
+</span><span class="marked1"><a name="line1067"></a>1067       return self.normalize.to_s == uri.normalize.to_s
+</span><span class="inferred0"><a name="line1068"></a>1068     end
+</span><span class="inferred1"><a name="line1069"></a>1069 
+</span><span class="inferred0"><a name="line1070"></a>1070     # Returns true if the URI objects are equal.  This method does NOT
+</span><span class="inferred1"><a name="line1071"></a>1071     # normalize either URI before doing the comparison.
+</span><span class="marked0"><a name="line1072"></a>1072     def eql?(uri)
+</span><span class="marked1"><a name="line1073"></a>1073       return false unless uri.kind_of?(self.class) 
+</span><span class="marked0"><a name="line1074"></a>1074       return self.to_s == uri.to_s
+</span><span class="inferred1"><a name="line1075"></a>1075     end
+</span><span class="inferred0"><a name="line1076"></a>1076 
+</span><span class="inferred1"><a name="line1077"></a>1077     # Returns a hash value that will make a URI equivalent to its normalized
+</span><span class="inferred0"><a name="line1078"></a>1078     # form.
+</span><span class="marked1"><a name="line1079"></a>1079     def hash
+</span><span class="marked0"><a name="line1080"></a>1080       return (self.normalize.to_s.hash * -1)
+</span><span class="marked1"><a name="line1081"></a>1081     end
+</span><span class="inferred0"><a name="line1082"></a>1082     
+</span><span class="inferred1"><a name="line1083"></a>1083     # Clones the URI object.
+</span><span class="marked0"><a name="line1084"></a>1084     def dup
+</span><span class="marked1"><a name="line1085"></a>1085       duplicated_scheme = self.scheme ? self.scheme.dup : nil
+</span><span class="marked0"><a name="line1086"></a>1086       duplicated_user = self.user ? self.user.dup : nil
+</span><span class="marked1"><a name="line1087"></a>1087       duplicated_password = self.password ? self.password.dup : nil
+</span><span class="marked0"><a name="line1088"></a>1088       duplicated_host = self.host ? self.host.dup : nil
+</span><span class="marked1"><a name="line1089"></a>1089       duplicated_port = self.specified_port
+</span><span class="marked0"><a name="line1090"></a>1090       duplicated_path = self.path ? self.path.dup : nil
+</span><span class="marked1"><a name="line1091"></a>1091       duplicated_query = self.query ? self.query.dup : nil
+</span><span class="marked0"><a name="line1092"></a>1092       duplicated_fragment = self.fragment ? self.fragment.dup : nil
+</span><span class="marked1"><a name="line1093"></a>1093       duplicated_uri = Addressable::URI.new(
+</span><span class="inferred0"><a name="line1094"></a>1094         duplicated_scheme,
+</span><span class="inferred1"><a name="line1095"></a>1095         duplicated_user,
+</span><span class="inferred0"><a name="line1096"></a>1096         duplicated_password,
+</span><span class="inferred1"><a name="line1097"></a>1097         duplicated_host,
+</span><span class="inferred0"><a name="line1098"></a>1098         duplicated_port,
+</span><span class="inferred1"><a name="line1099"></a>1099         duplicated_path,
+</span><span class="inferred0"><a name="line1100"></a>1100         duplicated_query,
+</span><span class="inferred1"><a name="line1101"></a>1101         duplicated_fragment
+</span><span class="inferred0"><a name="line1102"></a>1102       )
+</span><span class="marked1"><a name="line1103"></a>1103       return duplicated_uri
+</span><span class="inferred0"><a name="line1104"></a>1104     end
+</span><span class="inferred1"><a name="line1105"></a>1105     
+</span><span class="inferred0"><a name="line1106"></a>1106     # Returns the assembled URI as a string.
+</span><span class="marked1"><a name="line1107"></a>1107     def to_s
+</span><span class="marked0"><a name="line1108"></a>1108       uri_string = &quot;&quot;
+</span><span class="marked1"><a name="line1109"></a>1109       uri_string &lt;&lt; &quot;#{self.scheme}:&quot; if self.scheme != nil
+</span><span class="marked0"><a name="line1110"></a>1110       uri_string &lt;&lt; &quot;//#{self.authority}&quot; if self.authority != nil
+</span><span class="marked1"><a name="line1111"></a>1111       uri_string &lt;&lt; self.path.to_s
+</span><span class="marked0"><a name="line1112"></a>1112       uri_string &lt;&lt; &quot;?#{self.query}&quot; if self.query != nil
+</span><span class="marked1"><a name="line1113"></a>1113       uri_string &lt;&lt; &quot;##{self.fragment}&quot; if self.fragment != nil
+</span><span class="marked0"><a name="line1114"></a>1114       return uri_string
+</span><span class="inferred1"><a name="line1115"></a>1115     end
+</span><span class="inferred0"><a name="line1116"></a>1116     
+</span><span class="inferred1"><a name="line1117"></a>1117     # Returns a Hash of the URI segments.
+</span><span class="marked0"><a name="line1118"></a>1118     def to_hash
+</span><span class="inferred1"><a name="line1119"></a>1119       return {
+</span><span class="marked0"><a name="line1120"></a>1120         :scheme =&gt; self.scheme,
+</span><span class="marked1"><a name="line1121"></a>1121         :user =&gt; self.user,
+</span><span class="marked0"><a name="line1122"></a>1122         :password =&gt; self.password,
+</span><span class="marked1"><a name="line1123"></a>1123         :host =&gt; self.host,
+</span><span class="marked0"><a name="line1124"></a>1124         :port =&gt; self.specified_port,
+</span><span class="marked1"><a name="line1125"></a>1125         :path =&gt; self.path,
+</span><span class="marked0"><a name="line1126"></a>1126         :query =&gt; self.query,
+</span><span class="marked1"><a name="line1127"></a>1127         :fragment =&gt; self.fragment
+</span><span class="marked0"><a name="line1128"></a>1128       }
+</span><span class="marked1"><a name="line1129"></a>1129     end
+</span><span class="inferred0"><a name="line1130"></a>1130     
+</span><span class="inferred1"><a name="line1131"></a>1131     # Returns a string representation of the URI object's state.
+</span><span class="marked0"><a name="line1132"></a>1132     def inspect
+</span><span class="marked1"><a name="line1133"></a>1133       sprintf(&quot;#&lt;%s:%#0x URI:%s&gt;&quot;, self.class.to_s, self.object_id, self.to_s)
+</span><span class="marked0"><a name="line1134"></a>1134     end
+</span><span class="inferred1"><a name="line1135"></a>1135     
+</span><span class="inferred0"><a name="line1136"></a>1136     # This module handles internationalized domain names.  When Ruby has an
+</span><span class="inferred1"><a name="line1137"></a>1137     # implementation of nameprep, stringprep, punycode, etc, this
+</span><span class="inferred0"><a name="line1138"></a>1138     # module should contain an actual implementation of IDNA instead of
+</span><span class="inferred1"><a name="line1139"></a>1139     # returning nil if libidn can't be used.
+</span><span class="marked0"><a name="line1140"></a>1140     module IDNA
+</span><span class="inferred1"><a name="line1141"></a>1141       # Returns the ascii representation of the label.
+</span><span class="marked0"><a name="line1142"></a>1142       def self.to_ascii(label)
+</span><span class="marked1"><a name="line1143"></a>1143         return nil if label.nil?
+</span><span class="marked0"><a name="line1144"></a>1144         if self.use_libidn?
+</span><span class="marked1"><a name="line1145"></a>1145           return IDN::Idna.toASCII(label)
+</span><span class="inferred0"><a name="line1146"></a>1146         else
+</span><span class="marked1"><a name="line1147"></a>1147           raise NotImplementedError,
+</span><span class="inferred0"><a name="line1148"></a>1148             &quot;There is no available pure-ruby implementation.  &quot; +
+</span><span class="inferred1"><a name="line1149"></a>1149             &quot;Install libidn bindings.&quot;
+</span><span class="inferred0"><a name="line1150"></a>1150         end
+</span><span class="inferred1"><a name="line1151"></a>1151       end
+</span><span class="inferred0"><a name="line1152"></a>1152       
+</span><span class="inferred1"><a name="line1153"></a>1153       # Returns the unicode representation of the label.
+</span><span class="marked0"><a name="line1154"></a>1154       def self.to_unicode(label)
+</span><span class="marked1"><a name="line1155"></a>1155         return nil if label.nil?
+</span><span class="marked0"><a name="line1156"></a>1156         if self.use_libidn?
+</span><span class="marked1"><a name="line1157"></a>1157           return IDN::Idna.toUnicode(label)
+</span><span class="inferred0"><a name="line1158"></a>1158         else
+</span><span class="marked1"><a name="line1159"></a>1159           raise NotImplementedError,
+</span><span class="inferred0"><a name="line1160"></a>1160             &quot;There is no available pure-ruby implementation.  &quot; +
+</span><span class="inferred1"><a name="line1161"></a>1161             &quot;Install libidn bindings.&quot;
+</span><span class="inferred0"><a name="line1162"></a>1162         end
+</span><span class="inferred1"><a name="line1163"></a>1163       end
+</span><span class="inferred0"><a name="line1164"></a>1164       
+</span><span class="marked1"><a name="line1165"></a>1165     private
+</span><span class="inferred0"><a name="line1166"></a>1166       # Determines if the libidn bindings are available and able to be used.
+</span><span class="marked1"><a name="line1167"></a>1167       def self.use_libidn?
+</span><span class="marked0"><a name="line1168"></a>1168         if !defined?(@use_libidn) || @use_libidn.nil?
+</span><span class="marked1"><a name="line1169"></a>1169           begin
+</span><span class="marked0"><a name="line1170"></a>1170             require 'rubygems'
+</span><span class="inferred1"><a name="line1171"></a>1171           rescue LoadError
+</span><span class="marked0"><a name="line1172"></a>1172             nil
+</span><span class="inferred1"><a name="line1173"></a>1173           end
+</span><span class="marked0"><a name="line1174"></a>1174           begin
+</span><span class="marked1"><a name="line1175"></a>1175             require 'idn'
+</span><span class="inferred0"><a name="line1176"></a>1176           rescue LoadError
+</span><span class="marked1"><a name="line1177"></a>1177             nil
+</span><span class="inferred0"><a name="line1178"></a>1178           end
+</span><span class="marked1"><a name="line1179"></a>1179           @use_libidn = !!(defined?(IDN::Idna))
+</span><span class="inferred0"><a name="line1180"></a>1180         end
+</span><span class="marked1"><a name="line1181"></a>1181         return @use_libidn
+</span><span class="inferred0"><a name="line1182"></a>1182       end
+</span><span class="inferred1"><a name="line1183"></a>1183     end
+</span><span class="inferred0"><a name="line1184"></a>1184     
+</span><span class="marked1"><a name="line1185"></a>1185   private
+</span><span class="inferred0"><a name="line1186"></a>1186     # Resolves paths to their simplest form.
+</span><span class="marked1"><a name="line1187"></a>1187     def self.normalize_path(path)
+</span><span class="inferred0"><a name="line1188"></a>1188       # Section 5.2.4 of RFC 3986
+</span><span class="inferred1"><a name="line1189"></a>1189       
+</span><span class="marked0"><a name="line1190"></a>1190       return nil if path.nil?
+</span><span class="marked1"><a name="line1191"></a>1191       normalized_path = path.dup
+</span><span class="marked0"><a name="line1192"></a>1192       previous_state = normalized_path.dup
+</span><span class="inferred1"><a name="line1193"></a>1193       begin
+</span><span class="marked0"><a name="line1194"></a>1194         previous_state = normalized_path.dup
+</span><span class="marked1"><a name="line1195"></a>1195         normalized_path.gsub!(/\/\.\//, &quot;/&quot;)
+</span><span class="marked0"><a name="line1196"></a>1196         normalized_path.gsub!(/\/\.$/, &quot;/&quot;)
+</span><span class="marked1"><a name="line1197"></a>1197         parent = normalized_path.scan(/\/([^\/]+)\/\.\.\//).flatten[0]
+</span><span class="marked0"><a name="line1198"></a>1198         if parent != &quot;.&quot; &amp;&amp; parent != &quot;..&quot;
+</span><span class="marked1"><a name="line1199"></a>1199           normalized_path.gsub!(/\/#{parent}\/\.\.\//, &quot;/&quot;)
+</span><span class="inferred0"><a name="line1200"></a>1200         end
+</span><span class="marked1"><a name="line1201"></a>1201         parent = normalized_path.scan(/\/([^\/]+)\/\.\.$/).flatten[0]
+</span><span class="marked0"><a name="line1202"></a>1202         if parent != &quot;.&quot; &amp;&amp; parent != &quot;..&quot;
+</span><span class="marked1"><a name="line1203"></a>1203           normalized_path.gsub!(/\/#{parent}\/\.\.$/, &quot;/&quot;)
+</span><span class="inferred0"><a name="line1204"></a>1204         end
+</span><span class="marked1"><a name="line1205"></a>1205         normalized_path.gsub!(/^\.\.?\/?/, &quot;&quot;)
+</span><span class="marked0"><a name="line1206"></a>1206         normalized_path.gsub!(/^\/\.\.?\//, &quot;/&quot;)
+</span><span class="marked1"><a name="line1207"></a>1207       end until previous_state == normalized_path
+</span><span class="marked0"><a name="line1208"></a>1208       return normalized_path
+</span><span class="inferred1"><a name="line1209"></a>1209     end
+</span><span class="inferred0"><a name="line1210"></a>1210 
+</span><span class="inferred1"><a name="line1211"></a>1211     # Ensures that the URI is valid.
+</span><span class="marked0"><a name="line1212"></a>1212     def validate
+</span><span class="marked1"><a name="line1213"></a>1213       if self.scheme != nil &amp;&amp;
+</span><span class="marked0"><a name="line1214"></a>1214           (self.host == nil || self.host == &quot;&quot;) &amp;&amp;
+</span><span class="marked1"><a name="line1215"></a>1215           (self.path == nil || self.path == &quot;&quot;)
+</span><span class="marked0"><a name="line1216"></a>1216         raise InvalidURIError,
+</span><span class="inferred1"><a name="line1217"></a>1217           &quot;Absolute URI missing hierarchical segment.&quot;
+</span><span class="inferred0"><a name="line1218"></a>1218       end
+</span><span class="marked1"><a name="line1219"></a>1219       if self.host == nil
+</span><span class="marked0"><a name="line1220"></a>1220         if self.specified_port != nil ||
+</span><span class="marked1"><a name="line1221"></a>1221             self.user != nil ||
+</span><span class="marked0"><a name="line1222"></a>1222             self.password != nil
+</span><span class="marked1"><a name="line1223"></a>1223           raise InvalidURIError, &quot;Hostname not supplied.&quot;
+</span><span class="inferred0"><a name="line1224"></a>1224         end
+</span><span class="inferred1"><a name="line1225"></a>1225       end
+</span><span class="inferred0"><a name="line1226"></a>1226     end
+</span><span class="inferred1"><a name="line1227"></a>1227     
+</span><span class="inferred0"><a name="line1228"></a>1228     # Replaces the internal state of self with the specified URI's state.
+</span><span class="inferred1"><a name="line1229"></a>1229     # Used in destructive operations to avoid massive code repetition.
+</span><span class="marked0"><a name="line1230"></a>1230     def replace_self(uri)
+</span><span class="inferred1"><a name="line1231"></a>1231       # Reset dependant values
+</span><span class="marked0"><a name="line1232"></a>1232       @userinfo = nil
+</span><span class="marked1"><a name="line1233"></a>1233       @authority = nil
+</span><span class="inferred0"><a name="line1234"></a>1234       
+</span><span class="marked1"><a name="line1235"></a>1235       @scheme = uri.scheme
+</span><span class="marked0"><a name="line1236"></a>1236       @user = uri.user
+</span><span class="marked1"><a name="line1237"></a>1237       @password = uri.password
+</span><span class="marked0"><a name="line1238"></a>1238       @host = uri.host
+</span><span class="marked1"><a name="line1239"></a>1239       @specified_port = uri.instance_variable_get(&quot;@specified_port&quot;)
+</span><span class="marked0"><a name="line1240"></a>1240       @port = @specified_port.to_s.to_i
+</span><span class="marked1"><a name="line1241"></a>1241       @path = uri.path
+</span><span class="marked0"><a name="line1242"></a>1242       @query = uri.query
+</span><span class="marked1"><a name="line1243"></a>1243       @fragment = uri.fragment
+</span><span class="marked0"><a name="line1244"></a>1244       return self
+</span><span class="inferred1"><a name="line1245"></a>1245     end
+</span><span class="inferred0"><a name="line1246"></a>1246   end
+</span><span class="inferred1"><a name="line1247"></a>1247 end
+</span></pre><hr/>
+    <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
+   version 0.8.1.2.</p>
+<p><a href='http://validator.w3.org/check/referer'><img src='http://www.w3.org/Icons/valid-xhtml10' height='31' alt='Valid XHTML 1.0!' width='88'/>
+        </a>
+      <a href='http://jigsaw.w3.org/css-validator/check/referer'><img src='http://jigsaw.w3.org/css-validator/images/vcss' alt='Valid CSS!' style='border:0;width:88px;height:31px'/>
+        </a>
+      </p>
+    </body>
+  </html>
