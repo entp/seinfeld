@@ -1,7 +1,5 @@
-$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'feed_me', 'lib')
-$: << File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'mechanical_github', 'lib')
+$LOAD_PATH.push *Dir[File.join(File.dirname(__FILE__), '..', '..', 'vendor', '*', 'lib')]
 require 'rubygems'
-gem 'activesupport', '~> 2.1'
 require 'active_support/time_with_zone'
 require 'active_support/values/time_zone'
 require 'active_support/core_ext/object'
