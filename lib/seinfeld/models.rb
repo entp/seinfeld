@@ -1,4 +1,5 @@
 $LOAD_PATH.push *Dir[File.join(File.dirname(__FILE__), '..', '..', 'vendor', '*', 'lib')]
+require 'uri'
 require 'dm-core'
 require 'rubygems'
 require 'active_support/time_with_zone'
