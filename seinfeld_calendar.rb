@@ -8,6 +8,11 @@ require 'seinfeld/calendar_helper'
 
 $0 = __FILE__
 
+error do
+  e = request.env['sinatra.error']
+  puts "#{e.class}: #{e.message}\n#{e.backtrace.join("\n  ")}"
+end
+
 configure do
   DataMapper.setup(:default, ENV['DATABASE_URL'] || 'mysql://localhost/seinfeld')
   DataMapper.auto_migrate!
