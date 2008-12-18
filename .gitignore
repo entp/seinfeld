@@ -1,3 +1,4 @@
 config.ru
 config.rb
 tmp
+config/seinfeld_user.yaml
