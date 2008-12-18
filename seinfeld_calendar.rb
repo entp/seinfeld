@@ -14,10 +14,10 @@ error do
 end
 
 configure do
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || 'mysql://localhost/seinfeld')
+  config = YAML.load(File.dirname(__FILE__) + '/config/seinfeld_user.yaml') rescue {}
+  DataMapper.setup(:default, config['database'] || ENV['DATABASE_URL'] || 'mysql://localhost/seinfeld')
   DataMapper.auto_migrate!
 
-  config = YAML.load(File.dirname(__FILE__) + '/config/seinfeld_user.yaml') rescue {}
   Seinfeld::User.github_login    = config['github_login']
   Seinfeld::User.github_password = config['github_password']
   Seinfeld::User.creation_token  = config['github_creation_token']
