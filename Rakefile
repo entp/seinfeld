@@ -15,7 +15,10 @@ task :default => 'spec'
 
 namespace :seinfeld do
   task :init do
-    require 'config'
+    $: << File.join(File.dirname(__FILE__), 'lib')
+    require 'seinfeld/models'
+    require 'seinfeld/calendar_helper'
+    require File.dirname(__FILE__) + '/config/seinfeld.rb'
   end
 
   task :setup => :init do

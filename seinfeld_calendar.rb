@@ -14,13 +14,7 @@ error do
 end
 
 configure do
-  config = YAML.load(File.dirname(__FILE__) + '/config/seinfeld_user.yaml') rescue {}
-  DataMapper.setup(:default, config['database'] || ENV['DATABASE_URL'] || 'mysql://localhost/seinfeld')
-  DataMapper.auto_migrate!
-
-  Seinfeld::User.github_login    = config['github_login']
-  Seinfeld::User.github_password = config['github_password']
-  Seinfeld::User.creation_token  = config['github_creation_token']
+  require File.dirname(__FILE__) + '/config/seinfeld.rb'
 end
 
 get '/' do
@@ -89,7 +83,12 @@ helpers do
 
   def show_user_json
     get_user_and_progressions
-    {:days => @progressions.map { |p| p.to_s }, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
+    json = {:days => @progressions.map { |p| p.to_s }, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
+    if params[:callback]
+      "#{params[:callback]}(#{json})"
+    else
+      json
+    end
   end
 
   def link_to_user(user, streak_count = :current_streak)
