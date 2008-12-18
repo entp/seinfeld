@@ -1,13 +1,27 @@
-unless Object.const_defined?(:Seinfeld)
-  # setup a config.ru for rack, or some other ruby config file
-  $: << File.join(File.dirname(__FILE__), 'lib')
-  require 'seinfeld/models'
-  DataMapper.setup :default, 'mysql://localhost/seinfeld'
-end
-
-require 'seinfeld/calendar_helper'
+require 'rubygems'
 require 'sinatra'
 require 'json'
+
+$: << File.join(File.dirname(__FILE__), 'lib')
+require 'seinfeld/models'
+require 'seinfeld/calendar_helper'
+
+$0 = __FILE__
+
+error do
+  e = request.env['sinatra.error']
+  puts "#{e.class}: #{e.message}\n#{e.backtrace.join("\n  ")}"
+end
+
+configure do
+  config = YAML.load(File.dirname(__FILE__) + '/config/seinfeld_user.yaml') rescue {}
+  DataMapper.setup(:default, config['database'] || ENV['DATABASE_URL'] || 'mysql://localhost/seinfeld')
+  DataMapper.auto_migrate!
+
+  Seinfeld::User.github_login    = config['github_login']
+  Seinfeld::User.github_password = config['github_password']
+  Seinfeld::User.creation_token  = config['github_creation_token']
+end
 
 get '/' do
   @recent_users  = Seinfeld::User.best_current_streak

@@ -1,0 +1,4 @@
+database: 'mysql://localhost/seinfeld'
+github_login: '--'
+github_password: '--'
+creation_token: '--'
