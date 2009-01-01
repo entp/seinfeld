@@ -80,33 +80,38 @@ module Seinfeld
       transaction do
         days = committed_days_in_feed || []
         save
+
         unless days.empty?
           existing = progressions(:created_at => days).map { |p| p.created_at }
-          streaks = [current_streak = Streak.new(streak_start, streak_end)]
           days = days - existing
-          days.sort!
-          days.each do |day|
-            if current_streak.current?(day)
-              current_streak.ended = day
-            else
-              streaks << (current_streak = Streak.new(day))
-            end
-            progressions.create(:created_at => day)
-          end
-          highest_streak      = streaks.empty? ? 0 : streaks.max { |a, b| a.days <=> b.days }
-          latest_streak       = streaks.last
-          self.streak_start   = latest_streak.started if latest_streak
-          self.streak_end     = latest_streak.ended   if latest_streak
-          self.current_streak = latest_streak.days    if latest_streak && latest_streak.current?
-
-          if highest_streak.days > longest_streak.to_i
-            self.longest_streak       = highest_streak.days
-            self.longest_streak_start = highest_streak.started
-            self.longest_streak_end   = highest_streak.ended
-          end
-
-          save
         end
+
+        streaks = [current_streak = Streak.new(streak_start, streak_end)]
+
+        days.sort!
+        days.each do |day|
+          if current_streak.current?(day)
+            current_streak.ended = day
+          else
+            streaks << (current_streak = Streak.new(day))
+          end
+          progressions.create(:created_at => day)
+        end
+        highest_streak = streaks.empty? ? 0 : streaks.max { |a, b| a.days <=> b.days }
+
+        if latest_streak = streaks.last
+          self.streak_start   = latest_streak.started
+          self.streak_end     = latest_streak.ended
+          self.current_streak = latest_streak.current? ? latest_streak.days : 0
+        end
+
+        if highest_streak.days > longest_streak.to_i
+          self.longest_streak       = highest_streak.days
+          self.longest_streak_start = highest_streak.started
+          self.longest_streak_end   = highest_streak.ended
+        end
+
+        save
       end
     end
 

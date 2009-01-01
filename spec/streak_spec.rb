@@ -39,10 +39,10 @@ module Seinfeld
     end
 
     describe "with @started and @ended set" do
-      before { @streak = Streak.new(Date.civil(2008, 1, 1), Date.civil(2008, 1, 5)) }
+      before { @streak = Streak.new(Date.civil(2007, 12, 31), Date.civil(2008, 1, 5)) }
 
       it "has 5 days" do
-        @streak.days.should == 5
+        @streak.days.should == 6
       end
 
       it "should not include outside date" do
@@ -50,7 +50,7 @@ module Seinfeld
       end
 
       it "should start date" do
-        @streak.should include(Date.civil(2008, 1, 1))
+        @streak.should include(Date.civil(2007, 12, 31))
       end
 
       it "should end date" do

@@ -271,6 +271,41 @@ module Seinfeld
           @user.longest_streak_end.should == Date.civil(2008, 1, 3)
         end
       end
+      
+      describe "(with an existing streak being broken)" do
+        before do
+          @user.streak_start   = Date.civil(2007, 12, 30)
+          @user.streak_end     = Date.civil(2007, 12, 31)
+          @user.longest_streak = 2
+          @user.current_streak = 2
+          @user.stub!(:committed_days_in_feed).and_return []
+          Time.stub!(:now).and_return Time.utc(2008, 1, 2)
+          User.transaction do
+            User.all.destroy!
+            Progression.all.destroy!
+          end
+        end
+
+        it "calculates current streak" do
+          @user.update_progress
+          @user.current_streak.should == 0
+        end
+        
+        it "calculates longest streak" do
+          @user.update_progress
+          @user.longest_streak.should == 2
+        end
+        
+        it "calculates streak start" do
+          @user.update_progress
+          @user.streak_start.should == Date.civil(2007, 12, 30)
+        end
+        
+        it "calculates streak end" do
+          @user.update_progress
+          @user.streak_end.should == Date.civil(2007, 12, 31)
+        end
+      end
     end
 
     describe "#progress_for(year, month)" do
