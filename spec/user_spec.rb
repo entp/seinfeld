@@ -7,8 +7,8 @@ module Seinfeld
       @feed.entries = [
         OpenStruct.new(:item_id => 'a', :title => "BOB committed something", :updated_at => Time.utc(2008, 1, 1, 22)),
         OpenStruct.new(:item_id => 'b', :title => "bob watched something"),
-        OpenStruct.new(:item_id => 'c', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 1, 23)),
-        OpenStruct.new(:item_id => 'd', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 2, 23)),
+        OpenStruct.new(:item_id => 'c', :title => "bob pushed something", :updated_at => Time.utc(2008, 1, 1, 23)),
+        OpenStruct.new(:item_id => 'd', :title => "bob applied fork commits to something", :updated_at => Time.utc(2008, 1, 2, 23)),
         ]
     end
 
