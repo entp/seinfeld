@@ -44,6 +44,14 @@ module Seinfeld
         @user.committed_days_in_feed(2)
         @user.last_entry_id.should be_nil
       end
+      
+      it "accepts 'created branch' as a valid feed title" do
+        @user.stub!(:get_feed).with(1).and_return(OpenStruct.new(:entries => 
+          [OpenStruct.new(:item_id => 'a', 
+                          :title => "bob created branch something/branch", 
+                          :updated_at => Time.utc(2008, 1, 1, 22)),]))
+        @user.committed_days_in_feed.should_not be_empty
+      end
 
       describe "with #last_entry_id set" do
         before do
