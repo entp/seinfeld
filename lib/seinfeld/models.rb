@@ -150,9 +150,10 @@ module Seinfeld
       days
     end
 
-    def progress_for(year, month)
-      start = Date.new(year, month)
-      progressions(:created_at => start..((start >> 1) - 1), :order => [:created_at]).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
+    def progress_for(year, month, extra = 0)
+      beginning = Date.new(year, month)
+      ending    = (beginning >> 1) - 1
+      progressions(:created_at => (beginning - extra)..(ending + extra), :order => [:created_at]).map { |p| Date.new(p.created_at.year, p.created_at.month, p.created_at.day) }
     end
 
     def longest_streak_url

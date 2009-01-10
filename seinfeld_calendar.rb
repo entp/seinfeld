@@ -62,18 +62,18 @@ helpers do
     "%s's Calendar" % @user.login
   end
 
-  def get_user_and_progressions
+  def get_user_and_progressions(extra = 0)
     [:year, :month].each do |key|
       value       = params[key].to_i
       params[key] = value.zero? ? Date.today.send(key) : value
     end
     if @user = Seinfeld::User.first(:login => params[:name])
-      @progressions = Set.new @user.progress_for(params[:year], params[:month])
+      @progressions = Set.new @user.progress_for(params[:year], params[:month], extra)
     end
   end
 
   def show_user_calendar
-    get_user_and_progressions
+    get_user_and_progressions(6)
     if @user
       haml :show
     else
@@ -83,7 +83,7 @@ helpers do
 
   def show_user_json
     get_user_and_progressions
-    json = {:days => @progressions.map { |p| p.to_s }, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
+    json = {:days => @progressions.map { |p| p.to_s }.sort!, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
     if params[:callback]
       "#{params[:callback]}(#{json})"
     else

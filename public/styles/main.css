@@ -221,6 +221,10 @@ tr.dayname abbr{
   @group X Styles
 ------------------------------------------------------------------------------------*/
 
+.otherMonth .xmarksthespot{
+  opacity:0.2;
+}
+
 .xmarksthespot{
   width:100px;
   height:60px;

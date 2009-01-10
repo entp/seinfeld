@@ -121,7 +121,8 @@ module Seinfeld
       end
       cal << "</tr></thead><tbody><tr>"
       beginning_of_week(first, first_weekday).upto(first - 1) do |d|
-        cal << %(<td class="#{options[:other_month_class]})
+        cell_text, cell_attrs = block.call(d)
+        cal << %(<td class="#{options[:other_month_class]} #{cell_attrs[:class]})
         cal << " weekendDay" if weekend?(d)
         if options[:accessible]
           cal << %(">#{d.day}<span class="hidden"> #{Date::MONTHNAMES[d.month]}</span></td>)
@@ -140,7 +141,8 @@ module Seinfeld
         cal << "</tr><tr>" if cur.wday == last_weekday
       end
       (last + 1).upto(beginning_of_week(last + 7, first_weekday) - 1)  do |d|
-        cal << %(<td class="#{options[:other_month_class]})
+        cell_text, cell_attrs = block.call(d)
+        cal << %(<td class="#{options[:other_month_class]} #{cell_attrs[:class]})
         cal << " weekendDay" if weekend?(d)
         if options[:accessible]
           cal << %(">#{d.day}<span class='hidden'> #{Date::MONTHNAMES[d.mon]}</span></td>)
