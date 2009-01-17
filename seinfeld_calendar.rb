@@ -17,6 +17,10 @@ configure do
   require File.dirname(__FILE__) + '/config/seinfeld.rb'
 end
 
+before do
+  Time.zone = "UTC"
+end
+
 get '/' do
   @recent_users  = Seinfeld::User.best_current_streak
   @alltime_users = Seinfeld::User.best_alltime_streak
@@ -68,6 +72,7 @@ helpers do
       params[key] = value.zero? ? Date.today.send(key) : value
     end
     if @user = Seinfeld::User.first(:login => params[:name])
+      Time.zone     = @user.time_zone || "UTC"
       @progressions = Set.new @user.progress_for(params[:year], params[:month], extra)
     end
   end
