@@ -51,6 +51,10 @@ get '/~:name/:year/:month.json' do
   show_user_json
 end
 
+get '/group/:names' do
+  show_group_calendar
+end
+
 post '/github' do
   if params[:token] == Seinfeld::User.creation_token
     Seinfeld::User.process_new_github_user(params[:subject])
@@ -73,21 +77,32 @@ helpers do
     end
     if @user = Seinfeld::User.first(:login => params[:name])
       Time.zone     = @user.time_zone || "UTC"
-      @progressions = Set.new @user.progress_for(params[:year], params[:month], extra)
+      progressions = Set.new @user.progress_for(params[:year], params[:month], extra)
     end
+    return progressions || Set.new
   end
 
   def show_user_calendar
-    get_user_and_progressions(6)
+    @progressions = get_user_and_progressions(6)
     if @user
       haml :show
     else
       redirect "/"
     end
   end
+  
+  def show_group_calendar
+    @progressions = Set.new
+    @users = params[:names].split(',')
+    @users.each do |name|
+      params[:name] = name # hack
+      @progressions.merge get_user_and_progressions(6)
+    end
+    haml :group
+  end
 
   def show_user_json
-    get_user_and_progressions
+    @progressions = get_user_and_progressions
     json = {:days => @progressions.map { |p| p.to_s }.sort!, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
     if params[:callback]
       "#{params[:callback]}(#{json})"
@@ -107,6 +122,19 @@ helpers do
     calendar :year => now.year, :month => now.month,
       :previous_month_text => %(<a href="/~#{@user.login}/#{prev_month.year}/#{prev_month.month}">Previous Month</a>), 
       :next_month_text     => %(<a href="/~#{@user.login}/#{next_month.year}/#{next_month.month}" class="next">Next Month</a>) do |d|
+      if @progressions.include? d
+        [d.mday, {:class => "progressed"}]
+      else
+        [d.mday, {:class => "slacked"}]
+      end
+    end
+  end
+  
+  def group_seinfeld
+    now        = Date.new(params[:year], params[:month])
+    prev_month = now << 1
+    next_month = now >> 1
+    calendar :year => now.year, :month => now.month do |d|
       if @progressions.include? d
         [d.mday, {:class => "progressed"}]
       else
