@@ -1,4 +1,4 @@
-module MechanicalGitHub
+module MechanicalGithub
   
   class Wiki
     attr_reader :project

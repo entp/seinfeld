@@ -1,4 +1,4 @@
-module MechanicalGitHub
+module MechanicalGithub
   class Session
     attr_reader :agent, :username, :logged_in
     
@@ -27,7 +27,7 @@ module MechanicalGitHub
       return unless @logged_in
       newpage = @agent.get('http://github.com/repositories/new')
       # create the repo
-      newform  = newpage.forms[1]
+      newform  = newpage.forms[2]
       #p form
       newform['repository[name]']    = name
       newform['repository[description]'] = description
@@ -53,7 +53,7 @@ module MechanicalGitHub
     def send_message(to, subject, body)
       return unless @logged_in
       newpage = @agent.get('http://github.com/inbox/new')
-      newform = newpage.forms[1]
+      newform = newpage.forms[2]
       newform['message[to]']      = to
       newform['message[subject]'] = subject
       newform['message[body]']    = body

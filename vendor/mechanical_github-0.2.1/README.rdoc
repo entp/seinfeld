@@ -1,0 +1,68 @@
+= mechanical_github
+
+* http://lstoll.net/mechanical_github
+
+== NOTE:
+
+The API Changed in ver 0.2.1 - Use MechanicalGithub rather than MechanicalGitHub
+
+== DESCRIPTION:
+
+This gem provides a automated API for working with github.
+
+== SYNOPSIS:
+
+This will give you a session to work with.
+
+    sess = MechanicalGithub::Session.new
+
+Make the session logged in to github - needed for private repos or write
+operations.
+	
+    sess.login(username, password)
+	
+Creates a repository for the passed in repository. Returns the repo if
+successful, or nil if not
+
+      sess.create_repository(repository)
+
+Will return a repository object for the given repository name and username.
+Calling without a username will return the named repository for the currently
+logged in username
+
+    sess.get_repository(repository_name, username)
+    sess.get_repository(repository_name)
+
+== REQUIREMENTS:
+
+* mechanize gem
+
+== INSTALL:
+
+* sudo gem install lstoll-mechanical_github --source http://gems.github.com
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 Lincoln Stoll, lstoll@lstoll.net http://lstoll.net
+Copyright (c) 2009 Dr Nic Williams, http://mocra.com + http://drnicwilliams.com
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
