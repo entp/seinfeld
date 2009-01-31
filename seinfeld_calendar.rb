@@ -76,10 +76,10 @@ helpers do
       params[key] = value.zero? ? Date.today.send(key) : value
     end
     if @user = Seinfeld::User.first(:login => params[:name])
-      Time.zone     = @user.time_zone || "UTC"
-      progressions = Set.new @user.progress_for(params[:year], params[:month], extra)
+      Time.zone    = @user.time_zone || "UTC"
+      progressions = @user.progress_for(params[:year], params[:month], extra)
     end
-    return progressions || Set.new
+    Set.new(progressions || [])
   end
 
   def show_user_calendar
