@@ -1,4 +1,4 @@
-module MechanicalGitHub
+module MechanicalGithub
   
   # represents a project
   class Repository

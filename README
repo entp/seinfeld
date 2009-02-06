@@ -17,6 +17,10 @@ rake seinfeld:add_user USER=technoweenie
 # updates progress from github
 # put in a nightly cron job
 rake seinfeld:update
+# alternate syntax for updating all users (if USER is set in your environment already) 
+rake seinfeld:update USER=
+# or for just a specific user
+rake seinfeld:update USER=technoweenie
 
 # let's start the show
 ruby seinfeld_calendar.rb
