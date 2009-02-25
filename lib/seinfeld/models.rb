@@ -20,10 +20,13 @@ module Seinfeld
   # more services than just github is added.
   class User
     class << self
+      attr_accessor :feed_format
       attr_accessor :creation_token
       attr_accessor :github_login
       attr_accessor :github_password
     end
+
+    self.feed_format = "http://github.com/%s.atom?page=%d"
 
     include DataMapper::Resource
     property :id,                   Integer, :serial => true
@@ -189,7 +192,7 @@ module Seinfeld
   private
     def get_feed(page = 1)
       feed = nil
-      open("http://github.com/#{login}.atom?page=#{page}") { |f| feed = FeedMe.parse(f.read) }
+      open(self.class.feed_format % [login, page]) { |f| feed = FeedMe.parse(f.read) }
       feed
     rescue
       nil
