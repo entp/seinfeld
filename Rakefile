@@ -3,6 +3,7 @@ require 'rubygems'
 require 'rake/gempackagetask'
 # If this require failes, try "gem install rspec"
 require 'spec/rake/spectask'
+require 'time'
 
 file_list = FileList['spec/*_spec.rb']
 
@@ -12,6 +13,15 @@ end
 
 desc 'Default: run specs.'
 task :default => 'spec'
+
+task :cron => 'seinfeld:init' do
+  if Time.now.hour % 6 == 0
+    Seinfeld::User.paginated_each do |user|
+      puts "[#{Time.now.utc.xmlschema}] updating #{user.login}"
+      user.update_progress
+    end
+  end
+end
 
 namespace :seinfeld do
   task :init do
