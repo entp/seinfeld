@@ -84,7 +84,7 @@ helpers do
   end
 
   def show_user_calendar
-    response['Cache-Control'] = 'public, max-age=3600'
+    response['Cache-Control'] = 'public, max-age=300'
     @progressions = get_user_and_progressions(6)
     if @user
       haml :show
@@ -94,7 +94,7 @@ helpers do
   end
   
   def show_group_calendar
-    response['Cache-Control'] = 'public, max-age=3600'
+    response['Cache-Control'] = 'public, max-age=300'
     @progressions = Set.new
     @users = params[:names].split(',')
     @users.each do |name|
@@ -105,7 +105,7 @@ helpers do
   end
 
   def show_user_json
-    response['Cache-Control'] = 'public, max-age=3600'
+    response['Cache-Control'] = 'public, max-age=300'
     @progressions = get_user_and_progressions
     json = {:days => @progressions.map { |p| p.to_s }.sort!, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
     if params[:callback]
