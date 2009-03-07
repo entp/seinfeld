@@ -22,7 +22,7 @@ before do
 end
 
 get '/' do
-  response['Cache-Control'] = 'public, max-age=3600'
+  response['Cache-Control'] = 'public, max-age=300'
   @recent_users  = Seinfeld::User.best_current_streak
   @alltime_users = Seinfeld::User.best_alltime_streak
   haml :index
