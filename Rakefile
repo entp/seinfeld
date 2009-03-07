@@ -15,12 +15,12 @@ desc 'Default: run specs.'
 task :default => 'spec'
 
 task :cron => 'seinfeld:init' do
-  if Time.now.hour % 6 == 0
+  #if Time.now.hour % 6 == 0
     Seinfeld::User.paginated_each do |user|
       puts "[#{Time.now.utc.xmlschema}] updating #{user.login}"
       user.update_progress
     end
-  end
+  #end
 end
 
 namespace :seinfeld do
