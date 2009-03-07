@@ -22,6 +22,7 @@ before do
 end
 
 get '/' do
+  response['Cache-Control'] = 'public, max-age=3600'
   @recent_users  = Seinfeld::User.best_current_streak
   @alltime_users = Seinfeld::User.best_alltime_streak
   haml :index
@@ -83,6 +84,7 @@ helpers do
   end
 
   def show_user_calendar
+    response['Cache-Control'] = 'public, max-age=3600'
     @progressions = get_user_and_progressions(6)
     if @user
       haml :show
@@ -92,6 +94,7 @@ helpers do
   end
   
   def show_group_calendar
+    response['Cache-Control'] = 'public, max-age=3600'
     @progressions = Set.new
     @users = params[:names].split(',')
     @users.each do |name|
@@ -102,6 +105,7 @@ helpers do
   end
 
   def show_user_json
+    response['Cache-Control'] = 'public, max-age=3600'
     @progressions = get_user_and_progressions
     json = {:days => @progressions.map { |p| p.to_s }.sort!, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
     if params[:callback]
