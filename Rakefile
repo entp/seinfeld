@@ -47,8 +47,9 @@ namespace :seinfeld do
   task :tz => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     raise "Need ZONE=" if ENV['ZONE'].to_s.size.zero?
+    zone = ActiveSupport::TimeZone::MAPPING[ENV['ZONE']] || ActiveSupport::TimeZone::MAPPING.index(ENV['ZONE']) || raise("Bad Time Zone")
     u = Seinfeld::User.first(:login => ENV['USER'])
-    u.time_zone = ENV['ZONE']
+    u.time_zone = zone
     u.save
   end
 
