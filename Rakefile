@@ -13,6 +13,15 @@ end
 desc 'Default: run specs.'
 task :default => 'spec'
 
+desc "cron task for keeping the CAN updated.  Run once every hour."
+task :cron => 'seinfeld:init' do
+  if Time.now.hour % 4 == 0
+    Seinfeld::User.paginated_each do |user|
+      user.update_progress
+    end
+  end
+end
+
 namespace :seinfeld do
   task :init do
     $: << File.join(File.dirname(__FILE__), 'lib')
@@ -29,6 +38,11 @@ namespace :seinfeld do
   task :add_user => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     Seinfeld::User.create(:login => ENV['USER'])
+  end
+
+  task :drop_user => :init do
+    raise "Need USER=" if ENV['USER'].to_s.size.zero?
+    Seinfeld::User.first(:login => ENV['USER']).destroy!
   end
 
   task :update => :init do
