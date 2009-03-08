@@ -71,7 +71,9 @@ module Seinfeld
 
     def clear_progress
       transaction do
-        progressions.destroy!
+        # delete the progressions in a batch.
+        # using progressions.destroy! times out in a heroku remote rake task
+        repository.delete progressions.send(:scoped_query)
         update_attributes \
           :streak_start => nil, :streak_end => nil, :current_streak => nil,
           :longest_streak => nil, :longest_streak_start => nil, :longest_streak_end => nil,
