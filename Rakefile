@@ -3,6 +3,7 @@ require 'rubygems'
 require 'rake/gempackagetask'
 # If this require failes, try "gem install rspec"
 require 'spec/rake/spectask'
+require 'time'
 
 file_list = FileList['spec/*_spec.rb']
 
