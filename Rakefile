@@ -78,6 +78,11 @@ namespace :seinfeld do
     end
   end
 
+  task :clear => :init do
+    raise "Need USER=" if ENV['USER'].to_s.size.zero?
+    Seinfeld::User.first(:login => ENV['USER']).clear_progress
+  end
+
   task :reset => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     Seinfeld::User.first(:login => ENV['USER']).reset_progress
