@@ -42,7 +42,7 @@ namespace :seinfeld do
 
   task :drop_user => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
-    Seinfeld::User.first(:login => ENV['USER']).destroy!
+    Seinfeld::User.first(:login => ENV['USER']).destroy
   end
 
   task :update => :init do
