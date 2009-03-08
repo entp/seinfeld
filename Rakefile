@@ -36,12 +36,27 @@ namespace :seinfeld do
     puts "Database reset"
   end
 
-  task :add_user => :init do
+  task :show => :init do
+    raise "Need USER=" if ENV['USER'].to_s.size.zero?
+    u = Seinfeld::User.first(:login => ENV['USER'])
+    puts "#{u.login}#{" #{u.time_zone}" if u.time_zone}"
+    puts "Current Streak: #{u.current_streak} #{u.streak_start} => #{u.streak_end}"
+    puts "Longest Streak: #{u.longest_streak} #{u.longest_streak_start} => #{u.longest_streak_end}"
+  end
+
+  task :tz => :init do
+    raise "Need USER=" if ENV['USER'].to_s.size.zero?
+    u = Seinfeld::User.first(:login => ENV['USER'])
+    u.time_zone = ENV['TZ']
+    u.save
+  end
+
+  task :add => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     Seinfeld::User.create(:login => ENV['USER'])
   end
 
-  task :drop_user => :init do
+  task :drop => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     Seinfeld::User.first(:login => ENV['USER']).destroy
   end
