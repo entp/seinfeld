@@ -28,15 +28,11 @@ get '/' do
   haml :index
 end
 
-get '/~:name' do
-  show_user_calendar
-end
-
 get '/~:name.json' do
   show_user_json
 end
 
-get '/~:name/:year' do
+get '/~:name' do
   show_user_calendar
 end
 
@@ -44,12 +40,16 @@ get '/~:name/:year.json' do
   show_user_json
 end
 
-get '/~:name/:year/:month' do
+get '/~:name/:year' do
   show_user_calendar
 end
 
 get '/~:name/:year/:month.json' do
   show_user_json
+end
+
+get '/~:name/:year/:month' do
+  show_user_calendar
 end
 
 get '/group/:names' do
