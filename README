@@ -1,33 +1,33 @@
-seinfeld calendar
-=================
-
-http://lifehacker.com/software/motivation/jerry-seinfelds-productivity-secret-281626.php
+= Seinfeld Calendar
 
 Track your OSS Productivity with Github.
 
-USAGE
-=====
+http://lifehacker.com/software/motivation/jerry-seinfelds-productivity-secret-281626.php
 
-# setup your DB (see deployment section)
-rake seinfeld:setup
+== Usage
 
-# adds github user
-rake seinfeld:add USER=technoweenie
+Setup the initial database and start the application.
 
-# updates progress from github
-# put in a nightly cron job
-rake seinfeld:update
-# alternate syntax for updating all users (if USER is set in your environment already) 
-rake seinfeld:update USER=
-# or for just a specific user
-rake seinfeld:update USER=technoweenie
+  rake seinfeld:setup
+  ruby seinfeld_calendar.rb
+  
+Once you add a user, it will be accessible like so:
 
-# let's start the show
-ruby seinfeld_calendar.rb
-open http://localhost:4567/~technoweenie
+  open http://localhost:4567/~technoweenie
 
-DEPLOYMENT
-==========
+Add a user from GitHub.
+
+  rake seinfeld:add USER=technoweenie
+  
+Update all progresses from GitHub, should be ran nightly.
+
+  rake seinfeld:update USER=
+
+For development testing, use this command to reset and update your user
+  rake seinfeld:reset USER=technoweenie
+
+
+== Deployment
 
 My seinfeld.rb looks like this:
 
@@ -54,9 +54,9 @@ My rackup.ru (for Passenger) looks like:
   
   run Sinatra.application
 
-TODO
-====
-TIMEZONES
-configurable db support
-Gitorious support, etc
-OAUTH
+== TODO
+
+* TIMEZONES
+* configurable db support
+* Gitorious support, etc
+* OAUTH
