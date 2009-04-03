@@ -149,6 +149,7 @@ module Seinfeld
           selected
         end
       end.keys
+      self.last_entry_id = feed.entries.first.item_id
       days
     end
 
