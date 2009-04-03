@@ -84,12 +84,11 @@ class FeedMe::AbstractParser
   
   def caching_proc(name, &block)
     proc do
-      ivar = instance_variable_get("@#{name}")
-      unless ivar
+      unless result = instance_variable_get("@#{name}")
         result = yield
         instance_variable_set("@#{name}", result)
-        return result
       end
+      result
     end
   end
 
