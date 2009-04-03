@@ -3,3 +3,4 @@ config.rb
 tmp
 config/seinfeld_user.yaml
 config/seinfeld.rb
+*.sqlite3
