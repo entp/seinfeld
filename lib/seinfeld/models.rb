@@ -26,7 +26,7 @@ module Seinfeld
       attr_accessor :github_password
     end
 
-    self.feed_format = "http://github.com/%s.atom?page=%d"
+    self.feed_format = "http://github.com/%s.atom"
 
     include DataMapper::Resource
     property :id,                   Integer, :serial => true
@@ -124,9 +124,9 @@ module Seinfeld
       end
     end
 
-    def committed_days_in_feed(page = 1)
+    def committed_days_in_feed
       Time.zone     = time_zone || "UTC"
-      feed          = get_feed(page)
+      feed          = get_feed
       return nil if feed.nil?
       entry_id      = nil # track the first entry id to store in the user model
       skipped_early = nil
@@ -138,7 +138,6 @@ module Seinfeld
         entry_id    ||= this_entry_id
         if last_entry_id == this_entry_id
           debug "stopping because #{last_entry_id} == #{this_entry_id}"
-          skipped_early = true
           break selected
         end
         
@@ -150,11 +149,6 @@ module Seinfeld
           selected
         end
       end.keys
-      unless skipped_early
-        self.last_entry_id = entry_id 
-        days += committed_days_in_feed(page += 1)
-        days.uniq!
-      end
       days
     end
 
@@ -195,10 +189,10 @@ module Seinfeld
     end
 
   private
-    def get_feed(page = 1)
-      debug "loading feed: " + self.class.feed_format % [login, page]
+    def get_feed
+      debug "loading feed: " + self.class.feed_format % login
       feed = nil
-      open(self.class.feed_format % [login, page]) { |f| feed = FeedMe.parse(f.read) }
+      open(self.class.feed_format % login) { |f| feed = FeedMe.parse(f.read) }
       feed
     rescue
       nil
