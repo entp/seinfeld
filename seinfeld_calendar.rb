@@ -56,6 +56,10 @@ get '/group/:names' do
   show_group_calendar
 end
 
+get '/group/:names/:year/:month' do
+  show_group_calendar
+end
+
 post '/github' do
   if params[:token] == Seinfeld::User.creation_token
     Seinfeld::User.process_new_github_user(params[:subject])
@@ -138,7 +142,9 @@ helpers do
     now        = Date.new(params[:year], params[:month])
     prev_month = now << 1
     next_month = now >> 1
-    calendar :year => now.year, :month => now.month do |d|
+    calendar :year => now.year, :month => now.month,
+      :previous_month_text => %(<a href="/group/#{params[:names]}/#{prev_month.year}/#{prev_month.month}">Previous Month</a>), 
+      :next_month_text     => %(<a href="/group/#{params[:names]}/#{next_month.year}/#{next_month.month}" class="next">Next Month</a>) do |d|
       if @progressions.include? d
         [d.mday, {:class => "progressed"}]
       else
