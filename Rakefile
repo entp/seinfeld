@@ -31,11 +31,13 @@ namespace :seinfeld do
     require File.dirname(__FILE__) + '/config/seinfeld.rb'
   end
 
+  desc "Initial setup."
   task :setup => :init do
     DataMapper.auto_migrate!
     puts "Database reset"
   end
 
+  desc "Inspect USER."
   task :show => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     u = Seinfeld::User.first(:login => ENV['USER'])
@@ -44,6 +46,7 @@ namespace :seinfeld do
     puts "Longest Streak: #{u.longest_streak} #{u.longest_streak_start} => #{u.longest_streak_end}"
   end
 
+  desc "Sets USER's timezone to ZONE."
   task :tz => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     raise "Need ZONE=" if ENV['ZONE'].to_s.size.zero?
@@ -53,16 +56,19 @@ namespace :seinfeld do
     u.save
   end
 
+  desc "Add a USER to the database."
   task :add => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     Seinfeld::User.create(:login => ENV['USER'])
   end
 
+  desc "Remove a USER from the database."
   task :drop => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     Seinfeld::User.first(:login => ENV['USER']).destroy
   end
-
+  
+  desc "Update the calendar of USER"
   task :update => :init do
     if ENV['USER'].to_s.size.zero?
       Seinfeld::User.paginated_each do |user|
@@ -78,11 +84,13 @@ namespace :seinfeld do
     end
   end
 
+  desc "Clear progress of USER."
   task :clear => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     Seinfeld::User.first(:login => ENV['USER']).clear_progress
   end
 
+  desc "Resets progress of USER."
   task :reset => :init do
     raise "Need USER=" if ENV['USER'].to_s.size.zero?
     Seinfeld::User.first(:login => ENV['USER']).reset_progress
