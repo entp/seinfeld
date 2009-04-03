@@ -143,14 +143,10 @@ module Seinfeld
           selected
         end
       end.keys
-      if page == 1
+      unless skipped_early
         self.last_entry_id = entry_id 
-        unless skipped_early
-          while paged_days = committed_days_in_feed(page += 1)
-            days += paged_days
-          end
-          days.uniq!
-        end
+        days += committed_days_in_feed(page += 1)
+        days.uniq!
       end
       days
     end
