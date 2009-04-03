@@ -42,6 +42,10 @@ module Seinfeld
     property :time_zone,            String
 
     has n, :progressions, :class_name => "Seinfeld::Progression", :order => [:created_at.desc]
+    
+    def debug(message)
+      puts message if ENV['DEBUG']
+    end
 
     def self.paginated_each(&block)
       max_id = 0
@@ -128,13 +132,16 @@ module Seinfeld
       skipped_early = nil
       return nil if feed.entries.empty?
       days = feed.entries.inject({}) do |selected, entry|
+        debug "processing #{entry.title.inspect}"
+
         this_entry_id = entry.item_id
         entry_id    ||= this_entry_id
         if last_entry_id == this_entry_id
+          debug "stopping because #{last_entry_id} == #{this_entry_id}"
           skipped_early = true
           break selected
         end
-
+        
         if entry.title.downcase =~ %r{^#{login.downcase} (pushed|committed|applied fork commits|created branch)}
           updated = entry.updated_at.in_time_zone
           date    = Date.civil(updated.year, updated.month, updated.day)
@@ -189,6 +196,7 @@ module Seinfeld
 
   private
     def get_feed(page = 1)
+      debug "loading feed: " + self.class.feed_format % [login, page]
       feed = nil
       open(self.class.feed_format % [login, page]) { |f| feed = FeedMe.parse(f.read) }
       feed
