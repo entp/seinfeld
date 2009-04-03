@@ -18,8 +18,7 @@ module Seinfeld
 
     describe "#committed_days_in_feed" do
       before do
-        @user.stub!(:get_feed).with(1).and_return(@feed)
-        @user.stub!(:get_feed).with(2).and_return(OpenStruct.new(:entries => []))
+        @user.stub!(:get_feed).and_return(@feed)
       end
       
       it "returns array" do
@@ -39,11 +38,6 @@ module Seinfeld
         @user.committed_days_in_feed
         @user.last_entry_id.should == @feed.entries.first.item_id
       end
-
-      it "leaves #last_entry_id if page > 2" do
-        @user.committed_days_in_feed(2)
-        @user.last_entry_id.should be_nil
-      end
       
       it "accepts 'created branch' as a valid feed title" do
         @user.stub!(:get_feed).with(1).and_return(OpenStruct.new(:entries => 
@@ -60,36 +54,6 @@ module Seinfeld
 
         it "returns unique days" do
           @user.committed_days_in_feed.should == [Date.civil(2008, 1, 1)]
-        end
-
-        it "sets #last_entry_id from the feed" do
-          @user.committed_days_in_feed
-          @user.last_entry_id.should == @feed.entries.first.item_id
-        end
-
-         it "leaves #last_entry_id if page > 2" do
-          @user.committed_days_in_feed(2)
-          @user.last_entry_id.should == @feed.entries[2].item_id
-        end
-      end
-
-      describe "with multiple pages" do
-        before :all do
-          @feed2 = OpenStruct.new
-          @feed2.entries = [
-            OpenStruct.new(:item_id => 'e', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 4, 22)),
-            OpenStruct.new(:item_id => 'f', :title => "bob watched something"),
-            OpenStruct.new(:item_id => 'g', :title => "bob committed something", :updated_at => Time.utc(2008, 1, 5, 23))
-            ]
-        end
-
-        before do
-          @user.stub!(:get_feed).with(2).and_return(@feed2)
-          @user.stub!(:get_feed).with(3).and_return(OpenStruct.new(:entries => []))
-        end
-
-        it "returns unique days" do
-          @user.committed_days_in_feed.should == [Date.civil(2008, 1, 2), Date.civil(2008, 1, 1), Date.civil(2008, 1, 4), Date.civil(2008, 1, 5)]
         end
 
         it "sets #last_entry_id from the feed" do
