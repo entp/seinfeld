@@ -12,7 +12,7 @@ USAGE
 rake seinfeld:setup
 
 # adds github user
-rake seinfeld:add_user USER=technoweenie
+rake seinfeld:add USER=technoweenie
 
 # updates progress from github
 # put in a nightly cron job
@@ -29,7 +29,7 @@ open http://localhost:4567/~technoweenie
 DEPLOYMENT
 ==========
 
-My config.rb looks like this:
+My seinfeld.rb looks like this:
 
   $: << File.join(File.dirname(__FILE__), 'lib')
   require 'seinfeld/models'
@@ -37,7 +37,7 @@ My config.rb looks like this:
   Seinfeld::User.github_login = 'rickybobby'
   Seinfeld::User.github_password = 'shakeandbake'
   
-My config.ru (for Passenger) looks like:
+My rackup.ru (for Passenger) looks like:
 
   require 'rubygems'
   require 'rack'
