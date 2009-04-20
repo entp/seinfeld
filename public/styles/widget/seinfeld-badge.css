@@ -1,0 +1,23 @@
+/****
+Seinfeld Badge
+http://github.com/lachlanhardy/seinfeld-badge
+20090418
+
+****/
+.seinfeld-badge {margin: 0 0 2em 0;}
+    .seinfeld-badge #calendar {border-bottom: 1px solid #000; border-top: 2px solid #000; margin: 1em 0 0 0; padding: 0 5px 5px 5px;}
+        .seinfeld-badge table {width: 100%;}
+            .seinfeld-badge th.monthName {color: #b20000; font-weight: 700; letter-spacing: 5px; padding: 5px 0; text-align: center; text-transform: uppercase;}
+            .seinfeld-badge tr.dayName th {font-weight: 700; letter-spacing: 2px; padding: 5px 0;  text-align: center; text-transform: uppercase;}
+            .seinfeld-badge td {position: relative; text-align: center;}
+            .seinfeld-badge td.otherMonth {color: #ccc;}
+            .seinfeld-badge td.today {color: green;}
+                .seinfeld-badge .xmarksthespot{margin: -1.3% 0 0 0; position: absolute; z-index: 100;}
+                .seinfeld-badge .otherMonth .xmarksthespot{opacity: 0.2;}
+
+    .seinfeld-badge p.streaks {font-size: 0.9em; margin: 0 0.4em 0 0.4em;}
+        .seinfeld-badge p.streaks strong {font-weight: 700;}
+        .seinfeld-badge p.streaks strong em,
+        .seinfeld-badge p.streaks strong a {font-style: normal; font-weight: 300;}
+    .seinfeld-badge .longest {float: right; margin: -1.3em 0 0 0; width: auto;}
+    .seinfeld-badge p.pimpage {float: right; color: #ccc; font-size: 0.8em; margin: 0.5em 0.4em 0 0.4em; width: auto;}

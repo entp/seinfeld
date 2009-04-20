@@ -1,0 +1,20 @@
+/****
+Calendar About Nothing Badge sample page
+http://lachstock.com.au/
+20090418
+
+****/
+
+/* - =Structure - */
+body {background: #fff; color: #0e0e0e; font: 62.5%/1.3 Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0; padding: 0;}
+
+h2, p, table {margin: 0 0 0.5em 0;}
+
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+
+#page {font-size: 1.5em; padding: 1em; width: 300px;}
+
+  #header {background: #0e0e0e; border-bottom: 2px solid #666; color: #fff; font-size: 1.5em; padding: 0.2em 1em 0.5em 1em;}
+    #header h1 {background: #0e0e0e; color: #ff8000; font-weight: 700; letter-spacing: 0.06em; margin: 0;}
+    

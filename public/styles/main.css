@@ -151,7 +151,7 @@ a{
   @group Calendar Styles
 ------------------------------------------------------------------------------------*/
 
-#calendar{
+#calendar, #widget{
   margin:30px auto 15px auto;
   padding:0 0 20px 0;
   width:700px;
@@ -196,6 +196,21 @@ a{
 }
 #calendar table td.otherMonth{
   color:#ccc;
+}
+
+#widget form {
+  width:700px;
+  margin:0; padding:0;
+}
+
+#widget p{
+  font-size: 12px;
+}
+
+#widget textarea {
+  width:400px;
+  height:150px;
+  margin:0 150px;
 }
 
 tr.dayname th{

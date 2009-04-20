@@ -29,42 +29,40 @@ get '/' do
 end
 
 get '/~:name.json' do
-  cache_for 5.minutes
   show_user_json
 end
 
+get '/~:name/widget' do
+  cache_for 1.hour
+  @user = Seinfeld::User.first(:login => params[:name])
+  haml :widget
+end
+
 get '/~:name' do
-  cache_for 5.minutes
   show_user_calendar
 end
 
 get '/~:name/:year.json' do
-  cache_for 5.minutes
   show_user_json
 end
 
 get '/~:name/:year' do
-  cache_for 5.minutes
   show_user_calendar
 end
 
 get '/~:name/:year/:month.json' do
-  cache_for 5.minutes
   show_user_json
 end
 
 get '/~:name/:year/:month' do
-  cache_for 5.minutes
   show_user_calendar
 end
 
 get '/group/:names' do
-  cache_for 5.minutes
   show_group_calendar
 end
 
 get '/group/:names/:year/:month' do
-  cache_for 5.minutes
   show_group_calendar
 end
 
@@ -101,7 +99,7 @@ helpers do
   end
 
   def show_user_calendar
-    response['Cache-Control'] = 'public, max-age=300'
+    cache_for 5.minutes
     @progressions = get_user_and_progressions(6)
     if @user
       haml :show
@@ -111,7 +109,7 @@ helpers do
   end
   
   def show_group_calendar
-    response['Cache-Control'] = 'public, max-age=300'
+    cache_for 5.minutes
     @progressions = Set.new
     @users = params[:names].split(',')
     @users.each do |name|
@@ -122,7 +120,7 @@ helpers do
   end
 
   def show_user_json
-    response['Cache-Control'] = 'public, max-age=300'
+    cache_for 5.minutes
     @progressions = get_user_and_progressions
     json = {:days => @progressions.map { |p| p.to_s }.sort!, :longest_streak => @user.longest_streak, :current_streak => @user.current_streak}.to_json
     if params[:callback]

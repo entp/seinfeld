@@ -1,0 +1,65 @@
+%html
+  %head
+    %title 
+      = page_title
+    %link{:rel => 'icon', :type => 'image/png', :href => '/images/apple-touch-icon.png', :sizes => '48x48'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/main.css'}
+
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/widget/seinfeld-badge.css'}
+
+    %script{:type => 'text/javascript', :src => 'http://jscdn.net/jquery-1.3.2.js'}
+  %body
+    .title 
+      %a{:rel => "me", :href => "http://github.com/#{@user.login}"}
+        == #{@user.login}'s
+      CAN Widget
+    %form#widget
+      %p
+        This javascript widget was written by
+        %a{:href => "http://github.com/lachlanhardy"} lachlanhardy
+        and uses jQuery.  Please direct any requests or patches to the
+        %a{:href => "http://github.com/lachlanhardy/seinfeld-badge"} seinfeld-badge
+        repo so they can be pushed upstream to the CAN.
+      %p
+        %textarea
+          :preserve
+            <link rel="stylesheet" href="http://www.calendaraboutnothing.com/styles/widget/reset.css" media="screen, projection" type="text/css">
+            <link rel="stylesheet" href="http://www.calendaraboutnothing.com/styles/widget/screen.css" media="screen, projection" type="text/css">
+            <link rel="stylesheet" href="http://www.calendaraboutnothing.com/styles/widget/seinfeld-badge.css" media="screen, projection" type="text/css">
+
+            <div class="seinfeld-badge user-#{@user.login}">
+              <h2>I like open software</h2>
+              <p><a href="http://www.calendaraboutnothing.com/~#{@user.login}" rel="me">Calendar About Nothing</a> tracks my public contributions on <A href="http://github.com/">GitHub</a>.</p>
+            </div> <!-- .seinfeld-badge .user-#{@user.login} -->
+            
+            <!-- Using the new CDN for JS from Lindsay Evans - http://jscdn.net/ -->
+            <script src="http://jscdn.net/jquery-1.3.2.js" type="text/javascript"></script>
+            <!-- // JSCDN hosting -->
+
+            <!-- Adding Seinfeld CAN Badge -->
+            <script src="http://calendaraboutnothing.com/javascripts/widget/seinfeld-badge.js" type="text/javascript"></script>
+            <!-- // Seinfeld badge-->
+
+            <!-- Calling JS fun -->
+            <script src="http://calendaraboutnothing.com/javascripts/widget/go.js" type="text/javascript"></script>
+            <!-- // Calling JS fun -->
+      %p
+        %a{:href => "/~#{@user.login}"} &#171; BACK
+    #main
+      #stats
+        .current_streak
+          %span.type
+            current streak
+          %span.num
+            = @user.current_streak
+            %span.desc days
+        .longest_streak
+          %a{:href => @user.longest_streak_url}
+            %span.type
+              longest streak
+            %span.num
+              = @user.longest_streak
+              %span.desc days
+      #content.footnote 
+        %a{:href => "http://calendaraboutnothing.com"} Calendar About Nothing
+        by <a href="http://techno-weenie.net">rick</a> and <a href="http://warpspire.com/">kyle</a> / <a href="http://entp.com">ENTP</a>
