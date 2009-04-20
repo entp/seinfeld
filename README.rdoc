@@ -52,7 +52,7 @@ My rackup.ru (for Passenger) looks like:
   require 'config'
   require 'seinfeld_calendar'
   
-  run Sinatra.application
+  run Sinatra::Application
 
 == TODO
 
