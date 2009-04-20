@@ -86,12 +86,12 @@ helpers do
     "%s's Calendar" % @user.login
   end
 
-  def get_user_and_progressions(extra = 0)
+  def get_user_and_progressions(extra = 0, name = params[:name])
     [:year, :month].each do |key|
       value       = params[key].to_i
       params[key] = value.zero? ? Date.today.send(key) : value
     end
-    if @user = Seinfeld::User.first(:login => params[:name])
+    if @user = Seinfeld::User.first(:login => name)
       Time.zone    = @user.time_zone || "UTC"
       progressions = @user.progress_for(params[:year], params[:month], extra)
     end
@@ -113,8 +113,7 @@ helpers do
     @progressions = Set.new
     @users = params[:names].split(',')
     @users.each do |name|
-      params[:name] = name # hack
-      @progressions.merge get_user_and_progressions(6)
+      @progressions.merge get_user_and_progressions(6, name)
     end
     haml :group
   end
