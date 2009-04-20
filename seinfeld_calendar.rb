@@ -22,41 +22,49 @@ before do
 end
 
 get '/' do
-  response['Cache-Control'] = 'public, max-age=300'
+  cache_for 5.minutes
   @recent_users  = Seinfeld::User.best_current_streak
   @alltime_users = Seinfeld::User.best_alltime_streak
   haml :index
 end
 
 get '/~:name.json' do
+  cache_for 5.minutes
   show_user_json
 end
 
 get '/~:name' do
+  cache_for 5.minutes
   show_user_calendar
 end
 
 get '/~:name/:year.json' do
+  cache_for 5.minutes
   show_user_json
 end
 
 get '/~:name/:year' do
+  cache_for 5.minutes
   show_user_calendar
 end
 
 get '/~:name/:year/:month.json' do
+  cache_for 5.minutes
   show_user_json
 end
 
 get '/~:name/:year/:month' do
+  cache_for 5.minutes
   show_user_calendar
 end
 
 get '/group/:names' do
+  cache_for 5.minutes
   show_group_calendar
 end
 
 get '/group/:names/:year/:month' do
+  cache_for 5.minutes
   show_group_calendar
 end
 
@@ -67,6 +75,11 @@ post '/github' do
     redirect "/"
   end
 end
+
+get '/*' do
+  redirect "~#{params[:splat].join("/")}", 301
+end
+
 
 helpers do
   include Seinfeld::CalendarHelper
@@ -151,6 +164,10 @@ helpers do
         [d.mday, {:class => "slacked"}]
       end
     end
+  end
+
+  def cache_for(time)
+    response['Cache-Control'] = "public, max-age=#{time.to_i}"
   end
 end
 
