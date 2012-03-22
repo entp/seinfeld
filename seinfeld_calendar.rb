@@ -38,7 +38,7 @@ get '/~:name/widget' do
   haml :widget
 end
 
-get '/~:name' do
+get '/~:name/?' do
   show_user_calendar
 end
 
@@ -46,7 +46,7 @@ get '/~:name/:year.json' do
   show_user_json
 end
 
-get '/~:name/:year' do
+get '/~:name/:year/?' do
   show_user_calendar
 end
 
@@ -54,15 +54,15 @@ get '/~:name/:year/:month.json' do
   show_user_json
 end
 
-get '/~:name/:year/:month' do
+get '/~:name/:year/:month/?' do
   show_user_calendar
 end
 
-get '/group/:names' do
+get '/group/:names/?' do
   show_group_calendar
 end
 
-get '/group/:names/:year/:month' do
+get '/group/:names/:year/:month/?' do
   show_group_calendar
 end
 
